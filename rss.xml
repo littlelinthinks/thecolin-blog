@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>COLIN - 探索深邃思想</title>
+    <link>https://thecolin.vip</link>
+    <description>专注于深度思考、终身学习和个人成长的思想分享平台</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 10 Jan 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://thecolin.vip/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <!-- 文章1 -->
+    <item>
+        <title>如何在信息爆炸时代保持深度思考</title>
+        <link>https://thecolin.vip/articles/deep-thinking-in-information-age.html</link>
+        <guid>https://thecolin.vip/articles/deep-thinking-in-information-age.html</guid>
+        <pubDate>Fri, 10 Jan 2026 00:00:00 GMT</pubDate>
+        <description>在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？本文分享5个实用策略帮助你在信息爆炸时代保持清醒的头脑。</description>
+        <category>深度思考</category>
+        <author>COLIN</author>
+    </item>
+    
+    <!-- 文章2 -->
+    <item>
+        <title>终身学习者的自我修养</title>
+        <link>https://thecolin.vip/articles/lifelong-learner.html</link>
+        <guid>https://thecolin.vip/articles/lifelong-learner.html</guid>
+        <pubDate>Sun, 05 Jan 2026 00:00:00 GMT</pubDate>
+        <description>学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。</description>
+        <category>终身学习</category>
+        <author>COLIN</author>
+    </item>
+    
+    <!-- 文章3 -->
+    <item>
+        <title>注意力：21世纪最宝贵的资源</title>
+        <link>https://thecolin.vip/articles/attention-economy.html</link>
+        <guid>https://thecolin.vip/articles/attention-economy.html</guid>
+        <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+        <description>在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。</description>
+        <category>深度思考</category>
+        <author>COLIN</author>
+    </item>
+    
+    <!-- 文章4 -->
+    <item>
+        <title>从焦虑到行动：目标设定的艺术</title>
+        <link>https://thecolin.vip/articles/goal-setting.html</link>
+        <guid>https://thecolin.vip/articles/goal-setting.html</guid>
+        <pubDate>Fri, 20 Dec 2025 00:00:00 GMT</pubDate>
+        <description>焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。</description>
+        <category>个人成长</category>
+        <author>COLIN</author>
+    </item>
+    
+    <!-- 文章5 -->
+    <item>
+        <title>写作即思考：用文字塑造思想</title>
+        <link>https://thecolin.vip/articles/writing-is-thinking.html</link>
+        <guid>https://thecolin.vip/articles/writing-is-thinking.html</guid>
+        <pubDate>Sun, 15 Dec 2025 00:00:00 GMT</pubDate>
+        <description>写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。</description>
+        <category>写作技巧</category>
+        <author>COLIN</author>
+    </item>
+    
+    <!-- 文章6 -->
+    <item>
+        <title>数字极简主义：在互联网时代找回自我</title>
+        <link>https://thecolin.vip/articles/digital-minimalism.html</link>
+        <guid>https://thecolin.vip/articles/digital-minimalism.html</guid>
+        <pubDate>Sun, 08 Dec 2025 00:00:00 GMT</pubDate>
+        <description>我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。</description>
+        <category>个人成长</category>
+        <author>COLIN</author>
+    </item>
+    
+</channel>
+</rss>
