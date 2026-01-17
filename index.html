@@ -1418,6 +1418,149 @@
             color: var(--text-secondary);
         }
 
+        /* 平台链接 */
+        .platform-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .platform-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .platform-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .platform-item:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-item span:last-child {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .platform-item.wechat:hover {
+            background: #07c160;
+            border-color: #07c160;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+
+        .platform-item.zhihu:hover {
+            background: #0066ff;
+            border-color: #0066ff;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .platform-item.medium:hover {
+            background: #1a8917;
+            border-color: #1a8917;
+            box-shadow: 0 4px 15px rgba(26, 137, 23, 0.3);
+        }
+
+        .platform-item.substack:hover {
+            background: #ff6719;
+            border-color: #ff6719;
+            box-shadow: 0 4px 15px rgba(255, 103, 25, 0.3);
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: white;
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #666;
+            border: 2px dashed #ddd;
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: #07c160;
+        }
+
         /* 打赏功能 */
         .coffee-support {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
@@ -1683,6 +1826,299 @@
             display: block;
         }
 
+        /* 平台链接 */
+        .platform-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .platform-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .platform-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .platform-item:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-item span:last-child {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .platform-item.wechat:hover {
+            background: #07c160;
+            border-color: #07c160;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+
+        .platform-item.zhihu:hover {
+            background: #0066ff;
+            border-color: #0066ff;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .platform-item.medium:hover {
+            background: #1a8917;
+            border-color: #1a8917;
+            box-shadow: 0 4px 15px rgba(26, 137, 23, 0.3);
+        }
+
+        .platform-item.substack:hover {
+            background: #ff6719;
+            border-color: #ff6719;
+            box-shadow: 0 4px 15px rgba(255, 103, 25, 0.3);
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: white;
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #666;
+            border: 2px dashed #ddd;
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: #07c160;
+        }
+
+        /* 多平台内容聚合 */
+        .platform-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .platform-content-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .platform-content-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .platform-content-card:hover::before {
+            opacity: 1;
+        }
+
+        .platform-content-card.wechat-card:hover {
+            border-color: #07c160;
+            box-shadow: 0 10px 40px rgba(7, 193, 96, 0.2);
+        }
+
+        .platform-content-card.wechat-card::before {
+            background: #07c160;
+        }
+
+        .platform-content-card.zhihu-card:hover {
+            border-color: #0066ff;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.2);
+        }
+
+        .platform-content-card.zhihu-card::before {
+            background: #0066ff;
+        }
+
+        .platform-content-card.medium-card:hover {
+            border-color: #1a8917;
+            box-shadow: 0 10px 40px rgba(26, 137, 23, 0.2);
+        }
+
+        .platform-content-card.medium-card::before {
+            background: #1a8917;
+        }
+
+        .platform-content-card.substack-card:hover {
+            border-color: #ff6719;
+            box-shadow: 0 10px 40px rgba(255, 103, 25, 0.2);
+        }
+
+        .platform-content-card.substack-card::before {
+            background: #ff6719;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-logo {
+            font-size: 2.5rem;
+        }
+
+        .platform-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .platform-desc {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .platform-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .platform-action-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .platform-action-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
         /* 币种切换 */
         .currency-switcher {
             display: flex;
@@ -1754,6 +2190,34 @@
             .newsletter-form {
                 flex-direction: column;
             }
+
+            .platform-content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .platform-stats {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.3rem;
+            }
+
+            .wechat-qr-content {
+                padding: 2rem;
+            }
+
+            .wechat-qr-image {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -1778,6 +2242,21 @@
             <button class="close-search">×</button>
             <input type="text" class="search-input" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles...">
             <div class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 公众号二维码弹窗 -->
+    <div class="wechat-qr-modal" id="wechatQrModal">
+        <div class="wechat-qr-content">
+            <button class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
+            <h3>💚 关注公众号</h3>
+            <p data-zh="扫描二维码关注「小Lin思考」" data-en="Scan QR code to follow \"小Lin思考\"">扫描二维码关注「小Lin思考」</p>
+            <div class="wechat-qr-image" id="wechatQrImage">
+                <img src="images/wechat-qr.jpg" alt="微信公众号二维码" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="wechat-qr-hint">
+                <strong data-zh="搜索公众号" data-en="Search for">搜索公众号</strong>: 小Lin思考
+            </div>
         </div>
     </div>
 
@@ -1863,6 +2342,7 @@
                 <ul class="nav-links">
                     <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
                     <li><a href="#articles" data-zh="文章" data-en="Articles">文章</a></li>
+                    <li><a href="#platforms" data-zh="多平台" data-en="Platforms">多平台</a></li>
                     <li><a href="#resources" data-zh="资源" data-en="Resources">资源</a></li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
@@ -2021,6 +2501,105 @@
         </div>
     </section>
 
+    <!-- 多平台内容聚合 -->
+    <section class="content-section" id="platforms">
+        <h2 class="section-title" data-zh="多平台内容" data-en="Multi-Platform Content">多平台内容</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;" data-zh="我在多个平台分享内容,选择你最喜欢的方式关注我" data-en="I share content across multiple platforms. Follow me wherever you prefer">
+            我在多个平台分享内容,选择你最喜欢的方式关注我
+        </p>
+
+        <div class="platform-content-grid">
+            <!-- 公众号 -->
+            <div class="platform-content-card wechat-card">
+                <div class="platform-header">
+                    <span class="platform-logo">💚</span>
+                    <h3 data-zh="微信公众号" data-en="WeChat Official Account">微信公众号</h3>
+                </div>
+                <p class="platform-desc" data-zh="「小Lin思考」- 深度思考的每日提醒" data-en="「小Lin思考」- Daily deep thinking reminders">「小Lin思考」- 深度思考的每日提醒</p>
+                <div class="platform-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">7</span>
+                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">CN</span>
+                        <span class="stat-label" data-zh="中文" data-en="Chinese">中文</span>
+                    </div>
+                </div>
+                <button class="platform-action-btn" onclick="openWechatQrModal()" data-zh="扫码关注" data-en="Scan to Follow">扫码关注</button>
+            </div>
+
+            <!-- 知乎 -->
+            <div class="platform-content-card zhihu-card">
+                <div class="platform-header">
+                    <span class="platform-logo">📖</span>
+                    <h3>知乎</h3>
+                </div>
+                <p class="platform-desc" data-zh="深度问答与专业文章,知识分享社区" data-en="In-depth Q&A and professional articles, knowledge sharing community">深度问答与专业文章,知识分享社区</p>
+                <div class="platform-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">3-4</span>
+                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">CN</span>
+                        <span class="stat-label" data-zh="中文" data-en="Chinese">中文</span>
+                    </div>
+                </div>
+                <a href="https://zhihu.com" target="_blank" class="platform-action-btn" data-zh="前往知乎 →" data-en="Go to Zhihu →">前往知乎 →</a>
+            </div>
+
+            <!-- Medium -->
+            <div class="platform-content-card medium-card">
+                <div class="platform-header">
+                    <span class="platform-logo">📝</span>
+                    <h3>Medium</h3>
+                </div>
+                <p class="platform-desc" data-zh="高质量英文内容,国际读者群体" data-en="High-quality English content, international audience">高质量英文内容,国际读者群体</p>
+                <div class="platform-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">2-3</span>
+                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">EN</span>
+                        <span class="stat-label">English</span>
+                    </div>
+                </div>
+                <a href="https://medium.com" target="_blank" class="platform-action-btn" data-zh="前往Medium →" data-en="Go to Medium →">前往Medium →</a>
+            </div>
+
+            <!-- Substack -->
+            <div class="platform-content-card substack-card">
+                <div class="platform-header">
+                    <span class="platform-logo">✉️</span>
+                    <h3>Substack</h3>
+                </div>
+                <p class="platform-desc" data-zh="付费订阅,独家深度内容" data-en="Paid subscription, exclusive deep content">付费订阅,独家深度内容</p>
+                <div class="platform-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">3-4</span>
+                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">EN</span>
+                        <span class="stat-label">English</span>
+                    </div>
+                </div>
+                <a href="https://substack.com" target="_blank" class="platform-action-btn" data-zh="前往Substack →" data-en="Go to Substack →">前往Substack →</a>
+            </div>
+        </div>
+
+        <div class="platform-note" style="margin-top: 3rem; text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border);">
+            <p style="margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--text-primary);">
+                <span data-zh="💡 提示" data-en="💡 Tip">💡 提示</span>
+            </p>
+            <p style="color: var(--text-secondary);" data-zh="不同平台的内容略有调整,以适应不同受众的阅读习惯。核心思想保持一致。" data-en="Content varies slightly across platforms to suit different audiences. Core ideas remain consistent.">
+                不同平台的内容略有调整,以适应不同受众的阅读习惯。核心思想保持一致。
+            </p>
+        </div>
+    </section>
+
     <!-- 特色资源 -->
     <section class="content-section" id="resources">
         <div class="featured-resources">
@@ -2073,6 +2652,27 @@
                     <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
                     <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
                     <a href="mailto:your@email.com" class="social-link" title="Email">✉</a>
+                </div>
+                <div class="platform-links">
+                    <h4 data-zh="关注我" data-en="Follow Me">关注我</h4>
+                    <div class="platform-grid">
+                        <div class="platform-item wechat" onclick="openWechatQrModal()">
+                            <span class="platform-icon">💚</span>
+                            <span data-zh="微信公众号" data-en="WeChat">微信公众号</span>
+                        </div>
+                        <a href="https://zhihu.com" target="_blank" class="platform-item zhihu">
+                            <span class="platform-icon">📖</span>
+                            <span data-zh="知乎" data-en="Zhihu">知乎</span>
+                        </a>
+                        <a href="https://medium.com" target="_blank" class="platform-item medium">
+                            <span class="platform-icon">📝</span>
+                            <span data-zh="Medium" data-en="Medium">Medium</span>
+                        </a>
+                        <a href="https://substack.com" target="_blank" class="platform-item substack">
+                            <span class="platform-icon">✉️</span>
+                            <span data-zh="Substack" data-en="Substack">Substack</span>
+                        </a>
+                    </div>
                 </div>
                 <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
                     <span>☕</span>
@@ -3176,6 +3776,34 @@
                 if (coffeeModal && coffeeModal.classList.contains('active')) {
                     closeCoffeeModal();
                 }
+            }
+
+            // ESC 关闭公众号二维码弹窗
+            if (e.key === 'Escape') {
+                const wechatQrModal = document.getElementById('wechatQrModal');
+                if (wechatQrModal && wechatQrModal.classList.contains('active')) {
+                    closeWechatQrModal();
+                }
+            }
+        });
+
+        // ===== 公众号二维码弹窗 =====
+        function openWechatQrModal() {
+            const modal = document.getElementById('wechatQrModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWechatQrModal() {
+            const modal = document.getElementById('wechatQrModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 点击弹窗外部关闭
+        document.getElementById('wechatQrModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWechatQrModal();
             }
         });
 
