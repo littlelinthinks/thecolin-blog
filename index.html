@@ -243,6 +243,63 @@
             width: 100%;
         }
 
+        /* 下拉菜单 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-arrow {
+            font-size: 0.6rem;
+            margin-left: 0.3rem;
+            transition: transform 0.3s;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            min-width: 150px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding-left: 1.3rem;
+        }
+
         /* 搜索框 */
         .search-container {
             position: relative;
@@ -506,31 +563,39 @@
             letter-spacing: -1px;
         }
 
-        /* 分类标签 */
-        .category-filters {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+        /* 博客标题区域 */
+        .blog-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--border);
         }
 
-        .category-btn {
-            padding: 0.6rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 25px;
+        .blog-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-subtitle {
+            font-size: 1.4rem;
             color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .category-btn:hover, .category-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-            transform: translateY(-2px);
+        .blog-quote {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* 文章网格 */
@@ -1026,6 +1091,24 @@
 
             .hero .tagline {
                 font-size: 1.2rem;
+            }
+
+            .blog-header {
+                padding: 2rem 0;
+            }
+
+            .blog-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .blog-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .blog-quote {
+                font-size: 1rem;
+                padding: 0 1rem;
             }
 
             .subscribe-form {
@@ -2270,7 +2353,18 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
-                    <li><a href="#articles" data-zh="文章" data-en="Articles">文章</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#articles" data-zh="文章" data-en="Articles">
+                            <span data-zh="文章" data-en="Articles">文章</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#articles" data-category="life" onclick="filterByCategory('life', event)">小Lin记</a></li>
+                            <li><a href="#articles" data-category="thinking" onclick="filterByCategory('thinking', event)">小Lin析</a></li>
+                            <li><a href="#articles" data-category="reading" onclick="filterByCategory('reading', event)">小Lin读</a></li>
+                            <li><a href="#articles" data-category="history" onclick="filterByCategory('history', event)">小Lin说</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#resources" data-zh="资源" data-en="Resources">资源</a></li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
@@ -2309,26 +2403,15 @@
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
             </a>
         </div>
-
-        <!-- Load More Button -->
-        <div class="load-more-container">
-            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
-                <span data-zh="更多美文" data-en="Load More">更多美文</span>
-            </button>
-        </div>
     </section>
 
     <!-- 文章区域 -->
     <section class="content-section" id="articles">
-        <h2 class="section-title" data-zh="最新思想" data-en="Latest Thoughts">最新思想</h2>
-        
-        <!-- 分类过滤 -->
-        <div class="category-filters">
-            <button class="category-btn active" data-category="all" data-zh="全部" data-en="All">全部</button>
-            <button class="category-btn" data-category="thinking" data-zh="深度思考" data-en="Deep Thinking">深度思考</button>
-            <button class="category-btn" data-category="learning" data-zh="终身学习" data-en="Lifelong Learning">终身学习</button>
-            <button class="category-btn" data-category="productivity" data-zh="效率提升" data-en="Productivity">效率提升</button>
-            <button class="category-btn" data-category="life" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</button>
+        <!-- 博客标题区域 -->
+        <div class="blog-header">
+            <h1 class="blog-title" data-zh="博客" data-en="THE BLOG">博客</h1>
+            <p class="blog-subtitle" data-zh="探索你的好奇心" data-en="Explore Your Curiosity">探索你的好奇心</p>
+            <p class="blog-quote" data-zh="“深入思考是一种稀有的能力，持续成长是一生的旅程。”" data-en=""Deep thinking is a scarce ability, continuous growth is a lifelong journey."">"深入思考是一种稀有的能力，持续成长是一生的旅程。"</p>
         </div>
 
         <div class="articles-grid" id="articlesGrid">
@@ -3729,59 +3812,55 @@
             }
         }
 
-        // ===== 分类过滤功能 =====
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // 更新按钮状态
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        // ===== 导航栏分类过滤功能 =====
+        function filterByCategory(category, event) {
+            if (event) event.preventDefault();
 
-                const category = this.dataset.category;
-                const allCards = articlesGrid.querySelectorAll('.article-card');
+            // 显示所有文章
+            const allCards = articlesGrid.querySelectorAll('.article-card');
 
-                // 重置visibleArticles
-                visibleArticles = 0;
+            // 重置visibleArticles
+            visibleArticles = 0;
 
-                if (category === 'all') {
-                    allCards.forEach(card => {
+            if (category === 'all') {
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                visibleArticles = allCards.length;
+            } else {
+                allCards.forEach(card => {
+                    if (card.dataset.category === category) {
                         card.style.display = 'block';
-                    });
-                    visibleArticles = allCards.length;
-                } else {
-                    allCards.forEach(card => {
-                        if (card.dataset.category === category) {
-                            card.style.display = 'block';
-                            visibleArticles++;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                }
-
-                // 重新初始化显示
-                if (visibleArticles > articlesPerPage) {
-                    for (let i = articlesPerPage; i < allCards.length; i++) {
-                        if (allCards[i].style.display === 'block') {
-                            allCards[i].style.display = 'none';
-                        }
+                        visibleArticles++;
+                    } else {
+                        card.style.display = 'none';
                     }
-                    visibleArticles = Math.min(visibleArticles, articlesPerPage);
-                    loadMoreBtn.style.display = 'flex';
-                } else {
-                    loadMoreBtn.style.display = 'none';
-                }
+                });
+            }
 
-                // 重新添加动画效果
-                setTimeout(() => {
-                    allCards.forEach(card => {
-                        if (card.style.display === 'block') {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, 50);
-            });
-        });
+            // 重新初始化显示
+            if (visibleArticles > articlesPerPage) {
+                for (let i = articlesPerPage; i < allCards.length; i++) {
+                    if (allCards[i].style.display === 'block') {
+                        allCards[i].style.display = 'none';
+                    }
+                }
+                visibleArticles = Math.min(visibleArticles, articlesPerPage);
+                loadMoreBtn.style.display = 'flex';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+
+            // 重新添加动画效果
+            setTimeout(() => {
+                allCards.forEach(card => {
+                    if (card.style.display === 'block') {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }, 50);
+        }
 
         function loadMoreArticles() {
             const allCards = articlesGrid.querySelectorAll('.article-card');
