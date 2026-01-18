@@ -796,15 +796,20 @@
             line-height: 1.8;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
+        /* 所有链接容器 */
+        .all-links {
             margin-top: 2rem;
         }
 
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
         .social-link {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -813,14 +818,40 @@
             justify-content: center;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .social-link:hover {
             background: var(--accent);
             border-color: var(--accent);
             transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .social-link.platform-link.wechat:hover {
+            background: #07c160;
+            border-color: #07c160;
+            box-shadow: 0 4px 12px rgba(7, 193, 96, 0.3);
+        }
+
+        .social-link.platform-link.zhihu:hover {
+            background: #0066ff;
+            border-color: #0066ff;
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+        }
+
+        .social-link.platform-link.medium:hover {
+            background: #1a8917;
+            border-color: #1a8917;
+            box-shadow: 0 4px 12px rgba(26, 137, 23, 0.3);
+        }
+
+        .social-link.platform-link.substack:hover {
+            background: #ff6719;
+            border-color: #ff6719;
+            box-shadow: 0 4px 12px rgba(255, 103, 25, 0.3);
         }
 
         /* RSS订阅按钮 */
@@ -1416,80 +1447,6 @@
         .comment-body {
             line-height: 1.6;
             color: var(--text-secondary);
-        }
-
-        /* 平台链接 */
-        .platform-links {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .platform-links h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .platform-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .platform-item:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .platform-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .platform-item span:last-child {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .platform-item.wechat:hover {
-            background: #07c160;
-            border-color: #07c160;
-            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
-        }
-
-        .platform-item.zhihu:hover {
-            background: #0066ff;
-            border-color: #0066ff;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
-        }
-
-        .platform-item.medium:hover {
-            background: #1a8917;
-            border-color: #1a8917;
-            box-shadow: 0 4px 15px rgba(26, 137, 23, 0.3);
-        }
-
-        .platform-item.substack:hover {
-            background: #ff6719;
-            border-color: #ff6719;
-            box-shadow: 0 4px 15px rgba(255, 103, 25, 0.3);
         }
 
         /* 公众号二维码弹窗 */
@@ -2547,31 +2504,16 @@
                 <p class="about-p1" data-zh="我是一位热爱思考的终身学习者，专注于探索人类潜能、认知科学和自我成长。" data-en="I'm a lifelong learner passionate about thinking, focused on exploring human potential, cognitive science, and self-improvement.">我是一位热爱思考的终身学习者，专注于探索人类潜能、认知科学和自我成长。</p>
                 <p class="about-p2" data-zh="通过深度思考和实践，我相信每个人都能创造属于自己的有意义的人生。在这里，我分享我的思考、经验和洞见，希望能为你的成长之路提供一些启发。" data-en="Through deep thinking and practice, I believe everyone can create their own meaningful life. Here, I share my thoughts, experiences, and insights to inspire your growth journey.">通过深度思考和实践，我相信每个人都能创造属于自己的有意义的人生。在这里，我分享我的思考、经验和洞见，希望能为你的成长之路提供一些启发。</p>
                 <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
-                <div class="social-links">
-                    <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">𝕏</a>
-                    <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
-                    <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
-                    <a href="mailto:your@email.com" class="social-link" title="Email">✉</a>
-                </div>
-                <div class="platform-links">
-                    <h4 data-zh="关注我" data-en="Follow Me">关注我</h4>
-                    <div class="platform-grid">
-                        <div class="platform-item wechat" onclick="openWechatQrModal()">
-                            <span class="platform-icon">💚</span>
-                            <span data-zh="微信公众号" data-en="WeChat">微信公众号</span>
-                        </div>
-                        <a href="https://zhihu.com" target="_blank" class="platform-item zhihu">
-                            <span class="platform-icon">📖</span>
-                            <span data-zh="知乎" data-en="Zhihu">知乎</span>
-                        </a>
-                        <a href="https://medium.com" target="_blank" class="platform-item medium">
-                            <span class="platform-icon">📝</span>
-                            <span data-zh="Medium" data-en="Medium">Medium</span>
-                        </a>
-                        <a href="https://substack.com" target="_blank" class="platform-item substack">
-                            <span class="platform-icon">✉️</span>
-                            <span data-zh="Substack" data-en="Substack">Substack</span>
-                        </a>
+                <div class="all-links">
+                    <div class="social-links">
+                        <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">𝕏</a>
+                        <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
+                        <a href="mailto:your@email.com" class="social-link" title="Email">✉</a>
+                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()" title="微信公众号">💚</div>
+                        <a href="https://zhihu.com" target="_blank" class="social-link platform-link zhihu" title="知乎">📖</a>
+                        <a href="https://medium.com" target="_blank" class="social-link platform-link medium" title="Medium">📝</a>
+                        <a href="https://substack.com" target="_blank" class="social-link platform-link substack" title="Substack">✉️</a>
                     </div>
                 </div>
                 <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
