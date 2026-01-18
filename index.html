@@ -3319,18 +3319,18 @@
         }
         
         // 初始化语言
-        window.addEventListener('DOMContentLoaded', () => {
+        function initLanguage() {
             const savedLang = localStorage.getItem('preferred-lang') || 'zh';
             const savedTheme = localStorage.getItem('preferred-theme') || 'dark';
-            
+
             if (savedLang !== 'zh') {
                 switchLanguage(savedLang);
             }
-            
+
             if (savedTheme !== 'dark') {
                 toggleTheme();
             }
-        });
+        }
         
         // 绑定语言切换按钮
         document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -3442,15 +3442,15 @@
 
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
-            
+
             if (query.length < 2) {
                 searchResults.innerHTML = '';
                 return;
             }
 
-            const filtered = articles.filter(article => {
-                const title = article.title[currentLang].toLowerCase();
-                const excerpt = article.excerpt[currentLang].toLowerCase();
+            const filtered = allArticles.filter(article => {
+                const title = (currentLang === 'zh' ? article.title : article.titleEn).toLowerCase();
+                const excerpt = (currentLang === 'zh' ? article.excerpt : article.excerptEn).toLowerCase();
                 return title.includes(query) || excerpt.includes(query);
             });
 
@@ -3458,9 +3458,9 @@
                 searchResults.innerHTML = `<p style="padding: 1rem; color: var(--text-secondary);">${currentLang === 'zh' ? '没有找到相关文章' : 'No articles found'}</p>`;
             } else {
                 searchResults.innerHTML = filtered.map(article => `
-                    <div class="search-result-item">
-                        <div class="search-result-title">${article.title[currentLang]}</div>
-                        <div class="search-result-excerpt">${article.excerpt[currentLang]}</div>
+                    <div class="search-result-item" onclick="window.location.href='article.html?id=${article.id}'" style="cursor: pointer;">
+                        <div class="search-result-title">${currentLang === 'zh' ? article.title : article.titleEn}</div>
+                        <div class="search-result-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</div>
                     </div>
                 `).join('');
             }
@@ -3635,18 +3635,161 @@
             }
         });
 
-        // ===== Load More 功能 =====
+        // ===== 动态加载文章 =====
+        let allArticles = [];
         let visibleArticles = 6;
         const articlesPerPage = 6;
-        const allArticleCards = document.querySelectorAll('.article-card');
+        const articlesGrid = document.getElementById('articlesGrid');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
 
+        // 加载文章列表
+        async function loadArticles() {
+            try {
+                const response = await fetch('articles.json');
+                allArticles = await response.json();
+
+                // 清空现有的静态文章卡片
+                articlesGrid.innerHTML = '';
+
+                // 生成文章卡片
+                allArticles.forEach((article, index) => {
+                    const card = createArticleCard(article, index);
+                    articlesGrid.appendChild(card);
+                });
+
+                // 初始化显示前6篇
+                initArticleCards();
+
+                console.log(`✅ Loaded ${allArticles.length} articles`);
+            } catch (error) {
+                console.error('Failed to load articles:', error);
+            }
+        }
+
+        // 创建文章卡片
+        function createArticleCard(article, index) {
+            const card = document.createElement('article');
+            card.className = 'article-card';
+            card.dataset.category = article.category;
+            card.dataset.articleId = article.id;
+            card.style.display = 'none';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            card.innerHTML = `
+                <span class="article-category">${article.categoryName}</span>
+                <div class="article-date">${currentLang === 'zh' ? article.date : article.dateEn}</div>
+                <h3 class="article-title">${currentLang === 'zh' ? article.title : article.titleEn}</h3>
+                <div class="article-meta">
+                    <span class="read-time">${currentLang === 'zh' ? '📖 ' + article.readTime : '📖 ' + article.readTimeEn}</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
+                <a href="article.html?id=${article.id}" class="read-more">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            `;
+
+            // 点击事件
+            card.addEventListener('click', () => {
+                window.location.href = `article.html?id=${article.id}`;
+            });
+
+            return card;
+        }
+
+        // 初始化文章卡片显示
+        function initArticleCards() {
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+            const totalArticles = allCards.length;
+
+            if (totalArticles <= articlesPerPage) {
+                loadMoreBtn.style.display = 'none';
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            } else {
+                for (let i = articlesPerPage; i < totalArticles; i++) {
+                    allCards[i].style.display = 'none';
+                }
+                for (let i = 0; i < articlesPerPage; i++) {
+                    allCards[i].style.display = 'block';
+                    setTimeout(() => {
+                        allCards[i].style.opacity = '1';
+                        allCards[i].style.transform = 'translateY(0)';
+                    }, 50 * i);
+                }
+            }
+        }
+
+        // ===== 分类过滤功能 =====
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 更新按钮状态
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.dataset.category;
+                const allCards = articlesGrid.querySelectorAll('.article-card');
+
+                // 重置visibleArticles
+                visibleArticles = 0;
+
+                if (category === 'all') {
+                    allCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    visibleArticles = allCards.length;
+                } else {
+                    allCards.forEach(card => {
+                        if (card.dataset.category === category) {
+                            card.style.display = 'block';
+                            visibleArticles++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+
+                // 重新初始化显示
+                if (visibleArticles > articlesPerPage) {
+                    for (let i = articlesPerPage; i < allCards.length; i++) {
+                        if (allCards[i].style.display === 'block') {
+                            allCards[i].style.display = 'none';
+                        }
+                    }
+                    visibleArticles = Math.min(visibleArticles, articlesPerPage);
+                    loadMoreBtn.style.display = 'flex';
+                } else {
+                    loadMoreBtn.style.display = 'none';
+                }
+
+                // 重新添加动画效果
+                setTimeout(() => {
+                    allCards.forEach(card => {
+                        if (card.style.display === 'block') {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, 50);
+            });
+        });
+
         function loadMoreArticles() {
-            const totalArticles = allArticleCards.length;
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+            const totalArticles = allCards.length;
 
             if (visibleArticles >= totalArticles) {
                 loadMoreBtn.disabled = true;
-                loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">已加载全部文章</span>`;
+                loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">${currentLang === 'zh' ? '已加载全部文章' : 'All Articles Loaded'}</span>`;
                 return;
             }
 
@@ -3659,10 +3802,10 @@
                 const nextBatch = Math.min(visibleArticles + articlesPerPage, totalArticles);
 
                 for (let i = visibleArticles; i < nextBatch; i++) {
-                    allArticleCards[i].style.display = 'block';
+                    allCards[i].style.display = 'block';
                     setTimeout(() => {
-                        allArticleCards[i].style.opacity = '1';
-                        allArticleCards[i].style.transform = 'translateY(0)';
+                        allCards[i].style.opacity = '1';
+                        allCards[i].style.transform = 'translateY(0)';
                     }, 50 * (i - visibleArticles));
                 }
 
@@ -3673,38 +3816,13 @@
                 // 检查是否还有更多文章
                 if (visibleArticles >= totalArticles) {
                     loadMoreBtn.disabled = true;
-                    loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">已加载全部文章</span>`;
+                    loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">${currentLang === 'zh' ? '已加载全部文章' : 'All Articles Loaded'}</span>`;
                     loadMoreBtn.style.background = 'var(--bg-secondary)';
                     loadMoreBtn.style.color = 'var(--text-secondary)';
                     loadMoreBtn.style.boxShadow = 'none';
                 }
             }, 500);
         }
-
-        // 初始化：隐藏多余的文章卡片
-        function initLoadMore() {
-            const totalArticles = allArticleCards.length;
-
-            if (totalArticles <= articlesPerPage) {
-                // 如果文章数量少于每页显示数量，隐藏按钮
-                loadMoreBtn.style.display = 'none';
-            } else {
-                // 隐藏多余的文章
-                for (let i = articlesPerPage; i < totalArticles; i++) {
-                    allArticleCards[i].style.display = 'none';
-                    allArticleCards[i].style.opacity = '0';
-                    allArticleCards[i].style.transform = 'translateY(20px)';
-                }
-
-                // 为可见卡片添加过渡效果
-                allArticleCards.forEach(card => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                });
-            }
-        }
-
-        // 页面加载时初始化
-        window.addEventListener('DOMContentLoaded', initLoadMore);
 
         // ===== 懒加载图片（如果需要） =====
         if ('IntersectionObserver' in window) {
@@ -3919,6 +4037,15 @@
             if (e.target === this) {
                 closeCoffeeModal();
             }
+        });
+
+        // ===== 页面初始化 =====
+        window.addEventListener('DOMContentLoaded', () => {
+            // 初始化语言
+            initLanguage();
+
+            // 加载文章
+            loadArticles();
         });
     </script>
 </body>
