@@ -2342,7 +2342,6 @@
                 <ul class="nav-links">
                     <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
                     <li><a href="#articles" data-zh="文章" data-en="Articles">文章</a></li>
-                    <li><a href="#platforms" data-zh="多平台" data-en="Platforms">多平台</a></li>
                     <li><a href="#resources" data-zh="资源" data-en="Resources">资源</a></li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
@@ -2498,105 +2497,6 @@
                     <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
                 </div>
             </article>
-        </div>
-    </section>
-
-    <!-- 多平台内容聚合 -->
-    <section class="content-section" id="platforms">
-        <h2 class="section-title" data-zh="多平台内容" data-en="Multi-Platform Content">多平台内容</h2>
-        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;" data-zh="我在多个平台分享内容,选择你最喜欢的方式关注我" data-en="I share content across multiple platforms. Follow me wherever you prefer">
-            我在多个平台分享内容,选择你最喜欢的方式关注我
-        </p>
-
-        <div class="platform-content-grid">
-            <!-- 公众号 -->
-            <div class="platform-content-card wechat-card">
-                <div class="platform-header">
-                    <span class="platform-logo">💚</span>
-                    <h3 data-zh="微信公众号" data-en="WeChat Official Account">微信公众号</h3>
-                </div>
-                <p class="platform-desc" data-zh="「小Lin思考」- 深度思考的每日提醒" data-en="「小Lin思考」- Daily deep thinking reminders">「小Lin思考」- 深度思考的每日提醒</p>
-                <div class="platform-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">7</span>
-                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">CN</span>
-                        <span class="stat-label" data-zh="中文" data-en="Chinese">中文</span>
-                    </div>
-                </div>
-                <button class="platform-action-btn" onclick="openWechatQrModal()" data-zh="扫码关注" data-en="Scan to Follow">扫码关注</button>
-            </div>
-
-            <!-- 知乎 -->
-            <div class="platform-content-card zhihu-card">
-                <div class="platform-header">
-                    <span class="platform-logo">📖</span>
-                    <h3>知乎</h3>
-                </div>
-                <p class="platform-desc" data-zh="深度问答与专业文章,知识分享社区" data-en="In-depth Q&A and professional articles, knowledge sharing community">深度问答与专业文章,知识分享社区</p>
-                <div class="platform-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">3-4</span>
-                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">CN</span>
-                        <span class="stat-label" data-zh="中文" data-en="Chinese">中文</span>
-                    </div>
-                </div>
-                <a href="https://zhihu.com" target="_blank" class="platform-action-btn" data-zh="前往知乎 →" data-en="Go to Zhihu →">前往知乎 →</a>
-            </div>
-
-            <!-- Medium -->
-            <div class="platform-content-card medium-card">
-                <div class="platform-header">
-                    <span class="platform-logo">📝</span>
-                    <h3>Medium</h3>
-                </div>
-                <p class="platform-desc" data-zh="高质量英文内容,国际读者群体" data-en="High-quality English content, international audience">高质量英文内容,国际读者群体</p>
-                <div class="platform-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">2-3</span>
-                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">EN</span>
-                        <span class="stat-label">English</span>
-                    </div>
-                </div>
-                <a href="https://medium.com" target="_blank" class="platform-action-btn" data-zh="前往Medium →" data-en="Go to Medium →">前往Medium →</a>
-            </div>
-
-            <!-- Substack -->
-            <div class="platform-content-card substack-card">
-                <div class="platform-header">
-                    <span class="platform-logo">✉️</span>
-                    <h3>Substack</h3>
-                </div>
-                <p class="platform-desc" data-zh="付费订阅,独家深度内容" data-en="Paid subscription, exclusive deep content">付费订阅,独家深度内容</p>
-                <div class="platform-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">3-4</span>
-                        <span class="stat-label" data-zh="篇/周" data-en="articles/week">篇/周</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">EN</span>
-                        <span class="stat-label">English</span>
-                    </div>
-                </div>
-                <a href="https://substack.com" target="_blank" class="platform-action-btn" data-zh="前往Substack →" data-en="Go to Substack →">前往Substack →</a>
-            </div>
-        </div>
-
-        <div class="platform-note" style="margin-top: 3rem; text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border);">
-            <p style="margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--text-primary);">
-                <span data-zh="💡 提示" data-en="💡 Tip">💡 提示</span>
-            </p>
-            <p style="color: var(--text-secondary);" data-zh="不同平台的内容略有调整,以适应不同受众的阅读习惯。核心思想保持一致。" data-en="Content varies slightly across platforms to suit different audiences. Core ideas remain consistent.">
-                不同平台的内容略有调整,以适应不同受众的阅读习惯。核心思想保持一致。
-            </p>
         </div>
     </section>
 
