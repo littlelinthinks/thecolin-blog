@@ -803,55 +803,135 @@
 
         .social-links {
             display: flex;
-            gap: 0.8rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
             background: var(--bg-card);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             transition: all 0.3s;
             cursor: pointer;
+            user-select: none;
         }
 
         .social-link:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* X 平台 */
+        .social-link.platform-link.x {
+            color: #000;
+            border-color: #000;
+        }
+
+        .social-link.platform-link.x:hover {
+            background: #000;
+            color: white;
+            border-color: #000;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 微信 */
+        .social-link.platform-link.wechat {
+            color: #07c160;
+            border-color: #07c160;
         }
 
         .social-link.platform-link.wechat:hover {
             background: #07c160;
+            color: white;
             border-color: #07c160;
-            box-shadow: 0 4px 12px rgba(7, 193, 96, 0.3);
+            box-shadow: 0 8px 20px rgba(7, 193, 96, 0.4);
+        }
+
+        /* 知乎 */
+        .social-link.platform-link.zhihu {
+            color: #0066ff;
+            border-color: #0066ff;
         }
 
         .social-link.platform-link.zhihu:hover {
             background: #0066ff;
+            color: white;
             border-color: #0066ff;
-            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.4);
         }
 
-        .social-link.platform-link.medium:hover {
-            background: #1a8917;
-            border-color: #1a8917;
-            box-shadow: 0 4px 12px rgba(26, 137, 23, 0.3);
+        /* 简书 */
+        .social-link.platform-link.jianshu {
+            color: #ea6f5a;
+            border-color: #ea6f5a;
+        }
+
+        .social-link.platform-link.jianshu:hover {
+            background: #ea6f5a;
+            color: white;
+            border-color: #ea6f5a;
+            box-shadow: 0 8px 20px rgba(234, 111, 90, 0.4);
+        }
+
+        /* 今日头条 */
+        .social-link.platform-link.toutiao {
+            color: #f85959;
+            border-color: #f85959;
+        }
+
+        .social-link.platform-link.toutiao:hover {
+            background: #f85959;
+            color: white;
+            border-color: #f85959;
+            box-shadow: 0 8px 20px rgba(248, 89, 89, 0.4);
+        }
+
+        /* 少数派 */
+        .social-link.platform-link.sspai {
+            color: #ff9f0a;
+            border-color: #ff9f0a;
+        }
+
+        .social-link.platform-link.sspai:hover {
+            background: #ff9f0a;
+            color: white;
+            border-color: #ff9f0a;
+            box-shadow: 0 8px 20px rgba(255, 159, 10, 0.4);
+        }
+
+        /* Substack */
+        .social-link.platform-link.substack {
+            color: #ff6719;
+            border-color: #ff6719;
         }
 
         .social-link.platform-link.substack:hover {
             background: #ff6719;
+            color: white;
             border-color: #ff6719;
-            box-shadow: 0 4px 12px rgba(255, 103, 25, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 103, 25, 0.4);
+        }
+
+        /* 邮箱 */
+        .social-link.platform-link.email {
+            color: #666;
+            border-color: #666;
+        }
+
+        .social-link.platform-link.email:hover {
+            background: #666;
+            color: white;
+            border-color: #666;
+            box-shadow: 0 8px 20px rgba(102, 102, 102, 0.4);
         }
 
         /* RSS订阅按钮 */
@@ -1926,156 +2006,6 @@
             color: #07c160;
         }
 
-        /* 多平台内容聚合 */
-        .platform-content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .platform-content-card {
-            background: var(--bg-card);
-            border: 2px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .platform-content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .platform-content-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
-        }
-
-        .platform-content-card:hover::before {
-            opacity: 1;
-        }
-
-        .platform-content-card.wechat-card:hover {
-            border-color: #07c160;
-            box-shadow: 0 10px 40px rgba(7, 193, 96, 0.2);
-        }
-
-        .platform-content-card.wechat-card::before {
-            background: #07c160;
-        }
-
-        .platform-content-card.zhihu-card:hover {
-            border-color: #0066ff;
-            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.2);
-        }
-
-        .platform-content-card.zhihu-card::before {
-            background: #0066ff;
-        }
-
-        .platform-content-card.medium-card:hover {
-            border-color: #1a8917;
-            box-shadow: 0 10px 40px rgba(26, 137, 23, 0.2);
-        }
-
-        .platform-content-card.medium-card::before {
-            background: #1a8917;
-        }
-
-        .platform-content-card.substack-card:hover {
-            border-color: #ff6719;
-            box-shadow: 0 10px 40px rgba(255, 103, 25, 0.2);
-        }
-
-        .platform-content-card.substack-card::before {
-            background: #ff6719;
-        }
-
-        .platform-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .platform-logo {
-            font-size: 2.5rem;
-        }
-
-        .platform-header h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .platform-desc {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .platform-stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .platform-action-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .platform-action-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-        }
-
         /* 币种切换 */
         .currency-switcher {
             display: flex;
@@ -2148,23 +2078,15 @@
                 flex-direction: column;
             }
 
-            .platform-content-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .social-links {
+                gap: 0.75rem;
+                justify-content: center;
             }
 
-            .platform-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-
-            .platform-stats {
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            .stat-value {
-                font-size: 1.3rem;
+            .social-link {
+                width: 48px;
+                height: 48px;
+                font-size: 0.8rem;
             }
 
             .wechat-qr-content {
@@ -2506,14 +2428,14 @@
                 <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
                 <div class="all-links">
                     <div class="social-links">
-                        <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">𝕏</a>
-                        <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
-                        <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
-                        <a href="mailto:your@email.com" class="social-link" title="Email">✉</a>
-                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()" title="微信公众号">💚</div>
-                        <a href="https://zhihu.com" target="_blank" class="social-link platform-link zhihu" title="知乎">📖</a>
-                        <a href="https://medium.com" target="_blank" class="social-link platform-link medium" title="Medium">📝</a>
-                        <a href="https://substack.com" target="_blank" class="social-link platform-link substack" title="Substack">✉️</a>
+                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x" title="X (Twitter)">𝕏</a>
+                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()" title="微信公众号">微信</div>
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu" title="知乎">知乎</a>
+                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu" title="简书">简书</a>
+                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao" title="今日头条">头条</a>
+                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai" title="少数派">少数派</a>
+                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack" title="Substack">Substack</a>
+                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email" title="邮箱">📧</a>
                     </div>
                 </div>
                 <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
