@@ -618,6 +618,19 @@
             gap: 0.3rem;
         }
 
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .article-author::before {
+            content: '✍️';
+            font-size: 0.8rem;
+        }
+
         .read-more {
             color: var(--accent);
             text-decoration: none;
@@ -2084,6 +2097,56 @@
                 width: 180px;
                 height: 180px;
             }
+
+            .load-more-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Load More 按钮 */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .load-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .load-more-btn:active {
+            transform: translateY(0);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .load-more-btn.loading {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .load-more-btn.loading::after {
+            content: '...';
         }
     </style>
 </head>
@@ -2246,6 +2309,13 @@
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
             </a>
         </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+                <span data-zh="更多美文" data-en="Load More">更多美文</span>
+            </button>
+        </div>
     </section>
 
     <!-- 文章区域 -->
@@ -2261,13 +2331,14 @@
             <button class="category-btn" data-category="life" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</button>
         </div>
 
-        <div class="articles-grid">
-            <article class="article-card" data-category="thinking">
+        <div class="articles-grid" id="articlesGrid">
+            <article class="article-card" data-category="thinking" data-article-id="deep-thinking-information-age">
                 <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
                 <div class="article-date" data-zh="2026年1月10日" data-en="January 10, 2026">2026年1月10日</div>
                 <h3 class="article-title" data-zh="如何在信息爆炸时代保持深度思考" data-en="How to Maintain Deep Thinking in the Information Age">如何在信息爆炸时代保持深度思考</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 5分钟阅读" data-en="📖 5 min read">📖 5分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？" data-en="In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?">在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2279,12 +2350,13 @@
                 </div>
             </article>
 
-            <article class="article-card" data-category="learning">
+            <article class="article-card" data-category="learning" data-article-id="lifelong-learning-cultivation">
                 <span class="article-category" data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
                 <div class="article-date" data-zh="2026年1月5日" data-en="January 5, 2026">2026年1月5日</div>
                 <h3 class="article-title" data-zh="终身学习者的自我修养" data-en="The Self-Cultivation of Lifelong Learners">终身学习者的自我修养</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 7分钟阅读" data-en="📖 7 min read">📖 7分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。" data-en="Learning isn't for exams—it's about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.">学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2302,6 +2374,7 @@
                 <h3 class="article-title" data-zh="注意力：21世纪最宝贵的资源" data-en="Attention: The Most Valuable Resource of the 21st Century">注意力：21世纪最宝贵的资源</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。" data-en="In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.">在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2313,12 +2386,13 @@
                 </div>
             </article>
 
-            <article class="article-card" data-category="life">
+            <article class="article-card" data-category="life" data-article-id="anxiety-to-action">
                 <span class="article-category" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
                 <div class="article-date" data-zh="2025年12月20日" data-en="December 20, 2025">2025年12月20日</div>
                 <h3 class="article-title" data-zh="从焦虑到行动：目标设定的艺术" data-en="From Anxiety to Action: The Art of Goal Setting">从焦虑到行动：目标设定的艺术</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 8分钟阅读" data-en="📖 8 min read">📖 8分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。" data-en="Anxiety often stems from unclear or missing goals. Learn to set goals scientifically and transform anxiety into momentum for action.">焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2336,6 +2410,7 @@
                 <h3 class="article-title" data-zh="写作即思考：用文字塑造思想" data-en="Writing is Thinking: Shaping Thoughts with Words">写作即思考：用文字塑造思想</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。" data-en="Writing is not just expression—it's a tool for thinking. Through writing, we clarify thoughts, discover blind spots, and deepen understanding.">写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2347,12 +2422,13 @@
                 </div>
             </article>
 
-            <article class="article-card" data-category="productivity">
+            <article class="article-card" data-category="productivity" data-article-id="digital-minimalism">
                 <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
                 <div class="article-date" data-zh="2025年12月8日" data-en="December 8, 2025">2025年12月8日</div>
                 <h3 class="article-title" data-zh="数字极简主义：在互联网时代找回自我" data-en="Digital Minimalism: Finding Yourself in the Internet Age">数字极简主义：在互联网时代找回自我</h3>
                 <div class="article-meta">
                     <span class="read-time" data-zh="📖 9分钟阅读" data-en="📖 9 min read">📖 9分钟阅读</span>
+                    <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt" data-zh="我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。" data-en="We don't need to abandon technology—we need to use it more wisely. Digital minimalism helps you redefine your relationship with tech.">我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。</p>
                 <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
@@ -2363,6 +2439,13 @@
                     <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
                 </div>
             </article>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+                <span data-zh="更多美文" data-en="Load More">更多美文</span>
+            </button>
         </div>
     </section>
 
@@ -2399,6 +2482,13 @@
                     <a href="#" class="resource-link" data-zh="探索更多 →" data-en="Explore More →">探索更多 →</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+                <span data-zh="更多美文" data-en="Load More">更多美文</span>
+            </button>
         </div>
     </section>
 
@@ -2473,6 +2563,13 @@
                     <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
                 </button>
             </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+                <span data-zh="更多美文" data-en="Load More">更多美文</span>
+            </button>
         </div>
     </section>
 
@@ -3537,6 +3634,77 @@
                 });
             }
         });
+
+        // ===== Load More 功能 =====
+        let visibleArticles = 6;
+        const articlesPerPage = 6;
+        const allArticleCards = document.querySelectorAll('.article-card');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        function loadMoreArticles() {
+            const totalArticles = allArticleCards.length;
+
+            if (visibleArticles >= totalArticles) {
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">已加载全部文章</span>`;
+                return;
+            }
+
+            // 显示加载状态
+            loadMoreBtn.classList.add('loading');
+            loadMoreBtn.disabled = true;
+
+            // 模拟加载延迟
+            setTimeout(() => {
+                const nextBatch = Math.min(visibleArticles + articlesPerPage, totalArticles);
+
+                for (let i = visibleArticles; i < nextBatch; i++) {
+                    allArticleCards[i].style.display = 'block';
+                    setTimeout(() => {
+                        allArticleCards[i].style.opacity = '1';
+                        allArticleCards[i].style.transform = 'translateY(0)';
+                    }, 50 * (i - visibleArticles));
+                }
+
+                visibleArticles = nextBatch;
+                loadMoreBtn.classList.remove('loading');
+                loadMoreBtn.disabled = false;
+
+                // 检查是否还有更多文章
+                if (visibleArticles >= totalArticles) {
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">已加载全部文章</span>`;
+                    loadMoreBtn.style.background = 'var(--bg-secondary)';
+                    loadMoreBtn.style.color = 'var(--text-secondary)';
+                    loadMoreBtn.style.boxShadow = 'none';
+                }
+            }, 500);
+        }
+
+        // 初始化：隐藏多余的文章卡片
+        function initLoadMore() {
+            const totalArticles = allArticleCards.length;
+
+            if (totalArticles <= articlesPerPage) {
+                // 如果文章数量少于每页显示数量，隐藏按钮
+                loadMoreBtn.style.display = 'none';
+            } else {
+                // 隐藏多余的文章
+                for (let i = articlesPerPage; i < totalArticles; i++) {
+                    allArticleCards[i].style.display = 'none';
+                    allArticleCards[i].style.opacity = '0';
+                    allArticleCards[i].style.transform = 'translateY(20px)';
+                }
+
+                // 为可见卡片添加过渡效果
+                allArticleCards.forEach(card => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+            }
+        }
+
+        // 页面加载时初始化
+        window.addEventListener('DOMContentLoaded', initLoadMore);
 
         // ===== 懒加载图片（如果需要） =====
         if ('IntersectionObserver' in window) {
