@@ -2367,7 +2367,18 @@
                             <li><a href="#articles" data-category="history" onclick="filterByCategory('history', event)">小Lin说</a></li>
                         </ul>
                     </li>
-                    <li><a href="#resources" data-zh="资源" data-en="Resources">资源</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#resources" data-zh="资源" data-en="Resources">
+                            <span data-zh="资源" data-en="Resources">资源</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#resources" data-resource="thinking" onclick="scrollToResource('thinking', event)">思考框架</a></li>
+                            <li><a href="#resources" data-resource="writing" onclick="scrollToResource('writing', event)">写作指南</a></li>
+                            <li><a href="#resources" data-resource="goals" onclick="scrollToResource('goals', event)">目标规划</a></li>
+                            <li><a href="#resources" data-resource="learning" onclick="scrollToResource('learning', event)">学习方法</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
@@ -2539,28 +2550,28 @@
         <div class="featured-resources">
             <h2 class="section-title" data-zh="精选资源" data-en="Featured Resources">精选资源</h2>
             <div class="resources-grid">
-                <div class="resource-card">
+                <div class="resource-card" id="resource-thinking">
                     <div class="resource-icon">📚</div>
                     <h3 class="resource-title" data-zh="思考框架" data-en="Thinking Frameworks">思考框架</h3>
                     <p class="resource-description" data-zh="系统化的思维模型集合，帮助你更清晰地分析问题" data-en="Systematic collection of mental models to help you analyze problems more clearly">系统化的思维模型集合，帮助你更清晰地分析问题</p>
                     <a href="#" class="resource-link" data-zh="免费获取 →" data-en="Get Free →">免费获取 →</a>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" id="resource-writing">
                     <div class="resource-icon">✍️</div>
                     <h3 class="resource-title" data-zh="写作指南" data-en="Writing Guide">写作指南</h3>
                     <p class="resource-description" data-zh="从0到1建立写作习惯，用文字表达你的思想" data-en="Build writing habits from scratch and express your thoughts with words">从0到1建立写作习惯，用文字表达你的思想</p>
                     <a href="#" class="resource-link" data-zh="立即下载 →" data-en="Download Now →">立即下载 →</a>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" id="resource-goals">
                     <div class="resource-icon">🎯</div>
                     <h3 class="resource-title" data-zh="目标规划工具" data-en="Goal Planning Tool">目标规划工具</h3>
                     <p class="resource-description" data-zh="科学的目标设定与追踪系统，让梦想变成现实" data-en="Scientific goal-setting and tracking system to turn dreams into reality">科学的目标设定与追踪系统，让梦想变成现实</p>
                     <a href="#" class="resource-link" data-zh="开始使用 →" data-en="Start Using →">开始使用 →</a>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" id="resource-learning">
                     <div class="resource-icon">💡</div>
                     <h3 class="resource-title" data-zh="学习方法论" data-en="Learning Methodology">学习方法论</h3>
                     <p class="resource-description" data-zh="高效学习的实践指南，掌握终身学习的能力" data-en="Practical guide to efficient learning and mastering lifelong learning skills">高效学习的实践指南，掌握终身学习的能力</p>
@@ -3811,6 +3822,45 @@
                         allCards[i].style.transform = 'translateY(0)';
                     }, 50 * i);
                 }
+            }
+        }
+
+        // ===== 导航栏分类过滤功能 =====
+        function filterByCategory(category, event) {
+            if (event) event.preventDefault();
+
+            // 显示所有文章
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+
+        // ===== 资源滚动功能 =====
+        function scrollToResource(resourceType, event) {
+            if (event) event.preventDefault();
+
+            const targetId = `resource-${resourceType}`;
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // 高亮选中的资源卡片
+                const allResourceCards = document.querySelectorAll('.resource-card');
+                allResourceCards.forEach(card => {
+                    card.style.boxShadow = 'none';
+                    card.style.borderColor = 'var(--border)';
+                });
+
+                targetElement.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.3)';
+                targetElement.style.borderColor = 'var(--accent)';
+
+                // 平滑滚动到目标资源
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // 3秒后移除高亮效果
+                setTimeout(() => {
+                    targetElement.style.boxShadow = '';
+                    targetElement.style.borderColor = '';
+                }, 3000);
             }
         }
 
