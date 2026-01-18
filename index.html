@@ -818,120 +818,102 @@
             justify-content: center;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
             transition: all 0.3s;
             cursor: pointer;
             user-select: none;
         }
 
         .social-link:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+            border-width: 2px;
         }
 
-        /* X 平台 */
+        /* X 平台 - 扁平化 */
         .social-link.platform-link.x {
-            color: #000;
+            stroke: #000;
             border-color: #000;
         }
 
         .social-link.platform-link.x:hover {
-            background: #000;
-            color: white;
+            stroke: #000;
             border-color: #000;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
-        /* 微信 */
+        /* 微信 - 扁平化 */
         .social-link.platform-link.wechat {
-            color: #07c160;
+            stroke: #07c160;
             border-color: #07c160;
         }
 
         .social-link.platform-link.wechat:hover {
-            background: #07c160;
-            color: white;
+            stroke: #07c160;
             border-color: #07c160;
-            box-shadow: 0 8px 20px rgba(7, 193, 96, 0.4);
         }
 
-        /* 知乎 */
+        /* 知乎 - 扁平化 */
         .social-link.platform-link.zhihu {
-            color: #0066ff;
+            stroke: #0066ff;
             border-color: #0066ff;
         }
 
         .social-link.platform-link.zhihu:hover {
-            background: #0066ff;
-            color: white;
+            stroke: #0066ff;
             border-color: #0066ff;
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.4);
         }
 
-        /* 简书 */
+        /* 简书 - 扁平化 */
         .social-link.platform-link.jianshu {
-            color: #ea6f5a;
+            stroke: #ea6f5a;
             border-color: #ea6f5a;
         }
 
         .social-link.platform-link.jianshu:hover {
-            background: #ea6f5a;
-            color: white;
+            stroke: #ea6f5a;
             border-color: #ea6f5a;
-            box-shadow: 0 8px 20px rgba(234, 111, 90, 0.4);
         }
 
-        /* 今日头条 */
+        /* 今日头条 - 扁平化 */
         .social-link.platform-link.toutiao {
-            color: #f85959;
+            stroke: #f85959;
             border-color: #f85959;
         }
 
         .social-link.platform-link.toutiao:hover {
-            background: #f85959;
-            color: white;
+            stroke: #f85959;
             border-color: #f85959;
-            box-shadow: 0 8px 20px rgba(248, 89, 89, 0.4);
         }
 
-        /* 少数派 */
+        /* 少数派 - 扁平化 */
         .social-link.platform-link.sspai {
-            color: #ff9f0a;
+            stroke: #ff9f0a;
             border-color: #ff9f0a;
         }
 
         .social-link.platform-link.sspai:hover {
-            background: #ff9f0a;
-            color: white;
+            stroke: #ff9f0a;
             border-color: #ff9f0a;
-            box-shadow: 0 8px 20px rgba(255, 159, 10, 0.4);
         }
 
-        /* Substack */
+        /* Substack - 扁平化 */
         .social-link.platform-link.substack {
-            color: #ff6719;
+            stroke: #ff6719;
             border-color: #ff6719;
         }
 
         .social-link.platform-link.substack:hover {
-            background: #ff6719;
-            color: white;
+            stroke: #ff6719;
             border-color: #ff6719;
-            box-shadow: 0 8px 20px rgba(255, 103, 25, 0.4);
         }
 
-        /* 邮箱 */
+        /* 邮箱 - 扁平化 */
         .social-link.platform-link.email {
-            color: #666;
+            stroke: #666;
             border-color: #666;
         }
 
         .social-link.platform-link.email:hover {
-            background: #666;
-            color: white;
+            stroke: #666;
             border-color: #666;
-            box-shadow: 0 8px 20px rgba(102, 102, 102, 0.4);
         }
 
         /* RSS订阅按钮 */
@@ -992,6 +974,11 @@
 
         /* 响应式设计 */
         @media (max-width: 768px) {
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
+
             .nav-container {
                 padding: 1rem;
                 flex-wrap: wrap;
@@ -2418,8 +2405,8 @@
     <!-- 关于部分 -->
     <section class="content-section" id="about">
         <div class="about-section">
-            <div class="about-image">
-                <!-- 在这里添加个人照片: <img src="your-photo.jpg" alt="COLIN"> -->
+            <div class="about-image has-photo">
+                <img src="thecolin.vip image.jpg" alt="COLIN">
             </div>
             <div class="about-content">
                 <h2 data-zh="关于我" data-en="About Me">关于我</h2>
@@ -2428,14 +2415,57 @@
                 <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
                 <div class="all-links">
                     <div class="social-links">
-                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x" title="X (Twitter)">𝕏</a>
-                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()" title="微信公众号">微信</div>
-                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu" title="知乎">知乎</a>
-                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu" title="简书">简书</a>
-                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao" title="今日头条">头条</a>
-                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai" title="少数派">少数派</a>
-                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack" title="Substack">Substack</a>
-                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email" title="邮箱">📧</a>
+                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x" data-zh="X (Twitter)" data-en="X">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </a>
+                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()" data-zh="微信公众号" data-en="微信公众号">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu" data-zh="知乎" data-en="知乎">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </a>
+                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu" data-zh="简书" data-en="简书">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao" data-zh="今日头条" data-en="今日头条">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                        </a>
+                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai" data-zh="少数派" data-en="少数派">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <polygon points="12 2 2 22 22 22"></polygon>
+                            </svg>
+                        </a>
+                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack" data-zh="Substack" data-en="Substack">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email" data-zh="邮箱" data-en="邮箱">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
@@ -3159,7 +3189,7 @@
         // ===== 语言切换功能 =====
         function switchLanguage(lang) {
             currentLang = lang;
-            
+
             // 更新按钮状态
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -3167,7 +3197,7 @@
                     btn.classList.add('active');
                 }
             });
-            
+
             // 更新所有带语言数据的元素
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
                 if (el.tagName === 'INPUT') {
@@ -3178,10 +3208,15 @@
                     el.innerHTML = el.dataset[lang];
                 }
             });
-            
+
+            // 更新社交链接的伪元素内容
+            document.querySelectorAll('.social-link[data-zh][data-en]').forEach(el => {
+                el.setAttribute('data-current', el.dataset[lang]);
+            });
+
             // 更新页面语言属性
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            
+
             // 保存语言偏好
             localStorage.setItem('preferred-lang', lang);
         }
