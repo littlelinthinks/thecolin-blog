@@ -3741,7 +3741,14 @@
         // 加载文章列表
         async function loadArticles() {
             try {
+                console.log('Loading articles...');
+
                 const response = await fetch('articles.json');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 allArticles = await response.json();
 
                 // 清空现有的静态文章卡片
@@ -3759,6 +3766,21 @@
                 console.log(`✅ Loaded ${allArticles.length} articles`);
             } catch (error) {
                 console.error('Failed to load articles:', error);
+                console.error('Error details:', error.message);
+
+                // 显示错误信息给用户
+                if (articlesGrid) {
+                    articlesGrid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                                Failed to load articles. Please refresh the page.
+                            </p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+                                Error: ${error.message}
+                            </p>
+                        </div>
+                    `;
+                }
             }
         }
 
