@@ -3844,7 +3844,7 @@
                     <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
-                <a href="article.html?id=${article.id}" class="read-more">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
+                <a href="#" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
                 <div class="share-buttons">
                     <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
                     <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
@@ -3852,11 +3852,6 @@
                     <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
                 </div>
             `;
-
-            // 点击事件
-            card.addEventListener('click', () => {
-                window.location.href = `article.html?id=${article.id}`;
-            });
 
             return card;
         }
