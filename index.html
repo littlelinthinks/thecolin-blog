@@ -604,16 +604,16 @@
         /* 文章网格 */
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
             margin-bottom: 4rem;
         }
 
         .article-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 8px;
+            padding: 1.5rem;
             transition: all 0.3s;
             cursor: pointer;
             position: relative;
@@ -633,9 +633,9 @@
         }
 
         .article-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
         }
 
         .article-card:hover::before {
@@ -2429,16 +2429,13 @@
             <div class="hero-name">COLIN</div>
             <h1 data-zh="探索深邃思想<br>创造有意义的人生" data-en="Explore Deep Thoughts<br>Create A Meaningful Life">探索深邃思想<br>创造有意义的人生</h1>
             <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
-            <div class="subscribe-form">
-                <input type="email" placeholder="输入你的邮箱订阅" data-zh-placeholder="输入你的邮箱订阅" data-en-placeholder="Enter your email to subscribe" required>
-                <button type="submit" data-zh="订阅" data-en="Subscribe">订阅</button>
-            </div>
-            <p class="subscribe-note" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;" data-zh="每周获取2封深度思考邮件" data-en="Receive 2 deep thinking letters every week">
-                每周获取2封深度思考邮件
-            </p>
-            <a href="rss.xml" target="_blank" class="rss-link">
+            <!-- RSS订阅 - 改为复制链接 -->
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
-            </a>
+            </div>
+            <p class="subscribe-note" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                <span data-zh="复制RSS链接到剪贴板" data-en="Click to copy RSS link">复制RSS链接到剪贴板</span>
+            </p>
         </div>
     </section>
 
@@ -2619,10 +2616,7 @@
                 <div class="all-links">
                     <div class="social-links">
                         <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
+                            <img src="images/x平台logo.png" alt="X" style="width: 24px; height: 24px;">
                         </a>
                         <div class="social-link platform-link wechat" onclick="openWechatQrModal()">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
@@ -2685,6 +2679,7 @@
         <p class="footer-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
         <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
             <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
+            <span style="margin-left: 1rem; font-size: 0.85rem;">（复制链接到RSS阅读器）</span>
         </p>
     </footer>
     </div>
@@ -2740,11 +2735,13 @@
 
             <div class="newsletter-cta">
                 <h3 data-zh="喜欢这篇文章吗？" data-en="Enjoyed this article?">喜欢这篇文章吗？</h3>
-                <p data-zh="订阅我的邮件列表，每周获取2封深度思考的文章" data-en="Subscribe to my newsletter for 2 deep thinking articles every week">订阅我的邮件列表，每周获取2封深度思考的文章</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="your@email.com" required>
-                    <button type="submit" data-zh="订阅" data-en="Subscribe">订阅</button>
-                </form>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <input type="email" id="subscribeEmail" placeholder="your@email.com" style="flex: 1; padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
+                    <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100px;">复制邮箱</button>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-top: 0.5rem;">
+                    <span data-zh="复制邮箱地址到剪贴板，然后到邮件APP粘贴发送" data-en="Copy email to clipboard, then paste in mail app to send">复制邮箱地址到剪贴板，然后到邮件APP粘贴发送</span>
+                </p>
             </div>
 
             <div class="comments-section">
@@ -4187,6 +4184,22 @@
             
             // 更新已选金额显示
             updateSelectedAmount();
+        }
+
+        // 复制RSS链接
+        function copyRSSLink() {
+            const rssUrl = window.location.origin + '/rss.xml';
+            navigator.clipboard.writeText(rssUrl);
+            showToast('RSS链接已复制到剪贴板！');
+        }
+
+        // 复制订阅邮箱
+        function copySubscribeEmail() {
+            const email = document.getElementById('subscribeEmail');
+            if (email && email.value) {
+                navigator.clipboard.writeText(email.value);
+                showToast('邮箱地址已复制，请到邮件APP发送！');
+            }
         }
 
         function updateSelectedAmount() {
