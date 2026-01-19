@@ -1303,12 +1303,17 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            background: var(--bg-primary);
         }
 
         .article-content {
             font-size: 1.2rem;
             line-height: 1.8;
             color: var(--text-primary);
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
         .article-content h2 {
@@ -1384,13 +1389,14 @@
 
         .article-actions {
             max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+            margin: 2rem auto;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
 
         .article-tags {
@@ -1438,11 +1444,11 @@
 
         .newsletter-cta {
             max-width: 800px;
-            margin: 0 auto 4rem;
-            padding: 3rem;
+            margin: 2rem auto;
+            padding: 2.5rem;
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
             border: 1px solid var(--accent);
-            border-radius: 20px;
+            border-radius: 12px;
             text-align: center;
         }
 
@@ -1512,20 +1518,23 @@
         /* 评论区样式 */
         .comments-section {
             max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
 
         .comments-section h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .comment-form {
             background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
         }
 
         .comment-form textarea {
@@ -1685,12 +1694,13 @@
 
         /* 打赏功能 */
         .coffee-support {
+            max-width: 800px;
+            margin: 2rem auto;
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 2px solid var(--border);
-            border-radius: 20px;
-            padding: 3rem 2rem;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
-            margin: 3rem 0;
             position: relative;
             overflow: hidden;
         }
@@ -1698,7 +1708,7 @@
         .coffee-support::before {
             content: '☕';
             position: absolute;
-            font-size: 10rem;
+            font-size: 8rem;
             opacity: 0.05;
             top: 50%;
             left: 50%;
@@ -1707,8 +1717,8 @@
         }
 
         .coffee-support h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
             position: relative;
         }
 
@@ -2578,13 +2588,6 @@
                     <a href="#" class="resource-link" data-zh="探索更多 →" data-en="Explore More →">探索更多 →</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Load More Button -->
-        <div class="load-more-container">
-            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
-                <span data-zh="更多美文" data-en="Load More">更多美文</span>
-            </button>
         </div>
     </section>
 
