@@ -3863,25 +3863,33 @@
 
         // 为动态生成的文章卡片添加点击事件
         function attachArticleCardEvents() {
-            document.querySelectorAll('.article-card').forEach((card) => {
+            console.log('attachArticleCardEvents called');
+            const cards = document.querySelectorAll('.article-card');
+            console.log('Found article cards:', cards.length);
+
+            cards.forEach((card) => {
                 // 从卡片的data-article-id属性获取文章ID
                 const articleId = card.dataset.articleId;
+                console.log('Processing card with articleId:', articleId);
 
                 // 移除旧的点击事件监听器
                 card.onclick = null;
 
                 card.addEventListener('click', function(e) {
+                    console.log('Card clicked, articleId:', articleId);
                     // 如果点击的是分享按钮或"阅读全文"链接，不触发卡片点击
                     if (e.target.classList.contains('share-btn') ||
                         e.target.closest('.share-buttons') ||
                         e.target.classList.contains('read-more')) {
                         if (e.target.classList.contains('read-more')) {
                             e.preventDefault();
+                            console.log('Read more clicked, calling showArticle');
                             showArticle(articleId);
                         }
                         return;
                     }
                     // 点击卡片其他区域也显示文章
+                    console.log('Card area clicked, calling showArticle');
                     showArticle(articleId);
                 });
 
@@ -3892,6 +3900,7 @@
                     readMoreLink.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
+                        console.log('Read more link clicked, calling showArticle');
                         showArticle(articleId);
                     });
                 }
