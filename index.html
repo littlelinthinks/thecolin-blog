@@ -3761,38 +3761,6 @@
             lastScroll = currentScroll;
         });
 
-        // ===== 文章卡片点击效果 =====
-        document.querySelectorAll('.article-card').forEach((card, index) => {
-            // 为每个卡片分配文章ID
-            const articleIds = Object.keys(articlesDatabase);
-            const articleId = articleIds[index % articleIds.length];
-            
-            card.addEventListener('click', function(e) {
-                // 如果点击的是分享按钮或"阅读全文"链接，不触发卡片点击
-                if (e.target.classList.contains('share-btn') ||
-                    e.target.closest('.share-buttons') ||
-                    e.target.classList.contains('read-more')) {
-                    if (e.target.classList.contains('read-more')) {
-                        e.preventDefault();
-                        showArticle(articleId);
-                    }
-                    return;
-                }
-                // 点击卡片其他区域也显示文章
-                showArticle(articleId);
-            });
-
-            // 更新"阅读全文"链接
-            const readMoreLink = card.querySelector('.read-more');
-            if (readMoreLink) {
-                readMoreLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showArticle(articleId);
-                });
-            }
-        });
-
         // ===== 动态加载文章 =====
         let allArticles = [];
         let visibleArticles = 6;
@@ -3824,6 +3792,9 @@
 
                 // 初始化显示前6篇
                 initArticleCards();
+
+                // 为文章卡片添加点击事件
+                attachArticleCardEvents();
 
                 console.log(`✅ Loaded ${allArticles.length} articles`);
             } catch (error) {
@@ -3881,6 +3852,43 @@
             });
 
             return card;
+        }
+
+        // 为动态生成的文章卡片添加点击事件
+        function attachArticleCardEvents() {
+            document.querySelectorAll('.article-card').forEach((card) => {
+                // 从卡片的data-article-id属性获取文章ID
+                const articleId = card.dataset.articleId;
+
+                // 移除旧的点击事件监听器
+                card.onclick = null;
+
+                card.addEventListener('click', function(e) {
+                    // 如果点击的是分享按钮或"阅读全文"链接，不触发卡片点击
+                    if (e.target.classList.contains('share-btn') ||
+                        e.target.closest('.share-buttons') ||
+                        e.target.classList.contains('read-more')) {
+                        if (e.target.classList.contains('read-more')) {
+                            e.preventDefault();
+                            showArticle(articleId);
+                        }
+                        return;
+                    }
+                    // 点击卡片其他区域也显示文章
+                    showArticle(articleId);
+                });
+
+                // 更新"阅读全文"链接
+                const readMoreLink = card.querySelector('.read-more');
+                if (readMoreLink) {
+                    readMoreLink.href = '#';
+                    readMoreLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showArticle(articleId);
+                    });
+                }
+            });
         }
 
         // 初始化文章卡片显示
