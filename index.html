@@ -3388,7 +3388,8 @@
             document.title = `${currentLang === 'zh' ? article.title : article.titleEn} - COLIN`;
 
             // 从Markdown文件加载文章内容
-            const articlePath = `articles/${article.filename}`;
+            // 文件名中的反斜杠需要编码为 %5C
+            const articlePath = `articles/${encodeURIComponent(article.filename)}`;
             console.log('Loading article content from:', articlePath);
             loadArticleContent(articlePath);
         }
