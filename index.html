@@ -2677,13 +2677,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- Load More Button -->
-        <div class="load-more-container">
-            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
-                <span data-zh="更多美文" data-en="Load More">更多美文</span>
-            </button>
-        </div>
     </section>
 
     <!-- 页脚 -->
@@ -3349,10 +3342,18 @@
         
         // ===== 文章详情页功能 =====
         function showArticle(articleId) {
+            console.log('showArticle called with ID:', articleId);
+            console.log('allArticles length:', allArticles.length);
+
             // 从allArticles数组中查找文章
             const article = allArticles.find(a => a.id === articleId);
-            if (!article) return;
 
+            if (!article) {
+                console.error('Article not found:', articleId);
+                return;
+            }
+
+            console.log('Found article:', article.title);
             currentArticleId = articleId;
 
             // 更新文章详情内容
@@ -3363,8 +3364,14 @@
             document.getElementById('articleDetailReadTime').textContent = currentLang === 'zh' ? article.readTime : article.readTimeEn;
 
             // 切换页面显示
-            document.querySelector('.home-page').classList.add('hidden');
-            document.querySelector('.article-detail-page').classList.add('active');
+            const homePage = document.querySelector('.home-page');
+            const detailPage = document.querySelector('.article-detail-page');
+
+            console.log('Hiding home page...');
+            homePage.classList.add('hidden');
+
+            console.log('Showing article detail page...');
+            detailPage.classList.add('active');
 
             // 滚动到顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
