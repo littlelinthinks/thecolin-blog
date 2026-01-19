@@ -3388,8 +3388,9 @@
             document.title = `${currentLang === 'zh' ? article.title : article.titleEn} - COLIN`;
 
             // 从Markdown文件加载文章内容
-            // 文件名中的反斜杠需要编码为 %5C
-            const articlePath = `articles/${encodeURIComponent(article.filename)}`;
+            // 将反斜杠转换为正斜杠
+            const normalizedFilename = article.filename.replace(/\\/g, '/');
+            const articlePath = `articles/${normalizedFilename}`;
             console.log('Loading article content from:', articlePath);
             loadArticleContent(articlePath);
         }
@@ -3791,7 +3792,9 @@
             try {
                 console.log('Loading articles...');
 
-                const response = await fetch('articles.json');
+                // 添加时间戳强制刷新缓存
+                const timestamp = Date.now();
+                const response = await fetch(`articles.json?t=${timestamp}`);
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -4287,4 +4290,4 @@
         });
     </script>
 </body>
-</html>>
+</html>
