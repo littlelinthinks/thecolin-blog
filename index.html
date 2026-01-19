@@ -3388,8 +3388,9 @@
             document.title = `${currentLang === 'zh' ? article.title : article.titleEn} - COLIN`;
 
             // 从Markdown文件加载文章内容
-            console.log('Loading article content from:', article.filePath);
-            loadArticleContent(article.filePath);
+            const articlePath = `articles/${article.filename}`;
+            console.log('Loading article content from:', articlePath);
+            loadArticleContent(articlePath);
         }
 
         // 从Markdown文件加载文章内容
