@@ -3368,10 +3368,18 @@
             const detailPage = document.querySelector('.article-detail-page');
 
             console.log('Hiding home page...');
+            console.log('Home page element:', homePage);
             homePage.classList.add('hidden');
+            console.log('Home page classes after hiding:', homePage.className);
 
             console.log('Showing article detail page...');
+            console.log('Detail page element:', detailPage);
             detailPage.classList.add('active');
+            console.log('Detail page classes after showing:', detailPage.className);
+
+            // 检查显示状态
+            console.log('Home page display:', window.getComputedStyle(homePage).display);
+            console.log('Detail page display:', window.getComputedStyle(detailPage).display);
 
             // 滚动到顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3380,6 +3388,7 @@
             document.title = `${currentLang === 'zh' ? article.title : article.titleEn} - COLIN`;
 
             // 从Markdown文件加载文章内容
+            console.log('Loading article content from:', article.filePath);
             loadArticleContent(article.filePath);
         }
 
