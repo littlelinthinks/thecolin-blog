@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "life-20260121",
+    "title": "第一篇文章 - 测试",
+    "titleEn": "First Post - Test",
+    "filename": "小Lin记_20260121.md",
+    "category": "life",
+    "categoryEn": "Life Philosophy",
+    "categoryName": "小Lin记",
+    "date": "2026年1月21日",
+    "dateEn": "January 21, 2026",
+    "excerpt": "这是我的博客网站 thecolin.vip 的第一篇文章,开启我的博客之旅。",
+    "excerptEn": "This is the first post on my blog thecolin.vip, starting my blogging journey.",
+    "readTime": "2分钟阅读",
+    "readTimeEn": "2 min read"
+  }
+]

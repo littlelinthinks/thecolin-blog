@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源购买 - 小Lin成长笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .products {
+            display: grid;
+            gap: 20px;
+        }
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        .product-free {
+            border-left: 5px solid #3498db;
+        }
+        .product-paid {
+            border-left: 5px solid #e74c3c;
+        }
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .product-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .product-tag {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .tag-free {
+            background: #3498db;
+            color: white;
+        }
+        .tag-paid {
+            background: #e74c3c;
+            color: white;
+        }
+        .product-desc {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .product-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        .product-price-free {
+            color: #27ae60;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .features li:before {
+            content: "✅";
+            margin-right: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            min-width: 150px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .btn-free {
+            background: #3498db;
+            color: white;
+        }
+        .btn-alipay {
+            background: #1677ff;
+            color: white;
+        }
+        .btn-wechat {
+            background: #07c160;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .product-title {
+                font-size: 1.3em;
+            }
+            .product-price {
+                font-size: 2em;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 个人成长资源库</h1>
+            <p>用知识改变人生，用系统实现目标</p>
+        </div>
+
+        <div class="products">
+            <!-- 免费资源 -->
+            <div class="product product-free">
+                <div class="product-header">
+                    <h2 class="product-title">完整资源包（免费）</h2>
+                    <span class="product-tag tag-free">免费</span>
+                </div>
+                <p class="product-desc">包含4本电子书 + 10个清单工具 + 8大类别指南，帮你快速建立个人成长系统</p>
+                <ul class="features">
+                    <li>4本精选电子书（思维/写作/目标/学习）</li>
+                    <li>10个实用清单工具</li>
+                    <li>8大类别免费指南</li>
+                    <li>Notion模板版本</li>
+                </ul>
+                <div class="product-price product-price-free">¥0</div>
+                <div class="buttons">
+                    <a href="[云盘分享链接]" class="btn btn-free">立即下载</a>
+                </div>
+            </div>
+
+            <!-- 写作套装 -->
+            <div class="product product-paid">
+                <div class="product-header">
+                    <h2 class="product-title">写作套装（¥99）</h2>
+                    <span class="product-tag tag-paid">付费</span>
+                </div>
+                <p class="product-desc">30+写作模板 + 爆款标题库 + Newsletter运营指南，快速提升写作效率</p>
+                <ul class="features">
+                    <li>30+实用写作模板</li>
+                    <li>100+爆款标题库</li>
+                    <li>Newsletter运营指南</li>
+                    <li>读者增长策略</li>
+                    <li>终身免费更新</li>
+                </ul>
+                <div class="product-price">¥99</div>
+                <div class="buttons">
+                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                </div>
+            </div>
+
+            <!-- 目标套装 -->
+            <div class="product product-paid">
+                <div class="product-header">
+                    <h2 class="product-title">目标套装（¥79）</h2>
+                    <span class="product-tag tag-paid">付费</span>
+                </div>
+                <p class="product-desc">Notion目标系统 + 年度规划 + 季度复盘框架，科学实现任何目标</p>
+                <ul class="features">
+                    <li>Notion目标管理模板</li>
+                    <li>年度规划框架</li>
+                    <li>季度复盘系统</li>
+                    <li>习惯追踪模板</li>
+                    <li>终身免费更新</li>
+                </ul>
+                <div class="product-price">¥79</div>
+                <div class="buttons">
+                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                </div>
+            </div>
+
+            <!-- 写作系统完整课程 -->
+            <div class="product product-paid">
+                <div class="product-header">
+                    <h2 class="product-title">写作系统完整课程（¥299）</h2>
+                    <span class="product-tag tag-paid">热门</span>
+                </div>
+                <p class="product-desc">12周系统化写作训练，从0到1建立个人品牌，实现写作变现</p>
+                <ul class="features">
+                    <li>12周系统课程（36课时）</li>
+                    <li>写作模板大全（¥49）</li>
+                    <li>爆款文章速成（¥49）</li>
+                    <li>Newsletter运营手册（¥79）</li>
+                    <li>3次一对一辅导（¥297）</li>
+                    <li>终身复听权限</li>
+                </ul>
+                <div class="product-price">¥299 <span style="font-size: 0.5em; color: #95a5a6;">价值¥474</span></div>
+                <div class="buttons">
+                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                </div>
+            </div>
+
+            <!-- 目标达成大师课 -->
+            <div class="product product-paid">
+                <div class="product-header">
+                    <h2 class="product-title">目标达成大师课（¥399）</h2>
+                    <span class="product-tag tag-paid">热门</span>
+                </div>
+                <p class="product-desc">10周深度训练，掌握目标设定、执行、追踪的完整系统</p>
+                <ul class="features">
+                    <li>10周系统课程（30课时）</li>
+                    <li>Notion目标系统（¥49）</li>
+                    <li>年度规划模板（¥99）</li>
+                    <li>月度复盘框架（¥49）</li>
+                    <li>3次团队答疑（¥300）</li>
+                    <li>终身复听权限</li>
+                </ul>
+                <div class="product-price">¥399 <span style="font-size: 0.5em; color: #95a5a6;">价值¥497</span></div>
+                <div class="buttons">
+                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>💡 购买后30分钟内发送资源，24小时响应</p>
+            <p>📧 有问题？联系微信：[您的微信]</p>
+            <p>© 2026 小Lin成长笔记 | <a href="[您的网站]">返回网站</a></p>
+        </div>
+    </div>
+</body>
+</html>
