@@ -871,23 +871,88 @@
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📝 写作模板大全</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
-                            <a href="#payment-writing-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('template-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 爆款标题库</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-writing-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('title-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📬 Newsletter指南</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-writing-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('newsletter-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎨 Notion模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
-                            <a href="#payment-writing-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- 产品详情展开区域 -->
+                    <div id="template-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📝 写作模板大全</h5>
+                        <p style="color: #666; margin-bottom: 10px;">包含30+即用型写作模板，涵盖观点文、故事文、干货文等多种类型。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>观点文模板：快速构建论证逻辑</li>
+                            <li>故事文模板：情节结构清晰明了</li>
+                            <li>干货文模板：信息呈现条理分明</li>
+                            <li>开头模板：5种吸睛开头方式</li>
+                            <li>结尾模板：3种有力结尾技巧</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 适合新手，照着填就能写</p>
+                    </div>
+
+                    <div id="title-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 爆款标题库</h5>
+                        <p style="color: #666; margin-bottom: 10px;">100+经过验证的高点击率标题模板，涵盖8大热门领域。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>情绪触发类：激发读者共鸣</li>
+                            <li>利益驱动类：直接展示价值</li>
+                            <li>数字型标题：提升可信度</li>
+                            <li>疑问式标题：引发好奇心</li>
+                            <li>对比式标题：强化反差效果</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 平均点击率提升300%</p>
+                    </div>
+
+                    <div id="newsletter-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📬 Newsletter运营指南</h5>
+                        <p style="color: #666; margin-bottom: 10px;">从0到1搭建Newsletter系统，建立忠实读者群体。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>平台选择：Substack/Newsletter/自建站对比</li>
+                            <li>内容规划：选题池与发布节奏</li>
+                            <li>写作技巧：邮件特有的表达方式</li>
+                            <li>增长策略：裂变与引流技巧</li>
+                            <li>变现模式：订阅/广告/产品销售</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 30天从0到1000订阅者</p>
+                    </div>
+
+                    <div id="notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🎨 Notion写作模板</h5>
+                        <p style="color: #666; margin-bottom: 10px;">Notion专用的写作管理系统，高效管理写作流程。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>选题库：灵感随时记录</li>
+                            <li>进度追踪：可视化写作进度</li>
+                            <li>草稿管理：多版本对比</li>
+                            <li>发布日历：内容发布计划</li>
+                            <li>数据分析：阅读量与互动统计</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 一键复制，即刻使用</p>
                     </div>
                 </div>
             </div>
@@ -1057,18 +1122,67 @@
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 Notion目标系统</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
-                            <a href="#payment-goals-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('goals-notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📊 年度规划模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
-                            <a href="#payment-goals-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('goals-planning-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📈 Excel追踪表</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥19</div>
-                            <a href="#payment-goals-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('goals-excel-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- 目标单品详情 -->
+                    <div id="goals-notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 Notion目标系统</h5>
+                        <p style="color: #666; margin-bottom: 10px;">基于OKR和SMART原则设计的Notion目标管理系统。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>目标设定：O-KR结构清晰</li>
+                            <li>进度追踪：可视化看板</li>
+                            <li>习惯养成：打卡系统</li>
+                            <li>每周复盘：总结与改进</li>
+                            <li>数据统计：达成率分析</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 一键复制，即刻使用</p>
+                    </div>
+
+                    <div id="goals-planning-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📊 年度规划模板</h5>
+                        <p style="color: #666; margin-bottom: 10px;">完整的一年规划PDF模板，涵盖12个月和4个季度。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>年度目标：核心方向与愿景</li>
+                            <li>季度规划：每季度重点</li>
+                            <li>月度计划：具体行动清单</li>
+                            <li>周度安排：执行进度追踪</li>
+                            <li>月度复盘：回顾与调整</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 打印即可使用</p>
+                    </div>
+
+                    <div id="goals-excel-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📈 Excel追踪表</h5>
+                        <p style="color: #666; margin-bottom: 10px;">Excel格式的进度追踪表格，支持自动计算和图表展示。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>目标设定：SMART原则</li>
+                            <li>每日打卡：一键记录</li>
+                            <li>进度计算：自动统计</li>
+                            <li>图表展示：可视化趋势</li>
+                            <li>数据分析：完成率统计</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 支持Excel和WPS</p>
                     </div>
                 </div>
             </div>
@@ -1225,23 +1339,88 @@
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🧠 第一性原理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-thinking-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('thinking-first-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🔄 逆向思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-thinking-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('thinking-inverse-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🌐 系统思考</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
-                            <a href="#payment-thinking-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('thinking-system-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">⚖️ 概率思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-thinking-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('thinking-probability-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- 思维单品详情 -->
+                    <div id="thinking-first-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🧠 第一性原理</h5>
+                        <p style="color: #666; margin-bottom: 10px;">马斯克推崇的思考方式，从最基本的事实出发，推导解决方案。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>定义问题：准确识别核心问题</li>
+                            <li>拆解假设：拆解所有假设</li>
+                            <li>回归本质：找到最基本事实</li>
+                            <li>重新构建：从零开始方案</li>
+                            <li>实战案例：学习10+经典案例</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 埃隆·马斯克都在用的思维方式</p>
+                    </div>
+
+                    <div id="thinking-inverse-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🔄 逆向思维</h5>
+                        <p style="color: #666; margin-bottom: 10px;">从反面思考问题，找到避免失败的路径。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>逆向提问：从"如何成功"到"如何失败"</li>
+                            <li>避免失败：列出所有可能失败的原因</li>
+                            <li>预防措施：针对每个原因制定对策</li>
+                            <li>查理·芒格：投资大师的智慧</li>
+                            <li>场景练习：20+实战练习题</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 查理·芒格的智慧结晶</p>
+                    </div>
+
+                    <div id="thinking-system-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🌐 系统思考</h5>
+                        <p style="color: #666; margin-bottom: 10px;">看到事物之间的联系，理解复杂系统的运作方式。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>系统要素：识别关键要素</li>
+                            <li>反馈回路：正负反馈机制</li>
+                            <li>时间延迟：理解滞后效应</li>
+                            <li>杠杆点：找到改变系统的关键</li>
+                            <li>案例分析：商业/生活/生态案例</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 看见看不见的连接</p>
+                    </div>
+
+                    <div id="thinking-probability-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">⚖️ 概率思维</h5>
+                        <p style="color: #666; margin-bottom: 10px;">用概率思维做决策，提升长期收益。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>基础概念：贝叶斯定理入门</li>
+                            <li>决策矩阵：量化选择标准</li>
+                            <li>期望值：计算预期收益</li>
+                            <li>黑天鹅：应对极端事件</li>
+                            <li>实战应用：投资/职业/生活决策</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 像数学家一样做决策</p>
                     </div>
                 </div>
             </div>
@@ -1398,23 +1577,88 @@
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎓 费曼学习法</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-learning-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('learning-feynman-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📅 间隔重复</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
-                            <a href="#payment-learning-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('learning-spaced-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📖 深度阅读</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
-                            <a href="#payment-learning-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('learning-reading-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 知识管理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
-                            <a href="#payment-learning-single" style="display: block; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="toggleProductDetail('learning-knowledge-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- 学习单品详情 -->
+                    <div id="learning-feynman-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🎓 费曼学习法</h5>
+                        <p style="color: #666; margin-bottom: 10px;">诺贝尔奖得主费曼的快速学习秘诀。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>选择概念：确定要学习的内容</li>
+                            <li>教给别人：用简单语言解释</li>
+                            <li>发现盲点：找出不理解的地方</li>
+                            <li>简化重构：用故事讲解</li>
+                            <li>实践练习：10+练习场景</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 理查德·费曼的智慧结晶</p>
+                    </div>
+
+                    <div id="learning-spaced-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📅 间隔重复</h5>
+                        <p style="color: #666; margin-bottom: 10px;">科学记忆方法，大幅提升长期记忆效果。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>遗忘曲线：了解记忆规律</li>
+                            <li>重复间隔：优化复习时间</li>
+                            <li>主动回忆：强化记忆痕迹</li>
+                            <li>工具推荐：Anki/Notion等</li>
+                            <li>实战应用：语言/考试/技能学习</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 记忆效率提升5-10倍</p>
+                    </div>
+
+                    <div id="learning-reading-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">📖 深度阅读</h5>
+                        <p style="color: #666; margin-bottom: 10px;">从浏览到深度理解，提升阅读质量。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>选书方法：找到值得读的书</li>
+                            <li>快速浏览：快速获取概览</li>
+                            <li>深度阅读：逐章精读批注</li>
+                            <li>笔记方法：建立知识库</li>
+                            <li>输出应用：将知识转化为行动</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 读有所得，学以致用</p>
+                    </div>
+
+                    <div id="learning-knowledge-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 知识管理</h5>
+                        <p style="color: #666; margin-bottom: 10px;">建立个人知识系统，让知识随时调用。</p>
+                        <ul style="color: #666; padding-left: 20px;">
+                            <li>收集体系：高效收集信息</li>
+                            <li>整理方法：构建知识网络</li>
+                            <li>笔记工具：Notion/Obsidian等</li>
+                            <li>标签系统：快速检索定位</li>
+                            <li>输出创作：知识转化为价值</li>
+                        </ul>
+                        <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 打造第二大脑</p>
                     </div>
                 </div>
             </div>
@@ -1823,6 +2067,24 @@
     </div>
 
     <script>
+        // 切换产品详情显示
+        function toggleProductDetail(detailId) {
+            const detailElement = document.getElementById(detailId);
+            if (detailElement) {
+                const isVisible = detailElement.style.display !== 'none';
+                // 先关闭所有详情
+                document.querySelectorAll('.product-detail').forEach(detail => {
+                    detail.style.display = 'none';
+                });
+                // 如果之前是隐藏的，则显示；如果之前是显示的，则保持隐藏
+                if (!isVisible) {
+                    detailElement.style.display = 'block';
+                    // 平滑滚动到详情区域
+                    detailElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        }
+
         // 根据URL参数过滤分类
         function filterProductsByCategory() {
             const urlParams = new URLSearchParams(window.location.search);
