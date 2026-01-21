@@ -281,6 +281,326 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
+        /* 新增样式 - 优化区域 */
+        .result-highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .result-item {
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .result-item span {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .user-stories {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .user-stories h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .story-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .story-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .story-content h4 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .story-quote {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .story-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .comparison-section {
+            margin: 30px 0;
+        }
+
+        .comparison-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .comparison-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .comparison-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .comparison-card.before h4 {
+            color: #e74c3c;
+        }
+
+        .comparison-card.after h4 {
+            color: #27ae60;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .comparison-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .comparison-card.before .comparison-list li:before {
+            content: "✗";
+            color: #e74c3c;
+        }
+
+        .comparison-arrow {
+            font-size: 3rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .faq-section {
+            margin: 30px 0;
+        }
+
+        .faq-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: #666;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .guarantee-section {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .guarantee-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .guarantee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .guarantee-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .guarantee-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .guarantee-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .quick-start-section {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .quick-start-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            align-items: end;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-item h4 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .step-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .time-taken {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .step-result {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .step-result h4 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .view-details-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #f8f9fa;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-details-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -301,6 +621,27 @@
             .btn {
                 min-width: 100%;
             }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+            }
+
+            .result-highlight {
+                flex-direction: column;
+            }
+
+            .story-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .story-stats {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -320,69 +661,26 @@
         </div>
 
         <div class="products">
-            <!-- 完整套装 - 主推 -->
-            <div class="product">
-                <div class="product-header">
-                    <h2 class="product-title">🎯 完整套装（推荐）</h2>
-                    <span class="product-tag tag-recommended">限时特惠</span>
-                </div>
-                <p class="product-desc">包含全部7个即用型产品,一次性提升写作能力和目标管理,让你事半功倍!</p>
-
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="feature-icon">✨</span>
-                        <span class="feature-text">写作模板大全 (30+)</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📝</span>
-                        <span class="feature-text">爆款标题库 (100+)</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📬</span>
-                        <span class="feature-text">Newsletter运营指南</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎨</span>
-                        <span class="feature-text">Notion写作模板</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎯</span>
-                        <span class="feature-text">Notion目标系统</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📊</span>
-                        <span class="feature-text">年度规划PDF模板</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📈</span>
-                        <span class="feature-text">Excel追踪表</span>
-                    </div>
-                </div>
-
-                <ul class="features">
-                    <li>终身免费更新,所有新产品免费获取</li>
-                    <li>30分钟内发送所有资源到邮箱或微信</li>
-                    <li>7天不满意无理由退款</li>
-                    <li>使用过程中任何问题随时咨询</li>
-                </ul>
-
-                <div class="product-price">
-                    <span class="original">¥265</span>
-                    ¥159
-                </div>
-
-                <div class="buttons">
-                    <a href="#payment" class="btn btn-primary">立即购买</a>
-                </div>
-            </div>
-
             <!-- 写作套装 -->
             <div class="product">
                 <div class="product-header">
                     <h2 class="product-title">✍️ 写作能力套装</h2>
-                    <span class="product-tag tag-normal">热销</span>
+                    <span class="product-tag tag-recommended">热销</span>
                 </div>
-                <p class="product-desc">4个专业写作工具,快速提升内容创作效率,让你的文章更出彩!</p>
+                <p class="product-desc">3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量</p>
+
+                <!-- 核心结果展示 -->
+                <div class="result-highlight">
+                    <div class="result-item">
+                        <span>📝</span>30天完成10篇文章
+                    </div>
+                    <div class="result-item">
+                        <span>👀</span>平均阅读1000+
+                    </div>
+                    <div class="result-item">
+                        <span>⭐</span>粉丝稳步增长
+                    </div>
+                </div>
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -400,6 +698,147 @@
                     <div class="feature-item">
                         <span class="feature-icon">🎨</span>
                         <span class="feature-text">Notion写作模板</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <span class="feature-text">30天行动指南</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📧</span>
+                        <span class="feature-text">7天邮件陪伴</span>
+                    </div>
+                </div>
+
+                <!-- 用户案例 -->
+                <div class="user-stories">
+                    <h3>📚 真实用户成果</h3>
+                    <div class="story-card">
+                        <div class="story-avatar">李</div>
+                        <div class="story-content">
+                            <h4>李明 · 产品经理</h4>
+                            <p class="story-quote">"使用观点文模板后，我在头条首篇阅读量5万+。之前写一周发不出去，现在三天一篇，粉丝从0涨到1.2万。"</p>
+                            <div class="story-stats">
+                                <span>📝 30天完成15篇文章</span>
+                                <span>👀 最高阅读5万+</span>
+                                <span>⭐ 粉丝1.2万</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快速开始 -->
+                <div class="quick-start-section">
+                    <h3>⚡ 5分钟快速开始</h3>
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <span class="step-number">1</span>
+                            <h4>下载模板</h4>
+                            <p>购买后立即下载</p>
+                            <span class="time-taken">⏱️ 1分钟</span>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">2</span>
+                            <h4>选择模板</h4>
+                            <p>浏览30+模板</p>
+                            <span class="time-taken">⏱️ 2分钟</span>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">3</span>
+                            <h4>填写内容</h4>
+                            <p>照着模板填写</p>
+                            <span class="time-taken">⏱️ 2分钟</span>
+                        </div>
+                        <div class="step-result">
+                            <h4>✨ 完成！</h4>
+                            <p>你的第一篇文章初稿已经写好了</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 前后对比 -->
+                <div class="comparison-section">
+                    <h3>📈 使用前 vs 使用后</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card before">
+                            <h4>❌ 使用前</h4>
+                            <ul class="comparison-list">
+                                <li>不知道写什么主题</li>
+                                <li>写了一半卡住</li>
+                                <li>排版不美观</li>
+                                <li>标题没人点</li>
+                                <li>一周写不了一篇</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-card after">
+                            <h4>✅ 使用后30天</h4>
+                            <ul class="comparison-list success">
+                                <li>随时有5-10个选题储备</li>
+                                <li>照模板写，从不卡住</li>
+                                <li>一键套用，专业排版</li>
+                                <li>标题库选择，点击率提升300%</li>
+                                <li>建立写作习惯，一周3篇</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h3>❓ 常见问题</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 我是完全新手，能用吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 完全可以！我们的模板专为新手设计，有详细的填写说明。60%的购买者是第一次写作，他们都顺利上手了。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 没时间怎么办？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 不需要每天花很多时间。我们的方法建议：周一到周五每天20分钟，周末1-2小时深度写作。这样一个月也能完成8-10篇文章。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 能退款吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 承诺保障 -->
+                <div class="guarantee-section">
+                    <h3>🛡️ 我们的承诺</h3>
+                    <div class="guarantee-list">
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">⏰</span>
+                            <h4>30分钟上手承诺</h4>
+                            <p>如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📞</span>
+                            <h4>7天无理由退款</h4>
+                            <p>购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📧</span>
+                            <h4>7天陪伴服务</h4>
+                            <p>购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">🔄</span>
+                            <h4>终身免费更新</h4>
+                            <p>所有新增模板和功能，你都免费获得。一次购买，终身受益。</p>
+                        </div>
                     </div>
                 </div>
 
@@ -409,7 +848,8 @@
                 </div>
 
                 <div class="buttons">
-                    <a href="#payment" class="btn btn-primary">立即购买</a>
+                    <a href="#payment-writing" class="btn btn-primary">立即购买</a>
+                    <a href="writing-details.html" class="view-details-btn">查看详细介绍</a>
                 </div>
             </div>
 
@@ -419,7 +859,20 @@
                     <h2 class="product-title">🎯 目标规划套装</h2>
                     <span class="product-tag tag-normal">实用</span>
                 </div>
-                <p class="product-desc">3个目标管理工具,科学设定、追踪、达成目标,让你的人生更有规划!</p>
+                <p class="product-desc">90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松</p>
+
+                <!-- 核心结果展示 -->
+                <div class="result-highlight">
+                    <div class="result-item">
+                        <span>🎯</span>90天完成3个目标
+                    </div>
+                    <div class="result-item">
+                        <span>⏰</span>养成新习惯
+                    </div>
+                    <div class="result-item">
+                        <span>📈</span>持续提升自我
+                    </div>
+                </div>
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -433,6 +886,118 @@
                     <div class="feature-item">
                         <span class="feature-icon">📈</span>
                         <span class="feature-text">Excel追踪表</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <span class="feature-text">90天行动指南</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📧</span>
+                        <span class="feature-text">7天邮件陪伴</span>
+                    </div>
+                </div>
+
+                <!-- 用户案例 -->
+                <div class="user-stories">
+                    <h3>📚 真实用户成果</h3>
+                    <div class="story-card">
+                        <div class="story-avatar">王</div>
+                        <div class="story-content">
+                            <h4>王小红 · 全职妈妈</h4>
+                            <p class="story-quote">"目标套装帮我3年没下的决心——每天运动30分钟。90天下来，养成了习惯，还完成了第一个半程马拉松！"</p>
+                            <div class="story-stats">
+                                <span>🏃 坚持运动90天</span>
+                                <span>🎯 完成半程马拉松</span>
+                                <span>⚖️ 减重8公斤</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 前后对比 -->
+                <div class="comparison-section">
+                    <h3>📈 使用前 vs 使用后</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card before">
+                            <h4>❌ 使用前</h4>
+                            <ul class="comparison-list">
+                                <li>目标总是半途而废</li>
+                                <li>不知道从哪里开始</li>
+                                <li>缺乏执行力</li>
+                                <li>三分钟热度</li>
+                                <li>没有成就感</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-card after">
+                            <h4>✅ 使用后90天</h4>
+                            <ul class="comparison-list success">
+                                <li>目标清晰，步骤明确</li>
+                                <li>每天有具体的行动</li>
+                                <li>自动执行成习惯</li>
+                                <li>90天持续坚持</li>
+                                <li>完成3个重要目标</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h3>❓ 常见问题</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 我总是半途而废，这套有用吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 这个套装专门针对"半途而废"设计。90天行动指南每天有小目标，完成有成就感。还有邮件陪伴，我们帮你坚持下去！
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 目标太大怎么办？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 我们教你将大目标拆解成90天的具体任务。比如"减肥10kg"拆成每天运动30分钟+健康饮食，每天完成就能看到进步。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 能退款吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 承诺保障 -->
+                <div class="guarantee-section">
+                    <h3>🛡️ 我们的承诺</h3>
+                    <div class="guarantee-list">
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">⏰</span>
+                            <h4>30分钟上手承诺</h4>
+                            <p>如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📞</span>
+                            <h4>7天无理由退款</h4>
+                            <p>购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📧</span>
+                            <h4>7天陪伴服务</h4>
+                            <p>购买后连续7天，每天给你一封邮件指导。你不是一个人在战斗。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">🔄</span>
+                            <h4>终身免费更新</h4>
+                            <p>所有新增功能和模板，你都免费获得。一次购买，终身受益。</p>
+                        </div>
                     </div>
                 </div>
 
@@ -443,6 +1008,7 @@
 
                 <div class="buttons">
                     <a href="#payment-goals" class="btn btn-primary">立即购买</a>
+                    <a href="goals-details.html" class="view-details-btn">查看详细介绍</a>
                 </div>
             </div>
 
@@ -452,7 +1018,20 @@
                     <h2 class="product-title">💭 思维模型套装</h2>
                     <span class="product-tag tag-normal">深度</span>
                 </div>
-                <p class="product-desc">掌握核心思维模型,提升决策质量,用智慧驾驭复杂世界!</p>
+                <p class="product-desc">21天建立思维模型，提升决策质量，用智慧驾驭复杂世界</p>
+
+                <!-- 核心结果展示 -->
+                <div class="result-highlight">
+                    <div class="result-item">
+                        <span>🧠</span>掌握10+思维模型
+                    </div>
+                    <div class="result-item">
+                        <span>🎯</span>决策质量提升
+                    </div>
+                    <div class="result-item">
+                        <span>💡</span>系统性思考
+                    </div>
+                </div>
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -471,6 +1050,101 @@
                         <span class="feature-icon">⚖️</span>
                         <span class="feature-text">概率思维指南</span>
                     </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <span class="feature-text">21天训练计划</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📧</span>
+                        <span class="feature-text">7天邮件陪伴</span>
+                    </div>
+                </div>
+
+                <!-- 前后对比 -->
+                <div class="comparison-section">
+                    <h3>📈 使用前 vs 使用后</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card before">
+                            <h4>❌ 使用前</h4>
+                            <ul class="comparison-list">
+                                <li>凭直觉做决策</li>
+                                <li>只看表面问题</li>
+                                <li>容易陷入局部</li>
+                                <li>决策质量不稳定</li>
+                                <li>缺乏系统性思维</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-card after">
+                            <h4>✅ 使用后21天</h4>
+                            <ul class="comparison-list success">
+                                <li>用思维模型分析</li>
+                                <li>洞察本质问题</li>
+                                <li>全局系统思考</li>
+                                <li>决策质量明显提升</li>
+                                <li>形成思维体系</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h3>❓ 常见问题</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 我没有相关基础，能学会吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 完全可以！思维模型是普适性的思考工具，不需要专业背景。21天训练计划循序渐进，每天一个小模型，轻松上手。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 思维模型真的有用吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 思维模型被世界顶级企业家（如巴菲特、马斯克）广泛使用。它们能帮你跳出固有思维，看到问题的本质，大幅提升决策质量。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 能退款吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 承诺保障 -->
+                <div class="guarantee-section">
+                    <h3>🛡️ 我们的承诺</h3>
+                    <div class="guarantee-list">
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">⏰</span>
+                            <h4>30分钟上手承诺</h4>
+                            <p>如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📞</span>
+                            <h4>7天无理由退款</h4>
+                            <p>购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📧</span>
+                            <h4>7天陪伴服务</h4>
+                            <p>购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">🔄</span>
+                            <h4>终身免费更新</h4>
+                            <p>所有新增思维模型和案例，你都免费获得。一次购买，终身受益。</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-price">
@@ -480,6 +1154,7 @@
 
                 <div class="buttons">
                     <a href="#payment-thinking" class="btn btn-primary">立即购买</a>
+                    <a href="thinking-details.html" class="view-details-btn">查看详细介绍</a>
                 </div>
             </div>
 
@@ -489,7 +1164,20 @@
                     <h2 class="product-title">📚 学习方法套装</h2>
                     <span class="product-tag tag-normal">高效</span>
                 </div>
-                <p class="product-desc">掌握高效学习方法,加速知识吸收,成为终身学习的高手!</p>
+                <p class="product-desc">28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手</p>
+
+                <!-- 核心结果展示 -->
+                <div class="result-highlight">
+                    <div class="result-item">
+                        <span>🚀</span>学习效率提升3倍
+                    </div>
+                    <div class="result-item">
+                        <span>📚</span>深度理解知识
+                    </div>
+                    <div class="result-item">
+                        <span>🧠</span>长期记忆巩固
+                    </div>
+                </div>
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -508,6 +1196,101 @@
                         <span class="feature-icon">🎯</span>
                         <span class="feature-text">知识管理系统</span>
                     </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <span class="feature-text">28天训练计划</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📧</span>
+                        <span class="feature-text">7天邮件陪伴</span>
+                    </div>
+                </div>
+
+                <!-- 前后对比 -->
+                <div class="comparison-section">
+                    <h3>📈 使用前 vs 使用后</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card before">
+                            <h4>❌ 使用前</h4>
+                            <ul class="comparison-list">
+                                <li>读完就忘</li>
+                                <li>死记硬背</li>
+                                <li>没有系统</li>
+                                <li>学习效率低</li>
+                                <li>学不以致用</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-card after">
+                            <h4>✅ 使用后28天</h4>
+                            <ul class="comparison-list success">
+                                <li>深刻理解</li>
+                                <li>灵活运用</li>
+                                <li>建立体系</li>
+                                <li>学习效率提升3倍</li>
+                                <li>知识随时调用</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h3>❓ 常见问题</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 我不是学生，还需要学学习方法吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 学习能力是终身技能。工作中需要不断学习新知识，掌握高效学习方法能让你事半功倍，更快适应变化。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 这些方法真的有效吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 这些方法都是经过科学验证的。费曼学习法被诺贝尔奖得主使用，间隔重复被广泛用于语言学习和考试备考，效果显著。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q: 能退款吗？
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 承诺保障 -->
+                <div class="guarantee-section">
+                    <h3>🛡️ 我们的承诺</h3>
+                    <div class="guarantee-list">
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">⏰</span>
+                            <h4>30分钟上手承诺</h4>
+                            <p>如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📞</span>
+                            <h4>7天无理由退款</h4>
+                            <p>购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">📧</span>
+                            <h4>7天陪伴服务</h4>
+                            <p>购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。</p>
+                        </div>
+                        <div class="guarantee-item">
+                            <span class="guarantee-icon">🔄</span>
+                            <h4>终身免费更新</h4>
+                            <p>所有新增学习方法和工具，你都免费获得。一次购买，终身受益。</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-price">
@@ -517,13 +1300,14 @@
 
                 <div class="buttons">
                     <a href="#payment-learning" class="btn btn-primary">立即购买</a>
+                    <a href="learning-details.html" class="view-details-btn">查看详细介绍</a>
                 </div>
             </div>
         </div>
 
-        <!-- 完整套装支付 -->
-        <div class="footer" id="payment">
-            <h3>💳 支付方式</h3>
+        <!-- 写作套装支付 -->
+        <div class="footer" id="payment-writing">
+            <h3>💳 写作能力套装支付</h3>
             <p>选择下方支付方式,完成后截图联系客服</p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
@@ -533,7 +1317,7 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥159</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
                     <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
@@ -543,7 +1327,7 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥159</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
                     <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
@@ -564,7 +1348,7 @@
             </div>
 
             <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
-                💡 购买后30分钟内发送资源 · 7天不满意退款保障
+                💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含30天行动指南
             </p>
 
             <div style="margin-top: 20px;">
@@ -584,6 +1368,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥79</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -592,8 +1377,24 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥79</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>💬</span>
+                    <span>微信: OVERACHINGCC</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>邮箱: littlelinthinks@gmail.com</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+                💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含90天行动指南
+            </p>
         </div>
 
         <!-- 思维模型支付 -->
@@ -608,6 +1409,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥89</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -616,8 +1418,24 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥89</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>💬</span>
+                    <span>微信: OVERACHINGCC</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>邮箱: littlelinthinks@gmail.com</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+                💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含21天训练计划
+            </p>
         </div>
 
         <!-- 学习方法支付 -->
@@ -632,6 +1450,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -640,9 +1459,53 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>💬</span>
+                    <span>微信: OVERACHINGCC</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>邮箱: littlelinthinks@gmail.com</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+                💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含28天训练计划
+            </p>
         </div>
     </div>
+
+    <script>
+        // FAQ 切换功能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

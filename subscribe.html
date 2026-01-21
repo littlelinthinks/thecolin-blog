@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订阅获取免费资源 - COLIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .subscribe-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .benefits {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .benefits h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-icon {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: #764ba2;
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .success-message h2 {
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .subscribe-card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="subscribe-card">
+            <div class="icon">📬</div>
+            <h1>订阅获取免费资源</h1>
+            <p class="subtitle">加入我们的邮件列表，第一时间获取最新资源和干货</p>
+
+            <div class="benefits">
+                <h3>🎁 订阅后你将获得</h3>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>每周精选写作技巧和模板</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>最新目标管理方法分享</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>思维模型深度解析</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>高效学习方法更新</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>订阅用户专属优惠和活动</span>
+                </div>
+            </div>
+
+            <form id="subscribeForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="你的名字（可选）" />
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="你的邮箱地址" required />
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="consent" required />
+                        <span>我同意接收邮件更新（可随时取消）</span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">立即订阅 →</button>
+            </form>
+
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value || '朋友';
+
+            // 这里可以连接到实际的邮件订阅服务
+            // 例如：Mailchimp、ConvertKit 等
+
+            // 模拟提交成功
+            const card = document.querySelector('.subscribe-card');
+            card.innerHTML = `
+                <div class="success-message">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                    <h2>订阅成功！</h2>
+                    <p>感谢你，${name}！</p>
+                    <p>一封确认邮件已发送到 <strong>${email}</strong></p>
+                    <p>请查收并点击确认链接，确保你能收到我们的内容。</p>
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <p style="font-size: 0.9rem; opacity: 0.9;">
+                            💡 接下来你会收到：
+                        </p>
+                        <ul style="text-align: left; margin: 15px 0; padding-left: 20px;">
+                            <li>今天：欢迎邮件 + 精选资源包</li>
+                            <li>明天：第一篇写作技巧文章</li>
+                            <li>每周：精选干货 + 最新资源</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html" class="back-link" style="color: #667eea; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 30px;">← 返回首页</a>
+            `;
+        });
+    </script>
+</body>
+</html>
