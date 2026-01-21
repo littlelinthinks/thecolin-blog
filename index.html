@@ -27,6 +27,28 @@
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "COLIN - 探索深邃思想",
+        "url": "https://thecolin.vip",
+        "description": "专注于深度思考、终身学习和个人成长的思想分享平台",
+        "author": {
+            "@type": "Person",
+            "name": "Colin",
+            "email": "littlelinthinks@gmail.com"
+        },
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://thecolin.vip/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
     <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
 
@@ -1704,6 +1726,89 @@
             color: var(--text-secondary);
         }
 
+        /* 搜索和筛选区域 */
+        .search-filter-section {
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-btn {
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        #searchResults {
+            margin-top: 1rem;
+            padding: 10px 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
         /* 公众号二维码弹窗 */
         .wechat-qr-modal {
             display: none;
@@ -2452,6 +2557,7 @@
                             <span class="dropdown-arrow">▼</span>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive">📚 文章归档</a></li>
                             <li><a href="#articles" data-category="life" onclick="filterByCategory('life', event)">小Lin记</a></li>
                             <li><a href="#articles" data-category="thinking" onclick="filterByCategory('thinking', event)">小Lin析</a></li>
                             <li><a href="#articles" data-category="reading" onclick="filterByCategory('reading', event)">小Lin读</a></li>
@@ -2483,15 +2589,21 @@
                                 </ul>
                             </li>
                             <li class="dropdown-section">
-                                <a href="#" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a>
+                                <a href="products.html#thinking" data-zh="💭 思维模型" data-en="💭 Mental Models">💭 思维模型</a>
                                 <ul class="dropdown-submenu">
-                                    <li><a href="#" data-zh="即将推出" data-en="Coming Soon" style="color: var(--text-secondary);">即将推出</a></li>
+                                    <li><a href="products.html#thinking" data-zh="第一性原理（¥39）" data-en="First Principles (¥39)">第一性原理（¥39）</a></li>
+                                    <li><a href="products.html#thinking" data-zh="逆向思维（¥39）" data-en="Reverse Thinking (¥39)">逆向思维（¥39）</a></li>
+                                    <li><a href="products.html#thinking" data-zh="系统思考（¥49）" data-en="Systems Thinking (¥49)">系统思考（¥49）</a></li>
+                                    <li><a href="products.html#thinking" data-zh="思维套装（¥89）" data-en="Thinking Bundle (¥89)" style="font-weight: bold; color: var(--accent);">🔥 思维套装（¥89）</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-section">
-                                <a href="#" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a>
+                                <a href="products.html#learning" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a>
                                 <ul class="dropdown-submenu">
-                                    <li><a href="#" data-zh="即将推出" data-en="Coming Soon" style="color: var(--text-secondary);">即将推出</a></li>
+                                    <li><a href="products.html#learning" data-zh="费曼学习法（¥39）" data-en="Feynman Technique (¥39)">费曼学习法（¥39）</a></li>
+                                    <li><a href="products.html#learning" data-zh="间隔重复（¥39）" data-en="Spaced Repetition (¥39)">间隔重复（¥39）</a></li>
+                                    <li><a href="products.html#learning" data-zn="深度阅读（¥49）" data-en="Deep Reading (¥49)">深度阅读（¥49）</a></li>
+                                    <li><a href="products.html#learning" data-zh="学习套装（¥99）" data-en="Learning Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 学习套装（¥99）</a></li>
                                 </ul>
                             </li>
                             <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;">
@@ -2544,6 +2656,42 @@
             <h1 class="blog-title" data-zh="BLOG" data-en="BLOG">博客</h1>
             <p class="blog-subtitle" data-zh="探索你的好奇心" data-en="Explore Your Curiosity">探索你的好奇心</p>
             <p class="blog-quote" data-zh="深入思考是一种稀有的能力，持续成长是一生的旅程。" data-en="Deep thinking is a scarce ability, continuous growth is a lifelong journey.">深入思考是一种稀有的能力，持续成长是一生的旅程。</p>
+        </div>
+
+        <!-- 搜索和筛选区域 -->
+        <div class="search-filter-section">
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索文章..." oninput="filterArticles()">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <!-- 分类筛选 -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                    <span data-zh="全部" data-en="All">全部</span>
+                </button>
+                <button class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
+                    <span data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                </button>
+                <button class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
+                    <span data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
+                </button>
+                <button class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
+                    <span data-zh="写作技巧" data-en="Writing Skills">写作技巧</span>
+                </button>
+                <button class="filter-btn" data-category="life" onclick="filterByCategory('life')">
+                    <span data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
+                </button>
+                <button class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
+                    <span data-zn="效率提升" data-en="Productivity">效率提升</span>
+                </button>
+            </div>
+
+            <!-- 搜索结果提示 -->
+            <div id="searchResults" style="display: none;">
+                找到 <strong id="resultCount">0</strong> 篇文章
+            </div>
         </div>
 
         <div class="articles-grid" id="articlesGrid">
@@ -4278,6 +4426,88 @@
             // 如果用户输入了邮箱，复制用户输入的；否则复制默认邮箱
             const emailToCopy = (email && email.value.trim()) ? email.value.trim() : 'littlelinthinks@gmail.com';
             navigator.clipboard.writeText(emailToCopy);
+        }
+
+        // ===== 文章搜索和筛选功能 =====
+        let currentCategory = 'all';
+        let currentSearchTerm = '';
+
+        // 按分类筛选文章
+        function filterByCategory(category) {
+            currentCategory = category;
+
+            // 更新按钮状态
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            filterArticles();
+        }
+
+        // 搜索文章
+        function filterArticles() {
+            const searchInput = document.getElementById('searchInput');
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
+
+            const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
+
+            articles.forEach(article => {
+                const title = article.querySelector('.article-title').textContent.toLowerCase();
+                const excerpt = article.querySelector('.article-excerpt')?.textContent.toLowerCase() || '';
+                const category = article.dataset.category || '';
+
+                // 检查是否匹配搜索词
+                const matchesSearch = currentSearchTerm === '' ||
+                    title.includes(currentSearchTerm) ||
+                    excerpt.includes(currentSearchTerm);
+
+                // 检查是否匹配分类
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                // 显示或隐藏文章
+                if (matchesSearch && matchesCategory) {
+                    article.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+
+            // 显示搜索结果数量
+            const searchResults = document.getElementById('searchResults');
+            const resultCount = document.getElementById('resultCount');
+
+            if (currentSearchTerm !== '' || currentCategory !== 'all') {
+                searchResults.style.display = 'block';
+                resultCount.textContent = visibleCount;
+
+                if (visibleCount === 0) {
+                    searchResults.innerHTML = '没有找到匹配的文章';
+                } else {
+                    searchResults.innerHTML = `找到 <strong>${visibleCount}</strong> 篇文章`;
+                }
+            } else {
+                searchResults.style.display = 'none';
+            }
+        }
+
+        // 监听搜索输入（防抖）
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterArticles, 300);
+        });
+
+        // Enter键搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                filterArticles();
+            }
+        });
             showToast('邮箱地址已复制，请到邮件APP发送！');
         }
 

@@ -1,0 +1,67 @@
+    <!-- 特色资源 -->
+    <section class="content-section" id="resources">
+        <div class="featured-resources">
+            <h2 class="section-title" data-zh="精选资源" data-en="Featured Resources">精选资源</h2>
+            <div class="resources-grid">
+                <!-- 写作指南 -->
+                <div class="resource-card">
+                    <div class="resource-icon">✍️</div>
+                    <h3 class="resource-title" data-zh="写作指南" data-en="Writing Guide">写作指南</h3>
+                    <p class="resource-description" data-zh="写作模板大全、爆款标题库、Newsletter运营指南，快速提升写作能力" data-en="Writing templates, viral titles, Newsletter guide to boost writing quickly">写作模板大全、爆款标题库、Newsletter运营指南,快速提升写作能力</p>
+                    <div class="resource-buttons">
+                        <a href="products.html#writing" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                        <a href="products.html#writing" class="resource-link highlight" data-zh="¥99 套装优惠" data-en="¥99 Bundle">¥99 套装优惠</a>
+                    </div>
+                </div>
+
+                <!-- 目标规划 -->
+                <div class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <h3 class="resource-title" data-zh="目标规划" data-en="Goal Planning">目标规划</h3>
+                    <p class="resource-description" data-zh="Notion目标系统、年度规划PDF、Excel追踪表，让梦想变成现实" data-en="Notion goal system, annual planning PDF, Excel tracker to turn dreams into reality">Notion目标系统、年度规划PDF、Excel追踪表，让梦想变成现实</p>
+                    <div class="resource-buttons">
+                        <a href="products.html#goals" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                        <a href="products.html#goals" class="resource-link highlight" data-zh="¥79 套装优惠" data-en="¥79 Bundle">¥79 套装优惠</a>
+                    </div>
+                </div>
+
+                <!-- 思维模型 -->
+                <div class="resource-card">
+                    <div class="resource-icon">🧠</div>
+                    <h3 class="resource-title" data-zh="思维模型" data-en="Mental Models">思维模型</h3>
+                    <p class="resource-description" data-zh="深度思考框架、认知升级指南、决策思维工具，提升认知水平" data-en="Deep thinking frameworks, cognitive upgrade guides, decision-making tools to elevate cognition">深度思考框架、认知升级指南、决策思维工具，提升认知水平</p>
+                    <div class="resource-buttons">
+                        <span class="resource-link" style="background: var(--bg-card); border: 1px solid var(--border); cursor: not-allowed;" data-zh="即将推出" data-en="Coming Soon">即将推出</span>
+                    </div>
+                </div>
+
+                <!-- 学习方法 -->
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h3 class="resource-title" data-zh="学习方法" data-en="Learning Methods">学习方法</h3>
+                    <p class="resource-description" data-zh="高效学习技巧、知识管理系统、记忆强化训练，掌握终身学习" data-en="Efficient learning techniques, knowledge management systems, memory training to master lifelong learning">高效学习技巧、知识管理系统、记忆强化训练，掌握终身学习</p>
+                    <div class="resource-buttons">
+                        <span class="resource-link" style="background: var(--bg-card); border: 1px solid var(--border); cursor: not-allowed;" data-zh="即将推出" data-en="Coming Soon">即将推出</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 完整套装横幅 -->
+            <div class="complete-bundle-banner">
+                <div class="banner-content">
+                    <div class="banner-text">
+                        <h3 data-zh="🎉 完整套装 - 全部产品一网打尽" data-en="🎉 Complete Bundle - Get All Products">🎉 完整套装 - 全部产品一网打尽</h3>
+                        <p data-zh="包含写作指南 + 目标规划的所有产品，原价¥265，限时特惠¥159，立省¥106" data-en="Includes all Writing Guide and Goal Planning products, original price ¥265, limited offer ¥159, save ¥106">包含写作指南 + 目标规划的所有产品，原价¥265，限时特惠¥159，立省¥106</p>
+                    </div>
+                    <div class="banner-action">
+                        <a href="products.html" class="banner-button" data-zh="立即购买 →" data-en="Buy Now →">立即购买 →</a>
+                        <div class="banner-price">
+                            <span class="price-original">¥265</span>
+                            <span class="price-current">¥159</span>
+                            <span class="price-save">省 ¥106</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

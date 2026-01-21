@@ -24,6 +24,143 @@
             padding: 40px 20px;
         }
 
+        /* 阅读进度条 */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #0071e3, #3b82f6);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #0071e3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #0055b3;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+            color: #999;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #0055b3;
+            transform: translateY(-2px);
+        }
+
+        /* 文章分享按钮 */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: #666;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .share-btn:hover {
+            background: #f0f0f0;
+            border-color: #ccc;
+        }
+
+        /* 相关文章 */
+        .related-articles {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .related-articles h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+
+        .related-list {
+            list-style: none;
+        }
+
+        .related-list li {
+            margin: 12px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .related-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .related-list a {
+            color: #0071e3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .related-list a:hover {
+            color: #0055b3;
+            text-decoration: underline;
+        }
+
         .article-header {
             background: white;
             padding: 40px;
@@ -86,6 +223,78 @@
             font-style: italic;
         }
 
+        /* Markdown 增强样式 */
+        .article-content blockquote {
+            border-left: 4px solid #0071e3;
+            padding-left: 20px;
+            margin: 2rem 0;
+            color: #666;
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: #f5f5f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+
+        .article-content pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            font-size: 14px;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .article-content table th,
+        .article-content table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .article-content table th {
+            background: #f5f5f7;
+            font-weight: 600;
+        }
+
+        .article-content table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 3rem 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
         .back-button {
             display: inline-block;
             padding: 12px 24px;
@@ -125,6 +334,31 @@
             color: #1d1d1f;
         }
 
+        /* 打印样式 */
+        @media print {
+            .back-button,
+            .breadcrumb,
+            .share-buttons,
+            .comments-section,
+            .related-articles,
+            .back-to-top {
+                display: none;
+            }
+
+            .article-content {
+                padding: 0;
+                box-shadow: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .container {
+                padding: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -138,10 +372,24 @@
             .article-title {
                 font-size: 1.8rem;
             }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+
     <div class="container">
         <a href="index.html" class="back-button">← 返回首页</a>
 
@@ -181,6 +429,13 @@
                             
                             // 渲染文章
                             document.getElementById('articleContainer').innerHTML = `
+                                <div class="breadcrumb">
+                                    <a href="index.html">首页</a>
+                                    <span>&gt;</span>
+                                    <a href="index.html#articles">文章</a>
+                                    <span>&gt;</span>
+                                    <span>${article.categoryName}</span>
+                                </div>
                                 <div class="article-header">
                                     <div class="article-meta">
                                         <span>${article.categoryName}</span>
@@ -188,9 +443,26 @@
                                         <span>${article.readTime}</span>
                                     </div>
                                     <h1 class="article-title">${article.title}</h1>
+                                    <div class="share-buttons">
+                                        <button class="share-btn" onclick="shareToTwitter()">
+                                            <span>𝕏</span> 分享到 X
+                                        </button>
+                                        <button class="share-btn" onclick="shareToWeChat()">
+                                            <span>💬</span> 分享到微信
+                                        </button>
+                                        <button class="share-btn" onclick="copyLink()">
+                                            <span>📋</span> 复制链接
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="article-content">
                                     ${htmlContent}
+                                </div>
+                                <div class="related-articles" id="relatedArticles">
+                                    <h3>📚 相关文章</h3>
+                                    <ul class="related-list" id="relatedList">
+                                        <li>加载中...</li>
+                                    </ul>
                                 </div>
                                 <div class="comments-section">
                                     <h2 class="comments-title">💬 评论区</h2>
@@ -198,8 +470,17 @@
                                 </div>
                             `;
 
-                            // 初始化 Gitalk
+                            // 更新页面标题
+                            document.title = article.title + ' - COLIN';
+
+                            // 更新页面meta标签
+                            updateArticleMeta(article);
+
+                            // 初始化功能
                             loadGitalk();
+                            loadRelatedArticles(article);
+                            initScrollProgress();
+                            initBackToTop();
                         })
                         .catch(error => {
                             console.error('加载文章失败:', error);
@@ -221,26 +502,55 @@
                 });
         }
 
-        // 简单的Markdown渲染器
+        // 增强的 Markdown 渲染器
         function renderMarkdown(markdown) {
             let html = markdown;
+
+            // 代码块
+            html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(match, lang, code) {
+                return '<pre><code class="language-' + lang + '">' + escapeHtml(code.trim()) + '</code></pre>';
+            });
+
+            // 行内代码
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
 
             // 标题
             html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
             html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
             html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
 
+            // 引用
+            html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+
+            // 合并连续的引用
+            html = html.replace(/<\/blockquote>\n<blockquote>/g, '\n');
+
+            // 分割线
+            html = html.replace(/^---$/gm, '<hr>');
+
             // 粗体和斜体
             html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
             html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
             html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
-            // 分割线
-            html = html.replace(/^---$/gm, '<hr>');
-
-            // 列表
+            // 列表（有序和无序）
             html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
             html = html.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
+
+            // 链接
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+
+            // 图片
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
+
+            // 表格
+            html = html.replace(/\|(.+)\|/g, function(match) {
+                const cells = match.split('|').filter(c => c.trim());
+                return '<td>' + cells.join('</td><td>') + '</td>';
+            });
+            html = html.replace(/(<td>.*<\/td>\n)+/g, function(match) {
+                return '<tr>' + match + '</tr>';
+            });
 
             // 段落
             html = html.replace(/\n\n/g, '</p><p>');
@@ -252,8 +562,23 @@
             html = html.replace(/(<\/h[1-6]>)<\/p>/g, '$1');
             html = html.replace(/<p>(<li>)/g, '<ul>$1');
             html = html.replace(/(<\/li>)<\/p>/g, '$1');
+            html = html.replace(/<p>(<blockquote>)/g, '$1');
+            html = html.replace(/(<\/blockquote>)<\/p>/g, '$1');
+            html = html.replace(/<p>(<pre>)/g, '$1');
+            html = html.replace(/(<\/pre>)<\/p>/g, '$1');
+            html = html.replace(/<p>(<hr>)/g, '$1');
+            html = html.replace(/(<\/p>)(<tr>)/g, '$2');
+            html = html.replace(/(<\/tr>)(<p>)/g, '$1');
+            html = html.replace(/<ul><\/ul>/g, '');
 
             return html;
+        }
+
+        // HTML转义函数
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         // 加载 Gitalk 评论系统
@@ -271,6 +596,176 @@
             });
 
             gitalk.render('gitalk-container');
+        }
+
+        // 分享到 X (Twitter)
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.querySelector('.article-title').textContent);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        // 分享到微信
+        function shareToWeChat() {
+            alert('请截图分享或复制链接发送给好友');
+        }
+
+        // 复制链接
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('链接已复制到剪贴板！');
+            }).catch(() => {
+                // 降级方案
+                const input = document.createElement('input');
+                input.value = window.location.href;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                alert('链接已复制到剪贴板！');
+            });
+        }
+
+        // 加载相关文章
+        function loadRelatedArticles(currentArticle) {
+            fetch('articles.json')
+                .then(response => response.json())
+                .then(articles => {
+                    const relatedList = document.getElementById('relatedList');
+
+                    // 过滤掉当前文章，按分类筛选
+                    const related = articles
+                        .filter(a => a.id !== currentArticle.id)
+                        .filter(a => a.category === currentArticle.category)
+                        .slice(0, 5);
+
+                    if (related.length === 0) {
+                        relatedList.innerHTML = '<li>暂无相关文章</li>';
+                        return;
+                    }
+
+                    relatedList.innerHTML = related.map(a =>
+                        `<li><a href="article.html?id=${a.id}">${a.title}</a></li>`
+                    ).join('');
+                })
+                .catch(() => {
+                    document.getElementById('relatedList').innerHTML = '<li>加载失败</li>';
+                });
+        }
+
+        // 阅读进度条
+        function initScrollProgress() {
+            const progressBar = document.getElementById('readingProgress');
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+        }
+
+        // 返回顶部按钮
+        function initBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // 更新文章页面的meta标签
+        function updateArticleMeta(article) {
+            // 更新或创建meta标签
+            const updateMeta = (name, content, property = false) => {
+                let meta;
+                if (property) {
+                    meta = document.querySelector(`meta[property="${name}"]`);
+                } else {
+                    meta = document.querySelector(`meta[name="${name}"]`);
+                }
+
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    if (property) {
+                        meta.setAttribute('property', name);
+                    } else {
+                        meta.setAttribute('name', name);
+                    }
+                    document.head.appendChild(meta);
+                }
+                meta.setAttribute('content', content);
+            };
+
+            // 基础meta
+            updateMeta('description', article.excerpt);
+            updateMeta('keywords', article.categoryName + ',深度思考,终身学习,个人成长');
+            updateMeta('author', 'Colin');
+
+            // Open Graph
+            updateMeta('og:title', article.title, true);
+            updateMeta('og:description', article.excerpt, true);
+            updateMeta('og:type', 'article', true);
+            updateMeta('og:url', window.location.href, true);
+            updateMeta('article:published_time', article.date, true);
+            updateMeta('article:author', 'Colin', true);
+            updateMeta('article:section', article.categoryName, true);
+
+            // Twitter
+            updateMeta('twitter:title', article.title, true);
+            updateMeta('twitter:description', article.excerpt, true);
+
+            // 结构化数据
+            const schemaData = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": article.title,
+                "description": article.excerpt,
+                "author": {
+                    "@type": "Person",
+                    "name": "Colin",
+                    "email": "littlelinthinks@gmail.com"
+                },
+                "datePublished": article.date,
+                "dateModified": article.date,
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": window.location.href
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "COLIN",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://thecolin.vip/favicon.ico"
+                    }
+                },
+                "articleSection": article.categoryName
+            };
+
+            // 移除旧的结构化数据
+            const oldSchema = document.getElementById('article-schema');
+            if (oldSchema) {
+                oldSchema.remove();
+            }
+
+            // 添加新的结构化数据
+            const schema = document.createElement('script');
+            schema.type = 'application/ld+json';
+            schema.id = 'article-schema';
+            schema.textContent = JSON.stringify(schemaData);
+            document.head.appendChild(schema);
         }
     </script>
 
