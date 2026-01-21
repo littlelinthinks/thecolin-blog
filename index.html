@@ -266,7 +266,7 @@
             top: 100%;
             left: 0;
             background: var(--bg-card);
-            min-width: 150px;
+            min-width: 280px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             border: 1px solid var(--border);
@@ -284,11 +284,56 @@
             transform: translateY(0);
         }
 
+        .dropdown-section {
+            position: relative;
+        }
+
+        .dropdown-section > a {
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 0.7rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--bg-card);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-section:hover .dropdown-submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .dropdown-submenu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
         .dropdown-menu li {
             list-style: none;
         }
 
-        .dropdown-menu a {
+        .dropdown-menu > li > a:not(.dropdown-submenu a) {
             display: block;
             padding: 0.6rem 1rem;
             color: var(--text-secondary);
@@ -2419,10 +2464,39 @@
                             <span class="dropdown-arrow">▼</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="products.html#writing" data-zh="写作套装（¥99）" data-en="Writing Bundle (¥99)">写作套装（¥99）</a></li>
-                            <li><a href="products.html#goals" data-zh="目标套装（¥79）" data-en="Goal Bundle (¥79)">目标套装（¥79）</a></li>
-                            <li><a href="products.html" data-zh="完整套装（¥129）" data-en="Complete Bundle (¥129)">完整套装（¥129）</a></li>
-                            <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;"><a href="#" data-zh="即将推出" data-en="Coming Soon" style="color: var(--text-secondary); cursor: not-allowed;">即将推出：课程/会员/企业培训</a></li>
+                            <li class="dropdown-section">
+                                <a href="products.html#writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide">✍️ 写作指南</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html#writing" data-zh="写作模板大全（¥49）" data-en="Writing Templates (¥49)">写作模板大全（¥49）</a></li>
+                                    <li><a href="products.html#writing" data-zh="爆款标题库（¥39）" data-en="Viral Titles (¥39)">爆款标题库（¥39）</a></li>
+                                    <li><a href="products.html#writing" data-zh="Newsletter指南（¥59）" data-en="Newsletter Guide (¥59)">Newsletter指南（¥59）</a></li>
+                                    <li><a href="products.html#writing" data-zh="写作套装（¥99）" data-en="Writing Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 写作套装（¥99）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html#goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning">🎯 目标规划</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html#goals" data-zh="Notion目标系统（¥79）" data-en="Notion Goals (¥79)">Notion目标系统（¥79）</a></li>
+                                    <li><a href="products.html#goals" data-zh="年度规划PDF（¥49）" data-en="Annual Planning PDF (¥49)">年度规划PDF（¥49）</a></li>
+                                    <li><a href="products.html#goals" data-zh="Excel追踪表（¥59）" data-en="Excel Tracker (¥59)">Excel追踪表（¥59）</a></li>
+                                    <li><a href="products.html#goals" data-zh="目标套装（¥79）" data-en="Goal Bundle (¥79)" style="font-weight: bold; color: var(--accent);">🔥 目标套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#" data-zh="即将推出" data-en="Coming Soon" style="color: var(--text-secondary);">即将推出</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#" data-zh="即将推出" data-en="Coming Soon" style="color: var(--text-secondary);">即将推出</a></li>
+                                </ul>
+                            </li>
+                            <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;">
+                                <a href="products.html" data-zh="📦 完整套装（¥159）" data-en="📦 Complete Bundle (¥159)" style="font-weight: bold; color: #ff6b6b;">🎉 完整套装（¥159）</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
