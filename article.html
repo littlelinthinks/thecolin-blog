@@ -109,6 +109,22 @@
             color: #666;
         }
 
+        /* 评论区样式 */
+        .comments-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+
+        .comments-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -176,7 +192,14 @@
                                 <div class="article-content">
                                     ${htmlContent}
                                 </div>
+                                <div class="comments-section">
+                                    <h2 class="comments-title">💬 评论区</h2>
+                                    <div id="gitalk-container"></div>
+                                </div>
                             `;
+
+                            // 初始化 Gitalk
+                            loadGitalk();
                         })
                         .catch(error => {
                             console.error('加载文章失败:', error);
@@ -232,6 +255,27 @@
 
             return html;
         }
+
+        // 加载 Gitalk 评论系统
+        function loadGitalk() {
+            const gitalk = new Gitalk({
+                clientID: 'YOUR_GITHUB_CLIENT_ID', // 替换为你的 GitHub Client ID
+                clientSecret: 'YOUR_GITHUB_CLIENT_SECRET', // 替换为你的 GitHub Client Secret
+                repo: 'thecolin-blog', // 替换为你的仓库名称
+                owner: 'littlelinthinks', // 替换为你的 GitHub 用户名
+                admin: ['littlelinthinks'], // 替换为你的 GitHub 用户名
+                id: window.location.pathname, // 使用页面路径作为评论ID
+                distractionFreeMode: false,
+                language: 'zh-CN',
+                perPage: 10
+            });
+
+            gitalk.render('gitalk-container');
+        }
     </script>
+
+    <!-- Gitalk 评论系统 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 </body>
 </html>
