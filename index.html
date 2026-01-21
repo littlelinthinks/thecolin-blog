@@ -766,6 +766,9 @@
             border: 1px solid var(--border);
             transition: all 0.3s;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
         }
 
         .resource-card:hover {
@@ -788,6 +791,12 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
         }
 
         .resource-link {
