@@ -650,25 +650,31 @@
         <a href="index.html" class="back-link">← 返回首页</a>
 
         <div class="header">
-            <h1>📚 个人成长资源套装</h1>
-            <p class="subtitle">即用型工具 · 立即提升效率 · 快速实现目标</p>
+            <h1 id="page-title">📚 个人成长资源套装</h1>
+            <p id="page-subtitle" class="subtitle">即用型工具 · 立即提升效率 · 快速实现目标</p>
 
-            <div class="price-banner">
+            <div class="price-banner" id="price-banner">
                 <span>🔥 完整套装仅需 ¥159</span>
                 <br>
                 <small>原价 ¥265 · 立省 ¥106 (40%)</small>
             </div>
 
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 20px;" id="complete-buy-btn">
                 <a href="#payment-complete" class="btn btn-primary" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem;">
                     🎉 购买完整套装 ¥159
                 </a>
             </div>
+
+            <div style="margin-top: 20px; display: none;" id="view-all-btn">
+                <a href="products.html" class="btn" style="display: inline-block; padding: 12px 30px; font-size: 1rem; background: #f0f0f0; color: #666;">
+                    ← 查看所有套装
+                </a>
+            </div>
         </div>
 
-        <div class="products">
+        <div class="products" id="products-container">
             <!-- 写作套装 -->
-            <div class="product" id="writing">
+            <div class="product" id="writing" data-category="writing">
                 <div class="product-header">
                     <h2 class="product-title">✍️ 写作能力套装</h2>
                     <span class="product-tag tag-recommended">热销</span>
@@ -887,7 +893,7 @@
             </div>
 
             <!-- 目标套装 -->
-            <div class="product" id="goals">
+            <div class="product" id="goals" data-category="goals">
                 <div class="product-header">
                     <h2 class="product-title">🎯 目标规划套装</h2>
                     <span class="product-tag tag-normal">实用</span>
@@ -1068,7 +1074,7 @@
             </div>
 
             <!-- 思维模型套装 -->
-            <div class="product" id="thinking">
+            <div class="product" id="thinking" data-category="thinking">
                 <div class="product-header">
                     <h2 class="product-title">💭 思维模型套装</h2>
                     <span class="product-tag tag-normal">深度</span>
@@ -1241,7 +1247,7 @@
             </div>
 
             <!-- 学习方法套装 -->
-            <div class="product" id="learning">
+            <div class="product" id="learning" data-category="learning">
                 <div class="product-header">
                     <h2 class="product-title">📚 学习方法套装</h2>
                     <span class="product-tag tag-normal">高效</span>
@@ -1817,6 +1823,89 @@
     </div>
 
     <script>
+        // 根据URL参数过滤分类
+        function filterProductsByCategory() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+
+            if (!category) {
+                // 没有category参数，显示所有产品
+                document.getElementById('page-title').textContent = '📚 个人成长资源套装';
+                document.getElementById('page-subtitle').textContent = '即用型工具 · 立即提升效率 · 快速实现目标';
+                document.getElementById('price-banner').style.display = 'block';
+                document.getElementById('complete-buy-btn').style.display = 'block';
+                document.getElementById('view-all-btn').style.display = 'none';
+                document.querySelectorAll('.product').forEach(product => {
+                    product.style.display = 'block';
+                });
+                document.querySelectorAll('.footer').forEach(payment => {
+                    payment.style.display = 'block';
+                });
+                return;
+            }
+
+            // 有category参数，只显示该分类
+            const categoryNames = {
+                'writing': '✍️ 写作指南',
+                'goals': '🎯 目标规划',
+                'thinking': '🧠 思维模型',
+                'learning': '📚 学习方法'
+            };
+
+            document.getElementById('page-title').textContent = categoryNames[category] || '📚 个人成长资源套装';
+            document.getElementById('page-subtitle').textContent = '即用型工具 · 立即提升效率 · 快速实现目标';
+            document.getElementById('price-banner').style.display = 'none';
+            document.getElementById('complete-buy-btn').style.display = 'none';
+            document.getElementById('view-all-btn').style.display = 'block';
+
+            document.querySelectorAll('.product').forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                if (productCategory === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            // 只显示相关支付区域
+            document.querySelectorAll('.footer').forEach(payment => {
+                const paymentId = payment.getAttribute('id');
+                if (paymentId) {
+                    if (paymentId.includes(category)) {
+                        payment.style.display = 'block';
+                    } else {
+                        payment.style.display = 'none';
+                    }
+                }
+            });
+
+            // 延迟滚动到目标区域
+            setTimeout(() => {
+                const hash = window.location.hash;
+                if (hash) {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement && targetElement.offsetParent !== null) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        // 如果目标元素被隐藏了，滚动到该分类的产品区域
+                        const categoryProduct = document.querySelector(`.product[data-category="${category}"]`);
+                        if (categoryProduct) {
+                            categoryProduct.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                } else {
+                    // 没有hash，滚动到该分类的产品区域
+                    const categoryProduct = document.querySelector(`.product[data-category="${category}"]`);
+                    if (categoryProduct) {
+                        categoryProduct.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }, 100);
+        }
+
+        // 页面加载时执行过滤
+        window.addEventListener('DOMContentLoaded', filterProductsByCategory);
+
         // 产品价格配置
         const productPrices = {
             writing: {
