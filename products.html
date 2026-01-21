@@ -1640,7 +1640,17 @@
         <!-- 单品购买说明 -->
         <div class="footer" id="payment-writing-single" style="margin-top: 30px;">
             <h3>💳 写作单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请扫描下方二维码支付对应金额，并备注购买的单品名称</p>
+            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+
+            <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
+                <select id="writing-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                    <option value="template">📝 写作模板大全 - ¥49</option>
+                    <option value="title">🎯 爆款标题库 - ¥39</option>
+                    <option value="newsletter">📬 Newsletter指南 - ¥39</option>
+                    <option value="notion">🎨 Notion模板 - ¥29</option>
+                </select>
+            </div>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1648,7 +1658,7 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="writing-alipay-amount">¥49</span></p>
                     <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
@@ -1657,7 +1667,7 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="writing-wechat-amount">¥49</span></p>
                     <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
@@ -1689,7 +1699,16 @@
         <!-- 目标单品支付 -->
         <div class="footer" id="payment-goals-single" style="margin-top: 30px;">
             <h3>💳 目标单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请扫描下方二维码支付对应金额，并备注购买的单品名称</p>
+            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+
+            <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
+                <select id="goals-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                    <option value="notion">🎯 Notion目标系统 - ¥49</option>
+                    <option value="planning">📊 年度规划模板 - ¥29</option>
+                    <option value="excel">📈 Excel追踪表 - ¥19</option>
+                </select>
+            </div>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1697,7 +1716,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="goals-alipay-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1705,7 +1725,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="goals-wechat-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -1717,7 +1738,17 @@
         <!-- 思维单品支付 -->
         <div class="footer" id="payment-thinking-single" style="margin-top: 30px;">
             <h3>💳 思维单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请扫描下方二维码支付对应金额，并备注购买的单品名称</p>
+            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+
+            <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
+                <select id="thinking-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                    <option value="first">🧠 第一性原理 - ¥39</option>
+                    <option value="inverse">🔄 逆向思维 - ¥39</option>
+                    <option value="system">🌐 系统思考 - ¥49</option>
+                    <option value="probability">⚖️ 概率思维 - ¥39</option>
+                </select>
+            </div>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1725,7 +1756,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="thinking-alipay-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1733,7 +1765,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="thinking-wechat-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -1745,7 +1778,17 @@
         <!-- 学习单品支付 -->
         <div class="footer" id="payment-learning-single" style="margin-top: 30px;">
             <h3>💳 学习单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请扫描下方二维码支付对应金额，并备注购买的单品名称</p>
+            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+
+            <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
+                <select id="learning-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                    <option value="feynman">🎓 费曼学习法 - ¥39</option>
+                    <option value="spaced">📅 间隔重复 - ¥39</option>
+                    <option value="reading">📖 深度阅读 - ¥49</option>
+                    <option value="knowledge">🎯 知识管理 - ¥49</option>
+                </select>
+            </div>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1753,7 +1796,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="learning-alipay-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
@@ -1761,7 +1805,8 @@
                     <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">按标注价格支付</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="learning-wechat-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -1772,6 +1817,73 @@
     </div>
 
     <script>
+        // 产品价格配置
+        const productPrices = {
+            writing: {
+                template: '¥49',
+                title: '¥39',
+                newsletter: '¥39',
+                notion: '¥29'
+            },
+            goals: {
+                notion: '¥49',
+                planning: '¥29',
+                excel: '¥19'
+            },
+            thinking: {
+                first: '¥39',
+                inverse: '¥39',
+                system: '¥49',
+                probability: '¥39'
+            },
+            learning: {
+                feynman: '¥39',
+                spaced: '¥39',
+                reading: '¥49',
+                knowledge: '¥49'
+            }
+        };
+
+        // 更新写作单品价格
+        const writingSelect = document.getElementById('writing-product-select');
+        if (writingSelect) {
+            writingSelect.addEventListener('change', function() {
+                const price = productPrices.writing[this.value];
+                document.getElementById('writing-alipay-amount').textContent = price;
+                document.getElementById('writing-wechat-amount').textContent = price;
+            });
+        }
+
+        // 更新目标单品价格
+        const goalsSelect = document.getElementById('goals-product-select');
+        if (goalsSelect) {
+            goalsSelect.addEventListener('change', function() {
+                const price = productPrices.goals[this.value];
+                document.getElementById('goals-alipay-amount').textContent = price;
+                document.getElementById('goals-wechat-amount').textContent = price;
+            });
+        }
+
+        // 更新思维单品价格
+        const thinkingSelect = document.getElementById('thinking-product-select');
+        if (thinkingSelect) {
+            thinkingSelect.addEventListener('change', function() {
+                const price = productPrices.thinking[this.value];
+                document.getElementById('thinking-alipay-amount').textContent = price;
+                document.getElementById('thinking-wechat-amount').textContent = price;
+            });
+        }
+
+        // 更新学习单品价格
+        const learningSelect = document.getElementById('learning-product-select');
+        if (learningSelect) {
+            learningSelect.addEventListener('change', function() {
+                const price = productPrices.learning[this.value];
+                document.getElementById('learning-alipay-amount').textContent = price;
+                document.getElementById('learning-wechat-amount').textContent = price;
+            });
+        }
+
         // FAQ 切换功能
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
