@@ -2640,12 +2640,23 @@
             <div class="hero-name">COLIN</div>
             <h1 data-zh="探索深邃思想<br>创造有意义的人生" data-en="Explore Deep Thoughts<br>Create A Meaningful Life">探索深邃思想<br>创造有意义的人生</h1>
             <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
+            
+            <!-- CTA按钮组 -->
+            <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="products.html" style="padding: 1rem 2.5rem; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                    🚀 开始成长之旅
+                </a>
+                <a href="#resources" style="padding: 1rem 2.5rem; background: rgba(59, 130, 246, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.1)'">
+                    📦 查看资源
+                </a>
+            </div>
+            
             <!-- RSS订阅 - 改为复制链接 -->
-            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer;">
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
             </div>
             <!-- 邮箱订阅 -->
-            <div style="margin-top: 2rem; display: flex; align-items: center; gap: 0.8rem;">
+            <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
                 <input type="email" id="subscribeEmail" placeholder="your@email.com" style="padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
                 <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 2rem; background: var(--accent); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap;">订阅更新</button>
             </div>
@@ -2661,8 +2672,8 @@
             <p class="blog-quote" data-zh="深入思考是一种稀有的能力，持续成长是一生的旅程。" data-en="Deep thinking is a scarce ability, continuous growth is a lifelong journey.">深入思考是一种稀有的能力，持续成长是一生的旅程。</p>
         </div>
 
-        <!-- 搜索和筛选区域 -->
-        <div class="search-filter-section">
+        <!-- 搜索和筛选区域 - 暂时隐藏（等有内容后显示）-->
+        <div class="search-filter-section" style="display: none;">
             <!-- 搜索框 -->
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="搜索文章..." oninput="filterArticles()">
