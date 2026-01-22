@@ -820,6 +820,36 @@
             </div>
         </div>
 
+        <!-- 选择引导 -->
+        <div style="text-align: center; margin-bottom: 40px; padding: 30px; background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); border-radius: 15px; border: 1px solid rgba(102,126,234,0.1);">
+            <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.3rem;">🤔 不知道该选择哪个套装？</h3>
+            <p style="color: #666; max-width: 600px; margin: 0 auto 15px; line-height: 1.6;">
+                根据您的当前需求选择最合适的方案：想快速开始写作？选择写作套装；需要达成长期目标？选择目标套装。
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('writing')">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">✍️</div>
+                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想开始写作</div>
+                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 写作套装</div>
+                </div>
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('goals')">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我需要达成目标</div>
+                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 目标套装</div>
+                </div>
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('thinking')">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🧠</div>
+                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想提升思维</div>
+                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 思维套装</div>
+                </div>
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('learning')">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
+                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想提升学习</div>
+                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 学习套装</div>
+                </div>
+            </div>
+        </div>
+
         <div class="products" id="products-container">
             <!-- 写作套装 -->
             <div class="product" id="writing" data-category="writing">
@@ -2460,6 +2490,18 @@
                 if (arrow) {
                     arrow.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
                 }
+            }
+        }
+
+        // 滚动到指定产品并展开
+        function scrollToProduct(productId) {
+            const productElement = document.getElementById(productId);
+            if (productElement) {
+                productElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // 确保产品显示
+                productElement.style.display = 'block';
+                // 展开详细内容
+                expandProduct(productId);
             }
         }
 
