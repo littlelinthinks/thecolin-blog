@@ -281,6 +281,143 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
+        /* 侧边导航样式 */
+        .sidebar-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+        }
+
+        .sidebar-nav.show {
+            display: block;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 10px 15px;
+            color: #666;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 5px 0;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            right: 20px;
+            bottom: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+            z-index: 1001;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+
+        .sidebar-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* 套装折叠样式 */
+        .product-expand-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .product-expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+        }
+
+        .product-expand-btn .arrow {
+            transition: transform 0.3s;
+        }
+
+        .product-expand-btn.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .product-content-foldable {
+            display: none;
+            animation: slideDown 0.4s ease;
+        }
+
+        .product-content-foldable.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 单品折叠区域 */
+        .single-products-section {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .single-products-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .single-products-header h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+
         /* 新增样式 - 优化区域 */
         .result-highlight {
             background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
@@ -646,6 +783,17 @@
     </style>
 </head>
 <body>
+    <!-- 侧边导航按钮 -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="快速导航">📋</button>
+
+    <!-- 侧边导航 -->
+    <nav class="sidebar-nav" id="sidebar">
+        <a href="#writing" class="nav-item" onclick="expandProduct('writing')">✍️ 写作套装</a>
+        <a href="#goals" class="nav-item" onclick="expandProduct('goals')">🎯 目标套装</a>
+        <a href="#thinking" class="nav-item" onclick="expandProduct('thinking')">💭 思维套装</a>
+        <a href="#learning" class="nav-item" onclick="expandProduct('learning')">📚 学习套装</a>
+    </nav>
+
     <div class="container">
         <a href="index.html" class="back-link">← 返回首页</a>
 
@@ -693,6 +841,17 @@
                         <span>⭐</span>粉丝稳步增长
                     </div>
                 </div>
+
+                <!-- 展开按钮 -->
+                <div style="text-align: center;">
+                    <button class="product-expand-btn" onclick="toggleProductExpand('writing', this)">
+                        <span>查看详细内容</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                </div>
+
+                <!-- 可折叠内容 -->
+                <div class="product-content-foldable" id="writing-content">
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -890,9 +1049,14 @@
 
                 <!-- 单独购买选项 -->
                 <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
-                    <h4 style="margin-bottom: 15px; color: #2c3e50; text-align: center;">💰 只需某个单品？</h4>
+                    <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
+                        <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
+                            💰 只需某个单品？
+                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                        </h4>
+                    </div>
                     <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
                             <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📝 写作模板大全</div>
@@ -929,6 +1093,7 @@
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                     <!-- 产品详情展开区域 -->
@@ -984,6 +1149,7 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 一键复制，即刻使用</p>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 目标套装 -->
@@ -1006,6 +1172,17 @@
                         <span>📈</span>持续提升自我
                     </div>
                 </div>
+
+                <!-- 展开按钮 -->
+                <div style="text-align: center;">
+                    <button class="product-expand-btn" onclick="toggleProductExpand('goals', this)">
+                        <span>查看详细内容</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                </div>
+
+                <!-- 可折叠内容 -->
+                <div class="product-content-foldable" id="goals-content">
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -1143,6 +1320,10 @@
                     <a href="#payment-goals" class="btn btn-primary">购买套装 ¥79</a>
                     <a href="goals-details.html" class="view-details-btn">查看详细介绍</a>
                 </div>
+                </div>
+            </div>
+
+            <!-- 思维套装 -->
 
                 <!-- 套装价值对比 -->
                 <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #fff8f0 0%, #fff 100%); border-radius: 12px; border: 2px solid #ffd700;">
@@ -1169,9 +1350,14 @@
 
                 <!-- 单独购买选项 -->
                 <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
-                    <h4 style="margin-bottom: 15px; color: #2c3e50; text-align: center;">💰 只需某个单品？</h4>
+                    <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
+                        <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
+                            💰 只需某个单品？
+                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                        </h4>
+                    </div>
                     <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
                             <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 Notion目标系统</div>
@@ -1263,6 +1449,17 @@
                         <span>💡</span>系统性思考
                     </div>
                 </div>
+
+                <!-- 展开按钮 -->
+                <div style="text-align: center;">
+                    <button class="product-expand-btn" onclick="toggleProductExpand('thinking', this)">
+                        <span>查看详细内容</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                </div>
+
+                <!-- 可折叠内容 -->
+                <div class="product-content-foldable" id="thinking-content">
 
                 <div class="features-grid">
                     <div class="feature-item">
@@ -1414,9 +1611,14 @@
 
                 <!-- 单独购买选项 -->
                 <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
-                    <h4 style="margin-bottom: 15px; color: #2c3e50; text-align: center;">💰 只需某个单品？</h4>
+                    <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
+                        <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
+                            💰 只需某个单品？
+                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                        </h4>
+                    </div>
                     <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
                             <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🧠 第一性原理</div>
@@ -1508,6 +1710,7 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 像数学家一样做决策</p>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 学习方法套装 -->
@@ -1519,6 +1722,28 @@
                 <p class="product-desc">28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手</p>
 
                 <!-- 核心结果展示 -->
+                <div class="result-highlight">
+                    <div class="result-item">
+                        <span>🚀</span>学习效率提升3倍
+                    </div>
+                    <div class="result-item">
+                        <span>📚</span>深度理解知识
+                    </div>
+                    <div class="result-item">
+                        <span>🧠</span>长期记忆巩固
+                    </div>
+                </div>
+
+                <!-- 展开按钮 -->
+                <div style="text-align: center;">
+                    <button class="product-expand-btn" onclick="toggleProductExpand('learning', this)">
+                        <span>查看详细内容</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                </div>
+
+                <!-- 可折叠内容 -->
+                <div class="product-content-foldable" id="learning-content">
                 <div class="result-highlight">
                     <div class="result-item">
                         <span>🚀</span>学习效率提升3倍
@@ -1681,9 +1906,14 @@
 
                 <!-- 单独购买选项 -->
                 <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
-                    <h4 style="margin-bottom: 15px; color: #2c3e50; text-align: center;">💰 只需某个单品？</h4>
+                    <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
+                        <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
+                            💰 只需某个单品？
+                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                        </h4>
+                    </div>
                     <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
                             <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎓 费曼学习法</div>
@@ -1775,7 +2005,9 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 打造第二大脑</p>
                     </div>
                 </div>
+                </div>
             </div>
+
         </div>
 
         <!-- 写作套装支付 -->
@@ -2181,6 +2413,56 @@
     </div>
 
     <script>
+        // 切换套装展开/收起
+        function toggleProductExpand(productId, btn) {
+            const content = document.getElementById(productId + '-content');
+            if (content) {
+                const isExpanded = content.classList.contains('show');
+                content.classList.toggle('show');
+                btn.classList.toggle('expanded');
+
+                const btnText = btn.querySelector('span:first-child');
+                if (btnText) {
+                    btnText.textContent = isExpanded ? '查看详细内容' : '收起详细内容';
+                }
+            }
+        }
+
+        // 强制展开套装（用于导航点击）
+        function expandProduct(productId) {
+            const content = document.getElementById(productId + '-content');
+            if (content && !content.classList.contains('show')) {
+                content.classList.add('show');
+                const btn = content.parentElement.querySelector('.product-expand-btn');
+                if (btn) {
+                    btn.classList.add('expanded');
+                    const btnText = btn.querySelector('span:first-child');
+                    if (btnText) {
+                        btnText.textContent = '收起详细内容';
+                    }
+                }
+            }
+        }
+
+        // 切换侧边导航
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        // 切换套装内的单品列表折叠
+        function toggleSingleProductsInBundle(bundleId) {
+            const element = document.getElementById(bundleId);
+            const arrow = document.getElementById(bundleId + '-arrow');
+            if (element) {
+                const isHidden = element.style.display === 'none';
+                element.style.display = isHidden ? 'grid' : 'none';
+                if (arrow) {
+                    arrow.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            }
+        }
+
         // 切换产品详情显示
         function toggleProductDetail(detailId) {
             const detailElement = document.getElementById(detailId);
@@ -2217,6 +2499,15 @@
                 document.querySelectorAll('.footer').forEach(payment => {
                     payment.style.display = 'block';
                 });
+
+                // 默认隐藏所有套装内的单品列表
+                document.querySelectorAll('.single-products-in-bundle').forEach(element => {
+                    element.style.display = 'none';
+                });
+                document.querySelectorAll('[id$="-single-arrow"]').forEach(arrow => {
+                    arrow.style.transform = 'rotate(0deg)';
+                });
+
                 return;
             }
 
@@ -2280,7 +2571,15 @@
         }
 
         // 页面加载时执行过滤
-        window.addEventListener('DOMContentLoaded', filterProductsByCategory);
+        window.addEventListener('DOMContentLoaded', function() {
+            filterProductsByCategory();
+
+            // 显示侧边导航按钮（当页面内容较长时）
+            const productsContainer = document.getElementById('products-container');
+            if (productsContainer && productsContainer.scrollHeight > window.innerHeight * 2) {
+                document.querySelector('.sidebar-toggle').style.display = 'block';
+            }
+        });
 
         // 产品价格配置
         const productPrices = {
