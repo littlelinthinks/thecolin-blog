@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Disallow sensitive paths if any
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
 Sitemap: https://thecolin.vip/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

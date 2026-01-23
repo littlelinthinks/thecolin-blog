@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章归档 - COLIN</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -42,6 +52,34 @@
         .header p {
             color: #666;
             font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .tag-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag-btn {
+            padding: 8px 20px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tag-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .tag-btn.active {
+            background: #667eea;
+            color: white;
         }
 
         .stats {
@@ -68,6 +106,69 @@
         .stat-card .label {
             font-size: 0.9rem;
             opacity: 0.9;
+        }
+
+        /* 搜索功能 */
+        .search-container {
+            margin: 20px 0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        /* 文章卡片 */
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+
+        .article-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .archive-section {
@@ -192,6 +293,20 @@
         <div class="header">
             <h1>📚 文章归档</h1>
             <p>按时间和分类浏览所有文章</p>
+
+            <!-- 搜索框 -->
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchInput" placeholder="🔍 搜索文章标题或内容..." onkeyup="searchArticles()">
+            </div>
+
+            <!-- 标签筛选 -->
+            <div class="tag-filter">
+                <button class="tag-btn active" onclick="filterByTag('all', this)">全部</button>
+                <button class="tag-btn" onclick="filterByTag('写作', this)">写作</button>
+                <button class="tag-btn" onclick="filterByTag('思维', this)">思维</button>
+                <button class="tag-btn" onclick="filterByTag('学习', this)">学习</button>
+                <button class="tag-btn" onclick="filterByTag('目标', this)">目标</button>
+            </div>
 
             <div class="stats">
                 <div class="stat-card">
@@ -324,6 +439,50 @@
             } catch {
                 return new Date();
             }
+        }
+
+        // 搜索功能
+        function searchArticles() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const articleItems = document.querySelectorAll('.archive-item, .article-card');
+
+            articleItems.forEach(item => {
+                const title = item.querySelector('.archive-item-title, .article-title')?.textContent.toLowerCase() || '';
+                if (title.includes(searchText)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = searchText === '' ? 'flex' : 'none';
+                }
+            });
+
+            // 追踪搜索事件
+            if (searchText && typeof gtag !== 'undefined') {
+                gtag('event', 'search', {
+                    'search_term': searchText
+                });
+            }
+        }
+
+        // 标签筛选
+        function filterByTag(tag, btn) {
+            // 更新按钮状态
+            document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const articleItems = document.querySelectorAll('.archive-item, .article-card');
+
+            articleItems.forEach(item => {
+                if (tag === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    const category = item.querySelector('.archive-item-category')?.textContent || '';
+                    if (category.includes(tag)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
         }
     </script>
 </body>
