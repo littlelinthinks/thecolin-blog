@@ -225,32 +225,23 @@
                 </div>
             </div>
 
-            <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="hiddenFrame">
+            <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="_blank">
                 <div class="form-group">
                     <input type="text" id="name" name="FNAME" placeholder="你的名字（可选）" />
                 </div>
                 <div class="form-group">
                     <input type="email" id="email" name="EMAIL" placeholder="你的邮箱地址" required />
                 </div>
-                <div class="checkbox-group" style="display: none;">
-                    <input type="hidden" name="subscribe" value="Subscribe" />
-                </div>
                 <button type="submit" class="submit-btn" id="submitBtn">立即订阅 →</button>
             </form>
-
-            <iframe name="hiddenFrame" style="display:none;" onload="checkSuccess()"></iframe>
 
             <a href="index.html" class="back-link">← 返回首页</a>
         </div>
     </div>
 
     <script>
-        let submitted = false;
-
         document.getElementById('subscribeForm').addEventListener('submit', function() {
             const email = document.getElementById('email').value;
-            const name = document.getElementById('name').value || '朋友';
-            submitted = true;
 
             // 追踪订阅事件
             if (typeof gtag !== 'undefined') {
@@ -260,38 +251,11 @@
                 });
             }
 
-            // 延迟显示成功消息
-            setTimeout(() => {
-                const card = document.querySelector('.subscribe-card');
-                card.innerHTML = `
-                    <div class="success-message" style="display: block;">
-                        <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
-                        <h2>订阅成功！</h2>
-                        <p>感谢你，${name}！</p>
-                        <p>一封确认邮件已发送到 <strong>${email}</strong></p>
-                        <p>请查收并点击确认链接，确保你能收到我们的内容。</p>
-                        <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.3);">
-                            <p style="font-size: 0.9rem; opacity: 0.9;">
-                                💡 接下来你会收到：
-                            </p>
-                            <ul style="text-align: left; margin: 15px 0; padding-left: 20px;">
-                                <li>今天：欢迎邮件 + 精选资源包</li>
-                                <li>明天：第一篇写作技巧文章</li>
-                                <li>每周：精选干货 + 最新资源</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <a href="index.html" class="back-link" style="color: #667eea; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 30px;">← 返回首页</a>
-                `;
-            }, 1500);
+            // 显示加载中状态
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = '正在提交...';
+            btn.disabled = true;
         });
-
-        function checkSuccess() {
-            // iframe 加载完成后检查
-            if (submitted) {
-                console.log('表单已提交');
-            }
-        }
     </script>
 </body>
 </html>
