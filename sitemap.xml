@@ -3,7 +3,7 @@
     <!-- 主页 -->
     <url>
         <loc>https://thecolin.vip/</loc>
-        <lastmod>2025-01-22</lastmod>
+        <lastmod>2026-01-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -11,7 +11,7 @@
     <!-- 产品页 -->
     <url>
         <loc>https://thecolin.vip/products.html</loc>
-        <lastmod>2025-01-22</lastmod>
+        <lastmod>2026-01-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -19,7 +19,7 @@
     <!-- 订阅页 -->
     <url>
         <loc>https://thecolin.vip/subscribe.html</loc>
-        <lastmod>2025-01-22</lastmod>
+        <lastmod>2026-01-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -27,7 +27,7 @@
     <!-- 归档页 -->
     <url>
         <loc>https://thecolin.vip/archive.html</loc>
-        <lastmod>2025-01-22</lastmod>
+        <lastmod>2026-01-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -35,7 +35,7 @@
     <!-- 文章页 (动态生成，这里提供示例) -->
     <url>
         <loc>https://thecolin.vip/article.html</loc>
-        <lastmod>2025-01-22</lastmod>
+        <lastmod>2026-01-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
