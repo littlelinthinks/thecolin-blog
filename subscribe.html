@@ -233,6 +233,15 @@
                     <input type="text" id="name" name="FNAME" placeholder="你的名字（可选）" />
                 </div>
                 <div class="form-group">
+                    <input type="email" id="email" name="EMAIL" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="请输入有效的邮箱地址" />
+                    <div id="emailError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">立即订阅 →</button>
+            </form>
+                <div class="form-group">
+                    <input type="text" id="name" name="FNAME" placeholder="你的名字（可选）" />
+                </div>
+                <div class="form-group">
                     <input type="email" id="email" name="EMAIL" placeholder="你的邮箱地址" required />
                 </div>
                 <button type="submit" class="submit-btn" id="submitBtn">立即订阅 →</button>
@@ -243,8 +252,21 @@
     </div>
 
     <script>
-        document.getElementById('subscribeForm').addEventListener('submit', function() {
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
             const email = document.getElementById('email').value;
+            const emailError = document.getElementById('emailError');
+
+            // 验证邮箱格式
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                e.preventDefault();
+                emailError.style.display = 'block';
+                document.getElementById('email').focus();
+                return;
+            }
+
+            // 清除错误信息
+            emailError.style.display = 'none';
 
             // 追踪订阅事件
             if (typeof gtag !== 'undefined') {
@@ -258,6 +280,19 @@
             const btn = document.getElementById('submitBtn');
             btn.textContent = '正在提交...';
             btn.disabled = true;
+        });
+
+        // 实时验证邮箱
+        document.getElementById('email').addEventListener('input', function() {
+            const email = this.value;
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (email && !emailPattern.test(email)) {
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
+            }
         });
     </script>
 </body>
