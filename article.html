@@ -46,7 +46,7 @@
             left: 0;
             width: 0%;
             height: 3px;
-            background: linear-gradient(90deg, #0071e3, #3b82f6);
+            background: #000000;
             z-index: 9999;
             transition: width 0.1s ease;
         }
@@ -62,13 +62,14 @@
         }
 
         .breadcrumb a {
-            color: #0071e3;
+            color: #000000;
             text-decoration: none;
             transition: color 0.2s;
+            font-weight: 500;
         }
 
         .breadcrumb a:hover {
-            color: #0055b3;
+            color: #333333;
         }
 
         .breadcrumb span {
@@ -83,7 +84,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #0071e3;
+            background: #000000;
             color: white;
             border: none;
             border-radius: 50%;
@@ -102,6 +103,9 @@
         }
 
         .back-to-top:hover {
+            background: #333333;
+            transform: translateY(-3px);
+        }
             background: #0055b3;
             transform: translateY(-2px);
         }
