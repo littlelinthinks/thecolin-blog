@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识付费产品 - 销售页面 | COLIN</title>
+    <meta name="description" content="精选写作、目标、思维、学习四大成长套装，30天完成蜕变。包含30+模板、100+爆款标题，立即开始你的成长之旅。">
+    <meta name="keywords" content="写作套装,目标套装,思维套装,学习套装,个人成长,效率工具,知识付费">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .sales-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .price-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 25px 40px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .price-banner .price {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .price-banner .original {
+            text-decoration: line-through;
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+
+        /* Product List */
+        .product-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .product-section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-item h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-item .price {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .product-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-item li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .product-item li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .highlight {
+            background: linear-gradient(135deg, #fff5e6 0%, #fff0d4 100%);
+            font-weight: bold;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin: 40px 0;
+        }
+
+        .testimonials h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: #666;
+            line-height: 1.8;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 25px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .urgency-banner strong {
+            font-size: 1.3rem;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .trust-badge-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            color: #666;
+            line-height: 2;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sales-card {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .price-banner {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回首页</a>
+
+        <div class="sales-card">
+            <div class="header">
+                <h1>🎯 个人成长资源套装</h1>
+                <p class="subtitle">30天实现成长蜕变 · 即用型工具 · 快速实现目标</p>
+
+                <div class="price-banner">
+                    <div style="margin-bottom: 10px;">
+                        <span class="original">原价 ¥265</span>
+                        <span> → </span>
+                        <span class="price">特惠价 ¥159</span>
+                    </div>
+                    <div>立省 ¥106 (40%) 🔥</div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">5分钟上手</div>
+                    <div class="feature-desc">即用型模板，无需学习</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">30+ 模板</div>
+                    <div class="feature-desc">覆盖写作、目标、思维</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">终身更新</div>
+                    <div class="feature-desc">所有更新免费获取</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">↩️</div>
+                    <div class="feature-title">7天退款</div>
+                    <div class="feature-desc">不满意全额退款</div>
+                </div>
+            </div>
+
+            <!-- Product Sections -->
+            <div class="product-section">
+                <h2>✍️ 写作能力提升 (4个产品)</h2>
+
+                <div class="product-item">
+                    <h3>写作模板大全 (30+) <span class="price">¥49</span></h3>
+                    <ul>
+                        <li>文章结构模板（可直接套用）</li>
+                        <li>标题公式模板（直接填空）</li>
+                        <li>段落写作模板（开篇/结尾/过渡）</li>
+                        <li>不同类型文章模板（观点文/教程文/故事文）</li>
+                    </ul>
+                </div>
+
+                <div class="product-item">
+                    <h3>爆款标题库 (100+) <span class="price">¥39</span></h3>
+                    <ul>
+                        <li>整理好的Excel格式</li>
+                        <li>按类型分类（悬念型/数字型/痛点型）</li>
+                        <li>直接复制使用</li>
+                        <li>附标题优化技巧</li>
+                    </ul>
+                </div>
+
+                <div class="product-item">
+                    <h3>Newsletter运营指南 <span class="price">¥59</span></h3>
+                    <ul>
+                        <li>50个Newsletter选题库</li>
+                        <li>内容框架模板</li>
+                        <li>增长策略</li>
+                        <li>变现方案</li>
+                    </ul>
+                </div>
+
+                <div class="product-item">
+                    <h3>Notion写作模板 <span class="price">¥30</span></h3>
+                    <ul>
+                        <li>预设的Notion页面结构</li>
+                        <li>一键复制到自己的Notion</li>
+                        <li>支持自定义修改</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-section">
+                <h2>🎯 目标管理 (3个产品)</h2>
+
+                <div class="product-item">
+                    <h3>Notion目标系统 <span class="price">¥79</span></h3>
+                    <ul>
+                        <li>年度目标设定页面</li>
+                        <li>季度规划页面（4个季度）</li>
+                        <li>月度追踪页面（12个月）</li>
+                        <li>周计划页面（52周）</li>
+                        <li>每日习惯打卡表</li>
+                        <li>月度复盘模板</li>
+                        <li>年度总结模板</li>
+                        <li>自动计算公式</li>
+                    </ul>
+                </div>
+
+                <div class="product-item">
+                    <h3>年度规划PDF模板 <span class="price">¥49</span></h3>
+                    <ul>
+                        <li>年度愿景页面</li>
+                        <li>季度规划（Q1-Q4）</li>
+                        <li>年度总结与展望</li>
+                        <li>习惯追踪表</li>
+                        <li>目标分解</li>
+                        <li>复盘记录</li>
+                        <li>灵感笔记</li>
+                    </ul>
+                </div>
+
+                <div class="product-item">
+                    <h3>Excel追踪表 <span class="price">¥59</span></h3>
+                    <ul>
+                        <li>概览Dashboard（自动计算）</li>
+                        <li>年度目标表（自动统计）</li>
+                        <li>月度计划表（自动汇总）</li>
+                        <li>习惯追踪表（每日打卡）</li>
+                        <li>复盘记录表</li>
+                        <li>数据统计表（可视化图表）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>购买方式</th>
+                        <th>价格</th>
+                        <th>节省</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>单独购买7个产品</td>
+                        <td>¥265</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">完整套装</td>
+                        <td class="highlight">¥159</td>
+                        <td class="highlight">¥106 (40%)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h3>⭐ 用户评价 (4.8/5.0)</h3>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "写作模板太好用了！以前写一篇文章要2小时，现在30分钟搞定。30天行动指南帮我把写作变成了习惯。"
+                    </div>
+                    <div class="testimonial-author">— 张伟 · 程序员</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "目标套装让我终于完成了拖延3年的项目。90天行动指南很系统，一步步跟着做，不知不觉就达成了目标。"
+                    </div>
+                    <div class="testimonial-author">— 王芳 · 自由职业者</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Newsletter选题库太省心了，再也不用愁写什么了。运营指南帮我建立了稳定的读者群。"
+                    </div>
+                    <div class="testimonial-author">— 李明 · 个人博客主</div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">🔒</span>
+                    <span>安全支付</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">⚡</span>
+                    <span>30分钟发货</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">↩️</span>
+                    <span>7天退款</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">🔄</span>
+                    <span>终身更新</span>
+                </div>
+            </div>
+
+            <!-- Urgency -->
+            <div class="urgency-banner">
+                <strong>🔥 限时特惠：前50名购买者专享价 ¥159</strong>
+                <div style="margin-top: 10px;">恢复原价后：¥265 | 剩余名额：50个</div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="products.html" class="cta-button" onclick="gtag('event', 'cta_click', {'event_category': 'engagement', 'event_label': 'sales_page_buy_button'});">
+                🎉 立即购买完整套装 ¥159
+            </a>
+
+            <!-- FAQ -->
+            <div class="testimonials">
+                <h3>❓ 常见问题</h3>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Q: 这些资源是MD文档吗？可以直接用吗？
+                        <span style="font-size: 1.5rem;">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        A: 不是普通的MD文档！所有产品都是即用型模板：
+                        <br>- Notion模板：一键复制到Notion即可使用
+                        <br>- PDF模板：打印出来直接填写
+                        <br>- Excel说明：复制公式到Excel即可自动计算
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Q: 购买后多久能收到？
+                        <span style="font-size: 1.5rem;">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        A: 付款后30分钟内发送到您的邮箱或微信。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Q: 支持退款吗？
+                        <span style="font-size: 1.5rem;">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        A: 支持！7天内不满意可无理由退款。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Q: 适合新手吗？
+                        <span style="font-size: 1.5rem;">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        A: 非常适合！所有模板都是填空式使用，无需任何基础。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <h3>📞 联系方式</h3>
+                <div class="contact-info">
+                    <div><strong>微信：</strong> OVERACHINGCC</div>
+                    <div><strong>邮箱：</strong> littlelinthinks@gmail.com</div>
+                    <div><strong>工作时间：</strong> 周一至周五 9:00-18:00</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; color: #999; font-size: 0.85rem;">
+                *本产品为虚拟商品，付款后不支持退货，但提供7天不满意退款保障*
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ 切换功能
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        // 初始化隐藏所有答案
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
