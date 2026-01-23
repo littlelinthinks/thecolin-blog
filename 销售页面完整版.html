@@ -403,12 +403,18 @@
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
+            opacity: 1;
+            visibility: visible;
             transition: all 0.3s;
             font-size: 24px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
+            z-index: 9999;
+        }
+
+        .back-to-top.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
         }
 
         .back-to-top.visible {
@@ -691,11 +697,14 @@
         backToTopBtn.setAttribute('title', '返回顶部');
         document.body.appendChild(backToTopBtn);
 
+        // 初始隐藏
+        backToTopBtn.classList.add('hidden');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
+                backToTopBtn.classList.remove('hidden');
             } else {
-                backToTopBtn.classList.remove('visible');
+                backToTopBtn.classList.add('hidden');
             }
         });
 
