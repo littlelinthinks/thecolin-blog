@@ -290,7 +290,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- 简化导航栏 -->
+    <nav style="background: #1a1a2e; padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <a href="index.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
+                <a href="archive.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
+                <a href="products.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
+                <a href="subscribe.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 80px;">
         <a href="index.html" class="back-link">← 返回首页</a>
 
         <div class="header">
