@@ -26,11 +26,89 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --accent-hover: #333333;
+            --border: #e5e5e5;
+            --button-bg-dark: #000000;
+            --button-text-dark: #ffffff;
+        }
+
+        /* 深色模式 */
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #e0e0e0;
+            --border: #2a2a2a;
+            --button-bg-dark: #ffffff;
+            --button-text-dark: #000000;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            background: #ffffff;
-            color: #000000;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        /* 主题切换按钮 */
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
         }
 
         .container {
@@ -331,6 +409,20 @@
                 margin-top: 8px;
             }
         }
+
+        /* 导航栏深色模式适配 */
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        [data-theme="dark"] nav a {
+            color: rgba(255,255,255,0.8);
+        }
+
+        [data-theme="dark"] nav a:hover {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -343,6 +435,9 @@
                 <a href="archive.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
                 <a href="products.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
                 <a href="subscribe.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <button class="theme-switcher" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -569,6 +664,32 @@
                 behavior: 'smooth'
             });
         });
+
+        // ===== 主题切换功能 =====
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        const themeIcon = document.querySelector('.theme-icon');
+        if (themeIcon) {
+            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+
+            localStorage.setItem('preferred-theme', currentTheme);
+        }
+
+        const themeSwitcher = document.querySelector('.theme-switcher');
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', toggleTheme);
+        }
     </script>
 </body>
 </html>
