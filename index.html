@@ -1088,12 +1088,12 @@
         /* 邮箱 - 扁平化 */
         .social-link.platform-link.email {
             stroke: #666;
-            border-color: #666;
+            border-color: var(--text-secondary);
         }
 
         .social-link.platform-link.email:hover {
             stroke: #666;
-            border-color: #666;
+            border-color: var(--text-secondary);
         }
 
         /* RSS订阅按钮 */
@@ -1876,15 +1876,15 @@
         .wechat-qr-image {
             width: 200px;
             height: 200px;
-            background: white;
+            background: var(--bg-card);
             margin: 0 auto 1.5rem;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.9rem;
-            color: #666;
-            border: 2px dashed #ddd;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
         }
 
         .wechat-qr-hint {
@@ -1896,7 +1896,7 @@
         }
 
         .wechat-qr-hint strong {
-            color: #07c160;
+            color: var(--color-success);
         }
 
         /* 打赏功能 */
@@ -2123,7 +2123,7 @@
         }
 
         .qr-code-container {
-            background: white;
+            background: var(--bg-card);
             padding: 1.5rem;
             border-radius: 12px;
             text-align: center;
@@ -2138,7 +2138,7 @@
             width: 200px;
             height: 200px;
             margin: 0 auto 1rem;
-            background: #f0f0f0;
+            background: var(--bg-secondary);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -2147,7 +2147,7 @@
         }
 
         .qr-code-hint {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
@@ -2285,15 +2285,15 @@
         .wechat-qr-image {
             width: 200px;
             height: 200px;
-            background: white;
+            background: var(--bg-card);
             margin: 0 auto 1.5rem;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.9rem;
-            color: #666;
-            border: 2px dashed #ddd;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
         }
 
         .wechat-qr-hint {
@@ -2305,7 +2305,7 @@
         }
 
         .wechat-qr-hint strong {
-            color: #07c160;
+            color: var(--color-success);
         }
 
         /* 币种切换 */
@@ -2551,7 +2551,7 @@
                     <span id="qrCodeIcon">📱</span>
                 </div>
                 <p class="qr-code-hint" data-zh="请使用相应APP扫描二维码支付" data-en="Scan QR code with the app to pay">请使用相应APP扫描二维码支付</p>
-                <p style="margin-top: 0.5rem; color: #999; font-size: 0.85rem;">
+                <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
                     <span data-zh="金额：" data-en="Amount: ">金额：</span>
                     <strong id="selectedAmount">¥35</strong>
                 </p>
@@ -2560,7 +2560,7 @@
             <div class="coffee-thank-you">
                 <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🙏</p>
                 <p style="font-weight: 600; margin-bottom: 0.3rem;" data-zh="非常感谢你的支持！" data-en="Thank you so much for your support!">非常感谢你的支持！</p>
-                <p style="color: #666; font-size: 0.9rem;" data-zh="你的鼓励是我持续创作的动力" data-en="Your encouragement keeps me creating">你的鼓励是我持续创作的动力</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;" data-zh="你的鼓励是我持续创作的动力" data-en="Your encouragement keeps me creating">你的鼓励是我持续创作的动力</p>
             </div>
         </div>
     </div>
@@ -2688,7 +2688,7 @@
     <section class="content-section" id="articles">
         <!-- 博客标题区域 -->
         <div class="blog-header">
-            <h1 class="blog-title" data-zh="BLOG" data-en="BLOG">博客</h1>
+            <h1 class="blog-title" data-zh="博客" data-en="BLOG">博客</h1>
             <p class="blog-subtitle" data-zh="探索你的好奇心" data-en="Explore Your Curiosity">探索你的好奇心</p>
             <p class="blog-quote" data-zh="深入思考是一种稀有的能力，持续成长是一生的旅程。" data-en="Deep thinking is a scarce ability, continuous growth is a lifelong journey.">深入思考是一种稀有的能力，持续成长是一生的旅程。</p>
         </div>
@@ -3068,7 +3068,7 @@
     <script>
         // ===== 全局变量 =====
         let currentLang = 'zh';
-        let currentTheme = 'dark';
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
         let currentArticleId = null;
 
         // ===== 完整的文章数据库 =====
@@ -3757,14 +3757,9 @@
         // 初始化语言
         function initLanguage() {
             const savedLang = localStorage.getItem('preferred-lang') || 'zh';
-            const savedTheme = localStorage.getItem('preferred-theme') || 'dark';
 
             if (savedLang !== 'zh') {
                 switchLanguage(savedLang);
-            }
-
-            if (savedTheme !== 'dark') {
-                toggleTheme();
             }
         }
         
@@ -4637,6 +4632,14 @@
 
         // ===== 页面初始化 =====
         window.addEventListener('DOMContentLoaded', () => {
+            // 初始化主题
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+
             // 初始化语言
             initLanguage();
 

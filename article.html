@@ -73,7 +73,7 @@
             left: 0;
             width: 0%;
             height: 3px;
-            background: #000000;
+            background: var(--button-bg-dark);
             z-index: 9999;
             transition: width 0.1s ease;
         }
@@ -99,14 +99,72 @@
             transform: rotate(180deg);
         }
 
+        /* 导航栏样式 */
+        .nav-header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] .nav-header {
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
+        [data-theme="dark"] .nav-logo {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-link:hover {
+            color: var(--text-secondary);
+        }
+
         /* 面包屑导航 */
         .breadcrumb {
-            background: white;
+            background: var(--bg-card);
             padding: 15px 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .breadcrumb a {
@@ -117,12 +175,12 @@
         }
 
         .breadcrumb a:hover {
-            color: #333333;
+            color: var(--accent-hover);
         }
 
         .breadcrumb span {
             margin: 0 8px;
-            color: #999;
+            color: var(--text-secondary);
         }
 
         /* 返回顶部按钮 */
@@ -132,8 +190,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -151,7 +209,7 @@
         }
 
         .back-to-top:hover {
-            background: #333333;
+            background: var(--accent-hover);
             transform: translateY(-3px);
         }
             background: #0055b3;
@@ -168,27 +226,27 @@
 
         .share-btn {
             padding: 8px 16px;
-            border: 1px solid #ddd;
-            background: white;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
             border-radius: 6px;
             cursor: pointer;
             font-size: 14px;
             transition: all 0.2s;
             text-decoration: none;
-            color: #666;
+            color: var(--text-secondary);
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
         .share-btn:hover {
-            background: #f0f0f0;
-            border-color: #ccc;
+            background: var(--bg-secondary);
+            border-color: var(--border);
         }
 
         /* 相关文章 */
         .related-articles {
-            background: white;
+            background: var(--bg-card);
             padding: 30px;
             border-radius: 12px;
             margin-top: 20px;
@@ -198,7 +256,7 @@
         .related-articles h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: #1d1d1f;
+            color: var(--text-primary);
         }
 
         .related-list {
@@ -217,19 +275,19 @@
         }
 
         .related-list a {
-            color: #0071e3;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .related-list a:hover {
-            color: #0055b3;
+            color: var(--accent-hover);
             text-decoration: underline;
         }
 
         .article-header {
-            background: white;
+            background: var(--bg-card);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
@@ -239,7 +297,7 @@
         .article-meta {
             display: flex;
             gap: 20px;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
@@ -252,7 +310,7 @@
         }
 
         .article-content {
-            background: white;
+            background: var(--bg-card);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
@@ -295,15 +353,15 @@
             border-left: 4px solid #0071e3;
             padding-left: 20px;
             margin: 2rem 0;
-            color: #666;
+            color: var(--text-secondary);
             font-style: italic;
-            background: #f9f9f9;
+            background: var(--bg-secondary);
             padding: 15px 20px;
             border-radius: 0 8px 8px 0;
         }
 
         .article-content code {
-            background: #f5f5f7;
+            background: var(--bg-secondary);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'SF Mono', Monaco, monospace;
@@ -346,7 +404,7 @@
         }
 
         .article-content table tr:hover {
-            background: #f9f9f9;
+            background: var(--bg-secondary);
         }
 
         .article-content hr {
@@ -366,7 +424,7 @@
             display: inline-block;
             padding: 12px 24px;
             background: #0071e3;
-            color: white;
+            color: var(--button-text-dark);
             text-decoration: none;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -382,12 +440,12 @@
         .loading {
             text-align: center;
             padding: 40px;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         /* 评论区样式 */
         .comments-section {
-            background: white;
+            background: var(--bg-card);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
@@ -418,7 +476,7 @@
             }
 
             body {
-                background: white;
+                background: var(--bg-card);
             }
 
             .container {
@@ -521,14 +579,14 @@
 </head>
 <body>
     <!-- 简化导航栏 -->
-    <nav style="background: rgba(255, 255, 255, 0.98); padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid #e5e5e5;">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" style="color: #000000; text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+    <nav class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">COLIN</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">文章归档</a>
+                <a href="products.html" class="nav-link">精选资源</a>
+                <a href="subscribe.html" class="nav-link">订阅</a>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -924,11 +982,6 @@
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
 
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        }
-
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', currentTheme);
@@ -940,6 +993,16 @@
 
             localStorage.setItem('preferred-theme', currentTheme);
         }
+
+        // 页面加载完成后初始化主题
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
         if (themeSwitcher) {

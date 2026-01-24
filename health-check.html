@@ -100,6 +100,64 @@
             transform: rotate(180deg);
         }
 
+        /* 导航栏样式 */
+        .nav-header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] .nav-header {
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
+        [data-theme="dark"] .nav-logo {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-link:hover {
+            color: var(--text-secondary);
+        }
+
         .check-item {
             display: flex;
             justify-content: space-between;
@@ -141,22 +199,22 @@
 
         .check-status.success {
             background: #27ae60;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .check-status.error {
             background: #e74c3c;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .check-status.warning {
             background: #f39c12;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .check-status.pending {
             background: #999;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .progress-bar {
@@ -170,7 +228,7 @@
 
         .progress-fill {
             height: 100%;
-            background: #000000;
+            background: var(--button-bg-dark);
             transition: width 0.3s ease;
         }
 
@@ -178,9 +236,9 @@
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            background: #000000;
+            background: var(--button-bg-dark);
             border-radius: 12px;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .summary h2 {
@@ -196,8 +254,8 @@
             display: block;
             width: 100%;
             padding: 15px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 10px;
             font-size: 1.1rem;
@@ -209,7 +267,7 @@
 
         .refresh-btn:hover {
             transform: translateY(-2px);
-            background: #333333;
+            background: var(--accent-hover);
         }
 
         /* 导航栏深色模式适配 */
@@ -245,8 +303,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -259,7 +317,7 @@
         }
 
         .back-to-top:hover {
-            background: #333333;
+            background: var(--accent-hover);
             transform: translateY(-3px);
         }
 
@@ -282,14 +340,14 @@
 </head>
 <body>
     <!-- 简化导航栏 -->
-    <nav style="background: rgba(255, 255, 255, 0.98); padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid #e5e5e5;">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" style="color: #000000; text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+    <nav class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">COLIN</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">文章归档</a>
+                <a href="products.html" class="nav-link">精选资源</a>
+                <a href="subscribe.html" class="nav-link">订阅</a>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -537,12 +595,6 @@
 
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -555,6 +607,16 @@
 
             localStorage.setItem('preferred-theme', currentTheme);
         }
+
+        // 页面加载完成后初始化主题
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
         if (themeSwitcher) {

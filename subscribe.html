@@ -111,7 +111,7 @@
         }
 
         .subtitle {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
@@ -135,7 +135,7 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 12px;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .benefit-item:last-child {
@@ -168,14 +168,14 @@
         }
 
         .form-group input::placeholder {
-            color: #999;
+            color: var(--text-secondary);
         }
 
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 12px;
             font-size: 1.1rem;
@@ -186,7 +186,7 @@
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            background: #333333;
+            background: var(--accent-hover);
         }
 
         .back-link {
@@ -199,13 +199,13 @@
         }
 
         .back-link:hover {
-            color: #333333;
+            color: var(--accent-hover);
         }
 
         .success-message {
             display: none;
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            color: white;
+            color: var(--button-text-dark);
             padding: 30px;
             border-radius: 15px;
         }
@@ -227,7 +227,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #666;
+            color: var(--text-secondary);
             cursor: pointer;
         }
 
@@ -244,8 +244,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -258,7 +258,7 @@
         }
 
         .back-to-top:hover {
-            background: #333333;
+            background: var(--accent-hover);
             transform: translateY(-3px);
         }
 
@@ -470,12 +470,6 @@
 
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -488,6 +482,16 @@
 
             localStorage.setItem('preferred-theme', currentTheme);
         }
+
+        // 页面加载完成后初始化主题
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
         if (themeSwitcher) {

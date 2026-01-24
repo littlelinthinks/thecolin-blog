@@ -59,6 +59,27 @@
             --border: #e5e5e5;
             --button-bg-dark: #000000;
             --button-text-dark: #ffffff;
+            --color-blue-light: #667eea;
+            --color-blue-darker: #0055b3;
+            --color-success: #27ae60;
+            --color-success-light: #2ecc71;
+            --color-warning: #f39c12;
+            --color-error: #e74c3c;
+            --color-wechat: #07c160;
+            --color-alipay: #1677ff;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e0e0e0;
+            --color-gray-500: #999;
+            --color-gray-800: #2c3e50;
+            --color-gray-900: #1d1d1f;
+            --color-gray-950: #1a1a1a;
+            --color-gold: #ffd700;
+            --color-gold-dark: #d97706;
+            --color-red-price: #ff6b6b;
+            --color-green: #22c55e;
+            --color-orange: #ff9f0a;
+            --skeleton-start: #f5f5f5;
+            --skeleton-end: #e5e5e5;
         }
 
         /* 深色模式 */
@@ -73,6 +94,13 @@
             --border: #2a2a2a;
             --button-bg-dark: #ffffff;
             --button-text-dark: #000000;
+            --color-gray-100: #1a1a1a;
+            --color-gray-200: #2a2a2a;
+            --color-gray-800: #e0e0e0;
+            --color-gray-900: #f5f5f5;
+            --color-gray-950: #e0e0e0;
+            --skeleton-start: #2a2a2a;
+            --skeleton-end: #1a1a1a;
         }
 
         body {
@@ -111,7 +139,7 @@
         }
 
         .header {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             padding: 40px;
             text-align: center;
@@ -121,12 +149,12 @@
 
         .header h1 {
             font-size: 2.5rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         .header .subtitle {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
@@ -138,7 +166,7 @@
             flex-wrap: wrap;
             margin: 20px 0;
             padding: 20px;
-            background: #f5f5f5;
+            background: var(--bg-secondary);
             border-radius: 12px;
         }
 
@@ -146,13 +174,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #2c3e50;
+            color: var(--color-gray-800);
             font-size: 0.95rem;
         }
 
         .result-item span {
             font-weight: bold;
-            color: #000000;
+            color: var(--text-primary);
         }
 
         /* Loading 动画 */
@@ -162,7 +190,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #000000;
+            background: var(--text-primary);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -179,7 +207,7 @@
             width: 60px;
             height: 60px;
             border: 4px solid rgba(255,255,255,0.3);
-            border-top-color: white;
+            border-top-color: var(--button-text-dark);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -190,7 +218,7 @@
 
         /* 骨架屏 */
         .skeleton {
-            background: linear-gradient(90deg, #f5f5f5 25%, #e5e5e5 50%, #f5f5f5 75%);
+            background: linear-gradient(90deg, var(--skeleton-start) 25%, var(--skeleton-end) 50%, var(--skeleton-start) 75%);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
             border-radius: 8px;
@@ -221,6 +249,10 @@
         .search-box:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .search-box:focus {
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
         }
 
         .price-banner {
@@ -360,13 +392,13 @@
         }
 
         .btn-alipay {
-            background: #1677ff;
-            color: white;
+            background: var(--color-alipay);
+            color: var(--button-text-dark);
         }
 
         .btn-wechat {
-            background: #07c160;
-            color: white;
+            background: var(--color-wechat);
+            color: var(--button-text-dark);
         }
 
         .features-grid {
@@ -728,13 +760,13 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #27ae60;
+            color: var(--color-success);
             font-weight: bold;
         }
 
         .comparison-card.before .comparison-list li:before {
             content: "✗";
-            color: #e74c3c;
+            color: var(--color-error);
         }
 
         .comparison-arrow {
@@ -1133,7 +1165,7 @@
             </div>
 
             <div style="margin-top: 20px; display: none;" id="view-all-btn">
-                <a href="products.html" class="btn" style="display: inline-block; padding: 12px 30px; font-size: 1rem; background: #f0f0f0; color: #666;">
+                <a href="products.html" class="btn" style="display: inline-block; padding: 12px 30px; font-size: 1rem; background: var(--color-gray-200); color: var(--text-secondary);">
                     ← 查看所有套装
                 </a>
             </div>
@@ -1141,30 +1173,30 @@
 
         <!-- 选择引导 -->
         <div style="text-align: center; margin-bottom: 40px; padding: 30px; background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); border-radius: 15px; border: 1px solid rgba(102,126,234,0.1);">
-            <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.3rem;">🤔 不知道该选择哪个套装？</h3>
-            <p style="color: #666; max-width: 600px; margin: 0 auto 15px; line-height: 1.6;">
+            <h3 style="color: var(--color-gray-800); margin-bottom: 10px; font-size: 1.3rem;">🤔 不知道该选择哪个套装？</h3>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 15px; line-height: 1.6;">
                 根据您的当前需求选择最合适的方案：想快速开始写作？选择写作套装；需要达成长期目标？选择目标套装。
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('writing')">
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('writing')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">✍️</div>
-                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想开始写作</div>
-                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 写作套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想开始写作</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 写作套装</div>
                 </div>
-                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('goals')">
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('goals')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
-                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我需要达成目标</div>
-                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 目标套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我需要达成目标</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 目标套装</div>
                 </div>
-                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('thinking')">
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('thinking')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🧠</div>
-                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想提升思维</div>
-                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 思维套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想提升思维</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 思维套装</div>
                 </div>
-                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('learning')">
+                <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('learning')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
-                    <div style="font-weight: 600; color: #2c3e50; margin-bottom: 5px;">我想提升学习</div>
-                    <div style="font-size: 0.85rem; color: #667eea; color: #667eea;">→ 学习套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想提升学习</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 学习套装</div>
                 </div>
             </div>
         </div>
@@ -1368,17 +1400,17 @@
                 </div>
 
                 <!-- 支付保障说明 -->
-                <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; font-size: 0.9rem;">
+                <div style="margin-top: 15px; padding: 15px; background: var(--color-gray-100); border-radius: 10px; font-size: 0.9rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                        <span style="color: #27ae60;">🔒</span>
+                        <span style="color: var(--color-success);">🔒</span>
                         <span>安全支付 - 小鹅通担保交易</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                        <span style="color: #27ae60;">⚡</span>
+                        <span style="color: var(--color-success);">⚡</span>
                         <span>自动发货 - 30分钟内发送资源</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="color: #27ae60;">↩️</span>
+                        <span style="color: var(--color-success);">↩️</span>
                         <span>7天退款 - 不满意全额退款</span>
                     </div>
                 </div>
@@ -1389,12 +1421,12 @@
                 </div>
 
                 <!-- 套装价值对比 -->
-                <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #fff8f0 0%, #fff 100%); border-radius: 12px; border: 2px solid #ffd700;">
-                    <h4 style="text-align: center; color: #d97706; margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
+                <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #fff8f0 0%, #fff 100%); border-radius: 12px; border: 2px solid var(--color-gold);">
+                    <h4 style="text-align: center; color: var(--color-gold-dark); margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
                         <div>
-                            <p style="color: #666; margin-bottom: 10px;"><strong>套装包含（¥99）：</strong></p>
-                            <ul style="color: #666; padding-left: 20px; font-size: 0.95rem;">
+                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>套装包含（¥99）：</strong></p>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
                                 <li>📝 写作模板大全 (¥49)</li>
                                 <li>🎯 爆款标题库 (¥39)</li>
                                 <li>📬 Newsletter指南 (¥39)</li>
@@ -1403,36 +1435,36 @@
                                 <li>📧 7天邮件陪伴</li>
                             </ul>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <p style="color: #666; margin-bottom: 5px;">套装价值</p>
-                            <p style="font-size: 2rem; font-weight: bold; color: #d97706; margin-bottom: 5px;">¥156</p>
-                            <p style="font-size: 1.5rem; font-weight: bold; color: #22c55e;">¥99</p>
-                            <p style="color: #22c55e; font-weight: 600; margin-top: 5px;">省 ¥57 (36%)</p>
+                        <div style="text-align: center; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <p style="color: var(--text-secondary); margin-bottom: 5px;">套装价值</p>
+                            <p style="font-size: 2rem; font-weight: bold; color: var(--color-gold-dark); margin-bottom: 5px;">¥156</p>
+                            <p style="font-size: 1.5rem; font-weight: bold; color: var(--color-green);">¥99</p>
+                            <p style="color: var(--color-green); font-weight: 600; margin-top: 5px;">省 ¥57 (36%)</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 单独购买选项 -->
-                <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                <div style="margin-top: 25px; padding: 20px; background: var(--color-gray-100); border-radius: 12px;">
                     <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
-                        <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
+                        <h4 style="margin-bottom: 15px; color: var(--color-gray-800); display: inline-flex; align-items: center; gap: 8px;">
                             💰 只需某个单品？
-                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                            <span style="font-size: 0.8rem; color: var(--color-gray-500);" id="learning-single-arrow">▼</span>
                         </h4>
                     </div>
-                    <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
                     <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
-                            <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📝 写作模板大全</div>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                            <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 8px;">📝 写作模板大全</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
                                 <button onclick="toggleProductDetail('template-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 爆款标题库</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -1440,8 +1472,8 @@
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📬 Newsletter指南</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -1449,8 +1481,8 @@
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎨 Notion模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
                             <div style="display: flex; gap: 8px;">
@@ -1462,10 +1494,10 @@
                     </div>
 
                     <!-- 产品详情展开区域 -->
-                    <div id="template-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="template-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📝 写作模板大全</h5>
-                        <p style="color: #666; margin-bottom: 10px;">包含30+即用型写作模板，涵盖观点文、故事文、干货文等多种类型。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">包含30+即用型写作模板，涵盖观点文、故事文、干货文等多种类型。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>观点文模板：快速构建论证逻辑</li>
                             <li>故事文模板：情节结构清晰明了</li>
                             <li>干货文模板：信息呈现条理分明</li>
@@ -1475,10 +1507,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 适合新手，照着填就能写</p>
                     </div>
 
-                    <div id="title-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="title-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 爆款标题库</h5>
-                        <p style="color: #666; margin-bottom: 10px;">100+经过验证的高点击率标题模板，涵盖8大热门领域。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">100+经过验证的高点击率标题模板，涵盖8大热门领域。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>情绪触发类：激发读者共鸣</li>
                             <li>利益驱动类：直接展示价值</li>
                             <li>数字型标题：提升可信度</li>
@@ -1488,10 +1520,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 平均点击率提升300%</p>
                     </div>
 
-                    <div id="newsletter-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="newsletter-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📬 Newsletter运营指南</h5>
-                        <p style="color: #666; margin-bottom: 10px;">从0到1搭建Newsletter系统，建立忠实读者群体。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">从0到1搭建Newsletter系统，建立忠实读者群体。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>平台选择：Substack/Newsletter/自建站对比</li>
                             <li>内容规划：选题池与发布节奏</li>
                             <li>写作技巧：邮件特有的表达方式</li>
@@ -1501,10 +1533,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 30天从0到1000订阅者</p>
                     </div>
 
-                    <div id="notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🎨 Notion写作模板</h5>
-                        <p style="color: #666; margin-bottom: 10px;">Notion专用的写作管理系统，高效管理写作流程。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">Notion专用的写作管理系统，高效管理写作流程。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>选题库：灵感随时记录</li>
                             <li>进度追踪：可视化写作进度</li>
                             <li>草稿管理：多版本对比</li>
@@ -1711,8 +1743,8 @@
                     <h4 style="text-align: center; color: #d97706; margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
                         <div>
-                            <p style="color: #666; margin-bottom: 10px;"><strong>套装包含（¥79）：</strong></p>
-                            <ul style="color: #666; padding-left: 20px; font-size: 0.95rem;">
+                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>套装包含（¥79）：</strong></p>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
                                 <li>🎯 Notion目标系统 (¥49)</li>
                                 <li>📊 年度规划模板 (¥29)</li>
                                 <li>📈 Excel追踪表 (¥19)</li>
@@ -1720,8 +1752,8 @@
                                 <li>📧 7天邮件陪伴</li>
                             </ul>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <p style="color: #666; margin-bottom: 5px;">套装价值</p>
+                        <div style="text-align: center; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <p style="color: var(--text-secondary); margin-bottom: 5px;">套装价值</p>
                             <p style="font-size: 2rem; font-weight: bold; color: #d97706; margin-bottom: 5px;">¥97</p>
                             <p style="font-size: 1.5rem; font-weight: bold; color: #22c55e;">¥79</p>
                             <p style="color: #22c55e; font-weight: 600; margin-top: 5px;">省 ¥18 (19%)</p>
@@ -1734,13 +1766,13 @@
                     <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
                         <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
                             💰 只需某个单品？
-                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);" id="learning-single-arrow">▼</span>
                         </h4>
                     </div>
-                    <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
                     <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 Notion目标系统</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
@@ -1748,8 +1780,8 @@
                                 <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📊 年度规划模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
                             <div style="display: flex; gap: 8px;">
@@ -1757,8 +1789,8 @@
                                 <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📈 Excel追踪表</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥19</div>
                             <div style="display: flex; gap: 8px;">
@@ -1769,10 +1801,10 @@
                     </div>
 
                     <!-- 目标单品详情 -->
-                    <div id="goals-notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="goals-notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 Notion目标系统</h5>
-                        <p style="color: #666; margin-bottom: 10px;">基于OKR和SMART原则设计的Notion目标管理系统。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">基于OKR和SMART原则设计的Notion目标管理系统。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>目标设定：O-KR结构清晰</li>
                             <li>进度追踪：可视化看板</li>
                             <li>习惯养成：打卡系统</li>
@@ -1782,10 +1814,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 一键复制，即刻使用</p>
                     </div>
 
-                    <div id="goals-planning-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="goals-planning-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📊 年度规划模板</h5>
-                        <p style="color: #666; margin-bottom: 10px;">完整的一年规划PDF模板，涵盖12个月和4个季度。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">完整的一年规划PDF模板，涵盖12个月和4个季度。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>年度目标：核心方向与愿景</li>
                             <li>季度规划：每季度重点</li>
                             <li>月度计划：具体行动清单</li>
@@ -1795,10 +1827,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 打印即可使用</p>
                     </div>
 
-                    <div id="goals-excel-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="goals-excel-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📈 Excel追踪表</h5>
-                        <p style="color: #666; margin-bottom: 10px;">Excel格式的进度追踪表格，支持自动计算和图表展示。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">Excel格式的进度追踪表格，支持自动计算和图表展示。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>目标设定：SMART原则</li>
                             <li>每日打卡：一键记录</li>
                             <li>进度计算：自动统计</li>
@@ -1987,8 +2019,8 @@
                     <h4 style="text-align: center; color: #d97706; margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
                         <div>
-                            <p style="color: #666; margin-bottom: 10px;"><strong>套装包含（¥89）：</strong></p>
-                            <ul style="color: #666; padding-left: 20px; font-size: 0.95rem;">
+                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>套装包含（¥89）：</strong></p>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
                                 <li>🧠 第一性原理 (¥39)</li>
                                 <li>🔄 逆向思维 (¥39)</li>
                                 <li>🌐 系统思考 (¥49)</li>
@@ -1997,8 +2029,8 @@
                                 <li>📧 7天邮件陪伴</li>
                             </ul>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <p style="color: #666; margin-bottom: 5px;">套装价值</p>
+                        <div style="text-align: center; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <p style="color: var(--text-secondary); margin-bottom: 5px;">套装价值</p>
                             <p style="font-size: 2rem; font-weight: bold; color: #d97706; margin-bottom: 5px;">¥166</p>
                             <p style="font-size: 1.5rem; font-weight: bold; color: #22c55e;">¥89</p>
                             <p style="color: #22c55e; font-weight: 600; margin-top: 5px;">省 ¥77 (46%)</p>
@@ -2011,13 +2043,13 @@
                     <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
                         <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
                             💰 只需某个单品？
-                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);" id="learning-single-arrow">▼</span>
                         </h4>
                     </div>
-                    <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
                     <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🧠 第一性原理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -2025,8 +2057,8 @@
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🔄 逆向思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -2034,8 +2066,8 @@
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🌐 系统思考</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
@@ -2043,8 +2075,8 @@
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">⚖️ 概率思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -2055,10 +2087,10 @@
                     </div>
 
                     <!-- 思维单品详情 -->
-                    <div id="thinking-first-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="thinking-first-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🧠 第一性原理</h5>
-                        <p style="color: #666; margin-bottom: 10px;">马斯克推崇的思考方式，从最基本的事实出发，推导解决方案。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">马斯克推崇的思考方式，从最基本的事实出发，推导解决方案。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>定义问题：准确识别核心问题</li>
                             <li>拆解假设：拆解所有假设</li>
                             <li>回归本质：找到最基本事实</li>
@@ -2068,10 +2100,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 埃隆·马斯克都在用的思维方式</p>
                     </div>
 
-                    <div id="thinking-inverse-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="thinking-inverse-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🔄 逆向思维</h5>
-                        <p style="color: #666; margin-bottom: 10px;">从反面思考问题，找到避免失败的路径。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">从反面思考问题，找到避免失败的路径。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>逆向提问：从"如何成功"到"如何失败"</li>
                             <li>避免失败：列出所有可能失败的原因</li>
                             <li>预防措施：针对每个原因制定对策</li>
@@ -2081,10 +2113,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 查理·芒格的智慧结晶</p>
                     </div>
 
-                    <div id="thinking-system-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="thinking-system-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🌐 系统思考</h5>
-                        <p style="color: #666; margin-bottom: 10px;">看到事物之间的联系，理解复杂系统的运作方式。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">看到事物之间的联系，理解复杂系统的运作方式。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>系统要素：识别关键要素</li>
                             <li>反馈回路：正负反馈机制</li>
                             <li>时间延迟：理解滞后效应</li>
@@ -2094,10 +2126,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 看见看不见的连接</p>
                     </div>
 
-                    <div id="thinking-probability-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="thinking-probability-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">⚖️ 概率思维</h5>
-                        <p style="color: #666; margin-bottom: 10px;">用概率思维做决策，提升长期收益。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">用概率思维做决策，提升长期收益。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>基础概念：贝叶斯定理入门</li>
                             <li>决策矩阵：量化选择标准</li>
                             <li>期望值：计算预期收益</li>
@@ -2298,8 +2330,8 @@
                     <h4 style="text-align: center; color: #d97706; margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
                         <div>
-                            <p style="color: #666; margin-bottom: 10px;"><strong>套装包含（¥99）：</strong></p>
-                            <ul style="color: #666; padding-left: 20px; font-size: 0.95rem;">
+                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>套装包含（¥99）：</strong></p>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
                                 <li>🎓 费曼学习法 (¥39)</li>
                                 <li>📅 间隔重复 (¥39)</li>
                                 <li>📖 深度阅读 (¥49)</li>
@@ -2308,8 +2340,8 @@
                                 <li>📧 7天邮件陪伴</li>
                             </ul>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <p style="color: #666; margin-bottom: 5px;">套装价值</p>
+                        <div style="text-align: center; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <p style="color: var(--text-secondary); margin-bottom: 5px;">套装价值</p>
                             <p style="font-size: 2rem; font-weight: bold; color: #d97706; margin-bottom: 5px;">¥176</p>
                             <p style="font-size: 1.5rem; font-weight: bold; color: #22c55e;">¥99</p>
                             <p style="color: #22c55e; font-weight: 600; margin-top: 5px;">省 ¥77 (44%)</p>
@@ -2322,13 +2354,13 @@
                     <div style="cursor: pointer; text-align: center;" onclick="toggleSingleProductsInBundle('learning-single')">
                         <h4 style="margin-bottom: 15px; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px;">
                             💰 只需某个单品？
-                            <span style="font-size: 0.8rem; color: #999;" id="learning-single-arrow">▼</span>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);" id="learning-single-arrow">▼</span>
                         </h4>
                     </div>
-                    <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">套装已包含以下单品，如只需某个可单独购买</p>
                     <div id="learning-single" class="single-products-in-bundle" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎓 费曼学习法</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -2336,8 +2368,8 @@
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📅 间隔重复</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
@@ -2345,8 +2377,8 @@
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">📖 深度阅读</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
@@ -2354,8 +2386,8 @@
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
-                        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; position: relative;">
-                            <span style="position: absolute; top: 8px; right: 8px; background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
+                        <div style="background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 8px; background: var(--bg-card)3cd; color: #856404; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">套装已含</span>
                             <div style="font-weight: 600; color: #2c3e50; margin-bottom: 8px;">🎯 知识管理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
@@ -2366,10 +2398,10 @@
                     </div>
 
                     <!-- 学习单品详情 -->
-                    <div id="learning-feynman-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="learning-feynman-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🎓 费曼学习法</h5>
-                        <p style="color: #666; margin-bottom: 10px;">诺贝尔奖得主费曼的快速学习秘诀。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">诺贝尔奖得主费曼的快速学习秘诀。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>选择概念：确定要学习的内容</li>
                             <li>教给别人：用简单语言解释</li>
                             <li>发现盲点：找出不理解的地方</li>
@@ -2379,10 +2411,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 理查德·费曼的智慧结晶</p>
                     </div>
 
-                    <div id="learning-spaced-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="learning-spaced-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📅 间隔重复</h5>
-                        <p style="color: #666; margin-bottom: 10px;">科学记忆方法，大幅提升长期记忆效果。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">科学记忆方法，大幅提升长期记忆效果。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>遗忘曲线：了解记忆规律</li>
                             <li>重复间隔：优化复习时间</li>
                             <li>主动回忆：强化记忆痕迹</li>
@@ -2392,10 +2424,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 记忆效率提升5-10倍</p>
                     </div>
 
-                    <div id="learning-reading-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="learning-reading-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">📖 深度阅读</h5>
-                        <p style="color: #666; margin-bottom: 10px;">从浏览到深度理解，提升阅读质量。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">从浏览到深度理解，提升阅读质量。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>选书方法：找到值得读的书</li>
                             <li>快速浏览：快速获取概览</li>
                             <li>深度阅读：逐章精读批注</li>
@@ -2405,10 +2437,10 @@
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 读有所得，学以致用</p>
                     </div>
 
-                    <div id="learning-knowledge-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <div id="learning-knowledge-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: #2c3e50; margin-bottom: 10px;">🎯 知识管理</h5>
-                        <p style="color: #666; margin-bottom: 10px;">建立个人知识系统，让知识随时调用。</p>
-                        <ul style="color: #666; padding-left: 20px;">
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">建立个人知识系统，让知识随时调用。</p>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>收集体系：高效收集信息</li>
                             <li>整理方法：构建知识网络</li>
                             <li>笔记工具：Notion/Obsidian等</li>
@@ -2432,21 +2464,21 @@
                 <!-- 支付宝 -->
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <!-- 微信支付 -->
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2465,7 +2497,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含30天行动指南
             </p>
 
@@ -2482,20 +2514,20 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥79</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥79</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2510,7 +2542,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含90天行动指南
             </p>
         </div>
@@ -2523,20 +2555,20 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥89</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥89</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2551,7 +2583,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含21天训练计划
             </p>
         </div>
@@ -2564,20 +2596,20 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2592,7 +2624,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含28天训练计划
             </p>
         </div>
@@ -2607,22 +2639,22 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.5rem;">¥159</p>
-                    <p style="margin-top: 10px; color: #999; font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
-                    <p style="margin-top: 5px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
+                    <p style="margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.5rem;">¥159</p>
-                    <p style="margin-top: 10px; color: #999; font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
-                    <p style="margin-top: 5px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
+                    <p style="margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2637,7 +2669,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含所有4个套装
             </p>
 
@@ -2649,11 +2681,11 @@
         <!-- 单品购买说明 -->
         <div class="footer" id="payment-writing-single" style="margin-top: 30px;">
             <h3>💳 写作单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                 <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
-                <select id="writing-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                <select id="writing-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="template">📝 写作模板大全 - ¥49</option>
                     <option value="title">🎯 爆款标题库 - ¥39</option>
                     <option value="newsletter">📬 Newsletter指南 - ¥39</option>
@@ -2664,20 +2696,20 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="writing-alipay-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="writing-wechat-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2696,7 +2728,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 支付时请备注单品名称
             </p>
 
@@ -2708,11 +2740,11 @@
         <!-- 目标单品支付 -->
         <div class="footer" id="payment-goals-single" style="margin-top: 30px;">
             <h3>💳 目标单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                 <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
-                <select id="goals-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                <select id="goals-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="notion">🎯 Notion目标系统 - ¥49</option>
                     <option value="planning">📊 年度规划模板 - ¥29</option>
                     <option value="excel">📈 Excel追踪表 - ¥19</option>
@@ -2722,24 +2754,24 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="goals-alipay-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="goals-wechat-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障
             </p>
         </div>
@@ -2747,11 +2779,11 @@
         <!-- 思维单品支付 -->
         <div class="footer" id="payment-thinking-single" style="margin-top: 30px;">
             <h3>💳 思维单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                 <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
-                <select id="thinking-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                <select id="thinking-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="first">🧠 第一性原理 - ¥39</option>
                     <option value="inverse">🔄 逆向思维 - ¥39</option>
                     <option value="system">🌐 系统思考 - ¥49</option>
@@ -2762,24 +2794,24 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="thinking-alipay-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="thinking-wechat-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障
             </p>
         </div>
@@ -2787,11 +2819,11 @@
         <!-- 学习单品支付 -->
         <div class="footer" id="payment-learning-single" style="margin-top: 30px;">
             <h3>💳 学习单品支付</h3>
-            <p style="color: #666; margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                 <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #2c3e50;">选择单品:</label>
-                <select id="learning-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                <select id="learning-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="feynman">🎓 费曼学习法 - ¥39</option>
                     <option value="spaced">📅 间隔重复 - ¥39</option>
                     <option value="reading">📖 深度阅读 - ¥49</option>
@@ -2802,24 +2834,24 @@
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #1677ff; font-size: 1.3rem;">支付宝支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="learning-alipay-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
                     <h4 style="margin-bottom: 15px; color: #07c160; font-size: 1.3rem;">微信支付</h4>
-                    <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: #333; font-size: 1.2rem;">请支付 <span id="learning-wechat-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
-            <p style="margin-top: 25px; color: #999; font-size: 0.9rem;">
+            <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
                 💡 购买后30分钟内发送资源 · 7天不满意退款保障
             </p>
         </div>
@@ -3129,12 +3161,6 @@
 
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -3147,6 +3173,16 @@
 
             localStorage.setItem('preferred-theme', currentTheme);
         }
+
+        // 页面加载完成后初始化主题
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
         if (themeSwitcher) {
@@ -3207,21 +3243,21 @@
 
     <!-- 支付说明弹窗 -->
     <div id="payment-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
             <h3 style="margin-bottom: 20px; color: #2c3e50; font-size: 1.5rem;">💳 支付说明</h3>
-            <p style="color: #666; margin-bottom: 15px; line-height: 1.6;">
+            <p style="color: var(--text-secondary); margin-bottom: 15px; line-height: 1.6;">
                 我们使用小鹅通安全支付平台，支持多种支付方式：
             </p>
-            <ul style="margin-bottom: 20px; color: #666; padding-left: 20px; line-height: 1.8;">
+            <ul style="margin-bottom: 20px; color: var(--text-secondary); padding-left: 20px; line-height: 1.8;">
                 <li>✅ 微信支付</li>
                 <li>✅ 支付宝支付</li>
                 <li>✅ 银行卡支付</li>
             </ul>
-            <p style="color: #666; margin-bottom: 25px; line-height: 1.6;">
+            <p style="color: var(--text-secondary); margin-bottom: 25px; line-height: 1.6;">
                 购买后30分钟内自动发送资源链接到您的邮箱
             </p>
             <div style="display: flex; gap: 10px;">
-                <button onclick="closePaymentModal()" style="flex: 1; padding: 12px; background: #f0f0f0; color: #666; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">取消</button>
+                <button onclick="closePaymentModal()" style="flex: 1; padding: 12px; background: var(--bg-secondary); color: var(--text-secondary); border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">取消</button>
                 <button onclick="confirmPayment()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">去支付</button>
             </div>
         </div>

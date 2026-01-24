@@ -60,6 +60,64 @@
             color: var(--text-primary);
         }
 
+        /* 导航栏样式 */
+        .nav-header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] .nav-header {
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
+        [data-theme="dark"] .nav-logo {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-link:hover {
+            color: var(--text-secondary);
+        }
+
         /* 主题切换按钮 */
         .theme-switcher {
             width: 45px;
@@ -88,8 +146,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -174,8 +232,8 @@
         }
 
         .stat-card {
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
@@ -372,8 +430,8 @@
         .back-link {
             display: inline-block;
             padding: 12px 24px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -381,14 +439,14 @@
         }
 
         .back-link:hover {
-            background: #333333;
+            background: var(--accent-hover);
             transform: translateY(-2px);
         }
 
         .no-articles {
             text-align: center;
             padding: 40px;
-            color: #999;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
@@ -428,14 +486,14 @@
 </head>
 <body>
     <!-- 简化导航栏 -->
-    <nav style="background: rgba(255, 255, 255, 0.98); padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid #e5e5e5;">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" style="color: #000000; text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: #000000; text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+    <nav class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">COLIN</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="archive.html" class="nav-link">文章归档</a>
+                <a href="products.html" class="nav-link">精选资源</a>
+                <a href="subscribe.html" class="nav-link">订阅</a>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -558,7 +616,7 @@
 
                 categoryArchive.innerHTML = Object.entries(groupedByCategory).map(([categoryName, categoryArticles]) => `
                     <div style="margin-bottom: 30px;">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #1d1d1f;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-primary);">
                             ${categoryName} (${categoryArticles.length} 篇)
                         </h3>
                         <ul class="archive-list">
@@ -668,12 +726,6 @@
 
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -686,6 +738,16 @@
 
             localStorage.setItem('preferred-theme', currentTheme);
         }
+
+        // 页面加载完成后初始化主题
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
         if (themeSwitcher) {
