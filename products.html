@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>资源套装 - 30天实现成长蜕变 | COLIN</title>
+    <title data-zh="资源套装 - 30天实现成长蜕变 | COLIN" data-en="Resource Bundles - 30-Day Transformation | COLIN">资源套装 - 30天实现成长蜕变 | COLIN</title>
     <meta name="description" content="精选写作、目标、思维、学习四大成长套装，30天完成蜕变。包含30+模板、100+爆款标题，立即开始你的成长之旅。">
     <meta name="keywords" content="写作套装,目标套装,思维套装,学习套装,个人成长,效率工具">
 
@@ -1103,10 +1103,14 @@
         <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
             <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
             <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <a href="index.html" data-zh="首页" data-en="Home" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
+                <a href="archive.html" data-zh="文章归档" data-en="Archive" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
+                <a href="products.html" data-zh="精选资源" data-en="Resources" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
+                <a href="subscribe.html" data-zh="订阅" data-en="Subscribe" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                </div>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -1115,7 +1119,7 @@
     </nav>
 
     <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+    <button class="back-to-top" id="backToTop" data-zh-title="返回顶部" data-en-title="Back to top" title="返回顶部">↑</button>
 
     <!-- Loading 动画 -->
     <div id="loader">
@@ -1123,49 +1127,49 @@
     </div>
 
     <!-- 侧边导航按钮 -->
-    <button class="sidebar-toggle" onclick="toggleSidebar()" title="快速导航">📋</button>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" data-zh-title="快速导航" data-en-title="Quick nav" title="快速导航">📋</button>
 
     <!-- 侧边导航 -->
     <nav class="sidebar-nav" id="sidebar">
-        <a href="#writing" class="nav-item" onclick="expandProduct('writing')">✍️ 写作套装</a>
-        <a href="#goals" class="nav-item" onclick="expandProduct('goals')">🎯 目标套装</a>
-        <a href="#thinking" class="nav-item" onclick="expandProduct('thinking')">💭 思维套装</a>
-        <a href="#learning" class="nav-item" onclick="expandProduct('learning')">📚 学习套装</a>
+        <a href="#writing" class="nav-item" onclick="expandProduct('writing')" data-zh="✍️ 写作套装" data-en="✍️ Writing Bundle">✍️ 写作套装</a>
+        <a href="#goals" class="nav-item" onclick="expandProduct('goals')" data-zh="🎯 目标套装" data-en="🎯 Goal Bundle">🎯 目标套装</a>
+        <a href="#thinking" class="nav-item" onclick="expandProduct('thinking')" data-zh="💭 思维套装" data-en="💭 Thinking Bundle">💭 思维套装</a>
+        <a href="#learning" class="nav-item" onclick="expandProduct('learning')" data-zh="📚 学习套装" data-en="📚 Learning Bundle">📚 学习套装</a>
     </nav>
 
     <div class="container">
-        <a href="index.html" class="back-link">← 返回首页</a>
+        <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
 
         <div class="header">
-            <h1 id="page-title">📚 个人成长资源套装</h1>
-            <p id="page-subtitle" class="subtitle">30天实现成长蜕变 · 即用型工具 · 快速实现目标</p>
+            <h1 id="page-title" data-zh="📚 个人成长资源套装" data-en="📚 Personal Growth Resource Bundles">📚 个人成长资源套装</h1>
+            <p id="page-subtitle" class="subtitle" data-zh="30天实现成长蜕变 · 即用型工具 · 快速实现目标" data-en="30-Day Transformation · Ready-to-Use Tools · Fast Track Your Goals">30天实现成长蜕变 · 即用型工具 · 快速实现目标</p>
 
             <!-- 搜索框 -->
             <div class="search-container">
-                <input type="text" class="search-box" id="searchInput" placeholder="🔍 搜索套装（如：写作、目标、思维、学习）..." onkeyup="searchProducts()">
+                <input type="text" class="search-box" id="searchInput" data-zh-placeholder="🔍 搜索套装（如：写作、目标、思维、学习）..." data-en-placeholder="🔍 Search bundles (e.g., writing, goals, thinking, learning)..." placeholder="🔍 搜索套装（如：写作、目标、思维、学习）..." onkeyup="searchProducts()">
             </div>
 
             <div class="result-highlight">
-                <div class="result-item">📝 <span>30天完成10篇文章</span></div>
-                <div class="result-item">🎯 <span>90天达成核心目标</span></div>
-                <div class="result-item">🧠 <span>21天建立思维习惯</span></div>
-                <div class="result-item">📚 <span>28天掌握高效学习</span></div>
+                <div class="result-item" data-zh="📝 30天完成10篇文章" data-en="📝 10 Articles in 30 Days">📝 <span>30天完成10篇文章</span></div>
+                <div class="result-item" data-zh="🎯 90天达成核心目标" data-en="🎯 Core Goals in 90 Days">🎯 <span>90天达成核心目标</span></div>
+                <div class="result-item" data-zh="🧠 21天建立思维习惯" data-en="🧠 Thinking Habits in 21 Days">🧠 <span>21天建立思维习惯</span></div>
+                <div class="result-item" data-zh="📚 28天掌握高效学习" data-en="📚 Master Learning in 28 Days">📚 <span>28天掌握高效学习</span></div>
             </div>
 
             <div class="price-banner" id="price-banner">
-                <span>🔥 完整套装仅需 ¥159</span>
+                <span data-zh="🔥 完整套装仅需 ¥159" data-en="🔥 Complete Bundle Only ¥159">🔥 完整套装仅需 ¥159</span>
                 <br>
-                <small>原价 ¥265 · 立省 ¥106 (40%)</small>
+                <small data-zh="原价 ¥265 · 立省 ¥106 (40%)" data-en="Original ¥265 · Save ¥106 (40%)">原价 ¥265 · 立省 ¥106 (40%)</small>
             </div>
 
             <div style="margin-top: 20px;" id="complete-buy-btn">
-                <a href="#payment-complete" class="btn btn-primary" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem;" onclick="openPaymentModal('https://your-xiaoe-link-complete.com'); return false;">
+                <a href="#payment-complete" class="btn btn-primary" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem;" onclick="openPaymentModal('https://your-xiaoe-link-complete.com'); return false;" data-zh="🎉 购买完整套装 ¥159" data-en="🎉 Buy Complete Bundle ¥159">
                     🎉 购买完整套装 ¥159
                 </a>
             </div>
 
             <div style="margin-top: 20px; display: none;" id="view-all-btn">
-                <a href="products.html" class="btn" style="display: inline-block; padding: 12px 30px; font-size: 1rem; background: var(--color-gray-200); color: var(--text-secondary);">
+                <a href="products.html" class="btn" style="display: inline-block; padding: 12px 30px; font-size: 1rem; background: var(--color-gray-200); color: var(--text-secondary);" data-zh="← 查看所有套装" data-en="← View All Bundles">
                     ← 查看所有套装
                 </a>
             </div>
@@ -1173,30 +1177,30 @@
 
         <!-- 选择引导 -->
         <div style="text-align: center; margin-bottom: 40px; padding: 30px; background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); border-radius: 15px; border: 1px solid rgba(102,126,234,0.1);">
-            <h3 style="color: var(--color-gray-800); margin-bottom: 10px; font-size: 1.3rem;">🤔 不知道该选择哪个套装？</h3>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 15px; line-height: 1.6;">
+            <h3 style="color: var(--color-gray-800); margin-bottom: 10px; font-size: 1.3rem;" data-zh="🤔 不知道该选择哪个套装？" data-en="🤔 Not sure which bundle to choose?">🤔 不知道该选择哪个套装？</h3>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 15px; line-height: 1.6;" data-zh="根据您的当前需求选择最合适的方案：想快速开始写作？选择写作套装；需要达成长期目标？选择目标套装。" data-en="Choose based on your needs: Want to start writing? Go for Writing Bundle. Need to achieve long-term goals? Choose Goal Bundle.">
                 根据您的当前需求选择最合适的方案：想快速开始写作？选择写作套装；需要达成长期目标？选择目标套装。
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
                 <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('writing')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">✍️</div>
-                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想开始写作</div>
-                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 写作套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;" data-zh="我想开始写作" data-en="I want to start writing">我想开始写作</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);" data-zh="→ 写作套装" data-en="→ Writing Bundle">→ 写作套装</div>
                 </div>
                 <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('goals')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
-                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我需要达成目标</div>
-                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 目标套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;" data-zh="我需要达成目标" data-en="I need to achieve goals">我需要达成目标</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);" data-zh="→ 目标套装" data-en="→ Goal Bundle">→ 目标套装</div>
                 </div>
                 <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('thinking')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🧠</div>
-                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想提升思维</div>
-                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 思维套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;" data-zh="我想提升思维" data-en="I want to improve thinking">我想提升思维</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);" data-zh="→ 思维套装" data-en="→ Thinking Bundle">→ 思维套装</div>
                 </div>
                 <div style="flex: 1; min-width: 200px; max-width: 280px; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer;" onclick="scrollToProduct('learning')">
                     <div style="font-size: 2rem; margin-bottom: 10px;">📚</div>
-                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;">我想提升学习</div>
-                    <div style="font-size: 0.85rem; color: var(--color-blue-light);">→ 学习套装</div>
+                    <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 5px;" data-zh="我想提升学习" data-en="I want to improve learning">我想提升学习</div>
+                    <div style="font-size: 0.85rem; color: var(--color-blue-light);" data-zh="→ 学习套装" data-en="→ Learning Bundle">→ 学习套装</div>
                 </div>
             </div>
         </div>
@@ -1205,20 +1209,20 @@
             <!-- 写作套装 -->
             <div class="product" id="writing" data-category="writing">
                 <div class="product-header">
-                    <h2 class="product-title">✍️ 写作能力套装</h2>
-                    <span class="product-tag tag-recommended">热销</span>
+                    <h2 class="product-title" data-zh="✍️ 写作能力套装" data-en="✍️ Writing Skills Bundle">✍️ 写作能力套装</h2>
+                    <span class="product-tag tag-recommended" data-zh="热销" data-en="Hot">热销</span>
                 </div>
-                <p class="product-desc">3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量</p>
+                <p class="product-desc" data-zh="3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量" data-en="Write your first article in 3 days, build writing habits in 30 days, get 1000+ reads in 90 days">3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量</p>
 
                 <!-- 核心结果展示 -->
                 <div class="result-highlight">
-                    <div class="result-item">
+                    <div class="result-item" data-zh="📝 30天完成10篇文章" data-en="📝 10 Articles in 30 Days">
                         <span>📝</span>30天完成10篇文章
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="👀 平均阅读1000+" data-en="👀 Avg 1000+ Reads">
                         <span>👀</span>平均阅读1000+
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="⭐ 粉丝稳步增长" data-en="⭐ Steady Fan Growth">
                         <span>⭐</span>粉丝稳步增长
                     </div>
                 </div>
@@ -1226,7 +1230,7 @@
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
                     <button class="product-expand-btn" onclick="toggleProductExpand('writing', this)">
-                        <span>查看详细内容</span>
+                        <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
                 </div>
@@ -1237,42 +1241,42 @@
                 <div class="features-grid">
                     <div class="feature-item">
                         <span class="feature-icon">✨</span>
-                        <span class="feature-text">写作模板大全 (30+)</span>
+                        <span class="feature-text" data-zh="写作模板大全 (30+)" data-en="Writing Templates (30+)">写作模板大全 (30+)</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📝</span>
-                        <span class="feature-text">爆款标题库 (100+)</span>
+                        <span class="feature-text" data-zh="爆款标题库 (100+)" data-en="Viral Title Library (100+)">爆款标题库 (100+)</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📬</span>
-                        <span class="feature-text">Newsletter运营指南</span>
+                        <span class="feature-text" data-zh="Newsletter运营指南" data-en="Newsletter Guide">Newsletter运营指南</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">🎨</span>
-                        <span class="feature-text">Notion写作模板</span>
+                        <span class="feature-text" data-zh="Notion写作模板" data-en="Notion Writing Templates">Notion写作模板</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📋</span>
-                        <span class="feature-text">30天行动指南</span>
+                        <span class="feature-text" data-zh="30天行动指南" data-en="30-Day Action Guide">30天行动指南</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📧</span>
-                        <span class="feature-text">7天邮件陪伴</span>
+                        <span class="feature-text" data-zh="7天邮件陪伴" data-en="7-Day Email Support">7天邮件陪伴</span>
                     </div>
                 </div>
 
                 <!-- 用户案例 -->
                 <div class="user-stories">
-                    <h3>📚 真实用户成果</h3>
+                    <h3 data-zh="📚 真实用户成果" data-en="📚 Real User Results">📚 真实用户成果</h3>
                     <div class="story-card">
                         <div class="story-avatar">李</div>
                         <div class="story-content">
-                            <h4>李明 · 产品经理</h4>
-                            <p class="story-quote">"使用观点文模板后，我在头条首篇阅读量5万+。之前写一周发不出去，现在三天一篇，粉丝从0涨到1.2万。"</p>
+                            <h4 data-zh="李明 · 产品经理" data-en="Li Ming · Product Manager">李明 · 产品经理</h4>
+                            <p class="story-quote" data-zh="&quot;使用观点文模板后，我在头条首篇阅读量5万+。之前写一周发不出去，现在三天一篇，粉丝从0涨到1.2万。&quot;" data-en="&quot;After using the opinion article template, my first post got 50,000+ reads on Toutiao. Before, I couldn't publish anything after a week. Now I write one every three days, and my followers grew from 0 to 12,000.&quot;">"使用观点文模板后，我在头条首篇阅读量5万+。之前写一周发不出去，现在三天一篇，粉丝从0涨到1.2万。"</p>
                             <div class="story-stats">
-                                <span>📝 30天完成15篇文章</span>
-                                <span>👀 最高阅读5万+</span>
-                                <span>⭐ 粉丝1.2万</span>
+                                <span data-zh="📝 30天完成15篇文章" data-en="📝 15 Articles in 30 Days">📝 30天完成15篇文章</span>
+                                <span data-zh="👀 最高阅读5万+" data-en="👀 Max 50K+ Reads">👀 最高阅读5万+</span>
+                                <span data-zh="⭐ 粉丝1.2万" data-en="⭐ 12K Followers">⭐ 粉丝1.2万</span>
                             </div>
                         </div>
                     </div>
@@ -1280,56 +1284,56 @@
 
                 <!-- 快速开始 -->
                 <div class="quick-start-section">
-                    <h3>⚡ 5分钟快速开始</h3>
+                    <h3 data-zh="⚡ 5分钟快速开始" data-en="⚡ 5-Minute Quick Start">⚡ 5分钟快速开始</h3>
                     <div class="steps-container">
                         <div class="step-item">
                             <span class="step-number">1</span>
-                            <h4>下载模板</h4>
-                            <p>购买后立即下载</p>
-                            <span class="time-taken">⏱️ 1分钟</span>
+                            <h4 data-zh="下载模板" data-en="Download Templates">下载模板</h4>
+                            <p data-zh="购买后立即下载" data-en="Download instantly after purchase">购买后立即下载</p>
+                            <span class="time-taken">⏱️ 1min</span>
                         </div>
                         <div class="step-item">
                             <span class="step-number">2</span>
-                            <h4>选择模板</h4>
-                            <p>浏览30+模板</p>
-                            <span class="time-taken">⏱️ 2分钟</span>
+                            <h4 data-zh="选择模板" data-en="Choose Template">选择模板</h4>
+                            <p data-zh="浏览30+模板" data-en="Browse 30+ templates">浏览30+模板</p>
+                            <span class="time-taken">⏱️ 2min</span>
                         </div>
                         <div class="step-item">
                             <span class="step-number">3</span>
-                            <h4>填写内容</h4>
-                            <p>照着模板填写</p>
-                            <span class="time-taken">⏱️ 2分钟</span>
+                            <h4 data-zh="填写内容" data-en="Fill in Content">填写内容</h4>
+                            <p data-zh="照着模板填写" data-en="Follow the template">照着模板填写</p>
+                            <span class="time-taken">⏱️ 2min</span>
                         </div>
                         <div class="step-result">
-                            <h4>✨ 完成！</h4>
-                            <p>你的第一篇文章初稿已经写好了</p>
+                            <h4 data-zh="✨ 完成！" data-en="✨ Done!">✨ 完成！</h4>
+                            <p data-zh="你的第一篇文章初稿已经写好了" data-en="Your first article draft is ready">你的第一篇文章初稿已经写好了</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 前后对比 -->
                 <div class="comparison-section">
-                    <h3>📈 使用前 vs 使用后</h3>
+                    <h3 data-zh="📈 使用前 vs 使用后" data-en="📈 Before vs After">📈 使用前 vs 使用后</h3>
                     <div class="comparison-grid">
                         <div class="comparison-card before">
-                            <h4>❌ 使用前</h4>
+                            <h4 data-zh="❌ 使用前" data-en="❌ Before">❌ 使用前</h4>
                             <ul class="comparison-list">
-                                <li>不知道写什么主题</li>
-                                <li>写了一半卡住</li>
-                                <li>排版不美观</li>
-                                <li>标题没人点</li>
-                                <li>一周写不了一篇</li>
+                                <li data-zh="不知道写什么主题" data-en="Don't know what to write">不知道写什么主题</li>
+                                <li data-zh="写了一半卡住" data-en="Get stuck halfway">写了一半卡住</li>
+                                <li data-zh="排版不美观" data-en="Poor formatting">排版不美观</li>
+                                <li data-zh="标题没人点" data-en="Low click-through rate">标题没人点</li>
+                                <li data-zh="一周写不了一篇" data-en="Can't finish one article a week">一周写不了一篇</li>
                             </ul>
                         </div>
                         <div class="comparison-arrow">→</div>
                         <div class="comparison-card after">
-                            <h4>✅ 使用后30天</h4>
+                            <h4 data-zh="✅ 使用后30天" data-en="✅ After 30 Days">✅ 使用后30天</h4>
                             <ul class="comparison-list success">
-                                <li>随时有5-10个选题储备</li>
-                                <li>照模板写，从不卡住</li>
-                                <li>一键套用，专业排版</li>
-                                <li>标题库选择，点击率提升300%</li>
-                                <li>建立写作习惯，一周3篇</li>
+                                <li data-zh="随时有5-10个选题储备" data-en="5-10 topics ready anytime">随时有5-10个选题储备</li>
+                                <li data-zh="照模板写，从不卡住" data-en="Follow templates, never stuck">照模板写，从不卡住</li>
+                                <li data-zh="一键套用，专业排版" data-en="One-click professional formatting">一键套用，专业排版</li>
+                                <li data-zh="标题库选择，点击率提升300%" data-en="Title library, CTR up 300%">标题库选择，点击率提升300%</li>
+                                <li data-zh="建立写作习惯，一周3篇" data-en="Built habit, 3 articles/week">建立写作习惯，一周3篇</li>
                             </ul>
                         </div>
                     </div>
@@ -1337,31 +1341,31 @@
 
                 <!-- FAQ -->
                 <div class="faq-section">
-                    <h3>❓ 常见问题</h3>
+                    <h3 data-zh="❓ 常见问题" data-en="❓ FAQ">❓ 常见问题</h3>
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" data-zh="Q: 我是完全新手，能用吗？" data-en="Q: I'm a complete beginner, can I use this?">
                             Q: 我是完全新手，能用吗？
                             <span class="faq-toggle">▼</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer" data-zh="A: 完全可以！我们的模板专为新手设计，有详细的填写说明。60%的购买者是第一次写作，他们都顺利上手了。" data-en="A: Absolutely! Our templates are designed for beginners with detailed instructions. 60% of buyers are first-time writers and all got started successfully.">
                             A: 完全可以！我们的模板专为新手设计，有详细的填写说明。60%的购买者是第一次写作，他们都顺利上手了。
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" data-zh="Q: 没时间怎么办？" data-en="Q: What if I don't have time?">
                             Q: 没时间怎么办？
                             <span class="faq-toggle">▼</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer" data-zh="A: 不需要每天花很多时间。我们的方法建议：周一到周五每天20分钟，周末1-2小时深度写作。这样一个月也能完成8-10篇文章。" data-en="A: No need to spend hours daily. Our method: 20 min Mon-Fri, 1-2 hours weekends for deep writing. This lets you finish 8-10 articles a month.">
                             A: 不需要每天花很多时间。我们的方法建议：周一到周五每天20分钟，周末1-2小时深度写作。这样一个月也能完成8-10篇文章。
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" data-zh="Q: 能退款吗？" data-en="Q: Can I get a refund?">
                             Q: 能退款吗？
                             <span class="faq-toggle">▼</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer" data-zh="A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。" data-en="A: Yes! 7-day no-questions-asked refund. We take all the risk. Just let us know and we'll refund immediately, no reason needed.">
                             A: 可以！7天无理由退款，我们承担所有风险。你只需要告诉我们，我们会立即退款，不需要理由。
                         </div>
                     </div>
@@ -1369,27 +1373,27 @@
 
                 <!-- 承诺保障 -->
                 <div class="guarantee-section">
-                    <h3>🛡️ 我们的承诺</h3>
+                    <h3 data-zh="🛡️ 我们的承诺" data-en="🛡️ Our Promise">🛡️ 我们的承诺</h3>
                     <div class="guarantee-list">
                         <div class="guarantee-item">
                             <span class="guarantee-icon">⏰</span>
-                            <h4>30分钟上手承诺</h4>
-                            <p>如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
+                            <h4 data-zh="30分钟上手承诺" data-en="30-Minute Mastery Promise">30分钟上手承诺</h4>
+                            <p data-zh="如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。" data-en="If you don't know how to use it within 30 minutes, we provide 1-on-1 guidance until you master it.">如果你在30分钟内还不知道如何使用，我们提供1对1指导，直到你会用为止。</p>
                         </div>
                         <div class="guarantee-item">
                             <span class="guarantee-icon">📞</span>
-                            <h4>7天无理由退款</h4>
-                            <p>购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
+                            <h4 data-zh="7天无理由退款" data-en="7-Day No-Questions Refund">7天无理由退款</h4>
+                            <p data-zh="购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。" data-en="Within 7 days after purchase, full refund if not suitable, no questions asked. We take all the risk.">购买后7天内，如果觉得不适合，全额退款，无需理由。我们承担所有风险。</p>
                         </div>
                         <div class="guarantee-item">
                             <span class="guarantee-icon">📧</span>
-                            <h4>7天陪伴服务</h4>
-                            <p>购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。</p>
+                            <h4 data-zh="7天陪伴服务" data-en="7-Day Email Support">7天陪伴服务</h4>
+                            <p data-zh="购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。" data-en="For 7 consecutive days after purchase, daily email guidance. You're not learning alone.">购买后连续7天，每天给你一封邮件指导。你不是一个人在学习。</p>
                         </div>
                         <div class="guarantee-item">
                             <span class="guarantee-icon">🔄</span>
-                            <h4>终身免费更新</h4>
-                            <p>所有新增模板和功能，你都免费获得。一次购买，终身受益。</p>
+                            <h4 data-zh="终身免费更新" data-en="Lifetime Free Updates">终身免费更新</h4>
+                            <p data-zh="所有新增模板和功能，你都免费获得。一次购买，终身受益。" data-en="Get all new templates and features for free. Buy once, benefit forever.">所有新增模板和功能，你都免费获得。一次购买，终身受益。</p>
                         </div>
                     </div>
                 </div>
@@ -1403,40 +1407,40 @@
                 <div style="margin-top: 15px; padding: 15px; background: var(--color-gray-100); border-radius: 10px; font-size: 0.9rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                         <span style="color: var(--color-success);">🔒</span>
-                        <span>安全支付 - 小鹅通担保交易</span>
+                        <span data-zh="安全支付 - 小鹅通担保交易" data-en="Secure Payment - XiaoeEscrow">安全支付 - 小鹅通担保交易</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                         <span style="color: var(--color-success);">⚡</span>
-                        <span>自动发货 - 30分钟内发送资源</span>
+                        <span data-zh="自动发货 - 30分钟内发送资源" data-en="Auto Delivery - Resources sent within 30 min">自动发货 - 30分钟内发送资源</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span style="color: var(--color-success);">↩️</span>
-                        <span>7天退款 - 不满意全额退款</span>
+                        <span data-zh="7天退款 - 不满意全额退款" data-en="7-Day Refund - Full refund if not satisfied">7天退款 - 不满意全额退款</span>
                     </div>
                 </div>
 
                 <div class="buttons">
-                    <a href="#payment-writing" class="btn btn-primary" onclick="openPaymentModal('https://your-xiaoe-link-writing.com'); return false;">购买套装 ¥99</a>
-                    <a href="writing-details.html" class="view-details-btn">查看详细介绍</a>
+                    <a href="#payment-writing" class="btn btn-primary" onclick="openPaymentModal('https://your-xiaoe-link-writing.com'); return false;" data-zh="购买套装 ¥99" data-en="Buy Bundle ¥99">购买套装 ¥99</a>
+                    <a href="writing-details.html" class="view-details-btn" data-zh="查看详细介绍" data-en="View Details">查看详细介绍</a>
                 </div>
 
                 <!-- 套装价值对比 -->
                 <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #fff8f0 0%, #fff 100%); border-radius: 12px; border: 2px solid var(--color-gold);">
-                    <h4 style="text-align: center; color: var(--color-gold-dark); margin-bottom: 20px; font-size: 1.1rem;">💡 套装 vs 单独购买</h4>
+                    <h4 style="text-align: center; color: var(--color-gold-dark); margin-bottom: 20px; font-size: 1.1rem;" data-zh="💡 套装 vs 单独购买" data-en="💡 Bundle vs Individual Purchase">💡 套装 vs 单独购买</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
                         <div>
-                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>套装包含（¥99）：</strong></p>
+                            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong data-zh="套装包含（¥99）：" data-en="Bundle includes (¥99):">套装包含（¥99）：</strong></p>
                             <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
-                                <li>📝 写作模板大全 (¥49)</li>
-                                <li>🎯 爆款标题库 (¥39)</li>
-                                <li>📬 Newsletter指南 (¥39)</li>
-                                <li>🎨 Notion模板 (¥29)</li>
-                                <li>📋 30天行动指南</li>
-                                <li>📧 7天邮件陪伴</li>
+                                <li data-zh="📝 写作模板大全 (¥49)" data-en="📝 Writing Templates (¥49)">📝 写作模板大全 (¥49)</li>
+                                <li data-zh="🎯 爆款标题库 (¥39)" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库 (¥39)</li>
+                                <li data-zh="📬 Newsletter指南 (¥39)" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南 (¥39)</li>
+                                <li data-zh="🎨 Notion模板 (¥29)" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板 (¥29)</li>
+                                <li data-zh="📋 30天行动指南" data-en="📋 30-Day Action Guide">📋 30天行动指南</li>
+                                <li data-zh="📧 7天邮件陪伴" data-en="📧 7-Day Email Support">📧 7天邮件陪伴</li>
                             </ul>
                         </div>
                         <div style="text-align: center; padding: 20px; background: var(--bg-card); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <p style="color: var(--text-secondary); margin-bottom: 5px;">套装价值</p>
+                            <p style="color: var(--text-secondary); margin-bottom: 5px;" data-zh="套装价值" data-en="Bundle Value">套装价值</p>
                             <p style="font-size: 2rem; font-weight: bold; color: var(--color-gold-dark); margin-bottom: 5px;">¥156</p>
                             <p style="font-size: 1.5rem; font-weight: bold; color: var(--color-green);">¥99</p>
                             <p style="color: var(--color-green); font-weight: 600; margin-top: 5px;">省 ¥57 (36%)</p>
@@ -1535,7 +1539,7 @@
 
                     <div id="notion-detail" class="product-detail" style="display: none; margin-top: 20px; padding: 20px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #667eea;">
                         <h5 style="color: var(--text-primary); margin-bottom: 10px;">🎨 Notion写作模板</h5>
-                        <p style="color: var(--text-secondary); margin-bottom: 10px;">Notion专用的写作管理系统，高效管理写作流程。</p>
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;" data-zh="Notion专用的写作管理系统，高效管理写作流程。" data-en="Notion writing management system, efficiently manage your writing workflow.">Notion专用的写作管理系统，高效管理写作流程。</p>
                         <ul style="color: var(--text-secondary); padding-left: 20px;">
                             <li>选题库：灵感随时记录</li>
                             <li>进度追踪：可视化写作进度</li>
@@ -1552,20 +1556,20 @@
             <!-- 目标套装 -->
             <div class="product" id="goals" data-category="goals">
                 <div class="product-header">
-                    <h2 class="product-title">🎯 目标规划套装</h2>
-                    <span class="product-tag tag-normal">实用</span>
+                    <h2 class="product-title" data-zh="🎯 目标规划套装" data-en="🎯 Goal Planning Bundle">🎯 目标规划套装</h2>
+                    <span class="product-tag tag-normal" data-zh="实用" data-en="Practical">实用</span>
                 </div>
-                <p class="product-desc">90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松</p>
+                <p class="product-desc" data-zh="90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松" data-en="Build good habits in 90 days, achieve resolutions unattained for 3 years, complete your first half-marathon">90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松</p>
 
                 <!-- 核心结果展示 -->
                 <div class="result-highlight">
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🎯 90天完成3个目标" data-en="🎯 3 Goals in 90 Days">
                         <span>🎯</span>90天完成3个目标
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="⏰ 养成新习惯" data-en="⏰ Build New Habits">
                         <span>⏰</span>养成新习惯
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="📈 持续提升自我" data-en="📈 Continuous Self-Improvement">
                         <span>📈</span>持续提升自我
                     </div>
                 </div>
@@ -1573,7 +1577,7 @@
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
                     <button class="product-expand-btn" onclick="toggleProductExpand('goals', this)">
-                        <span>查看详细内容</span>
+                        <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
                 </div>
@@ -1584,29 +1588,29 @@
                 <div class="features-grid">
                     <div class="feature-item">
                         <span class="feature-icon">🎯</span>
-                        <span class="feature-text">Notion目标系统</span>
+                        <span class="feature-text" data-zh="Notion目标系统" data-en="Notion Goal System">Notion目标系统</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📊</span>
-                        <span class="feature-text">年度规划PDF模板</span>
+                        <span class="feature-text" data-zh="年度规划PDF模板" data-en="Annual Planning PDF Templates">年度规划PDF模板</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📈</span>
-                        <span class="feature-text">Excel追踪表</span>
+                        <span class="feature-text" data-zh="Excel追踪表" data-en="Excel Tracking Sheet">Excel追踪表</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📋</span>
-                        <span class="feature-text">90天行动指南</span>
+                        <span class="feature-text" data-zh="90天行动指南" data-en="90-Day Action Guide">90天行动指南</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📧</span>
-                        <span class="feature-text">7天邮件陪伴</span>
+                        <span class="feature-text" data-zh="7天邮件陪伴" data-en="7-Day Email Support">7天邮件陪伴</span>
                     </div>
                 </div>
 
                 <!-- 用户案例 -->
                 <div class="user-stories">
-                    <h3>📚 真实用户成果</h3>
+                    <h3 data-zh="📚 真实用户成果" data-en="📚 Real User Results">📚 真实用户成果</h3>
                     <div class="story-card">
                         <div class="story-avatar">王</div>
                         <div class="story-content">
@@ -1623,10 +1627,10 @@
 
                 <!-- 前后对比 -->
                 <div class="comparison-section">
-                    <h3>📈 使用前 vs 使用后</h3>
+                    <h3 data-zh="📈 使用前 vs 使用后" data-en="📈 Before vs After">📈 使用前 vs 使用后</h3>
                     <div class="comparison-grid">
                         <div class="comparison-card before">
-                            <h4>❌ 使用前</h4>
+                            <h4 data-zh="❌ 使用前" data-en="❌ Before">❌ 使用前</h4>
                             <ul class="comparison-list">
                                 <li>目标总是半途而废</li>
                                 <li>不知道从哪里开始</li>
@@ -1651,7 +1655,7 @@
 
                 <!-- FAQ -->
                 <div class="faq-section">
-                    <h3>❓ 常见问题</h3>
+                    <h3 data-zh="❓ 常见问题" data-en="❓ FAQ">❓ 常见问题</h3>
                     <div class="faq-item">
                         <div class="faq-question">
                             Q: 我总是半途而废，这套有用吗？
@@ -1683,7 +1687,7 @@
 
                 <!-- 承诺保障 -->
                 <div class="guarantee-section">
-                    <h3>🛡️ 我们的承诺</h3>
+                    <h3 data-zh="🛡️ 我们的承诺" data-en="🛡️ Our Promise">🛡️ 我们的承诺</h3>
                     <div class="guarantee-list">
                         <div class="guarantee-item">
                             <span class="guarantee-icon">⏰</span>
@@ -1845,20 +1849,20 @@
             <!-- 思维模型套装 -->
             <div class="product" id="thinking" data-category="thinking">
                 <div class="product-header">
-                    <h2 class="product-title">💭 思维模型套装</h2>
+                    <h2 class="product-title" data-zh="💭 思维模型套装" data-en="💭 Thinking Model Bundle">💭 思维模型套装</h2>
                     <span class="product-tag tag-normal">深度</span>
                 </div>
-                <p class="product-desc">21天建立思维模型，提升决策质量，用智慧驾驭复杂世界</p>
+                <p class="product-desc" data-zh="21天建立思维模型，提升决策质量，用智慧驾驭复杂世界" data-en="Build mental models in 21 days, improve decision quality, navigate complex world with wisdom">21天建立思维模型，提升决策质量，用智慧驾驭复杂世界</p>
 
                 <!-- 核心结果展示 -->
                 <div class="result-highlight">
-                    <div class="result-item">
+                    <div class="result-item" data-zh="
                         <span>🧠</span>掌握10+思维模型
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🎯 决策质量提升" data-en="🎯 Better Decision Quality">
                         <span>🎯</span>决策质量提升
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="💡 系统性思考" data-en="💡 Systematic Thinking">
                         <span>💡</span>系统性思考
                     </div>
                 </div>
@@ -1866,7 +1870,7 @@
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
                     <button class="product-expand-btn" onclick="toggleProductExpand('thinking', this)">
-                        <span>查看详细内容</span>
+                        <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
                 </div>
@@ -1877,36 +1881,36 @@
                 <div class="features-grid">
                     <div class="feature-item">
                         <span class="feature-icon">🧠</span>
-                        <span class="feature-text">第一性原理</span>
+                        <span class="feature-text" data-zh="第一性原理" data-en="First Principles">第一性原理</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">🔄</span>
-                        <span class="feature-text">逆向思维模型</span>
+                        <span class="feature-text" data-zh="逆向思维模型" data-en="Inverse Thinking Model">逆向思维模型</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">🌐</span>
-                        <span class="feature-text">系统思考框架</span>
+                        <span class="feature-text" data-zh="系统思考框架" data-en="Systems Thinking Framework">系统思考框架</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">⚖️</span>
-                        <span class="feature-text">概率思维指南</span>
+                        <span class="feature-text" data-zh="概率思维指南" data-en="Probabilistic Thinking Guide">概率思维指南</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📋</span>
-                        <span class="feature-text">21天训练计划</span>
+                        <span class="feature-text" data-zh="21天训练计划" data-en="21-Day Training Plan">21天训练计划</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📧</span>
-                        <span class="feature-text">7天邮件陪伴</span>
+                        <span class="feature-text" data-zh="7天邮件陪伴" data-en="7-Day Email Support">7天邮件陪伴</span>
                     </div>
                 </div>
 
                 <!-- 前后对比 -->
                 <div class="comparison-section">
-                    <h3>📈 使用前 vs 使用后</h3>
+                    <h3 data-zh="📈 使用前 vs 使用后" data-en="📈 Before vs After">📈 使用前 vs 使用后</h3>
                     <div class="comparison-grid">
                         <div class="comparison-card before">
-                            <h4>❌ 使用前</h4>
+                            <h4 data-zh="❌ 使用前" data-en="❌ Before">❌ 使用前</h4>
                             <ul class="comparison-list">
                                 <li>凭直觉做决策</li>
                                 <li>只看表面问题</li>
@@ -1931,7 +1935,7 @@
 
                 <!-- FAQ -->
                 <div class="faq-section">
-                    <h3>❓ 常见问题</h3>
+                    <h3 data-zh="❓ 常见问题" data-en="❓ FAQ">❓ 常见问题</h3>
                     <div class="faq-item">
                         <div class="faq-question">
                             Q: 我没有相关基础，能学会吗？
@@ -1963,7 +1967,7 @@
 
                 <!-- 承诺保障 -->
                 <div class="guarantee-section">
-                    <h3>🛡️ 我们的承诺</h3>
+                    <h3 data-zh="🛡️ 我们的承诺" data-en="🛡️ Our Promise">🛡️ 我们的承诺</h3>
                     <div class="guarantee-list">
                         <div class="guarantee-item">
                             <span class="guarantee-icon">⏰</span>
@@ -2145,20 +2149,20 @@
             <!-- 学习方法套装 -->
             <div class="product" id="learning" data-category="learning">
                 <div class="product-header">
-                    <h2 class="product-title">📚 学习方法套装</h2>
-                    <span class="product-tag tag-normal">高效</span>
+                    <h2 class="product-title" data-zh="📚 学习方法套装" data-en="📚 Learning Method Bundle">📚 学习方法套装</h2>
+                    <span class="product-tag tag-normal" data-zh="高效" data-en="Efficient">高效</span>
                 </div>
-                <p class="product-desc">28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手</p>
+                <p class="product-desc" data-zh="28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手" data-en="Master efficient learning in 28 days, boost knowledge absorption 3x, become a lifelong learning expert">28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手</p>
 
                 <!-- 核心结果展示 -->
                 <div class="result-highlight">
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🚀 学习效率提升3倍" data-en="🚀 Learning Efficiency 3x">
                         <span>🚀</span>学习效率提升3倍
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="📚 深度理解知识" data-en="📚 Deep Understanding">
                         <span>📚</span>深度理解知识
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🧠 长期记忆巩固" data-en="🧠 Long-term Retention">
                         <span>🧠</span>长期记忆巩固
                     </div>
                 </div>
@@ -2166,7 +2170,7 @@
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
                     <button class="product-expand-btn" onclick="toggleProductExpand('learning', this)">
-                        <span>查看详细内容</span>
+                        <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
                 </div>
@@ -2174,13 +2178,13 @@
                 <!-- 可折叠内容 -->
                 <div class="product-content-foldable" id="learning-content">
                 <div class="result-highlight">
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🚀 学习效率提升3倍" data-en="🚀 Learning Efficiency 3x">
                         <span>🚀</span>学习效率提升3倍
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="📚 深度理解知识" data-en="📚 Deep Understanding">
                         <span>📚</span>深度理解知识
                     </div>
-                    <div class="result-item">
+                    <div class="result-item" data-zh="🧠 长期记忆巩固" data-en="🧠 Long-term Retention">
                         <span>🧠</span>长期记忆巩固
                     </div>
                 </div>
@@ -2188,11 +2192,11 @@
                 <div class="features-grid">
                     <div class="feature-item">
                         <span class="feature-icon">🎓</span>
-                        <span class="feature-text">费曼学习法</span>
+                        <span class="feature-text" data-zh="费曼学习法" data-en="Feynman Technique">费曼学习法</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📅</span>
-                        <span class="feature-text">间隔重复系统</span>
+                        <span class="feature-text" data-zh="间隔重复系统" data-en="Spaced Repetition System">间隔重复系统</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📖</span>
@@ -2200,24 +2204,24 @@
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">🎯</span>
-                        <span class="feature-text">知识管理系统</span>
+                        <span class="feature-text" data-zh="知识管理系统" data-en="Knowledge Management System">知识管理系统</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📋</span>
-                        <span class="feature-text">28天训练计划</span>
+                        <span class="feature-text" data-zh="28天训练计划" data-en="28-Day Training Plan">28天训练计划</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📧</span>
-                        <span class="feature-text">7天邮件陪伴</span>
+                        <span class="feature-text" data-zh="7天邮件陪伴" data-en="7-Day Email Support">7天邮件陪伴</span>
                     </div>
                 </div>
 
                 <!-- 前后对比 -->
                 <div class="comparison-section">
-                    <h3>📈 使用前 vs 使用后</h3>
+                    <h3 data-zh="📈 使用前 vs 使用后" data-en="📈 Before vs After">📈 使用前 vs 使用后</h3>
                     <div class="comparison-grid">
                         <div class="comparison-card before">
-                            <h4>❌ 使用前</h4>
+                            <h4 data-zh="❌ 使用前" data-en="❌ Before">❌ 使用前</h4>
                             <ul class="comparison-list">
                                 <li>读完就忘</li>
                                 <li>死记硬背</li>
@@ -2242,14 +2246,14 @@
 
                 <!-- FAQ -->
                 <div class="faq-section">
-                    <h3>❓ 常见问题</h3>
+                    <h3 data-zh="❓ 常见问题" data-en="❓ FAQ">❓ 常见问题</h3>
                     <div class="faq-item">
                         <div class="faq-question">
                             Q: 我不是学生，还需要学学习方法吗？
                             <span class="faq-toggle">▼</span>
                         </div>
                         <div class="faq-answer">
-                            A: 学习能力是终身技能。工作中需要不断学习新知识，掌握高效学习方法能让你事半功倍，更快适应变化。
+                            <div data-zh="A: 学习能力是终身技能。工作中需要不断学习新知识，掌握高效学习方法能让你事半功倍，更快适应变化。" data-en="A: Learning is a lifelong skill. At work, you need to constantly learn new knowledge. Mastering efficient learning methods lets you achieve more with less effort and adapt to changes faster.">A: 学习能力是终身技能。工作中需要不断学习新知识，掌握高效学习方法能让你事半功倍，更快适应变化。</div>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -2274,7 +2278,7 @@
 
                 <!-- 承诺保障 -->
                 <div class="guarantee-section">
-                    <h3>🛡️ 我们的承诺</h3>
+                    <h3 data-zh="🛡️ 我们的承诺" data-en="🛡️ Our Promise">🛡️ 我们的承诺</h3>
                     <div class="guarantee-list">
                         <div class="guarantee-item">
                             <span class="guarantee-icon">⏰</span>
@@ -2418,7 +2422,7 @@
                             <li>遗忘曲线：了解记忆规律</li>
                             <li>重复间隔：优化复习时间</li>
                             <li>主动回忆：强化记忆痕迹</li>
-                            <li>工具推荐：Anki/Notion等</li>
+                            <li data-zh="工具推荐：Anki/Notion等" data-en="Recommended tools: Anki/Notion, etc.">工具推荐：Anki/Notion等</li>
                             <li>实战应用：语言/考试/技能学习</li>
                         </ul>
                         <p style="color: #667eea; font-size: 0.9rem; margin-top: 10px;">✅ 记忆效率提升5-10倍</p>
@@ -2441,7 +2445,7 @@
                         <h5 style="color: var(--text-primary); margin-bottom: 10px;">🎯 知识管理</h5>
                         <p style="color: var(--text-secondary); margin-bottom: 10px;">建立个人知识系统，让知识随时调用。</p>
                         <ul style="color: var(--text-secondary); padding-left: 20px;">
-                            <li>收集体系：高效收集信息</li>
+                            <li data-zh="收集体系：高效收集信息" data-en="Collection system: Efficient information gathering">收集体系：高效收集信息</li>
                             <li>整理方法：构建知识网络</li>
                             <li>笔记工具：Notion/Obsidian等</li>
                             <li>标签系统：快速检索定位</li>
@@ -2458,7 +2462,7 @@
         <!-- 写作套装支付 -->
         <div class="footer" id="payment-writing">
             <h3>💳 写作能力套装支付</h3>
-            <p>选择下方支付方式,完成后截图联系客服</p>
+            <p data-zh="选择下方支付方式,完成后截图联系客服" data-en="Choose payment method below, screenshot after payment to contact customer service">选择下方支付方式,完成后截图联系客服</p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <!-- 支付宝 -->
@@ -2468,7 +2472,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <!-- 微信支付 -->
@@ -2478,7 +2482,7 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2508,8 +2512,8 @@
 
         <!-- 目标规划支付 -->
         <div class="footer" id="payment-goals" style="margin-top: 30px;">
-            <h3>💳 目标规划套装支付</h3>
-            <p>选择下方支付方式,完成后截图联系客服</p>
+            <h3 data-zh="💳 目标规划套装支付" data-en="💳 Goal Planning Bundle Payment">💳 目标规划套装支付</h3>
+            <p data-zh="选择下方支付方式,完成后截图联系客服" data-en="Choose payment method below, screenshot after payment to contact customer service">选择下方支付方式,完成后截图联系客服</p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2518,7 +2522,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥79</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2527,7 +2531,7 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥79</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2549,8 +2553,8 @@
 
         <!-- 思维模型支付 -->
         <div class="footer" id="payment-thinking" style="margin-top: 30px;">
-            <h3>💳 思维模型套装支付</h3>
-            <p>选择下方支付方式,完成后截图联系客服</p>
+            <h3 data-zh="💳 思维模型套装支付" data-en="💳 Thinking Model Bundle Payment">💳 思维模型套装支付</h3>
+            <p data-zh="选择下方支付方式,完成后截图联系客服" data-en="Choose payment method below, screenshot after payment to contact customer service">选择下方支付方式,完成后截图联系客服</p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2559,7 +2563,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥89</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2568,7 +2572,7 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥89</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2590,8 +2594,8 @@
 
         <!-- 学习方法支付 -->
         <div class="footer" id="payment-learning" style="margin-top: 30px;">
-            <h3>💳 学习方法套装支付</h3>
-            <p>选择下方支付方式,完成后截图联系客服</p>
+            <h3 data-zh="💳 学习方法套装支付" data-en="💳 Learning Method Bundle Payment">💳 学习方法套装支付</h3>
+            <p data-zh="选择下方支付方式,完成后截图联系客服" data-en="Choose payment method below, screenshot after payment to contact customer service">选择下方支付方式,完成后截图联系客服</p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2600,7 +2604,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2609,7 +2613,7 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">¥99</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2631,9 +2635,9 @@
 
         <!-- 完整套装支付 -->
         <div class="footer" id="payment-complete" style="margin-top: 30px;">
-            <h3>💳 完整套装支付</h3>
+            <h3 data-zh="💳 完整套装支付" data-en="💳 Complete Bundle Payment">💳 完整套装支付</h3>
             <p style="font-size: 1.1rem; color: #667eea; font-weight: bold; margin-bottom: 20px;">
-                包含所有4个套装（写作+目标+思维+学习），立省 ¥106！
+                <span data-zh="包含所有4个套装（写作+目标+思维+学习），立省 ¥106！" data-en="Includes all 4 bundles (Writing + Goals + Thinking + Learning), save ¥106!">包含所有4个套装（写作+目标+思维+学习），立省 ¥106！</span>
             </p>
 
             <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
@@ -2643,7 +2647,7 @@
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.5rem;">¥159</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;" data-zh="原价 ¥265" data-en="Original ¥265">原价 ¥265</p>
                     <p style="margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
 
@@ -2653,7 +2657,7 @@
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
                     <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.5rem;">¥159</p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;">原价 ¥265</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem; text-decoration: line-through;" data-zh="原价 ¥265" data-en="Original ¥265">原价 ¥265</p>
                     <p style="margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
                 </div>
             </div>
@@ -2670,7 +2674,7 @@
             </div>
 
             <p style="margin-top: 25px; color: var(--text-secondary); font-size: 0.9rem;">
-                💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含所有4个套装
+                <span data-zh="💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含所有4个套装" data-en="💡 Resources sent within 30min · 7-day refund guarantee · Includes all 4 bundles">💡 购买后30分钟内发送资源 · 7天不满意退款保障 · 包含所有4个套装</span>
             </p>
 
             <div style="margin-top: 20px;">
@@ -2680,11 +2684,11 @@
 
         <!-- 单品购买说明 -->
         <div class="footer" id="payment-writing-single" style="margin-top: 30px;">
-            <h3>💳 写作单品支付</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <h3 data-zh="💳 写作单品支付" data-en="💳 Writing Single Item Payment">💳 写作单品支付</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;" data-zh="请选择要购买的单品，然后扫描下方二维码支付" data-en="Select item to purchase, then scan QR code below to pay">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: var(--bg-secondary); border-radius: 12px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);">选择单品:</label>
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);" data-zh="选择单品:" data-en="Select Item:">选择单品:</label>
                 <select id="writing-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="template">📝 写作模板大全 - ¥49</option>
                     <option value="title">🎯 爆款标题库 - ¥39</option>
@@ -2699,8 +2703,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="writing-alipay-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="writing-alipay-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2708,8 +2712,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="writing-wechat-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="writing-wechat-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2739,11 +2743,11 @@
 
         <!-- 目标单品支付 -->
         <div class="footer" id="payment-goals-single" style="margin-top: 30px;">
-            <h3>💳 目标单品支付</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <h3 data-zh="💳 目标单品支付" data-en="💳 Goal Single Item Payment">💳 目标单品支付</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;" data-zh="请选择要购买的单品，然后扫描下方二维码支付" data-en="Select item to purchase, then scan QR code below to pay">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: var(--bg-secondary); border-radius: 12px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);">选择单品:</label>
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);" data-zh="选择单品:" data-en="Select Item:">选择单品:</label>
                 <select id="goals-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="notion">🎯 Notion目标系统 - ¥49</option>
                     <option value="planning">📊 年度规划模板 - ¥29</option>
@@ -2757,8 +2761,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="goals-alipay-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="goals-alipay-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2766,8 +2770,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="goals-wechat-amount">¥49</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="goals-wechat-amount">¥49</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2778,11 +2782,11 @@
 
         <!-- 思维单品支付 -->
         <div class="footer" id="payment-thinking-single" style="margin-top: 30px;">
-            <h3>💳 思维单品支付</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <h3 data-zh="💳 思维单品支付" data-en="💳 Thinking Single Item Payment">💳 思维单品支付</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;" data-zh="请选择要购买的单品，然后扫描下方二维码支付" data-en="Select item to purchase, then scan QR code below to pay">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: var(--bg-secondary); border-radius: 12px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);">选择单品:</label>
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);" data-zh="选择单品:" data-en="Select Item:">选择单品:</label>
                 <select id="thinking-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="first">🧠 第一性原理 - ¥39</option>
                     <option value="inverse">🔄 逆向思维 - ¥39</option>
@@ -2797,8 +2801,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="thinking-alipay-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="thinking-alipay-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2806,8 +2810,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="thinking-wechat-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="thinking-wechat-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2818,11 +2822,11 @@
 
         <!-- 学习单品支付 -->
         <div class="footer" id="payment-learning-single" style="margin-top: 30px;">
-            <h3>💳 学习单品支付</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">请选择要购买的单品，然后扫描下方二维码支付</p>
+            <h3 data-zh="💳 学习单品支付" data-en="💳 Learning Single Item Payment">💳 学习单品支付</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;" data-zh="请选择要购买的单品，然后扫描下方二维码支付" data-en="Select item to purchase, then scan QR code below to pay">请选择要购买的单品，然后扫描下方二维码支付</p>
 
             <div style="margin: 20px auto; max-width: 600px; padding: 20px; background: var(--bg-secondary); border-radius: 12px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);">选择单品:</label>
+                <label style="display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-primary);" data-zh="选择单品:" data-en="Select Item:">选择单品:</label>
                 <select id="learning-product-select" style="width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: var(--bg-card);">
                     <option value="feynman">🎓 费曼学习法 - ¥39</option>
                     <option value="spaced">📅 间隔重复 - ¥39</option>
@@ -2837,8 +2841,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/alipay-qr.png" alt="支付宝收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="learning-alipay-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="learning-alipay-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
 
                 <div style="text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 15px;">
@@ -2846,8 +2850,8 @@
                     <div style="background: var(--bg-card); padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         <img src="./images/wechat-qr.png" alt="微信收款码" style="width: 200px; max-width: 100%;">
                     </div>
-                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span id="learning-wechat-amount">¥39</span></p>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">扫码支付后截图联系客服</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-primary); font-size: 1.2rem;">请支付 <span data-zh="Pay " data-en="Pay " id="learning-wechat-amount">¥39</span></p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;" data-zh="扫码支付后截图联系客服" data-en="Screenshot after scanning to contact customer service">扫码支付后截图联系客服</p>
                 </div>
             </div>
 
@@ -2970,14 +2974,28 @@
 
             // 有category参数，只显示该分类
             const categoryNames = {
-                'writing': '✍️ 写作指南',
-                'goals': '🎯 目标规划',
-                'thinking': '🧠 思维模型',
-                'learning': '📚 学习方法'
+                'writing': {
+                    'zh': '✍️ 写作指南',
+                    'en': '✍️ Writing Guide'
+                },
+                'goals': {
+                    'zh': '🎯 目标规划',
+                    'en': '🎯 Goal Planning'
+                },
+                'thinking': {
+                    'zh': '🧠 思维模型',
+                    'en': '🧠 Mental Models'
+                },
+                'learning': {
+                    'zh': '📚 学习方法',
+                    'en': '📚 Learning Methods'
+                }
             };
 
-            document.getElementById('page-title').textContent = categoryNames[category] || '📚 个人成长资源套装';
-            document.getElementById('page-subtitle').textContent = '即用型工具 · 立即提升效率 · 快速实现目标';
+            const categoryName = categoryNames[category] ? (categoryNames[category][currentLang] || categoryNames[category]['zh']) : '📚 个人成长资源套装';
+            document.getElementById('page-title').textContent = categoryName;
+            const subtitle = currentLang === 'zh' ? '即用型工具 · 立即提升效率 · 快速实现目标' : 'Ready-to-Use Tools · Boost Efficiency · Achieve Goals';
+            document.getElementById('page-subtitle').textContent = subtitle;
             document.getElementById('price-banner').style.display = 'none';
             document.getElementById('complete-buy-btn').style.display = 'none';
             document.getElementById('view-all-btn').style.display = 'block';
@@ -3175,43 +3193,65 @@
         }
 
         // 页面加载完成后初始化主题
-        window.addEventListener('DOMContentLoaded', () => {
+
+        // ===== 语言切换功能 =====
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5' || el.tagName === 'LABEL' || el.tagName === 'OPTION') {
+                    el.textContent = el.dataset[lang];
+                } else {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+
+            // 重新过滤产品（因为搜索可能使用中文关键词）
+            searchProducts();
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            switchLanguage(savedLang);
+        }
+
+        // ===== 主题切换功能 =====
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', currentTheme);
 
             const themeIcon = document.querySelector('.theme-icon');
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
-        });
 
-        const themeSwitcher = document.querySelector('.theme-switcher');
-        if (themeSwitcher) {
-            themeSwitcher.addEventListener('click', toggleTheme);
+            localStorage.setItem('preferred-theme', currentTheme);
         }
-
-        // 页面加载完成后隐藏 loader
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 300);
-        });
-
-        // 返回顶部按钮功能
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
 
         // 搜索功能
         function searchProducts() {
@@ -3239,26 +3279,82 @@
                 });
             }
         }
+
+        // ===== 页面初始化 =====
+        window.addEventListener('DOMContentLoaded', () => {
+            // 初始化主题
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+
+            // 初始化语言
+            initLanguage();
+
+            // 绑定语言切换按钮
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+
+            // 绑定主题切换按钮
+            const themeSwitcher = document.querySelector('.theme-switcher');
+            if (themeSwitcher) {
+                themeSwitcher.addEventListener('click', toggleTheme);
+            }
+
+            // 初始化产品分类过滤
+            filterProductsByCategory();
+
+            // 页面加载完成后隐藏 loader
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('hidden');
+                }
+            }, 300);
+
+            // 返回顶部按钮功能
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
     </script>
 
     <!-- 支付说明弹窗 -->
     <div id="payment-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-            <h3 style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.5rem;">💳 支付说明</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 15px; line-height: 1.6;">
+            <h3 style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.5rem;" data-zh="💳 支付说明" data-en="💳 Payment Info">💳 支付说明</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; line-height: 1.6;" data-zh="我们使用小鹅通安全支付平台，支持多种支付方式：" data-en="We use XiaoeTong secure payment platform supporting multiple methods:">
                 我们使用小鹅通安全支付平台，支持多种支付方式：
             </p>
             <ul style="margin-bottom: 20px; color: var(--text-secondary); padding-left: 20px; line-height: 1.8;">
-                <li>✅ 微信支付</li>
-                <li>✅ 支付宝支付</li>
-                <li>✅ 银行卡支付</li>
+                <li data-zh="✅ 微信支付" data-en="✅ WeChat Pay">✅ 微信支付</li>
+                <li data-zh="✅ 支付宝支付" data-en="✅ Alipay">✅ 支付宝支付</li>
+                <li data-zh="✅ 银行卡支付" data-en="✅ Bank Card">✅ 银行卡支付</li>
             </ul>
-            <p style="color: var(--text-secondary); margin-bottom: 25px; line-height: 1.6;">
+            <p style="color: var(--text-secondary); margin-bottom: 25px; line-height: 1.6;" data-zh="购买后30分钟内自动发送资源链接到您的邮箱" data-en="Resources link sent to your email within 30 minutes after purchase">
                 购买后30分钟内自动发送资源链接到您的邮箱
             </p>
             <div style="display: flex; gap: 10px;">
-                <button onclick="closePaymentModal()" style="flex: 1; padding: 12px; background: var(--bg-secondary); color: var(--text-secondary); border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">取消</button>
-                <button onclick="confirmPayment()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">去支付</button>
+                <button onclick="closePaymentModal()" style="flex: 1; padding: 12px; background: var(--bg-secondary); color: var(--text-secondary); border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="取消" data-en="Cancel">取消</button>
+                <button onclick="confirmPayment()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="去支付" data-en="Go to Pay">去支付</button>
             </div>
         </div>
     </div>
