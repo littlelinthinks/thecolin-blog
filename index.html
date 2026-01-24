@@ -3757,10 +3757,8 @@
         // 初始化语言
         function initLanguage() {
             const savedLang = localStorage.getItem('preferred-lang') || 'zh';
-
-            if (savedLang !== 'zh') {
-                switchLanguage(savedLang);
-            }
+            currentLang = savedLang;
+            switchLanguage(savedLang);
         }
         
         // 绑定语言切换按钮

@@ -3237,21 +3237,6 @@
             switchLanguage(savedLang);
         }
 
-        // ===== 主题切换功能 =====
-        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
-
-        function toggleTheme() {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-
-            const themeIcon = document.querySelector('.theme-icon');
-            if (themeIcon) {
-                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            }
-
-            localStorage.setItem('preferred-theme', currentTheme);
-        }
-
         // 搜索功能
         function searchProducts() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
