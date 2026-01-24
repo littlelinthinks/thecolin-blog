@@ -121,7 +121,7 @@
             text-align: center;
             margin-bottom: 40px;
             padding: 40px;
-            background: #ffffff;
+            background: var(--bg-card);
             border-radius: 12px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
@@ -129,11 +129,11 @@
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            color: #1d1d1f;
+            color: var(--text-primary);
         }
 
         .header p {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
@@ -147,22 +147,23 @@
 
         .tag-btn {
             padding: 8px 20px;
-            background: #f0f0f0;
+            background: var(--bg-secondary);
             border: none;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
             transition: all 0.3s;
+            color: var(--text-primary);
         }
 
         .tag-btn:hover {
-            background: #000000;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
         }
 
         .tag-btn.active {
-            background: #000000;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
         }
 
         .stats {
@@ -213,7 +214,7 @@
 
         /* 文章卡片 */
         .article-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 20px;
@@ -230,12 +231,12 @@
         .article-title {
             font-size: 1.3rem;
             font-weight: bold;
-            color: #1d1d1f;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         .article-excerpt {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 15px;
@@ -245,7 +246,7 @@
             display: flex;
             gap: 15px;
             font-size: 0.85rem;
-            color: #999;
+            color: var(--text-secondary);
         }
 
         .article-meta span {
@@ -255,7 +256,7 @@
         }
 
         .archive-section {
-            background: white;
+            background: var(--bg-card);
             padding: 40px;
             border-radius: 12px;
             margin-bottom: 30px;
@@ -265,9 +266,9 @@
         .archive-section h2 {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: #1d1d1f;
+            color: var(--text-primary);
             padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border);
         }
 
         .archive-list {
@@ -276,7 +277,7 @@
 
         .archive-item {
             padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -297,33 +298,33 @@
         }
 
         .archive-item-title a {
-            color: #000000;
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.2s;
             font-weight: 600;
         }
 
         .archive-item-title a:hover {
-            color: #333333;
+            color: var(--accent-hover);
         }
 
         .archive-item-meta {
             font-size: 0.85rem;
-            color: #999;
+            color: var(--text-secondary);
         }
 
         .archive-item-category {
             display: inline-block;
             padding: 4px 12px;
-            background: #f0f0f0;
+            background: var(--bg-secondary);
             border-radius: 12px;
             font-size: 0.8rem;
-            color: #666;
+            color: var(--text-secondary);
             margin-right: 10px;
         }
 
         .archive-item-date {
-            color: #999;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
@@ -334,8 +335,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -348,7 +349,7 @@
         }
 
         .back-to-top:hover {
-            background: #333333;
+            background: var(--accent-hover);
             transform: translateY(-3px);
         }
 

@@ -209,22 +209,23 @@
         .search-box {
             width: 100%;
             padding: 15px 25px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid var(--border);
             border-radius: 25px;
             font-size: 1rem;
             transition: all 0.3s;
             outline: none;
-            background: white;
+            background: var(--bg-card);
+            color: var(--text-primary);
         }
 
         .search-box:focus {
-            border-color: #000000;
+            border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
         }
 
         .price-banner {
-            background: #000000;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
             padding: 20px;
             border-radius: 15px;
             margin: 20px 0;
@@ -242,7 +243,7 @@
         }
 
         .product {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -260,13 +261,13 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border);
         }
 
         .product-title {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .product-tag {
@@ -277,17 +278,17 @@
         }
 
         .tag-recommended {
-            background: #000000;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
         }
 
         .tag-normal {
-            background: #f5f5f5;
-            color: #666666;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
         }
 
         .product-desc {
-            color: #555555;
+            color: var(--text-secondary);
             margin-bottom: 25px;
             line-height: 1.8;
             font-size: 1.05rem;
@@ -300,7 +301,7 @@
 
         .features li {
             padding: 10px 0;
-            color: #555555;
+            color: var(--text-secondary);
             padding-left: 35px;
             position: relative;
         }
@@ -309,7 +310,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #000000;
+            color: var(--accent);
             font-weight: bold;
             font-size: 1.2rem;
         }
@@ -317,13 +318,13 @@
         .product-price {
             font-size: 3rem;
             font-weight: bold;
-            color: #000000;
+            color: var(--accent);
             margin-bottom: 25px;
         }
 
         .product-price .original {
             font-size: 1.2rem;
-            color: #999;
+            color: var(--text-secondary);
             text-decoration: line-through;
             margin-right: 15px;
         }
@@ -354,8 +355,8 @@
         }
 
         .btn-primary {
-            background: #000000;
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
         }
 
         .btn-alipay {
@@ -376,7 +377,7 @@
         }
 
         .feature-item {
-            background: #f5f5f5;
+            background: var(--bg-secondary);
             padding: 15px 20px;
             border-radius: 10px;
             display: flex;
@@ -391,11 +392,11 @@
         .feature-text {
             flex: 1;
             font-weight: 500;
-            color: #333;
+            color: var(--text-primary);
         }
 
         .footer {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             padding: 40px;
             text-align: center;
@@ -404,18 +405,18 @@
         }
 
         .footer h3 {
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 15px;
             font-size: 1.5rem;
         }
 
         .footer p {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 10px;
         }
 
         .footer a {
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
             font-weight: bold;
         }
@@ -425,7 +426,7 @@
         }
 
         .contact-info {
-            background: #f8f9fa;
+            background: var(--bg-secondary);
             padding: 20px;
             border-radius: 12px;
             margin-top: 20px;
@@ -438,14 +439,14 @@
             justify-content: center;
             gap: 10px;
             margin: 10px 0;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .back-link {
             display: inline-block;
             padding: 12px 25px;
-            background: white;
-            color: #667eea;
+            background: var(--bg-card);
+            color: var(--accent);
             text-decoration: none;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -465,7 +466,7 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: white;
+            background: var(--bg-card);
             border-radius: 15px;
             padding: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -480,7 +481,7 @@
         .nav-item {
             display: block;
             padding: 10px 15px;
-            color: #666;
+            color: var(--text-secondary);
             text-decoration: none;
             border-radius: 8px;
             margin: 5px 0;
@@ -490,16 +491,16 @@
         }
 
         .nav-item:hover, .nav-item.active {
-            background: #667eea;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
         }
 
         .sidebar-toggle {
             position: fixed;
             right: 20px;
             bottom: 30px;
-            background: #667eea;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             width: 50px;
@@ -524,8 +525,8 @@
 
         /* 套装折叠样式 */
         .product-expand-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             padding: 12px 30px;
             border-radius: 25px;
@@ -541,7 +542,7 @@
 
         .product-expand-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .product-expand-btn .arrow {
@@ -574,7 +575,7 @@
 
         /* 单品折叠区域 */
         .single-products-section {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             padding: 35px;
             margin-top: 25px;
@@ -585,12 +586,12 @@
             text-align: center;
             margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border);
         }
 
         .single-products-header h3 {
             font-size: 1.8rem;
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
@@ -598,7 +599,7 @@
 
         /* 新增样式 - 优化区域 */
         .result-highlight {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            background: var(--bg-secondary);
             padding: 20px;
             border-radius: 12px;
             display: flex;
@@ -612,7 +613,7 @@
         .result-item {
             text-align: center;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .result-item span {
@@ -621,19 +622,19 @@
         }
 
         .user-stories {
-            background: #f8f9fa;
+            background: var(--bg-secondary);
             padding: 25px;
             border-radius: 15px;
             margin: 25px 0;
         }
 
         .user-stories h3 {
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 20px;
         }
 
         .story-card {
-            background: white;
+            background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 15px;
@@ -646,8 +647,8 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: #000000;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -658,11 +659,11 @@
 
         .story-content h4 {
             margin-bottom: 8px;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .story-quote {
-            color: #555;
+            color: var(--text-secondary);
             font-style: italic;
             margin-bottom: 10px;
         }
@@ -672,7 +673,7 @@
             gap: 15px;
             flex-wrap: wrap;
             font-size: 0.9rem;
-            color: #667eea;
+            color: var(--accent);
             font-weight: 500;
         }
 
@@ -683,7 +684,7 @@
         .comparison-section h3 {
             text-align: center;
             margin-bottom: 25px;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .comparison-grid {
@@ -694,7 +695,7 @@
         }
 
         .comparison-card {
-            background: #f8f9fa;
+            background: var(--bg-secondary);
             padding: 25px;
             border-radius: 15px;
         }
@@ -720,7 +721,7 @@
             padding: 8px 0;
             padding-left: 25px;
             position: relative;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .comparison-list li:before {
@@ -738,7 +739,7 @@
 
         .comparison-arrow {
             font-size: 3rem;
-            color: #667eea;
+            color: var(--accent);
             text-align: center;
         }
 
@@ -749,12 +750,12 @@
         .faq-section h3 {
             text-align: center;
             margin-bottom: 25px;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .faq-item {
-            background: white;
-            border: 1px solid #e0e0e0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
             margin-bottom: 12px;
             overflow: hidden;
@@ -763,7 +764,7 @@
         .faq-question {
             padding: 20px;
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--text-primary);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -772,7 +773,7 @@
 
         .faq-answer {
             padding: 0 20px 20px 20px;
-            color: #666;
+            color: var(--text-secondary);
             display: none;
         }
 
@@ -789,11 +790,11 @@
         }
 
         .guarantee-section {
-            background: #000000;
+            background: var(--accent);
             padding: 30px;
             border-radius: 15px;
             margin: 30px 0;
-            color: white;
+            color: var(--button-text-dark);
         }
 
         .guarantee-section h3 {
@@ -832,7 +833,7 @@
         }
 
         .quick-start-section {
-            background: #e8f4f8;
+            background: var(--bg-secondary);
             padding: 25px;
             border-radius: 15px;
             margin: 25px 0;
@@ -841,7 +842,7 @@
         .quick-start-section h3 {
             text-align: center;
             margin-bottom: 25px;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .steps-container {
@@ -860,8 +861,8 @@
             display: inline-block;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border-radius: 50%;
             line-height: 40px;
             font-weight: bold;
@@ -870,24 +871,24 @@
 
         .step-item h4 {
             margin-bottom: 8px;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
 
         .step-item p {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 8px;
         }
 
         .time-taken {
             font-size: 0.85rem;
-            color: #667eea;
+            color: var(--accent);
             font-weight: 500;
         }
 
         .step-result {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
             padding: 25px;
             border-radius: 12px;
             text-align: center;
@@ -902,9 +903,9 @@
             display: inline-block;
             margin-top: 15px;
             padding: 10px 25px;
-            background: #f8f9fa;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            border: 2px solid var(--accent);
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -912,8 +913,8 @@
         }
 
         .view-details-btn:hover {
-            background: #667eea;
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark);
         }
 
         /* 返回顶部按钮 */
@@ -923,8 +924,8 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -943,7 +944,7 @@
 
         .back-to-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
