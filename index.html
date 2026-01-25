@@ -3066,10 +3066,49 @@
     </div>
 
     <script>
+        // ===== 全局错误处理 =====
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error('Global error:', { message, source, lineno, colno, error });
+            
+            // 发送错误到追踪服务
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    'description': message,
+                    'fatal': false
+                });
+            }
+            
+            // 显示用户友好的错误提示
+            const errorMsg = currentLang === 'zh' 
+                ? '页面出现错误，请刷新重试' 
+                : 'An error occurred, please refresh';
+            // 可以在这里显示 toast 或 modal
+            
+            return false;
+        };
+
+        // Promise 错误捕获
+        window.addEventListener('unhandledrejection', (event) => {
+            console.error('Unhandled promise rejection:', event.reason);
+            event.preventDefault();
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    'description': 'Promise rejection: ' + event.reason
+                });
+            }
+        });
+
         // ===== 全局变量 =====
         let currentLang = 'zh';
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
         let currentArticleId = null;
+        
+        // ===== 常量定义 =====
+        const SCROLL_THRESHOLD = 300;
+        const NAV_SHADOW_THRESHOLD = 100;
+        const ARTICLES_PER_PAGE = 6;
+        const DEBOUNCE_DELAY = 250;
 
         // ===== 完整的文章数据库 =====
         const articlesDatabase = {
@@ -3795,10 +3834,13 @@
 
         // ===== 阅读进度条 =====
         function updateReadingProgress() {
+            const progressBar = document.querySelector('.reading-progress');
+            if (!progressBar) return;
+
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.querySelector('.reading-progress').style.width = scrolled + '%';
+            progressBar.style.width = scrolled + '%';
         }
 
         window.addEventListener('scroll', updateReadingProgress);

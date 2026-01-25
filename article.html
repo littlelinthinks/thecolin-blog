@@ -212,8 +212,11 @@
             background: var(--accent-hover);
             transform: translateY(-3px);
         }
-            background: #0055b3;
-            transform: translateY(-2px);
+
+        /* 深色模式适配 */
+        [data-theme="dark"] .back-to-top:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
         }
 
         /* 文章分享按钮 */
@@ -423,7 +426,7 @@
         .back-button {
             display: inline-block;
             padding: 12px 24px;
-            background: #0071e3;
+            background: var(--accent);
             color: var(--button-text-dark);
             text-decoration: none;
             border-radius: 8px;
@@ -433,7 +436,7 @@
         }
 
         .back-button:hover {
-            background: #0055b3;
+            background: var(--accent-hover);
             transform: translateY(-2px);
         }
 
