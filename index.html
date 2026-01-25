@@ -3752,6 +3752,18 @@
 
             // 保存语言偏好
             localStorage.setItem('preferred-lang', lang);
+
+            // 重新渲染文章卡片以更新语言
+            if (allArticles && allArticles.length > 0) {
+                articlesGrid.innerHTML = '';
+                allArticles.forEach((article, index) => {
+                    const card = createArticleCard(article, index);
+                    articlesGrid.appendChild(card);
+                });
+                // 重新初始化显示和事件
+                initArticleCards();
+                attachArticleCardEvents();
+            }
         }
         
         // 初始化语言
