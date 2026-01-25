@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>订阅获取免费资源 - COLIN</title>
-    <meta name="description" content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。">
+    <title data-zh="订阅获取免费资源 - COLIN" data-en="Subscribe for Free Resources - COLIN">订阅获取免费资源 - COLIN</title>
+    <meta name="description" data-zh-content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。" data-en-content="Subscribe to COLIN blog for weekly writing tips, goal management methods, mental models, and learning resources." content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。">
     <meta name="keywords" content="订阅,newsletter,写作技巧,目标管理,思维模型,学习方法,个人成长">
 
     <!-- Google Analytics 4 -->
@@ -343,10 +343,14 @@
         <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
             <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
             <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: var(--accent); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <a href="index.html" data-zh="首页" data-en="Home" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
+                <a href="archive.html" data-zh="文章归档" data-en="Archive" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
+                <a href="products.html" data-zh="精选资源" data-en="Resources" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
+                <a href="subscribe.html" data-zh="订阅" data-en="Subscribe" style="color: var(--accent); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                </div>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -357,11 +361,11 @@
     <div class="container">
         <div class="subscribe-card">
             <div class="icon">📬</div>
-            <h1>订阅获取免费资源</h1>
-            <p class="subtitle">加入我们的邮件列表，第一时间获取最新资源和干货</p>
+            <h1 data-zh="订阅获取免费资源" data-en="Subscribe for Free Resources">订阅获取免费资源</h1>
+            <p class="subtitle" data-zh="加入我们的邮件列表，第一时间获取最新资源和干货" data-en="Join our newsletter to get latest resources and insights">加入我们的邮件列表，第一时间获取最新资源和干货</p>
 
             <div class="benefits">
-                <h3>🎁 订阅后你将获得</h3>
+                <h3 data-zh="🎁 订阅后你将获得" data-en="🎁 What you'll get">🎁 订阅后你将获得</h3>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
                     <span>每周精选写作技巧和模板</span>
@@ -468,6 +472,66 @@
             });
         });
 
+        // ===== 语言切换功能 =====
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
+                    el.textContent = el.dataset[lang];
+                } else {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+
+            // 更新meta标签
+            const titleEl = document.querySelector('title');
+            if (titleEl) {
+                titleEl.textContent = titleEl.dataset[lang];
+            }
+
+            const descEl = document.querySelector('meta[name="description"]');
+            if (descEl && descEl.dataset[lang + 'Content']) {
+                descEl.setAttribute('content', descEl.dataset[lang + 'Content']);
+            }
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
 
@@ -483,7 +547,7 @@
             localStorage.setItem('preferred-theme', currentTheme);
         }
 
-        // 页面加载完成后初始化主题
+        // 页面加载完成后初始化主题和语言
         window.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -491,6 +555,9 @@
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
+
+            // 初始化语言
+            initLanguage();
         });
 
         const themeSwitcher = document.querySelector('.theme-switcher');

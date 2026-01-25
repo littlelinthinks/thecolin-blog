@@ -583,10 +583,14 @@
         <div class="nav-content">
             <a href="index.html" class="nav-logo">COLIN</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="archive.html" class="nav-link">文章归档</a>
-                <a href="products.html" class="nav-link">精选资源</a>
-                <a href="subscribe.html" class="nav-link">订阅</a>
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive">文章归档</a>
+                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">精选资源</a>
+                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                </div>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -598,10 +602,10 @@
     <div class="reading-progress" id="readingProgress"></div>
 
     <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+    <button class="back-to-top" id="backToTop" data-zh-title="返回顶部" data-en-title="Back to top" title="返回顶部">↑</button>
 
     <div class="container">
-        <a href="index.html" class="back-button">← 返回首页</a>
+        <a href="index.html" class="back-button" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
 
         <div id="articleContainer">
             <div class="loading">加载中...</div>
@@ -978,6 +982,60 @@
             document.head.appendChild(schema);
         }
 
+        // ===== 语言切换功能 =====
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                if (el.tagName === 'INPUT') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5') {
+                    el.textContent = el.dataset[lang];
+                } else {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+
+            // 更新title属性
+            document.querySelectorAll('[data-zh-title][data-en-title]').forEach(el => {
+                el.setAttribute('title', el.dataset[lang + 'Title']);
+            });
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
@@ -994,7 +1052,7 @@
             localStorage.setItem('preferred-theme', currentTheme);
         }
 
-        // 页面加载完成后初始化主题
+        // 页面加载完成后初始化主题和语言
         window.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -1002,6 +1060,9 @@
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
+
+            // 初始化语言
+            initLanguage();
         });
 
         const themeSwitcher = document.querySelector('.theme-switcher');
