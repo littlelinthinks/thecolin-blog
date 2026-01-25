@@ -327,33 +327,57 @@
         .article-content h1 {
             font-size: 2rem;
             margin: 2rem 0 1rem;
+            color: var(--text-primary);
         }
 
         .article-content h2 {
             font-size: 1.5rem;
             margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            margin: 1.25rem 0 0.5rem;
+            color: var(--text-primary);
         }
 
         .article-content p {
             margin: 1rem 0;
             line-height: 1.8;
+            color: var(--text-primary);
         }
 
         .article-content ul, .article-content ol {
             margin: 1rem 0;
             padding-left: 2rem;
+            color: var(--text-primary);
         }
 
         .article-content li {
             margin: 0.5rem 0;
+            color: var(--text-primary);
         }
 
         .article-content strong {
             font-weight: 700;
+            color: var(--text-primary);
         }
 
         .article-content em {
             font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-content a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-content a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
 
         /* Markdown 增强样式 */
@@ -404,6 +428,7 @@
             border: 1px solid #e0e0e0;
             padding: 12px;
             text-align: left;
+            color: var(--text-primary);
         }
 
         .article-content table th {
@@ -413,6 +438,16 @@
 
         .article-content table tr:hover {
             background: var(--bg-secondary);
+        }
+
+        /* 深色模式表格 */
+        [data-theme="dark"] .article-content table th,
+        [data-theme="dark"] .article-content table td {
+            border-color: #3a3a3a;
+        }
+
+        [data-theme="dark"] .article-content table th {
+            background: #2a2a2a;
         }
 
         .article-content hr {
@@ -524,6 +559,10 @@
             color: var(--accent);
         }
 
+        [data-theme="dark"] .breadcrumb span {
+            color: var(--text-secondary);
+        }
+
         [data-theme="dark"] .article-header {
             background: var(--bg-card);
         }
@@ -532,18 +571,13 @@
             background: var(--bg-card);
         }
 
-        [data-theme="dark"] .article-content h1,
-        [data-theme="dark"] .article-content h2 {
-            color: var(--text-primary);
-        }
-
         [data-theme="dark"] .article-content p {
-            color: var(--text-secondary);
+            color: var(--text-primary);
         }
 
         [data-theme="dark"] .article-content blockquote {
             background: var(--bg-secondary);
-            color: var(--text-secondary);
+            color: var(--text-primary);
         }
 
         [data-theme="dark"] .article-content pre {
@@ -555,12 +589,37 @@
             color: #ff79c6;
         }
 
+        [data-theme="dark"] .article-content ul,
+        [data-theme="dark"] .article-content ol {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .article-content li {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .article-content strong {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .article-content em {
+            color: var(--text-primary);
+        }
+
         [data-theme="dark"] .related-articles {
             background: var(--bg-card);
         }
 
         [data-theme="dark"] .related-articles h3 {
             color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .related-list a {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .related-list li {
+            border-bottom-color: #2a2a2a;
         }
 
         [data-theme="dark"] .comments-section {
