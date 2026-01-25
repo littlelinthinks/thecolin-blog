@@ -6,6 +6,8 @@
     <title data-zh="文章归档 - COLIN" data-en="Archive - COLIN">文章归档 - COLIN</title>
     <meta name="description" data-zh-content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。" data-en-content="Browse all articles from COLIN blog, covering writing, thinking, learning, goal management and personal growth." content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。">
     <meta name="keywords" content="文章归档,博客,写作,思维,学习,目标管理,个人成长">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -527,7 +529,7 @@
                     <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
                     <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
                 </div>
-                <button class="theme-switcher" aria-label="Toggle theme">
+                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false">
                     <span class="theme-icon">🌙</span>
                 </button>
             </div>
@@ -543,16 +545,16 @@
 
             <!-- 搜索框 -->
             <div class="search-container">
-                <input type="text" class="search-box" id="searchInput" data-zh-placeholder="🔍 搜索文章标题或内容..." data-en-placeholder="🔍 Search article titles or content..." placeholder="🔍 搜索文章标题或内容..." onkeyup="searchArticles()">
+                <input type="text" class="search-box" id="searchInput" data-zh-placeholder="🔍 搜索文章标题或内容..." data-en-placeholder="🔍 Search article titles or content..." placeholder="🔍 搜索文章标题或内容..." aria-label="搜索文章">
             </div>
 
             <!-- 标签筛选 -->
-            <div class="tag-filter">
-                <button class="tag-btn active" onclick="filterByTag('all', this)" data-zh="全部" data-en="All">全部</button>
-                <button class="tag-btn" onclick="filterByTag('写作', this)" data-zh="写作" data-en="Writing">写作</button>
-                <button class="tag-btn" onclick="filterByTag('思维', this)" data-zh="思维" data-en="Thinking">思维</button>
-                <button class="tag-btn" onclick="filterByTag('学习', this)" data-zh="学习" data-en="Learning">学习</button>
-                <button class="tag-btn" onclick="filterByTag('目标', this)" data-zh="目标" data-en="Goals">目标</button>
+            <div class="tag-filter" id="tagFilter" role="group" aria-label="按分类筛选">
+                <button class="tag-btn active" data-tag="all" data-zh="全部" data-en="All" aria-pressed="true">全部</button>
+                <button class="tag-btn" data-tag="写作" data-zh="写作" data-en="Writing" aria-pressed="false">写作</button>
+                <button class="tag-btn" data-tag="思维" data-zh="思维" data-en="Thinking" aria-pressed="false">思维</button>
+                <button class="tag-btn" data-tag="学习" data-zh="学习" data-en="Learning" aria-pressed="false">学习</button>
+                <button class="tag-btn" data-tag="目标" data-zh="目标" data-en="Goals" aria-pressed="false">目标</button>
             </div>
 
             <div class="stats">
@@ -694,7 +696,9 @@
 
         // 搜索功能
         function searchArticles() {
-            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+            const searchText = searchInput.value.toLowerCase();
             const articleItems = document.querySelectorAll('.archive-item, .article-card');
 
             articleItems.forEach(item => {
@@ -714,11 +718,21 @@
             }
         }
 
-        // 标签筛选
-        function filterByTag(tag, btn) {
-            // 更新按钮状态
-            document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+        // 标签筛选 - 使用事件委托
+        document.getElementById('tagFilter').addEventListener('click', function(e) {
+            const btn = e.target.closest('.tag-btn');
+            if (!btn) return;
+
+            const tag = btn.dataset.tag;
+            if (!tag) return;
+
+            // 更新按钮状态和 ARIA 属性
+            document.querySelectorAll('.tag-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
 
             const articleItems = document.querySelectorAll('.archive-item, .article-card');
 
@@ -734,6 +748,30 @@
                     }
                 }
             });
+        });
+
+        // 搜索功能
+        function searchArticles() {
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+            const searchText = searchInput.value.toLowerCase();
+            const articleItems = document.querySelectorAll('.archive-item, .article-card');
+
+            articleItems.forEach(item => {
+                const title = item.querySelector('.archive-item-title, .article-title')?.textContent.toLowerCase() || '';
+                if (title.includes(searchText)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = searchText === '' ? 'flex' : 'none';
+                }
+            });
+
+            // 追踪搜索事件
+            if (searchText && typeof gtag !== 'undefined') {
+                gtag('event', 'search', {
+                    'search_term': searchText
+                });
+            }
         }
 
         // 返回顶部按钮
@@ -754,7 +792,7 @@
             } else {
                 backToTopBtn.classList.add('hidden');
             }
-        });
+        }, { passive: true });
 
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -783,19 +821,22 @@
 
             // 更新所有带语言数据的元素
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
                 if (el.tagName === 'INPUT') {
-                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
                 } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5') {
-                    el.textContent = el.dataset[lang];
+                    el.textContent = textContent;
                 } else if (el.tagName === 'TITLE' || el.tagName === 'META') {
                     // 对于title和meta标签，特殊处理
                     if (el.tagName === 'TITLE') {
-                        el.textContent = el.dataset[lang];
+                        el.textContent = textContent;
                     } else if (el.dataset[lang + 'Content']) {
                         el.setAttribute('content', el.dataset[lang + 'Content']);
                     }
                 } else {
-                    el.innerHTML = el.dataset[lang];
+                    el.innerHTML = textContent;
                 }
             });
 

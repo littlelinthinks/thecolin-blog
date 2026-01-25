@@ -6,6 +6,8 @@
     <title data-zh="资源套装 - 30天实现成长蜕变 | COLIN" data-en="Resource Bundles - 30-Day Transformation | COLIN">资源套装 - 30天实现成长蜕变 | COLIN</title>
     <meta name="description" content="精选写作、目标、思维、学习四大成长套装，30天完成蜕变。包含30+模板、100+爆款标题，立即开始你的成长之旅。">
     <meta name="keywords" content="写作套装,目标套装,思维套装,学习套装,个人成长,效率工具">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
 
     <!-- 产品结构化数据 -->
     <script type="application/ld+json">
@@ -3168,13 +3170,19 @@
             closePaymentModal();
         }
 
-        // 点击弹窗外部关闭
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('payment-modal');
-            if (e.target === modal) {
-                closePaymentModal();
-            }
-        });
+        // 点击弹窗外部关闭 - 使用事件委托
+        const modal = document.getElementById('payment-modal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closePaymentModal();
+                }
+            });
+        }
+
+        // 绑定支付弹窗按钮事件
+        document.getElementById('closePaymentModal')?.addEventListener('click', closePaymentModal);
+        document.getElementById('confirmPayment')?.addEventListener('click', confirmPayment);
 
         // ===== 主题切换功能 =====
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
@@ -3184,8 +3192,13 @@
             document.documentElement.setAttribute('data-theme', currentTheme);
 
             const themeIcon = document.querySelector('.theme-icon');
+            const themeSwitcher = document.querySelector('.theme-switcher');
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeSwitcher) {
+                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
             }
 
             localStorage.setItem('preferred-theme', currentTheme);
@@ -3213,12 +3226,15 @@
 
             // 更新所有带语言数据的元素
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
                 } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5' || el.tagName === 'LABEL' || el.tagName === 'OPTION') {
-                    el.textContent = el.dataset[lang];
+                    el.textContent = textContent;
                 } else {
-                    el.innerHTML = el.dataset[lang];
+                    el.innerHTML = textContent;
                 }
             });
 
@@ -3314,7 +3330,7 @@
                     } else {
                         backToTop.classList.remove('visible');
                     }
-                });
+                }, { passive: true });
 
                 backToTop.addEventListener('click', () => {
                     window.scrollTo({
@@ -3327,9 +3343,9 @@
     </script>
 
     <!-- 支付说明弹窗 -->
-    <div id="payment-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-            <h3 style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.5rem;" data-zh="💳 支付说明" data-en="💳 Payment Info">💳 支付说明</h3>
+    <div id="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);" role="document">
+            <h3 id="payment-modal-title" style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.5rem;" data-zh="💳 支付说明" data-en="💳 Payment Info">💳 支付说明</h3>
             <p style="color: var(--text-secondary); margin-bottom: 15px; line-height: 1.6;" data-zh="我们使用小鹅通安全支付平台，支持多种支付方式：" data-en="We use XiaoeTong secure payment platform supporting multiple methods:">
                 我们使用小鹅通安全支付平台，支持多种支付方式：
             </p>
@@ -3342,8 +3358,8 @@
                 购买后30分钟内自动发送资源链接到您的邮箱
             </p>
             <div style="display: flex; gap: 10px;">
-                <button onclick="closePaymentModal()" style="flex: 1; padding: 12px; background: var(--bg-secondary); color: var(--text-secondary); border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="取消" data-en="Cancel">取消</button>
-                <button onclick="confirmPayment()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="去支付" data-en="Go to Pay">去支付</button>
+                <button id="closePaymentModal" data-action="close" style="flex: 1; padding: 12px; background: var(--bg-secondary); color: var(--text-secondary); border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="取消" data-en="Cancel">取消</button>
+                <button id="confirmPayment" data-action="confirm" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;" data-zh="去支付" data-en="Go to Pay">去支付</button>
             </div>
         </div>
     </div>

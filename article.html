@@ -6,6 +6,8 @@
     <title>文章详情 - COLIN</title>
     <meta name="description" content="阅读COLIN博客的深度文章，关于写作、思维、学习、目标管理等个人成长主题。">
     <meta name="keywords" content="文章,博客,深度思考,终身学习,个人成长,写作技巧">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://api.github.com https://www.google-analytics.com;">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -18,6 +20,9 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="/css/common.css">
 
     <style>
         * {
@@ -586,16 +591,16 @@
         <div class="nav-content">
             <a href="index.html" class="nav-logo">COLIN</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
-                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive">文章归档</a>
-                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">精选资源</a>
-                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a>
-                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
-                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
-                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home" role="menuitem">首页</a>
+                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive" role="menuitem">文章归档</a>
+                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources" role="menuitem">精选资源</a>
+                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe" role="menuitem">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
                 </div>
-                <button class="theme-switcher" aria-label="Toggle theme">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
             </div>
         </div>
@@ -604,8 +609,7 @@
     <!-- 阅读进度条 -->
     <div class="reading-progress" id="readingProgress"></div>
 
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" data-zh-title="返回顶部" data-en-title="Back to top" title="返回顶部">↑</button>
+    <!-- 返回顶部按钮 - 由 common.js 自动生成 -->
 
     <div class="container">
         <a href="index.html" class="back-button" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
@@ -614,6 +618,9 @@
             <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
         </div>
     </div>
+
+    <!-- Common JS -->
+    <script src="/js/common.js" defer></script>
 
     <script>
         // 从URL获取文章ID
@@ -660,14 +667,14 @@
                                         <span>${article.readTime}</span>
                                     </div>
                                     <h1 class="article-title" data-zh="${article.title}" data-en="${article.titleEn || article.title}">${article.title}</h1>
-                                    <div class="share-buttons">
-                                        <button class="share-btn" onclick="shareToTwitter()">
+                                    <div class="share-buttons" id="shareButtons">
+                                        <button class="share-btn" data-share="twitter">
                                             <span>𝕏</span> <span data-zh="分享到 X" data-en="Share to X">分享到 X</span>
                                         </button>
-                                        <button class="share-btn" onclick="shareToWeChat()">
+                                        <button class="share-btn" data-share="wechat">
                                             <span>💬</span> <span data-zh="分享到微信" data-en="Share to WeChat">分享到微信</span>
                                         </button>
-                                        <button class="share-btn" onclick="copyLink()">
+                                        <button class="share-btn" data-share="copy">
                                             <span>📋</span> <span data-zh="复制链接" data-en="Copy Link">复制链接</span>
                                         </button>
                                     </div>
@@ -698,6 +705,28 @@
                             loadRelatedArticles(article);
                             initScrollProgress();
                             initBackToTop();
+
+                            // 初始化分享按钮事件委托
+                            const shareButtons = document.getElementById('shareButtons');
+                            if (shareButtons) {
+                                shareButtons.addEventListener('click', function(e) {
+                                    const btn = e.target.closest('.share-btn');
+                                    if (!btn) return;
+
+                                    const shareType = btn.dataset.share;
+                                    switch(shareType) {
+                                        case 'twitter':
+                                            shareToTwitter();
+                                            break;
+                                        case 'wechat':
+                                            shareToWeChat();
+                                            break;
+                                        case 'copy':
+                                            copyLink();
+                                            break;
+                                    }
+                                });
+                            }
                         })
                         .catch(error => {
                             console.error('加载文章失败:', error);
@@ -728,8 +757,10 @@
                 return '<pre><code class="language-' + lang + '">' + escapeHtml(code.trim()) + '</code></pre>';
             });
 
-            // 行内代码
-            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            // 行内代码 - 先转义HTML，再替换
+            html = html.replace(/`([^`]+)`/g, function(match, code) {
+                return '<code>' + escapeHtml(code) + '</code>';
+            });
 
             // 标题
             html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
@@ -754,11 +785,35 @@
             html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
             html = html.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
 
-            // 链接
-            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+            // 链接 - 验证URL安全性
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, text, url) {
+                // 验证URL是否安全
+                try {
+                    const parsedUrl = new URL(url);
+                    // 只允许http、https、mailto协议
+                    if (!['http:', 'https:', 'mailto:'].includes(parsedUrl.protocol)) {
+                        return text; // 不安全URL，只显示文本
+                    }
+                    return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(text) + '</a>';
+                } catch (e) {
+                    // URL解析失败，只显示文本
+                    return escapeHtml(text);
+                }
+            });
 
             // 图片
-            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
+                // 验证图片URL
+                try {
+                    const parsedUrl = new URL(src);
+                    if (!['http:', 'https:', 'data:'].includes(parsedUrl.protocol)) {
+                        return ''; // 不安全URL，不显示图片
+                    }
+                    return '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.style.display=\'none\'">';
+                } catch (e) {
+                    return ''; // URL解析失败，不显示图片
+                }
+            });
 
             // 表格
             html = html.replace(/\|(.+)\|/g, function(match) {
@@ -817,22 +872,26 @@
 
         // 分享到 X (Twitter)
         function shareToTwitter() {
+            const titleEl = document.querySelector('.article-title');
+            if (!titleEl) return;
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(document.querySelector('.article-title').textContent);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            const text = encodeURIComponent(titleEl.textContent);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'noopener,noreferrer');
         }
 
         // 分享到 Facebook
         function shareToFacebook() {
             const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'noopener,noreferrer');
         }
 
         // 分享到 LinkedIn
         function shareToLinkedIn() {
+            const titleEl = document.querySelector('.article-title');
+            if (!titleEl) return;
             const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.querySelector('.article-title').textContent);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank');
+            const title = encodeURIComponent(titleEl.textContent);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank', 'noopener,noreferrer');
         }
 
         // 通用分享函数
@@ -909,18 +968,20 @@
         // 阅读进度条
         function initScrollProgress() {
             const progressBar = document.getElementById('readingProgress');
+            if (!progressBar) return;
 
             window.addEventListener('scroll', () => {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 const scrollPercent = (scrollTop / docHeight) * 100;
                 progressBar.style.width = scrollPercent + '%';
-            });
+            }, { passive: true });
         }
 
         // 返回顶部按钮
         function initBackToTop() {
             const backToTop = document.getElementById('backToTop');
+            if (!backToTop) return;
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -928,7 +989,7 @@
                 } else {
                     backToTop.classList.remove('visible');
                 }
-            });
+            }, { passive: true });
 
             backToTop.addEventListener('click', () => {
                 window.scrollTo({
@@ -985,11 +1046,10 @@
                 "@type": "Article",
                 "headline": article.title,
                 "description": article.excerpt,
-                "author": {
-                    "@type": "Person",
-                    "name": "Colin",
-                    "email": "littlelinthinks@gmail.com"
-                },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Colin"
+                    },
                 "datePublished": article.date,
                 "dateModified": article.date,
                 "mainEntityOfPage": {
@@ -1027,26 +1087,31 @@
         function switchLanguage(lang) {
             currentLang = lang;
 
-            // 更新按钮状态
+            // 更新按钮状态和 ARIA 属性
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.background = 'var(--bg-card)';
                 btn.style.color = 'var(--text-secondary)';
+                btn.setAttribute('aria-pressed', 'false');
                 if (btn.dataset.lang === lang) {
                     btn.classList.add('active');
                     btn.style.background = 'var(--accent)';
                     btn.style.color = 'var(--button-text-dark)';
+                    btn.setAttribute('aria-pressed', 'true');
                 }
             });
 
             // 更新所有带语言数据的元素（包括动态生成的元素）
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-                if (el.tagName === 'INPUT') {
-                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
                 } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5') {
-                    el.textContent = el.dataset[lang];
+                    el.textContent = textContent;
                 } else {
-                    el.innerHTML = el.dataset[lang];
+                    el.innerHTML = textContent;
                 }
             });
 
@@ -1095,8 +1160,13 @@
             document.documentElement.setAttribute('data-theme', currentTheme);
 
             const themeIcon = document.querySelector('.theme-icon');
+            const themeSwitcher = document.querySelector('.theme-switcher');
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeSwitcher) {
+                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
             }
 
             localStorage.setItem('preferred-theme', currentTheme);

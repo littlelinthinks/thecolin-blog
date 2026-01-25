@@ -6,6 +6,8 @@
     <title data-zh="订阅获取免费资源 - COLIN" data-en="Subscribe for Free Resources - COLIN">订阅获取免费资源 - COLIN</title>
     <meta name="description" data-zh-content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。" data-en-content="Subscribe to COLIN blog for weekly writing tips, goal management methods, mental models, and learning resources." content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。">
     <meta name="keywords" content="订阅,newsletter,写作技巧,目标管理,思维模型,学习方法,个人成长">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://vip.us8.list-manage.com;">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -18,6 +20,9 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="/css/common.css">
 
     <style>
         * {
@@ -347,11 +352,11 @@
                 <a href="archive.html" data-zh="文章归档" data-en="Archive" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
                 <a href="products.html" data-zh="精选资源" data-en="Resources" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
                 <a href="subscribe.html" data-zh="订阅" data-en="Subscribe" style="color: var(--accent); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
-                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
-                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
-                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
                 </div>
-                <button class="theme-switcher" aria-label="Toggle theme">
+                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false">
                     <span class="theme-icon">🌙</span>
                 </button>
             </div>
@@ -388,13 +393,17 @@
                 </div>
             </div>
 
-            <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="_blank">
+            <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="_blank" aria-label="订阅表单" novalidate>
                 <div class="form-group">
-                    <input type="text" id="name" name="FNAME" data-zh-placeholder="你的名字（可选）" data-en-placeholder="Your name (optional)" placeholder="你的名字（可选）" />
+                    <label for="name" class="visually-hidden">你的名字</label>
+                    <input type="text" id="name" name="FNAME" data-zh-placeholder="你的名字（可选）" data-en-placeholder="Your name (optional)" placeholder="你的名字（可选）" aria-invalid="false" aria-describedby="nameHint" />
+                    <span id="nameHint" class="visually-hidden">可选字段</span>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="EMAIL" data-zh-placeholder="你的邮箱地址" data-en-placeholder="Your email address" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" data-zh-title="请输入有效的邮箱地址" data-en-title="Please enter a valid email address" title="请输入有效的邮箱地址" />
-                    <div id="emailError" data-zh="请输入有效的邮箱地址" data-en="Please enter a valid email address" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
+                    <label for="email" class="visually-hidden">邮箱地址</label>
+                    <input type="email" id="email" name="EMAIL" data-zh-placeholder="你的邮箱地址" data-en-placeholder="Your email address" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" data-zh-title="请输入有效的邮箱地址" data-en-title="Please enter a valid email address" title="请输入有效的邮箱地址" aria-invalid="false" aria-required="true" aria-describedby="emailError emailHint" />
+                    <span id="emailHint" class="visually-hidden">请输入有效的邮箱地址</span>
+                    <div id="emailError" data-zh="请输入有效的邮箱地址" data-en="Please enter a valid email address" role="alert" aria-live="assertive" aria-atomic="true" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
                 </div>
                 <button type="submit" class="submit-btn" id="submitBtn" data-zh="立即订阅 →" data-en="Subscribe Now →">立即订阅 →</button>
             </form>
@@ -402,6 +411,9 @@
             <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
         </div>
     </div>
+
+    <!-- Common JS -->
+    <script src="/js/common.js" defer></script>
 
     <script>
         document.getElementById('subscribeForm').addEventListener('submit', function(e) {
@@ -465,7 +477,7 @@
             } else {
                 backToTopBtn.classList.add('hidden');
             }
-        });
+        }, { passive: true });
 
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -480,26 +492,31 @@
         function switchLanguage(lang) {
             currentLang = lang;
 
-            // 更新按钮状态
+            // 更新按钮状态和 ARIA 属性
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.background = 'var(--bg-card)';
                 btn.style.color = 'var(--text-secondary)';
+                btn.setAttribute('aria-pressed', 'false');
                 if (btn.dataset.lang === lang) {
                     btn.classList.add('active');
                     btn.style.background = 'var(--accent)';
                     btn.style.color = 'var(--button-text-dark)';
+                    btn.setAttribute('aria-pressed', 'true');
                 }
             });
 
             // 更新所有带语言数据的元素
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
                 } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
-                    el.textContent = el.dataset[lang];
+                    el.textContent = textContent;
                 } else {
-                    el.innerHTML = el.dataset[lang];
+                    el.innerHTML = textContent;
                 }
             });
 
@@ -547,8 +564,13 @@
             document.documentElement.setAttribute('data-theme', currentTheme);
 
             const themeIcon = document.querySelector('.theme-icon');
+            const themeSwitcher = document.querySelector('.theme-switcher');
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeSwitcher) {
+                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
             }
 
             localStorage.setItem('preferred-theme', currentTheme);

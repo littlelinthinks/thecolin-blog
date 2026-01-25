@@ -6,6 +6,8 @@
     <title>网站健康检查 | COLIN</title>
     <meta name="description" content="网站健康检查页面 - 检查网站各项功能和配置是否正常">
     <meta name="keywords" content="健康检查,网站检测,性能监测,SEO检查">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -411,11 +413,14 @@
                 <div>/ 100</div>
             </div>
 
-            <button class="refresh-btn" onclick="runHealthCheck()">🔄 重新检查</button>
+            <button class="refresh-btn" id="refreshBtn">🔄 重新检查</button>
         </div>
     </div>
 
     <script>
+        // 使用事件委托移除内联事件处理器
+        document.getElementById('refreshBtn').addEventListener('click', runHealthCheck);
+
         async function runHealthCheck() {
             const checks = {
                 'check-https': checkHTTPS,
