@@ -4,21 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>资源购买 - 小Lin成长笔记</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="/css/common.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --accent-hover: #333333;
+            --border: #e5e5e5;
+            --button-bg-dark: #000000;
+            --button-text-dark: #ffffff;
+            --color-blue-light: #667eea;
+            --color-purple: #764ba2;
+            --color-success: #27ae60;
+            --color-error: #e74c3c;
+            --color-wechat: #07c160;
+            --color-alipay: #1677ff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #e0e0e0;
+            --border: #2a2a2a;
+            --button-bg-dark: #ffffff;
+            --button-text-dark: #000000;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--color-blue-light) 0%, var(--color-purple) 100%);
             min-height: 100vh;
             padding: 20px;
+            color: var(--text-primary);
         }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
+            padding-top: 80px;
         }
         .header {
             text-align: center;
@@ -39,7 +77,7 @@
             gap: 20px;
         }
         .product {
-            background: white;
+            background: var(--bg-card);
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -63,7 +101,7 @@
         .product-title {
             font-size: 1.5em;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
         .product-tag {
             padding: 5px 15px;
@@ -80,18 +118,18 @@
             color: white;
         }
         .product-desc {
-            color: #7f8c8d;
+            color: var(--text-secondary);
             margin-bottom: 20px;
             line-height: 1.6;
         }
         .product-price {
             font-size: 2.5em;
             font-weight: bold;
-            color: #e74c3c;
+            color: var(--color-error);
             margin-bottom: 20px;
         }
         .product-price-free {
-            color: #27ae60;
+            color: var(--color-success);
         }
         .features {
             list-style: none;
@@ -100,7 +138,8 @@
         }
         .features li {
             padding: 8px 0;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
         }
         .features li:before {
             content: "✅";
@@ -150,6 +189,75 @@
             color: white;
             text-decoration: underline;
         }
+        .footer p {
+            color: white;
+        }
+
+        /* 导航栏 */
+        .nav-header {
+            background: var(--bg-card);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-hover);
+        }
+
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -167,10 +275,26 @@
     </style>
 </head>
 <body>
+    <!-- 导航栏 -->
+    <nav class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">COLIN</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="archive.html">文章归档</a>
+                <a href="products.html">精选资源</a>
+                <a href="subscribe.html">订阅</a>
+                <button class="theme-switcher">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="header">
-            <h1>📚 个人成长资源库</h1>
-            <p>用知识改变人生，用系统实现目标</p>
+            <h1 style="color: white;">📚 个人成长资源库</h1>
+            <p style="color: rgba(255,255,255,0.9);">用知识改变人生，用系统实现目标</p>
         </div>
 
         <div class="products">
@@ -287,5 +411,40 @@
             <p>© 2026 小Lin成长笔记 | <a href="[您的网站]">返回网站</a></p>
         </div>
     </div>
+
+    <script src="/js/common.js" defer></script>
+
+    <script>
+        // 深色模式初始化
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        const themeIcon = document.querySelector('.theme-icon');
+        const themeSwitcher = document.querySelector('.theme-switcher');
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeSwitcher) {
+                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
+            }
+
+            localStorage.setItem('preferred-theme', currentTheme);
+        }
+
+        // 初始化主题
+        if (themeIcon) {
+            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', toggleTheme);
+        }
+    </script>
 </body>
 </html>
