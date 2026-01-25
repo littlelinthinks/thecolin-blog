@@ -3601,8 +3601,8 @@
         
         // ===== 文章详情页功能 =====
         function showArticle(articleId) {
-            console.log('showArticle called with ID:', articleId);
-            console.log('allArticles length:', allArticles.length);
+            // console.log('showArticle called with ID:', articleId);
+            // console.log('allArticles length:', allArticles.length);
 
             // 从allArticles数组中查找文章
             const article = allArticles.find(a => a.id === articleId);
@@ -3612,7 +3612,7 @@
                 return;
             }
 
-            console.log('Found article:', article.title);
+            // console.log('Found article:', article.title);
             currentArticleId = articleId;
 
             // 更新文章详情内容
@@ -3626,19 +3626,19 @@
             const homePage = document.querySelector('.home-page');
             const detailPage = document.querySelector('.article-detail-page');
 
-            console.log('Hiding home page...');
-            console.log('Home page element:', homePage);
+            // console.log('Hiding home page...');
+            // console.log('Home page element:', homePage);
             homePage.classList.add('hidden');
-            console.log('Home page classes after hiding:', homePage.className);
+            // console.log('Home page classes after hiding:', homePage.className);
 
-            console.log('Showing article detail page...');
-            console.log('Detail page element:', detailPage);
+            // console.log('Showing article detail page...');
+            // console.log('Detail page element:', detailPage);
             detailPage.classList.add('active');
-            console.log('Detail page classes after showing:', detailPage.className);
+            // console.log('Detail page classes after showing:', detailPage.className);
 
             // 检查显示状态
-            console.log('Home page display:', window.getComputedStyle(homePage).display);
-            console.log('Detail page display:', window.getComputedStyle(detailPage).display);
+            // console.log('Home page display:', window.getComputedStyle(homePage).display);
+            // console.log('Detail page display:', window.getComputedStyle(detailPage).display);
 
             // 滚动到顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3650,7 +3650,7 @@
             // 将反斜杠转换为正斜杠
             const normalizedFilename = article.filename.replace(/\\/g, '/');
             const articlePath = `articles/${normalizedFilename}`;
-            console.log('Loading article content from:', articlePath);
+            // console.log('Loading article content from:', articlePath);
             loadArticleContent(articlePath);
         }
 
@@ -4058,7 +4058,7 @@
         // 加载文章列表
         async function loadArticles() {
             try {
-                console.log('Loading articles...');
+                // console.log('Loading articles...');
 
                 // 添加时间戳强制刷新缓存
                 const timestamp = Date.now();
@@ -4085,7 +4085,7 @@
                 // 为文章卡片添加点击事件
                 attachArticleCardEvents();
 
-                console.log(`✅ Loaded ${allArticles.length} articles`);
+                // console.log(`✅ Loaded ${allArticles.length} articles`);
             } catch (error) {
                 console.error('Failed to load articles:', error);
                 console.error('Error details:', error.message);
@@ -4140,33 +4140,33 @@
 
         // 为动态生成的文章卡片添加点击事件
         function attachArticleCardEvents() {
-            console.log('attachArticleCardEvents called');
+            // console.log('attachArticleCardEvents called');
             const cards = document.querySelectorAll('.article-card');
-            console.log('Found article cards:', cards.length);
+            // console.log('Found article cards:', cards.length);
 
             cards.forEach((card) => {
                 // 从卡片的data-article-id属性获取文章ID
                 const articleId = card.dataset.articleId;
-                console.log('Processing card with articleId:', articleId);
+                // console.log('Processing card with articleId:', articleId);
 
                 // 移除旧的点击事件监听器
                 card.onclick = null;
 
                 card.addEventListener('click', function(e) {
-                    console.log('Card clicked, articleId:', articleId);
+                    // console.log('Card clicked, articleId:', articleId);
                     // 如果点击的是分享按钮或"阅读全文"链接，不触发卡片点击
                     if (e.target.classList.contains('share-btn') ||
                         e.target.closest('.share-buttons') ||
                         e.target.classList.contains('read-more')) {
                         if (e.target.classList.contains('read-more')) {
                             e.preventDefault();
-                            console.log('Read more clicked, calling showArticle');
+                            // console.log('Read more clicked, calling showArticle');
                             showArticle(articleId);
                         }
                         return;
                     }
                     // 点击卡片其他区域也显示文章
-                    console.log('Card area clicked, calling showArticle');
+                    // console.log('Card area clicked, calling showArticle');
                     showArticle(articleId);
                 });
 
@@ -4177,7 +4177,7 @@
                     readMoreLink.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        console.log('Read more link clicked, calling showArticle');
+                        // console.log('Read more link clicked, calling showArticle');
                         showArticle(articleId);
                     });
                 }

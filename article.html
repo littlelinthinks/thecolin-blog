@@ -819,6 +819,39 @@
             window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
         }
 
+        // 分享到 Facebook
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        // 分享到 LinkedIn
+        function shareToLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.querySelector('.article-title').textContent);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank');
+        }
+
+        // 通用分享函数
+        function shareArticle(platform) {
+            switch(platform) {
+                case 'twitter':
+                    shareToTwitter();
+                    break;
+                case 'facebook':
+                    shareToFacebook();
+                    break;
+                case 'linkedin':
+                    shareToLinkedIn();
+                    break;
+                case 'copy':
+                    copyLink();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         // 分享到微信
         function shareToWeChat() {
             const msg = currentLang === 'zh' ? '请截图分享或复制链接发送给好友' : 'Please take a screenshot or copy the link to share';
