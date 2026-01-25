@@ -4102,7 +4102,7 @@
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
             card.innerHTML = `
-                <span class="article-category">${article.categoryName}</span>
+                <span class="article-category">${currentLang === 'zh' ? article.categoryName : article.categoryNameEn}</span>
                 <div class="article-date">${currentLang === 'zh' ? article.date : article.dateEn}</div>
                 <h3 class="article-title">${currentLang === 'zh' ? article.title : article.titleEn}</h3>
                 <div class="article-meta">
