@@ -3720,6 +3720,8 @@
         });
 
         // ===== 语言切换功能 =====
+        let currentLang = 'zh';
+
         function switchLanguage(lang) {
             currentLang = lang;
 
@@ -3781,6 +3783,8 @@
         });
 
         // ===== 主题切换功能 =====
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', currentTheme);

@@ -368,38 +368,38 @@
                 <h3 data-zh="🎁 订阅后你将获得" data-en="🎁 What you'll get">🎁 订阅后你将获得</h3>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
-                    <span>每周精选写作技巧和模板</span>
+                    <span data-zh="每周精选写作技巧和模板" data-en="Weekly curated writing tips and templates">每周精选写作技巧和模板</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
-                    <span>最新目标管理方法分享</span>
+                    <span data-zh="最新目标管理方法分享" data-en="Latest goal management methods">最新目标管理方法分享</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
-                    <span>思维模型深度解析</span>
+                    <span data-zh="思维模型深度解析" data-en="In-depth mental model analysis">思维模型深度解析</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
-                    <span>高效学习方法更新</span>
+                    <span data-zh="高效学习方法更新" data-en="Efficient learning method updates">高效学习方法更新</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">✓</span>
-                    <span>订阅用户专属优惠和活动</span>
+                    <span data-zh="订阅用户专属优惠和活动" data-en="Exclusive subscriber discounts and events">订阅用户专属优惠和活动</span>
                 </div>
             </div>
 
             <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="_blank">
                 <div class="form-group">
-                    <input type="text" id="name" name="FNAME" placeholder="你的名字（可选）" />
+                    <input type="text" id="name" name="FNAME" data-zh-placeholder="你的名字（可选）" data-en-placeholder="Your name (optional)" placeholder="你的名字（可选）" />
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="EMAIL" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="请输入有效的邮箱地址" />
-                    <div id="emailError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
+                    <input type="email" id="email" name="EMAIL" data-zh-placeholder="你的邮箱地址" data-en-placeholder="Your email address" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" data-zh-title="请输入有效的邮箱地址" data-en-title="Please enter a valid email address" title="请输入有效的邮箱地址" />
+                    <div id="emailError" data-zh="请输入有效的邮箱地址" data-en="Please enter a valid email address" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
                 </div>
-                <button type="submit" class="submit-btn" id="submitBtn">立即订阅 →</button>
+                <button type="submit" class="submit-btn" id="submitBtn" data-zh="立即订阅 →" data-en="Subscribe Now →">立即订阅 →</button>
             </form>
 
-            <a href="index.html" class="back-link">← 返回首页</a>
+            <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
         </div>
     </div>
 
@@ -430,7 +430,7 @@
 
             // 显示加载中状态
             const btn = document.getElementById('submitBtn');
-            btn.textContent = '正在提交...';
+            btn.textContent = btn.dataset[currentLang] || (currentLang === 'zh' ? '正在提交...' : 'Submitting...');
             btn.disabled = true;
         });
 
@@ -451,6 +451,8 @@
         const backToTopBtn = document.createElement('button');
         backToTopBtn.className = 'back-to-top';
         backToTopBtn.innerHTML = '↑';
+        backToTopBtn.setAttribute('data-zh-title', '返回顶部');
+        backToTopBtn.setAttribute('data-en-title', 'Back to top');
         backToTopBtn.setAttribute('title', '返回顶部');
         document.body.appendChild(backToTopBtn);
 
@@ -499,6 +501,11 @@
                 } else {
                     el.innerHTML = el.dataset[lang];
                 }
+            });
+
+            // 更新title属性
+            document.querySelectorAll('[data-zh-title][data-en-title]').forEach(el => {
+                el.setAttribute('title', el.dataset[lang + 'Title']);
             });
 
             // 更新meta标签
