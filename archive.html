@@ -750,30 +750,6 @@
             });
         });
 
-        // 搜索功能
-        function searchArticles() {
-            const searchInput = document.getElementById('searchInput');
-            if (!searchInput) return;
-            const searchText = searchInput.value.toLowerCase();
-            const articleItems = document.querySelectorAll('.archive-item, .article-card');
-
-            articleItems.forEach(item => {
-                const title = item.querySelector('.archive-item-title, .article-title')?.textContent.toLowerCase() || '';
-                if (title.includes(searchText)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = searchText === '' ? 'flex' : 'none';
-                }
-            });
-
-            // 追踪搜索事件
-            if (searchText && typeof gtag !== 'undefined') {
-                gtag('event', 'search', {
-                    'search_term': searchText
-                });
-            }
-        }
-
         // 返回顶部按钮
         const backToTopBtn = document.createElement('button');
         backToTopBtn.className = 'back-to-top';

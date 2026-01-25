@@ -490,32 +490,36 @@
         <div class="nav-content" style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
             <a href="index.html" class="nav-logo" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
             <div class="nav-links" style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
-                <button class="theme-switcher" style="width: 45px; height: 45px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: all 0.3s;">
-                    <span class="theme-icon">🌙</span>
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home" role="menuitem" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
+                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive" role="menuitem" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
+                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources" role="menuitem" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
+                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe" role="menuitem" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
+                </div>
+                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch" style="width: 45px; height: 45px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: all 0.3s;">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <a href="index.html" class="back-link">← 返回首页</a>
+        <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
 
         <div class="sales-card">
             <div class="header">
-                <h1>🎯 个人成长资源套装</h1>
-                <p class="subtitle">30天实现成长蜕变 · 即用型工具 · 快速实现目标</p>
+                <h1 data-zh="🎯 个人成长资源套装" data-en="🎯 Personal Growth Resource Bundle">🎯 个人成长资源套装</h1>
+                <p class="subtitle" data-zh="30天实现成长蜕变 · 即用型工具 · 快速实现目标" data-en="30-Day Transformation · Ready-to-Use Tools · Achieve Goals Fast">30天实现成长蜕变 · 即用型工具 · 快速实现目标</p>
 
                 <div class="price-banner">
                     <div style="margin-bottom: 10px;">
-                        <span class="original">原价 ¥265</span>
+                        <span class="original" data-zh="原价 ¥265" data-en="Original ¥265">原价 ¥265</span>
                         <span> → </span>
-                        <span class="price">特惠价 ¥159</span>
+                        <span class="price" data-zh="特惠价 ¥159" data-en="Special ¥159">特惠价 ¥159</span>
                     </div>
-                    <div>立省 ¥106 (40%) 🔥</div>
+                    <div data-zh="立省 ¥106 (40%) 🔥" data-en="Save ¥106 (40%) 🔥">立省 ¥106 (40%) 🔥</div>
                 </div>
             </div>
 
@@ -804,6 +808,63 @@
                 link.style.color = 'var(--text-primary)';
             });
         });
+
+        // 语言切换功能
+        let currentLang = localStorage.getItem('preferred-lang') || 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态和 ARIA 属性
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                btn.setAttribute('aria-pressed', 'false');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                    btn.setAttribute('aria-pressed', 'true');
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
+                    el.textContent = textContent;
+                } else {
+                    el.innerHTML = textContent;
+                }
+            });
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
+        // 初始化语言
+        initLanguage();
     </script>
 </body>
 </html>

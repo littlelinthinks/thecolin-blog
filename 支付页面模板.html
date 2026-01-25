@@ -279,15 +279,19 @@
     <nav class="nav-header">
         <div class="nav-content">
             <a href="index.html" class="nav-logo">COLIN</a>
-            <div class="nav-links">
-                <a href="index.html">首页</a>
-                <a href="archive.html">文章归档</a>
-                <a href="products.html">精选资源</a>
-                <a href="subscribe.html">订阅</a>
-                <button class="theme-switcher">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
+    <div class="nav-links">
+        <a href="index.html" data-zh="首页" data-en="Home">首页</a>
+        <a href="archive.html" data-zh="文章归档" data-en="Archive">文章归档</a>
+        <a href="products.html" data-zh="精选资源" data-en="Resources">精选资源</a>
+        <a href="subscribe.html" data-zh="订阅" data-en="Subscribe">订阅</a>
+        <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
+            <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
+            <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
+        </div>
+        <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch">
+            <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+    </div>
         </div>
     </nav>
 
@@ -445,6 +449,68 @@
         if (themeSwitcher) {
             themeSwitcher.addEventListener('click', toggleTheme);
         }
+
+        // 语言切换功能
+        let currentLang = localStorage.getItem('preferred-lang') || 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态和 ARIA 属性
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                btn.setAttribute('aria-pressed', 'false');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                    btn.setAttribute('aria-pressed', 'true');
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
+                    el.textContent = textContent;
+                } else {
+                    el.innerHTML = textContent;
+                }
+            });
+
+            // 更新title属性
+            document.querySelectorAll('[data-zh-title][data-en-title]').forEach(el => {
+                el.setAttribute('title', el.dataset[lang + 'Title']);
+            });
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
+        // 初始化语言
+        initLanguage();
     </script>
 </body>
 </html>
