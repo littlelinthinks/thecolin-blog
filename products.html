@@ -1230,65 +1230,282 @@
         [data-theme="dark"] .contact-info {
             background: var(--bg-secondary);
         }
+
+        /* 导航栏样式修复 */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-links li:hover > ul > li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+    
+        /* Navigation styles */
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, serif;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .dropdown-arrow {
+            font-size: 0.6rem;
+            margin-left: 0.3rem;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .nav-dropdown:hover > .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1000;
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu > li {
+            position: relative;
+        }
+
+        .dropdown-menu > li > a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .dropdown-menu > li > a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .dropdown-section {
+            position: relative;
+        }
+
+        .dropdown-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            min-width: 200px;
+            transform: translateX(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+        }
+
+        .dropdown-section:hover > .dropdown-submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .dropdown-submenu > li > a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .dropdown-submenu > li > a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--button-text-dark);
+        }
+
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--bg-secondary);
+        }
+
     </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav>
-        <div>
-            <a href="index.html" style="font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <ul>
+    <nav style="background: var(--bg-card); padding: 1.2rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
+            <ul class="nav-links">
                 <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
-                <li class="nav-dropdown">
-                    <a href="#articles" data-zh="文章" data-en="Articles">
+                <li style="position: relative;">
+                    <a href="#articles" data-zh="文章" data-en="Articles" style="display: flex; align-items: center; gap: 0.3rem;">
                         <span data-zh="文章" data-en="Articles">文章</span>
-                        <span class="dropdown-arrow">▼</span>
+                        <span style="font-size: 0.6rem; transition: transform 0.3s;">▼</span>
                     </a>
-                    <ul>
-                        <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive">📚 文章归档</a></li>
+                    <ul style="position: absolute; top: 100%; left: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1000; list-style: none; margin: 0; padding: 0;">
+                        <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive" style="display: block; padding: 0.6rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.9rem; white-space: nowrap;">📚 文章归档</a></li>
                     </ul>
                 </li>
-                <li class="nav-dropdown">
-                    <a href="#resources" data-zh="精选资源" data-en="Resources">
+                <li style="position: relative;">
+                    <a href="#resources" data-zh="精选资源" data-en="Resources" style="display: flex; align-items: center; gap: 0.3rem;">
                         <span data-zh="精选资源" data-en="Resources">精选资源</span>
-                        <span class="dropdown-arrow">▼</span>
+                        <span style="font-size: 0.6rem; transition: transform 0.3s;">▼</span>
                     </a>
-                    <ul>
-                        <li>
-                            <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="font-weight: bold; color: var(--accent);">✍️ 写作指南</a>
-                            <ul>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)">📝 写作模板大全（¥49）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库（¥39）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南（¥39）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板（¥29）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="color: var(--accent); font-weight: bold;">🔥 写作套装（¥99）</a></li>
+                    <ul style="position: absolute; top: 100%; left: 0; background: var(--bg-card); min-width: 280px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1000; list-style: none; margin: 0; padding: 0;">
+                        <li style="position: relative;">
+                            <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="display: block; font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; text-decoration: none;">✍️ 写作指南</a>
+                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
+                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📝 写作模板大全（¥49）</a></li>
+                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 爆款标题库（¥39）</a></li>
+                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📬 Newsletter指南（¥39）</a></li>
+                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎨 Notion模板（¥29）</a></li>
+                                <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 写作套装（¥99）</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="font-weight: bold; color: var(--accent);">🎯 目标规划</a>
-                            <ul>
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)">🎯 Notion目标系统（¥49）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)">📊 年度规划模板（¥29）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)">📈 Excel追踪表（¥19）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="color: var(--accent); font-weight: bold;">🔥 目标套装（¥79）</a></li>
+                        <li style="position: relative;">
+                            <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="display: block; font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; text-decoration: none;">🎯 目标规划</a>
+                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
+                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 Notion目标系统（¥49）</a></li>
+                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📊 年度规划模板（¥29）</a></li>
+                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📈 Excel追踪表（¥19）</a></li>
+                                <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 目标套装（¥79）</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="font-weight: bold; color: var(--accent);">🧠 思维模型</a>
-                            <ul>
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)">🧠 第一性原理（¥39）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)">🔄 逆向思维（¥39）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)">🌐 系统思考（¥49）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥79）" data-en="🔥 Thinking Bundle (¥79)" style="color: var(--accent); font-weight: bold;">🔥 思维套装（¥79）</a></li>
+                        <li style="position: relative;">
+                            <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="display: block; font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; text-decoration: none;">🧠 思维模型</a>
+                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
+                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🧠 第一性原理（¥39）</a></li>
+                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔄 逆向思维（¥39）</a></li>
+                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🌐 系统思考（¥49）</a></li>
+                                <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥79）" data-en="🔥 Thinking Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 思维套装（¥79）</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="font-weight: bold; color: var(--accent);">📚 学习方法</a>
-                            <ul>
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📚 主动学习法（¥39）" data-en="📚 Active Learning (¥39)">📚 主动学习法（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 费曼技巧（¥39）" data-en="🎯 Feynman Technique (¥39)">🎯 费曼技巧（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 间隔重复（¥39）" data-en="📖 Spaced Repetition (¥39)">📖 间隔重复（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥79）" data-en="🔥 Learning Bundle (¥79)" style="color: var(--accent); font-weight: bold;">🔥 学习套装（¥79）</a></li>
+                        <li style="position: relative;">
+                            <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="display: block; font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; text-decoration: none;">📚 学习方法</a>
+                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
+                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📚 主动学习法（¥39）" data-en="📚 Active Learning (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📚 主动学习法（¥39）</a></li>
+                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 费曼技巧（¥39）" data-en="🎯 Feynman Technique (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 费曼技巧（¥39）</a></li>
+                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 间隔重复（¥39）" data-en="📖 Spaced Repetition (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📖 间隔重复（¥39）</a></li>
+                                <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥79）" data-en="🔥 Learning Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 学习套装（¥79）</a></li>
                             </ul>
                         </li>
                     </ul>

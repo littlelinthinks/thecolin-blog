@@ -1,0 +1,4704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="探索深邃思想，创造有意义的人生。深度思考、终身学习、持续成长的个人博客。">
+    <meta name="keywords" content="深度思考,终身学习,个人成长,认知科学,思维模型">
+    <meta name="author" content="Colin">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thecolin.vip/">
+    <meta property="og:title" content="COLIN - 探索深邃思想">
+    <meta property="og:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="og:image" content="https://thecolin.vip/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thecolin.vip/">
+    <meta property="twitter:title" content="COLIN - 探索深邃思想">
+    <meta property="twitter:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="twitter:image" content="https://thecolin.vip/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "COLIN - 探索深邃思想",
+        "url": "https://thecolin.vip",
+        "description": "专注于深度思考、终身学习和个人成长的思想分享平台",
+        "author": {
+            "@type": "Person",
+            "name": "Colin"
+        },
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://thecolin.vip/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MPQTS8G2HD');
+    </script>
+
+    <title>COLIN - Explore Deep Thoughts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --accent-hover: #333333;
+            --border: #e5e5e5;
+            --button-bg-dark: #000000;
+            --button-text-dark: #ffffff;
+        }
+
+        /* 深色模式 */
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #e0e0e0;
+            --border: #2a2a2a;
+            --button-bg-dark: #ffffff;
+            --button-text-dark: #000000;
+        }
+
+        /* 阅读进度条 */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* 语言切换按钮 */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--button-text-dark);
+        }
+
+        /* 主题切换按钮 */
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #000000, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        [data-theme="dark"] .logo {
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 下拉菜单 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-arrow {
+            font-size: 0.6rem;
+            margin-left: 0.3rem;
+            transition: transform 0.3s;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            min-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-section {
+            position: relative;
+        }
+
+        .dropdown-section > a {
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 0.7rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--bg-card);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-section:hover .dropdown-submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .dropdown-submenu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu > li > a:not(.dropdown-submenu a) {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding-left: 1.3rem;
+        }
+
+        /* 搜索框 */
+        .search-container {
+            position: relative;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-btn:hover {
+            border-color: var(--accent);
+            color: var(--button-text-dark);
+        }
+
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10vh;
+        }
+
+        .search-modal.active {
+            display: flex;
+        }
+
+        .search-box {
+            width: 90%;
+            max-width: 600px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .search-results {
+            margin-top: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-result-item:hover {
+            background: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .search-result-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .close-search:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-name {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #000000, #666666, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -2px;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .subscribe-form {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .subscribe-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* 内容区域 */
+        .content-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        /* 博客标题区域 - Dankoe风格 */
+        .blog-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 5rem 0 3rem;
+        }
+
+        .blog-title {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        .blog-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .blog-quote {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: normal;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 文章网格 */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--button-text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .article-date {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .article-author::before {
+            content: '✍️';
+            font-size: 0.7rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: gap 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .read-more:hover {
+            gap: 0.6rem;
+        }
+
+        /* 分享按钮 */
+        .share-buttons {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.8rem;
+        }
+
+        .share-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .share-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* 特色资源 */
+        .featured-resources {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 6rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        .resource-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* 关于部分 */
+        .about-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            border: 1px solid var(--border);
+        }
+
+        .about-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .about-image.has-photo img {
+            display: block;
+        }
+
+        .about-image.has-photo::after {
+            display: none;
+        }
+
+        .about-image::after {
+            content: '👤';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* 所有链接容器 */
+        .all-links {
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            border-width: 2px;
+        }
+
+        /* X 平台 - 扁平化 */
+        .social-link.platform-link.x {
+            stroke: #000;
+            border-color: #000;
+        }
+
+        .social-link.platform-link.x:hover {
+            stroke: #000;
+            border-color: #000;
+        }
+
+        /* 微信 - 扁平化 */
+        .social-link.platform-link.wechat {
+            stroke: #07c160;
+            border-color: #07c160;
+        }
+
+        .social-link.platform-link.wechat:hover {
+            stroke: #07c160;
+            border-color: #07c160;
+        }
+
+        /* 知乎 - 扁平化 */
+        .social-link.platform-link.zhihu {
+            stroke: #0066ff;
+            border-color: #0066ff;
+        }
+
+        .social-link.platform-link.zhihu:hover {
+            stroke: #0066ff;
+            border-color: #0066ff;
+        }
+
+        /* 简书 - 扁平化 */
+        .social-link.platform-link.jianshu {
+            stroke: #ea6f5a;
+            border-color: #ea6f5a;
+        }
+
+        .social-link.platform-link.jianshu:hover {
+            stroke: #ea6f5a;
+            border-color: #ea6f5a;
+        }
+
+        /* 今日头条 - 扁平化 */
+        .social-link.platform-link.toutiao {
+            stroke: #f85959;
+            border-color: #f85959;
+        }
+
+        .social-link.platform-link.toutiao:hover {
+            stroke: #f85959;
+            border-color: #f85959;
+        }
+
+        /* 少数派 - 扁平化 */
+        .social-link.platform-link.sspai {
+            stroke: #ff9f0a;
+            border-color: #ff9f0a;
+        }
+
+        .social-link.platform-link.sspai:hover {
+            stroke: #ff9f0a;
+            border-color: #ff9f0a;
+        }
+
+        /* Substack - 扁平化 */
+        .social-link.platform-link.substack {
+            stroke: #ff6719;
+            border-color: #ff6719;
+        }
+
+        .social-link.platform-link.substack:hover {
+            stroke: #ff6719;
+            border-color: #ff6719;
+        }
+
+        /* 邮箱 - 扁平化 */
+        .social-link.platform-link.email {
+            stroke: #666;
+            border-color: var(--text-secondary);
+        }
+
+        .social-link.platform-link.email:hover {
+            stroke: #666;
+            border-color: var(--text-secondary);
+        }
+
+        /* RSS订阅按钮 */
+        .rss-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s;
+        }
+
+        .rss-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Toast通知 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
+
+            .nav-container {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .nav-right {
+                gap: 1rem;
+            }
+
+            .lang-switcher {
+                gap: 0.3rem;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .blog-header {
+                padding: 3rem 0;
+                margin-bottom: 3rem;
+            }
+
+            .blog-title {
+                font-size: 3rem;
+                letter-spacing: 0.03em;
+            }
+
+            .blog-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .blog-quote {
+                font-size: 1rem;
+                padding: 0 1rem;
+                font-weight: 400;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content input[type="email"] {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .search-box {
+                padding: 1.5rem;
+            }
+
+            .category-filters {
+                gap: 0.5rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 选中文本样式 */
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* 加载动画 */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== 文章详情页样式 ===== */
+        .article-detail-page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .article-detail-page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .home-page.hidden {
+            display: none;
+        }
+
+        .article-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-hero .article-category {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .article-hero .article-excerpt {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta-detail {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .article-date-detail {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .article-stats {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .article-content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .article-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.5rem;
+            line-height: 1.3;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            line-height: 1.3;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--bg-secondary);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .article-content .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-actions {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .back-to-articles {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .back-to-articles:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .newsletter-cta {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .newsletter-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .related-articles {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .related-articles h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 评论区样式 */
+        .comments-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .comments-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-form {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .comment-form button {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .comment-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .comment {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .comment-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .comment-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .comment-body {
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* 搜索和筛选区域 */
+        .search-filter-section {
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-btn {
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        #searchResults {
+            margin-top: 1rem;
+            padding: 10px 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-card);
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: var(--color-success);
+        }
+
+        /* 打赏功能 */
+        .coffee-support {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coffee-support::before {
+            content: '☕';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .coffee-support h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .coffee-support p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .coffee-btn {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .coffee-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .coffee-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 打赏弹窗 */
+        .coffee-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .coffee-modal.active {
+            display: flex;
+        }
+
+        .coffee-modal-content {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coffee-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .coffee-modal-close:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .coffee-modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .coffee-modal-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .coffee-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .amount-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            padding: 1.2rem 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .amount-btn:hover {
+            border-color: var(--accent);
+            background: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .amount-btn.selected {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .amount-emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .amount-price {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-btn:hover {
+            border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        .payment-btn.selected {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+        }
+
+        .qr-code-container {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+        }
+
+        .qr-code-container.active {
+            display: block;
+        }
+
+        .qr-code-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .qr-code-hint {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .coffee-thank-you {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .coffee-thank-you.active {
+            display: block;
+        }
+
+        /* 平台链接 */
+        .platform-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .platform-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .platform-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .platform-item:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-item span:last-child {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .platform-item.wechat:hover {
+            background: #07c160;
+            border-color: #07c160;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+
+        .platform-item.zhihu:hover {
+            background: #0066ff;
+            border-color: #0066ff;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .platform-item.medium:hover {
+            background: #1a8917;
+            border-color: #1a8917;
+            box-shadow: 0 4px 15px rgba(26, 137, 23, 0.3);
+        }
+
+        .platform-item.substack:hover {
+            background: #ff6719;
+            border-color: #ff6719;
+            box-shadow: 0 4px 15px rgba(255, 103, 25, 0.3);
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-card);
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: var(--color-success);
+        }
+
+        /* 币种切换 */
+        .currency-switcher {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .currency-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .currency-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .currency-btn.active {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .article-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .article-hero .article-excerpt {
+                font-size: 1.1rem;
+            }
+
+            .article-meta-detail {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .article-content {
+                font-size: 1.1rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .newsletter-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .social-links {
+                gap: 0.75rem;
+                justify-content: center;
+            }
+
+            .social-link {
+                width: 48px;
+                height: 48px;
+                font-size: 0.8rem;
+            }
+
+            .wechat-qr-content {
+                padding: 2rem;
+            }
+
+            .wechat-qr-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .load-more-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Load More 按钮 */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .load-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .load-more-btn:active {
+            transform: translateY(0);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .load-more-btn.loading {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .load-more-btn.loading::after {
+            content: '...';
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载屏幕 -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- 阅读进度条 -->
+    <div class="reading-progress"></div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- Toast通知 -->
+    <div class="toast"></div>
+
+    <!-- 搜索模态框 -->
+    <div class="search-modal">
+        <div class="search-box">
+            <button class="close-search">×</button>
+            <input type="text" class="search-input" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles...">
+            <div class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- 公众号二维码弹窗 -->
+    <div class="wechat-qr-modal" id="wechatQrModal">
+        <div class="wechat-qr-content">
+            <button class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
+            <h3>💚 关注公众号</h3>
+            <p data-zh="扫描二维码关注「小Lin思考」" data-en="Scan QR code to follow \"小Lin思考\"">扫描二维码关注「小Lin思考」</p>
+            <div class="wechat-qr-image" id="wechatQrImage">
+                <img src="images/wechat-qr.jpg" alt="微信公众号二维码" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="wechat-qr-hint">
+                <strong data-zh="搜索公众号" data-en="Search for">搜索公众号</strong>: 小Lin思考
+            </div>
+        </div>
+    </div>
+
+    <!-- 打赏弹窗 -->
+    <div class="coffee-modal" id="coffeeModal">
+        <div class="coffee-modal-content">
+            <button class="coffee-modal-close" onclick="closeCoffeeModal()">×</button>
+            <h2 class="coffee-modal-title">
+                <span data-zh="☕ 请我喝杯美式" data-en="☕ Buy Me a Coffee">☕ 请我喝杯美式</span>
+            </h2>
+            <p class="coffee-modal-subtitle" data-zh="如果内容对你有帮助，支持一杯咖啡让我继续创作 😊" data-en="If you found this helpful, support me with a coffee 😊">如果内容对你有帮助，支持一杯咖啡让我继续创作 😊</p>
+            
+            <div class="currency-switcher">
+                <button class="currency-btn active" onclick="switchCurrency('CNY')">
+                    <span data-zh="¥ 人民币" data-en="¥ CNY">¥ 人民币</span>
+                </button>
+                <button class="currency-btn" onclick="switchCurrency('USD')">
+                    <span data-zh="$ 美元" data-en="$ USD">$ 美元</span>
+                </button>
+            </div>
+
+            <div class="coffee-amounts">
+                <div class="amount-btn" onclick="selectAmount(this, 1)">
+                    <span class="amount-emoji">☕</span>
+                    <div class="amount-label" data-zh="一杯美式" data-en="One Coffee">一杯美式</div>
+                    <div class="amount-price">¥35</div>
+                </div>
+                <div class="amount-btn" onclick="selectAmount(this, 2)">
+                    <span class="amount-emoji">☕☕</span>
+                    <div class="amount-label" data-zh="两杯美式" data-en="Two Coffees">两杯美式</div>
+                    <div class="amount-price">¥68</div>
+                </div>
+                <div class="amount-btn" onclick="selectAmount(this, 3)">
+                    <span class="amount-emoji">☕☕☕</span>
+                    <div class="amount-label" data-zh="满血复活" data-en="Full Energy">满血复活</div>
+                    <div class="amount-price">¥128</div>
+                </div>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-btn payment-cny" onclick="selectPayment(this, 'wechat')">
+                    <span class="payment-icon">💚</span>
+                    <span data-zh="微信支付" data-en="WeChat Pay">微信支付</span>
+                </div>
+                <div class="payment-btn payment-cny" onclick="selectPayment(this, 'alipay')">
+                    <span class="payment-icon">💙</span>
+                    <span data-zh="支付宝" data-en="Alipay">支付宝</span>
+                </div>
+                <div class="payment-btn payment-usd" onclick="selectPayment(this, 'paypal')" style="display: none;">
+                    <span class="payment-icon">🌐</span>
+                    <span>PayPal</span>
+                </div>
+                <div class="payment-btn payment-usd" onclick="selectPayment(this, 'stripe')" style="display: none;">
+                    <span class="payment-icon">💳</span>
+                    <span>Credit Card</span>
+                </div>
+            </div>
+
+            <div class="qr-code-container" id="qrCodeContainer">
+                <div class="qr-code-placeholder">
+                    <span id="qrCodeIcon">📱</span>
+                </div>
+                <p class="qr-code-hint" data-zh="请使用相应APP扫描二维码支付" data-en="Scan QR code with the app to pay">请使用相应APP扫描二维码支付</p>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+                    <span data-zh="金额：" data-en="Amount: ">金额：</span>
+                    <strong id="selectedAmount">¥35</strong>
+                </p>
+            </div>
+
+            <div class="coffee-thank-you">
+                <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🙏</p>
+                <p style="font-weight: 600; margin-bottom: 0.3rem;" data-zh="非常感谢你的支持！" data-en="Thank you so much for your support!">非常感谢你的支持！</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;" data-zh="你的鼓励是我持续创作的动力" data-en="Your encouragement keeps me creating">你的鼓励是我持续创作的动力</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" onclick="showHome(event)" class="logo">COLIN</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#articles" data-zh="文章" data-en="Articles">
+                            <span data-zh="文章" data-en="Articles">文章</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive">📚 文章归档</a></li>
+                            <li><a href="#articles" data-category="life" onclick="filterByCategory('life', event)" data-zh="小Lin记" data-en="Life Notes">小Lin记</a></li>
+                            <li><a href="#articles" data-category="thinking" onclick="filterByCategory('thinking', event)" data-zh="小Lin析" data-en="Thinking">小Lin析</a></li>
+                            <li><a href="#articles" data-category="reading" onclick="filterByCategory('reading', event)" data-zh="小Lin读" data-en="Reading">小Lin读</a></li>
+                            <li><a href="#articles" data-category="history" onclick="filterByCategory('history', event)" data-zh="小Lin说" data-en="History">小Lin说</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#resources" data-zh="精选资源" data-en="Resources">
+                            <span data-zh="精选资源" data-en="Resources">精选资源</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-section">
+                                <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="font-weight: bold; color: var(--accent);">✍️ 写作指南</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)">📝 写作模板大全（¥49）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板（¥29）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 写作套装（¥99）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="font-weight: bold; color: var(--accent);">🎯 目标规划</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)">🎯 Notion目标系统（¥49）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)">📊 年度规划模板（¥29）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)">📈 Excel追踪表（¥19）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="font-weight: bold; color: var(--accent);">🔥 目标套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="font-weight: bold; color: var(--accent);">🧠 思维模型</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)">🧠 第一性原理（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)">🔄 逆向思维（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)">🌐 系统思考（¥49）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="⚖️ 概率思维（¥39）" data-en="⚖️ Probabilistic Thinking (¥39)">⚖️ 概率思维（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥89）" data-en="🔥 Thinking Bundle (¥89)" style="font-weight: bold; color: var(--accent);">🔥 思维套装（¥89）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="font-weight: bold; color: var(--accent);">📚 学习方法</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎓 费曼学习法（¥39）" data-en="🎓 Feynman Technique (¥39)">🎓 费曼学习法（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📅 间隔重复（¥39）" data-en="📅 Spaced Repetition (¥39)">📅 间隔重复（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 深度阅读（¥49）" data-en="📖 Deep Reading (¥49)">📖 深度阅读（¥49）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 知识管理（¥49）" data-en="🎯 Knowledge Management (¥49)">🎯 知识管理（¥49）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥99）" data-en="🔥 Learning Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 学习套装（¥99）</a></li>
+                                </ul>
+                            </li>
+                            <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;">
+                                <a href="products.html#payment-complete" data-zh="🎉 完整套装（¥159）" data-en="🎉 Complete Bundle (¥159)" style="font-weight: bold; color: #ff6b6b;">🎉 完整套装（¥159）</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
+                </ul>
+                <div class="search-container">
+                    <button class="search-btn">
+                        <span data-zh="🔍 搜索" data-en="🔍 Search">🔍 搜索</span>
+                    </button>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="theme-switcher" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页内容 -->
+    <div class="home-page">
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-name">COLIN</div>
+            <h1 data-zh="探索深邃思想<br>创造有意义的人生" data-en="Explore Deep Thoughts<br>Create A Meaningful Life">探索深邃思想<br>创造有意义的人生</h1>
+            <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
+            
+            <!-- CTA按钮组 -->
+            <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="products.html" style="padding: 1rem 2.5rem; background: #000000; color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <span data-zh="🚀 开始成长之旅" data-en="🚀 Start Journey">🚀 开始成长之旅</span>
+                </a>
+                <a href="#resources" style="padding: 1rem 2.5rem; background: rgba(0, 0, 0, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(0, 0, 0, 0.2)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.1)'">
+                    <span data-zh="📦 查看资源" data-en="📦 View Resources">📦 查看资源</span>
+                </a>
+            </div>
+            
+            <!-- RSS订阅 - 改为复制链接 -->
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem;">
+                <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
+            </div>
+            <!-- 邮箱订阅 -->
+            <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                <input type="email" id="subscribeEmail" placeholder="your@email.com" style="padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
+                <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 2rem; background: var(--accent); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap;" data-zh="订阅更新" data-en="Subscribe">订阅更新</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章区域 -->
+    <section class="content-section" id="articles">
+        <!-- 博客标题区域 -->
+        <div class="blog-header">
+            <h1 class="blog-title" data-zh="博客" data-en="BLOG">博客</h1>
+            <p class="blog-subtitle" data-zh="探索你的好奇心" data-en="Explore Your Curiosity">探索你的好奇心</p>
+            <p class="blog-quote" data-zh="深入思考是一种稀有的能力，持续成长是一生的旅程。" data-en="Deep thinking is a scarce ability, continuous growth is a lifelong journey.">深入思考是一种稀有的能力，持续成长是一生的旅程。</p>
+        </div>
+
+        <!-- 搜索和筛选区域 -->
+        <div class="search-filter-section">
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles..." oninput="filterArticles()">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <!-- 分类筛选 -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                    <span data-zh="全部" data-en="All">全部</span>
+                </button>
+                <button class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
+                    <span data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                </button>
+                <button class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
+                    <span data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
+                </button>
+                <button class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
+                    <span data-zh="写作技巧" data-en="Writing Skills">写作技巧</span>
+                </button>
+                <button class="filter-btn" data-category="life" onclick="filterByCategory('life')">
+                    <span data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
+                </button>
+                <button class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
+                    <span data-zh="效率提升" data-en="Productivity">效率提升</span>
+                </button>
+            </div>
+
+            <!-- 搜索结果提示 -->
+            <div id="searchResults" style="display: none;">
+                找到 <strong id="resultCount">0</strong> 篇文章
+            </div>
+        </div>
+
+        <div class="articles-grid" id="articlesGrid">
+            <article class="article-card" data-category="thinking" data-article-id="deep-thinking-information-age">
+                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                <div class="article-date" data-zh="2026年1月10日" data-en="January 10, 2026">2026年1月10日</div>
+                <h3 class="article-title" data-zh="如何在信息爆炸时代保持深度思考" data-en="How to Maintain Deep Thinking in the Information Age">如何在信息爆炸时代保持深度思考</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 5分钟阅读" data-en="📖 5 min read">📖 5分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？" data-en="In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?">在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="learning" data-article-id="lifelong-learning-cultivation">
+                <span class="article-category" data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
+                <div class="article-date" data-zh="2026年1月5日" data-en="January 5, 2026">2026年1月5日</div>
+                <h3 class="article-title" data-zh="终身学习者的自我修养" data-en="The Self-Cultivation of Lifelong Learners">终身学习者的自我修养</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 7分钟阅读" data-en="📖 7 min read">📖 7分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。" data-en="Learning isn't for exams—it's about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.">学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="productivity">
+                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
+                <div class="article-date" data-zh="2025年12月28日" data-en="December 28, 2025">2025年12月28日</div>
+                <h3 class="article-title" data-zh="注意力：21世纪最宝贵的资源" data-en="Attention: The Most Valuable Resource of the 21st Century">注意力：21世纪最宝贵的资源</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。" data-en="In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.">在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="life" data-article-id="anxiety-to-action">
+                <span class="article-category" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
+                <div class="article-date" data-zh="2025年12月20日" data-en="December 20, 2025">2025年12月20日</div>
+                <h3 class="article-title" data-zh="从焦虑到行动：目标设定的艺术" data-en="From Anxiety to Action: The Art of Goal Setting">从焦虑到行动：目标设定的艺术</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 8分钟阅读" data-en="📖 8 min read">📖 8分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。" data-en="Anxiety often stems from unclear or missing goals. Learn to set goals scientifically and transform anxiety into momentum for action.">焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="thinking">
+                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                <div class="article-date" data-zh="2025年12月15日" data-en="December 15, 2025">2025年12月15日</div>
+                <h3 class="article-title" data-zh="写作即思考：用文字塑造思想" data-en="Writing is Thinking: Shaping Thoughts with Words">写作即思考：用文字塑造思想</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。" data-en="Writing is not just expression—it's a tool for thinking. Through writing, we clarify thoughts, discover blind spots, and deepen understanding.">写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="productivity" data-article-id="digital-minimalism">
+                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
+                <div class="article-date" data-zh="2025年12月8日" data-en="December 8, 2025">2025年12月8日</div>
+                <h3 class="article-title" data-zh="数字极简主义：在互联网时代找回自我" data-en="Digital Minimalism: Finding Yourself in the Internet Age">数字极简主义：在互联网时代找回自我</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 9分钟阅读" data-en="📖 9 min read">📖 9分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。" data-en="We don't need to abandon technology—we need to use it more wisely. Digital minimalism helps you redefine your relationship with tech.">我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+                <span data-zh="更多美文" data-en="Load More">更多美文</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 特色资源 -->
+    <section class="content-section" id="resources">
+        <div class="featured-resources">
+            <h2 class="section-title" data-zh="精选资源" data-en="Featured Resources">精选资源</h2>
+            <div class="resources-grid">
+                <div class="resource-card" id="resource-writing">
+                    <div class="resource-icon">✍️</div>
+                    <h3 class="resource-title" data-zh="写作指南" data-en="Writing Guides">写作指南</h3>
+                    <p class="resource-description" data-zh="3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量" data-en="Write your first article in 3 days, build writing habits in 30 days, get 1000+ views in 90 days">3天写出第一篇文章，30天建立写作习惯，90天获得1000+阅读量</p>
+                    <a href="products.html" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                </div>
+
+                <div class="resource-card" id="resource-goals">
+                    <div class="resource-icon">🎯</div>
+                    <h3 class="resource-title" data-zh="目标规划" data-en="Goal Planning">目标规划</h3>
+                    <p class="resource-description" data-zh="90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松" data-en="Build good habits in 90 days, achieve 3-year goals, complete your first half-marathon">90天养成好习惯，达成3年没下的决心，实现人生第一个半程马拉松</p>
+                    <a href="products.html" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                </div>
+
+                <div class="resource-card" id="resource-thinking">
+                    <div class="resource-icon">💭</div>
+                    <h3 class="resource-title" data-zh="思维模型" data-en="Thinking Models">思维模型</h3>
+                    <p class="resource-description" data-zh="21天建立思维模型，提升决策质量，用智慧驾驭复杂世界" data-en="Build thinking models in 21 days, improve decision quality, navigate complex world with wisdom">21天建立思维模型，提升决策质量，用智慧驾驭复杂世界</p>
+                    <a href="products.html" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                </div>
+
+                <div class="resource-card" id="resource-learning">
+                    <div class="resource-icon">📚</div>
+                    <h3 class="resource-title" data-zh="学习方法" data-en="Learning Methods">学习方法</h3>
+                    <p class="resource-description" data-zh="28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手" data-en="Master efficient learning in 28 days, absorb knowledge 3x faster, become a lifelong learning master">28天掌握高效学习法，知识吸收速度提升3倍，成为终身学习的高手</p>
+                    <a href="products.html" class="resource-link" data-zh="查看详情 →" data-en="View Details →">查看详情 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于部分 -->
+    <section class="content-section" id="about">
+        <div class="about-section">
+            <div class="about-image has-photo">
+                <img src="thecolin.vip image.jpg" alt="COLIN">
+            </div>
+            <div class="about-content">
+                <h2 data-zh="关于我" data-en="About Me">关于我</h2>
+                <p class="about-p1" data-zh="我是一位热爱思考的终身学习者，专注于探索人类潜能、认知科学和自我成长。" data-en="I'm a lifelong learner passionate about thinking, focused on exploring human potential, cognitive science, and self-improvement.">我是一位热爱思考的终身学习者，专注于探索人类潜能、认知科学和自我成长。</p>
+                <p class="about-p2" data-zh="通过深度思考和实践，我相信每个人都能创造属于自己的有意义的人生。在这里，我分享我的思考、经验和洞见，希望能为你的成长之路提供一些启发。" data-en="Through deep thinking and practice, I believe everyone can create their own meaningful life. Here, I share my thoughts, experiences, and insights to inspire your growth journey.">通过深度思考和实践，我相信每个人都能创造属于自己的有意义的人生。在这里，我分享我的思考、经验和洞见，希望能为你的成长之路提供一些启发。</p>
+                <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
+                <div class="all-links">
+                    <div class="social-links">
+                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x">
+                            <img src="images/x平台logo.png" alt="X" style="width: 24px; height: 24px;">
+                        </a>
+                        <div class="social-link platform-link wechat" onclick="openWechatQrModal()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu">
+                            <img src="images/知乎logo.png" alt="知乎" style="width: 24px; height: 24px;">
+                        </a>
+                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu">
+                            <img src="images/简书logo.png" alt="简书" style="width: 24px; height: 24px;">
+                        </a>
+                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao">
+                            <img src="images/今日头条logo.png" alt="今日头条" style="width: 24px; height: 24px;">
+                        </a>
+                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai">
+                            <img src="images/少数派logo.png" alt="少数派" style="width: 24px; height: 24px;">
+                        </a>
+                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack">
+                            <img src="images/substack平台logo.png" alt="Substack" style="width: 24px; height: 24px;">
+                        </a>
+                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
+                    <span>☕</span>
+                    <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p class="footer-copy" data-zh="&copy; 2026 COLIN. 保留所有权利." data-en="&copy; 2026 COLIN. All Rights Reserved.">&copy; 2026 COLIN. 保留所有权利.</p>
+        <p class="footer-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
+            <span data-zh="（复制链接到RSS阅读器）" data-en="(Copy link to RSS reader)">（复制链接到RSS阅读器）</span>
+        </p>
+    </footer>
+    </div>
+    <!-- 主页内容结束 -->
+
+    <!-- 文章详情页 -->
+    <div class="article-detail-page" id="articleDetailPage">
+        <div class="article-hero">
+            <div class="article-hero-content">
+                <span class="article-category" id="articleDetailCategory">深度思考</span>
+                <h1 id="articleDetailTitle">文章标题</h1>
+                <p class="article-excerpt" id="articleDetailExcerpt">文章摘要</p>
+                <div class="article-meta-detail">
+                    <div class="author-info">
+                        <div class="author-avatar">C</div>
+                        <div class="author-details">
+                            <div class="author-name">Colin</div>
+                            <div class="article-date-detail" id="articleDetailDate">2026年1月10日</div>
+                        </div>
+                    </div>
+                    <div class="article-stats">
+                        <span id="articleDetailReadTime">📖 5分钟阅读</span>
+                        <span>👁️ 1,234 阅读</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content-wrapper">
+            <article class="article-content" id="articleDetailContent">
+                <!-- 文章内容将动态插入这里 -->
+            </article>
+
+            <div class="article-actions">
+                <button class="back-to-articles" onclick="showHome(event)">
+                    ← <span data-zh="返回文章列表" data-en="Back to Articles">返回文章列表</span>
+                </button>
+                <div class="article-tags">
+                    <span class="tag">#深度思考</span>
+                    <span class="tag">#认知升级</span>
+                    <span class="tag">#个人成长</span>
+                </div>
+            </div>
+
+            <div class="coffee-support">
+                <h3 data-zh="☕ 觉得内容有价值？" data-en="☕ Found this valuable?">☕ 觉得内容有价值？</h3>
+                <p data-zh="请我喝杯美式咖啡，让我保持清醒继续创作 😊" data-en="Buy me a coffee to keep me awake and creating 😊">请我喝杯美式咖啡，让我保持清醒继续创作 😊</p>
+                <button class="coffee-btn" onclick="openCoffeeModal()">
+                    <span>☕</span>
+                    <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
+                </button>
+            </div>
+
+            <div class="newsletter-cta">
+                <h3 data-zh="喜欢这篇文章吗？" data-en="Enjoyed this article?">喜欢这篇文章吗？</h3>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <input type="email" id="subscribeEmail" placeholder="your@email.com" style="flex: 1; padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
+                    <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100px;">复制邮箱</button>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-top: 0.5rem;">
+                    <span data-zh="复制邮箱地址到剪贴板，然后到邮件APP粘贴发送" data-en="Copy email to clipboard, then paste in mail app to send">复制邮箱地址到剪贴板，然后到邮件APP粘贴发送</span>
+                </p>
+            </div>
+
+            <div class="comments-section">
+                <h3 data-zh="评论" data-en="Comments">评论 (3)</h3>
+                
+                <div class="comment-form">
+                    <textarea placeholder="分享你的想法..." data-zh-placeholder="分享你的想法..." data-en-placeholder="Share your thoughts..."></textarea>
+                    <button type="submit" data-zh="发表评论" data-en="Post Comment">发表评论</button>
+                </div>
+
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">A</div>
+                            <div class="comment-info">
+                                <div class="comment-author">Alex Zhang</div>
+                                <div class="comment-date" data-zh="2天前" data-en="2 days ago">2天前</div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            非常深刻的见解！这篇文章让我重新思考了如何管理自己的注意力。特别认同关于"深度工作"的部分。
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">M</div>
+                            <div class="comment-info">
+                                <div class="comment-author">Maria Li</div>
+                                <div class="comment-date" data-zh="5天前" data-en="5 days ago">5天前</div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            实用性很强！我已经开始实践文中提到的几个方法，效果显著。感谢分享！
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">J</div>
+                            <div class="comment-info">
+                                <div class="comment-author">John Wang</div>
+                                <div class="comment-date" data-zh="1周前" data-en="1 week ago">1周前</div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            期待更多关于终身学习的内容。这个系列的文章质量都很高！
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-articles">
+                <h3 data-zh="相关阅读" data-en="Related Reading">相关阅读</h3>
+                <div class="related-articles-grid" id="relatedArticlesGrid">
+                    <!-- 相关文章将动态插入 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== 全局错误处理 =====
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error('Global error:', { message, source, lineno, colno, error });
+            
+            // 发送错误到追踪服务
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    'description': message,
+                    'fatal': false
+                });
+            }
+            
+            // 显示用户友好的错误提示
+            const errorMsg = currentLang === 'zh' 
+                ? '页面出现错误，请刷新重试' 
+                : 'An error occurred, please refresh';
+            // 可以在这里显示 toast 或 modal
+            
+            return false;
+        };
+
+        // Promise 错误捕获
+        window.addEventListener('unhandledrejection', (event) => {
+            console.error('Unhandled promise rejection:', event.reason);
+            event.preventDefault();
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    'description': 'Promise rejection: ' + event.reason
+                });
+            }
+        });
+
+        // ===== 全局变量 =====
+        let currentLang = 'zh';
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        let currentArticleId = null;
+        
+        // ===== 常量定义 =====
+        const SCROLL_THRESHOLD = 300;
+        const NAV_SHADOW_THRESHOLD = 100;
+        const ARTICLES_PER_PAGE = 6;
+        const DEBOUNCE_DELAY = 250;
+
+        // ===== 完整的文章数据库 =====
+        const articlesDatabase = {
+            'deep-thinking-information-age': {
+                id: 'deep-thinking-information-age',
+                category: { zh: '深度思考', en: 'Deep Thinking' },
+                title: { zh: '如何在信息爆炸时代保持深度思考', en: 'How to Maintain Deep Thinking in the Information Age' },
+                excerpt: { zh: '在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？', en: 'In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?' },
+                date: { zh: '2026年1月10日', en: 'January 10, 2026' },
+                readTime: { zh: '📖 5分钟阅读', en: '📖 5 min read' },
+                content: { 
+                    zh: `
+                        <h2>信息过载的困境</h2>
+                        <p>我们生活在一个前所未有的信息时代。每天，数以亿计的内容在互联网上产生、传播、消费。社交媒体的推送、短视频的刷屏、新闻的轰炸——我们的注意力被切割成无数碎片。</p>
+                        <p>然而，信息的丰富并不等同于知识的增长。相反，过量的信息常常让我们陷入一种"忙碌的无知"状态：我们看似获取了很多信息，实则没有深入思考任何问题。</p>
+
+                        <div class="highlight-box">
+                            <p><strong>💡 关键洞察：</strong>真正的智慧不在于知道更多，而在于思考得更深。</p>
+                        </div>
+
+                        <h2>深度思考的三个层次</h2>
+                        <h3>1. 信息筛选层</h3>
+                        <p>第一步是学会筛选信息。不是所有信息都值得你的注意力。建立自己的信息过滤系统：</p>
+                        <ul>
+                            <li>订阅高质量的内容源，而不是无限制地浏览</li>
+                            <li>设定明确的学习目标，有目的地获取信息</li>
+                            <li>定期清理信息渠道，减少噪音干扰</li>
+                        </ul>
+
+                        <h3>2. 深度理解层</h3>
+                        <p>仅仅阅读是不够的，你需要真正理解内容。这意味着：</p>
+                        <ul>
+                            <li>慢下来，给自己充足的时间消化信息</li>
+                            <li>提出问题，挑战作者的观点</li>
+                            <li>寻找不同观点，形成全面的认知</li>
+                            <li>用自己的话复述，确保真正理解</li>
+                        </ul>
+
+                        <h3>3. 知识整合层</h3>
+                        <p>最高层次是将新知识整合到你的知识体系中：</p>
+                        <ul>
+                            <li>建立知识之间的联系</li>
+                            <li>反思如何应用到实际生活中</li>
+                            <li>通过写作或教学来巩固理解</li>
+                            <li>定期回顾和更新你的认知</li>
+                        </ul>
+
+                        <blockquote>
+                            "我们不需要更多的信息，我们需要更多的思考。" —— 尼尔·波兹曼
+                        </blockquote>
+
+                        <h2>实践方法：建立深度思考的习惯</h2>
+                        <p><strong>方法一：每日深度工作时段</strong></p>
+                        <p>每天设定2-3小时的深度工作时间，在这段时间内：</p>
+                        <ul>
+                            <li>关闭所有通知和干扰</li>
+                            <li>专注于一个主题或问题</li>
+                            <li>允许自己慢慢思考，不急于得出结论</li>
+                        </ul>
+
+                        <p><strong>方法二：写作促进思考</strong></p>
+                        <p>写作是思考的最好工具。通过写作，你被迫将模糊的想法转化为清晰的文字。建议：</p>
+                        <ul>
+                            <li>每天写晨间日记，梳理思绪</li>
+                            <li>针对学习内容写读书笔记</li>
+                            <li>尝试写长文，深入探讨一个话题</li>
+                        </ul>
+
+                        <p><strong>方法三：刻意的信息断舍离</strong></p>
+                        <p>主动减少信息摄入，为思考腾出空间：</p>
+                        <ul>
+                            <li>限制社交媒体使用时间</li>
+                            <li>取消不必要的新闻推送</li>
+                            <li>每周设定"数字断食"时间</li>
+                        </ul>
+
+                        <h2>结语</h2>
+                        <p>在信息爆炸的时代，深度思考成为一种稀缺能力。那些能够在喧嚣中保持思考的人，将在未来拥有巨大的竞争优势。</p>
+                        <p>记住：<strong>质量永远比数量重要，深度永远比广度有价值。</strong></p>
+                    `,
+                    en: `
+                        <h2>The Dilemma of Information Overload</h2>
+                        <p>We live in an unprecedented era of information. Every day, billions of pieces of content are created, shared, and consumed on the internet. Social media feeds, endless scrolling, breaking news—our attention is fragmented into countless pieces.</p>
+                        <p>However, an abundance of information doesn't equal knowledge growth. In fact, information overload often traps us in "busy ignorance": we appear to consume lots of information but deeply understand none of it.</p>
+
+                        <div class="highlight-box">
+                            <p><strong>💡 Key Insight:</strong> True wisdom lies not in knowing more, but in thinking deeper.</p>
+                        </div>
+
+                        <h2>Three Levels of Deep Thinking</h2>
+                        <h3>1. Information Filtering</h3>
+                        <p>The first step is learning to filter information. Not all information deserves your attention. Build your own filtering system:</p>
+                        <ul>
+                            <li>Subscribe to high-quality sources instead of endless browsing</li>
+                            <li>Set clear learning goals and seek information purposefully</li>
+                            <li>Regularly clean up your information channels to reduce noise</li>
+                        </ul>
+
+                        <h3>2. Deep Understanding</h3>
+                        <p>Reading alone isn't enough—you need true comprehension. This means:</p>
+                        <ul>
+                            <li>Slow down and give yourself time to digest information</li>
+                            <li>Ask questions and challenge the author's viewpoints</li>
+                            <li>Seek different perspectives for comprehensive understanding</li>
+                            <li>Rephrase in your own words to ensure comprehension</li>
+                        </ul>
+
+                        <h3>3. Knowledge Integration</h3>
+                        <p>The highest level is integrating new knowledge into your system:</p>
+                        <ul>
+                            <li>Build connections between knowledge</li>
+                            <li>Reflect on practical applications</li>
+                            <li>Consolidate understanding through writing or teaching</li>
+                            <li>Regularly review and update your cognition</li>
+                        </ul>
+
+                        <blockquote>
+                            "We don't need more information. We need more thinking." —— Neil Postman
+                        </blockquote>
+
+                        <h2>Practical Methods: Building Deep Thinking Habits</h2>
+                        <p><strong>Method 1: Daily Deep Work Sessions</strong></p>
+                        <p>Set aside 2-3 hours daily for deep work. During this time:</p>
+                        <ul>
+                            <li>Turn off all notifications and distractions</li>
+                            <li>Focus on one topic or problem</li>
+                            <li>Allow yourself to think slowly without rushing to conclusions</li>
+                        </ul>
+
+                        <p><strong>Method 2: Writing to Think</strong></p>
+                        <p>Writing is the best tool for thinking. It forces you to transform vague ideas into clear text. Try:</p>
+                        <ul>
+                            <li>Morning journaling to organize thoughts</li>
+                            <li>Taking reading notes on learning materials</li>
+                            <li>Writing long-form content to explore topics deeply</li>
+                        </ul>
+
+                        <p><strong>Method 3: Deliberate Information Minimalism</strong></p>
+                        <p>Actively reduce information intake to make space for thinking:</p>
+                        <ul>
+                            <li>Limit social media time</li>
+                            <li>Unsubscribe from unnecessary news alerts</li>
+                            <li>Schedule weekly "digital detox" time</li>
+                        </ul>
+
+                        <h2>Conclusion</h2>
+                        <p>In the age of information explosion, deep thinking becomes a rare ability. Those who can maintain thoughtfulness amid the noise will have tremendous competitive advantages in the future.</p>
+                        <p>Remember: <strong>Quality always trumps quantity, depth always beats breadth.</strong></p>
+                    `
+                }
+            },
+            'lifelong-learner': {
+                id: 'lifelong-learner',
+                category: { zh: '终身学习', en: 'Lifelong Learning' },
+                title: { zh: '终身学习者的自我修养', en: 'The Self-Cultivation of Lifelong Learners' },
+                excerpt: { zh: '学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。', en: 'Learning isn\'t for exams—it\'s about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.' },
+                date: { zh: '2026年1月5日', en: 'January 5, 2026' },
+                readTime: { zh: '📖 7分钟阅读', en: '📖 7 min read' },
+                content: { 
+                    zh: `
+                        <h2>重新定义学习</h2>
+                        <p>大多数人对学习的理解停留在学生时代：为了考试、为了文凭、为了满足他人的期待。但真正的学习是一种生活方式，是持续的自我进化过程。</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>💡 核心理念：</strong>终身学习不是一个目标，而是一种态度——对世界保持好奇，对自我保持谦逊。</p>
+                        </div>
+
+                        <h2>终身学习者的五大特质</h2>
+                        <h3>1. 主动性</h3>
+                        <p>不等待别人告诉你该学什么，而是主动寻找学习机会。他们：</p>
+                        <ul>
+                            <li>对感兴趣的领域深入探索</li>
+                            <li>主动寻求反馈和改进</li>
+                            <li>将问题视为学习机会</li>
+                        </ul>
+
+                        <h3>2. 好奇心</h3>
+                        <p>对世界保持孩童般的好奇心。他们经常问"为什么"、"如何运作"、"还有其他可能吗"。</p>
+
+                        <h3>3. 成长思维</h3>
+                        <p>相信能力是可以培养的，而非固定不变的。失败不是终点，而是成长的阶梯。</p>
+
+                        <h3>4. 系统化</h3>
+                        <p>建立自己的学习系统，而不是零散地学习。这包括：</p>
+                        <ul>
+                            <li>知识管理系统（如笔记工具）</li>
+                            <li>定期复习机制</li>
+                            <li>实践应用框架</li>
+                        </ul>
+
+                        <h3>5. 分享精神</h3>
+                        <p>通过教学和分享来巩固学习。费曼技巧告诉我们：如果你不能简单地解释一个概念，说明你还没有真正理解它。</p>
+
+                        <blockquote>
+                            "教育不是注满一桶水，而是点燃一把火。" —— 威廉·巴特勒·叶芝
+                        </blockquote>
+
+                        <h2>构建你的学习系统</h2>
+                        <p><strong>步骤一：明确学习目标</strong></p>
+                        <p>不要漫无目的地学习。问自己：</p>
+                        <ul>
+                            <li>我为什么要学这个？</li>
+                            <li>学会后我能做什么？</li>
+                            <li>这对我的长期目标有何帮助？</li>
+                        </ul>
+
+                        <p><strong>步骤二：建立输入系统</strong></p>
+                        <p>精心策划你的学习资源：</p>
+                        <ul>
+                            <li>书籍：深度和系统性</li>
+                            <li>课程：结构化学习</li>
+                            <li>文章和播客：补充观点</li>
+                            <li>实践项目：应用所学</li>
+                        </ul>
+
+                        <p><strong>步骤三：建立输出系统</strong></p>
+                        <p>学习不应该只停留在输入阶段：</p>
+                        <ul>
+                            <li>写读书笔记和心得</li>
+                            <li>创建内容（博客、视频等）</li>
+                            <li>教授他人</li>
+                            <li>应用到实际项目中</li>
+                        </ul>
+
+                        <h2>实践建议</h2>
+                        <p><strong>1. 采用主题式学习</strong><br>
+                        不要同时学习太多内容。选择一个主题，深入研究2-3个月，然后再转向下一个。</p>
+
+                        <p><strong>2. 建立晨间学习习惯</strong><br>
+                        每天早上投入1小时学习，坚持一年就是365小时的积累。</p>
+
+                        <p><strong>3. 刻意练习</strong><br>
+                        不是简单重复，而是针对弱点进行有针对性的练习。</p>
+
+                        <p><strong>4. 定期复习</strong><br>
+                        使用间隔重复系统（如Anki），确保知识长期保留。</p>
+
+                        <h2>结语</h2>
+                        <p>终身学习不是一个沉重的负担，而是一种令人兴奋的冒险。每一次学习都是对自我的投资，都是向更好的自己迈进的一步。</p>
+                        <p>开始永远不会太晚，重要的是现在就开始行动。</p>
+                    `,
+                    en: `
+                        <h2>Redefining Learning</h2>
+                        <p>Most people's understanding of learning stops at school: studying for exams, diplomas, meeting others' expectations. But true learning is a lifestyle—a continuous process of self-evolution.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>💡 Core Philosophy:</strong> Lifelong learning isn't a goal but an attitude—staying curious about the world and humble about yourself.</p>
+                        </div>
+
+                        <h2>Five Traits of Lifelong Learners</h2>
+                        <h3>1. Initiative</h3>
+                        <p>Don't wait to be told what to learn—actively seek learning opportunities. They:</p>
+                        <ul>
+                            <li>Deeply explore areas of interest</li>
+                            <li>Actively seek feedback and improvement</li>
+                            <li>View problems as learning opportunities</li>
+                        </ul>
+
+                        <h3>2. Curiosity</h3>
+                        <p>Maintain childlike curiosity about the world. They often ask "why," "how does it work," "are there other possibilities?"</p>
+
+                        <h3>3. Growth Mindset</h3>
+                        <p>Believe abilities can be developed, not fixed. Failure isn't an endpoint but a stepping stone for growth.</p>
+
+                        <h3>4. Systematization</h3>
+                        <p>Build your own learning system rather than learning randomly. This includes:</p>
+                        <ul>
+                            <li>Knowledge management system (like note-taking tools)</li>
+                            <li>Regular review mechanisms</li>
+                            <li>Practical application frameworks</li>
+                        </ul>
+
+                        <h3>5. Sharing Spirit</h3>
+                        <p>Consolidate learning through teaching and sharing. The Feynman Technique tells us: if you can't explain a concept simply, you don't understand it well enough.</p>
+
+                        <blockquote>
+                            "Education is not the filling of a pail, but the lighting of a fire." —— William Butler Yeats
+                        </blockquote>
+
+                        <h2>Building Your Learning System</h2>
+                        <p><strong>Step 1: Define Learning Goals</strong></p>
+                        <p>Don't learn aimlessly. Ask yourself:</p>
+                        <ul>
+                            <li>Why am I learning this?</li>
+                            <li>What can I do once I've learned it?</li>
+                            <li>How does this help my long-term goals?</li>
+                        </ul>
+
+                        <p><strong>Step 2: Establish Input System</strong></p>
+                        <p>Carefully curate your learning resources:</p>
+                        <ul>
+                            <li>Books: Depth and systematicity</li>
+                            <li>Courses: Structured learning</li>
+                            <li>Articles and podcasts: Supplementary perspectives</li>
+                            <li>Practice projects: Apply what you've learned</li>
+                        </ul>
+
+                        <p><strong>Step 3: Create Output System</strong></p>
+                        <p>Learning shouldn't stop at input:</p>
+                        <ul>
+                            <li>Write reading notes and reflections</li>
+                            <li>Create content (blogs, videos, etc.)</li>
+                            <li>Teach others</li>
+                            <li>Apply to real projects</li>
+                        </ul>
+
+                        <h2>Practical Advice</h2>
+                        <p><strong>1. Use Thematic Learning</strong><br>
+                        Don't learn too many things simultaneously. Choose one topic, study it deeply for 2-3 months, then move to the next.</p>
+
+                        <p><strong>2. Establish Morning Learning Habits</strong><br>
+                        Invest 1 hour every morning in learning—that's 365 hours of accumulation in a year.</p>
+
+                        <p><strong>3. Deliberate Practice</strong><br>
+                        Not simple repetition, but targeted practice addressing weaknesses.</p>
+
+                        <p><strong>4. Regular Review</strong><br>
+                        Use spaced repetition systems (like Anki) to ensure long-term retention.</p>
+
+                        <h2>Conclusion</h2>
+                        <p>Lifelong learning isn't a heavy burden but an exciting adventure. Every learning session is an investment in yourself, a step toward a better you.</p>
+                        <p>It's never too late to start. What matters is taking action now.</p>
+                    `
+                }
+            },
+            'attention-economy': {
+                id: 'attention-economy',
+                category: { zh: '效率提升', en: 'Productivity' },
+                title: { zh: '注意力：21世纪最宝贵的资源', en: 'Attention: The Most Valuable Resource of the 21st Century' },
+                excerpt: { zh: '在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。', en: 'In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.' },
+                date: { zh: '2025年12月28日', en: 'December 28, 2025' },
+                readTime: { zh: '📖 6分钟阅读', en: '📖 6 min read' },
+                content: { 
+                    zh: `
+                        <h2>注意力经济时代</h2>
+                        <p>我们生活在一个"注意力经济"的时代。科技公司雇佣最聪明的工程师和心理学家，设计出让人上瘾的产品。你的每一次点击、每一秒停留，都被精密计算和优化。</p>
+                        <p>短视频平台的无限滚动、社交媒体的红点提醒、游戏的即时反馈——这些都是为了抢夺你的注意力。而注意力，正是21世纪最宝贵的资源。</p>
+
+                        <div class="highlight-box">
+                            <p><strong>💡 核心观点：</strong>你的注意力投向哪里，你的人生就走向哪里。</p>
+                        </div>
+
+                        <h2>注意力的真实成本</h2>
+                        <p>每次打开手机"快速看一眼"，实际成本远超你的想象：</p>
+                        <ul>
+                            <li><strong>时间成本</strong>：平均每次25分钟才能重新专注</li>
+                            <li><strong>认知成本</strong>：频繁切换降低大脑效率40%</li>
+                            <li><strong>创造力成本</strong>：碎片化注意力扼杀深度思考</li>
+                            <li><strong>机会成本</strong>：本可以用于学习和成长的时间</li>
+                        </ul>
+
+                        <h2>掌控注意力的5个策略</h2>
+                        <h3>1. 建立数字边界</h3>
+                        <p>设定明确的规则：</p>
+                        <ul>
+                            <li>早上起床后1小时和睡前1小时不看手机</li>
+                            <li>工作时段关闭所有非必要通知</li>
+                            <li>每周至少一天"数字断食"</li>
+                        </ul>
+
+                        <h3>2. 使用专注工具</h3>
+                        <p>借助工具提升专注力：</p>
+                        <ul>
+                            <li><strong>番茄工作法</strong>：25分钟专注+5分钟休息</li>
+                            <li><strong>网站屏蔽器</strong>：Freedom、Cold Turkey等</li>
+                            <li><strong>专注模式</strong>：手机的勿扰模式</li>
+                        </ul>
+
+                        <h3>3. 重新设计环境</h3>
+                        <p>环境塑造行为：</p>
+                        <ul>
+                            <li>工作区域只放工作必需品</li>
+                            <li>手机放在视线之外</li>
+                            <li>使用实体闹钟代替手机闹钟</li>
+                        </ul>
+
+                        <h3>4. 培养单任务习惯</h3>
+                        <p>一次只做一件事：</p>
+                        <ul>
+                            <li>关闭所有标签页，只保留当前工作</li>
+                            <li>设定专注时段，不接受任何打扰</li>
+                            <li>完成一项任务后再开始下一项</li>
+                        </ul>
+
+                        <h3>5. 有意识地选择</h3>
+                        <p>每次打开应用前问自己：</p>
+                        <ul>
+                            <li>我为什么要打开它？</li>
+                            <li>我期望获得什么？</li>
+                            <li>这是最好的时间分配吗？</li>
+                        </ul>
+
+                        <blockquote>
+                            "在信息爆炸的时代，注意力是最稀缺的资源。" —— 赫伯特·西蒙
+                        </blockquote>
+
+                        <h2 data-zh="实践建议：30天注意力挑战" data-en="Practical Tips: 30-Day Attention Challenge">实践建议：30天注意力挑战</h2>
+                        <p><strong>第1周：意识觉醒</strong></p>
+                        <ul>
+                            <li>记录每次拿起手机的原因</li>
+                            <li>统计每天使用社交媒体的时间</li>
+                            <li>注意分心的触发点</li>
+                        </ul>
+
+                        <p><strong>第2周：建立边界</strong></p>
+                        <ul>
+                            <li>删除最浪费时间的3个应用</li>
+                            <li>设置手机勿扰时段</li>
+                            <li>关闭所有非必要推送</li>
+                        </ul>
+
+                        <p><strong>第3周：深度工作</strong></p>
+                        <ul>
+                            <li>每天至少2小时不被打扰的专注时间</li>
+                            <li>练习番茄工作法</li>
+                            <li>完成一个需要深度思考的项目</li>
+                        </ul>
+
+                        <p><strong>第4周：巩固习惯</strong></p>
+                        <ul>
+                            <li>评估注意力改善效果</li>
+                            <li>调整和优化策略</li>
+                            <li>建立长期可持续的习惯</li>
+                        </ul>
+
+                        <h2>结语</h2>
+                        <p>注意力是你最宝贵的资产。在这个到处都是干扰的时代，能够掌控自己注意力的人，就掌控了自己的人生。</p>
+                        <p>从今天开始，有意识地分配你的注意力。记住：<strong>你关注什么，什么就会成长。</strong></p>
+                    `,
+                    en: `
+                        <h2>The Attention Economy Era</h2>
+                        <p>We live in an "attention economy" age. Tech companies hire the smartest engineers and psychologists to design addictive products. Your every click, every second of engagement is precisely calculated and optimized.</p>
+                        <p>Infinite scroll on short video platforms, red notification badges on social media, instant feedback in games—all designed to capture your attention. And attention is the most valuable resource of the 21st century.</p>
+
+                        <div class="highlight-box">
+                            <p><strong>💡 Core Idea:</strong> Where your attention goes, your life follows.</p>
+                        </div>
+
+                        <h2>The True Cost of Attention</h2>
+                        <p>Every "quick check" of your phone costs far more than you imagine:</p>
+                        <ul>
+                            <li><strong>Time Cost</strong>: Average 25 minutes to refocus after interruption</li>
+                            <li><strong>Cognitive Cost</strong>: Frequent switching reduces brain efficiency by 40%</li>
+                            <li><strong>Creativity Cost</strong>: Fragmented attention kills deep thinking</li>
+                            <li><strong>Opportunity Cost</strong>: Time that could be spent learning and growing</li>
+                        </ul>
+
+                        <h2>5 Strategies to Control Your Attention</h2>
+                        <h3>1. Establish Digital Boundaries</h3>
+                        <p>Set clear rules:</p>
+                        <ul>
+                            <li>No phone for first and last hour of the day</li>
+                            <li>Turn off all non-essential notifications during work</li>
+                            <li>At least one "digital detox" day per week</li>
+                        </ul>
+
+                        <h3>2. Use Focus Tools</h3>
+                        <p>Leverage tools to enhance focus:</p>
+                        <ul>
+                            <li><strong>Pomodoro Technique</strong>: 25 minutes focus + 5 minutes break</li>
+                            <li><strong>Website Blockers</strong>: Freedom, Cold Turkey, etc.</li>
+                            <li><strong>Focus Mode</strong>: Do Not Disturb on your phone</li>
+                        </ul>
+
+                        <h3>3. Redesign Your Environment</h3>
+                        <p>Environment shapes behavior:</p>
+                        <ul>
+                            <li>Keep only work essentials in your workspace</li>
+                            <li>Put phone out of sight</li>
+                            <li>Use physical alarm clock instead of phone</li>
+                        </ul>
+
+                        <h3>4. Cultivate Single-tasking Habits</h3>
+                        <p>Do one thing at a time:</p>
+                        <ul>
+                            <li>Close all tabs except current work</li>
+                            <li>Set focus sessions with zero interruptions</li>
+                            <li>Complete one task before starting next</li>
+                        </ul>
+
+                        <h3>5. Choose Consciously</h3>
+                        <p>Before opening any app, ask yourself:</p>
+                        <ul>
+                            <li>Why am I opening this?</li>
+                            <li>What do I expect to get?</li>
+                            <li>Is this the best use of my time?</li>
+                        </ul>
+
+                        <blockquote>
+                            "In an age of information overload, attention is the scarcest resource." —— Herbert Simon
+                        </blockquote>
+
+                        <h2>Practice: 30-Day Attention Challenge</h2>
+                        <p><strong>Week 1: Awareness</strong></p>
+                        <ul>
+                            <li>Record why you pick up your phone each time</li>
+                            <li>Track daily social media usage</li>
+                            <li>Notice distraction triggers</li>
+                        </ul>
+
+                        <p><strong>Week 2: Build Boundaries</strong></p>
+                        <ul>
+                            <li>Delete 3 most time-wasting apps</li>
+                            <li>Set Do Not Disturb schedules</li>
+                            <li>Turn off all non-essential notifications</li>
+                        </ul>
+
+                        <p><strong>Week 3: Deep Work</strong></p>
+                        <ul>
+                            <li>At least 2 hours of uninterrupted focus daily</li>
+                            <li>Practice Pomodoro Technique</li>
+                            <li>Complete a deep-thinking project</li>
+                        </ul>
+
+                        <p><strong>Week 4: Solidify Habits</strong></p>
+                        <ul>
+                            <li>Evaluate attention improvement</li>
+                            <li>Adjust and optimize strategies</li>
+                            <li>Build sustainable long-term habits</li>
+                        </ul>
+
+                        <h2>Conclusion</h2>
+                        <p>Attention is your most valuable asset. In this age of constant distraction, those who can control their attention control their lives.</p>
+                        <p>Start today by consciously allocating your attention. Remember: <strong>What you focus on grows.</strong></p>
+                    `
+                }
+            }
+        };
+        
+        // ===== 文章详情页功能 =====
+        function showArticle(articleId) {
+            // console.log('showArticle called with ID:', articleId);
+            // console.log('allArticles length:', allArticles.length);
+
+            // 从allArticles数组中查找文章
+            const article = allArticles.find(a => a.id === articleId);
+
+            if (!article) {
+                console.error('Article not found:', articleId);
+                return;
+            }
+
+            // console.log('Found article:', article.title);
+            currentArticleId = articleId;
+
+            // 更新文章详情内容
+            document.getElementById('articleDetailCategory').textContent = article.categoryName || article.category;
+            document.getElementById('articleDetailTitle').textContent = currentLang === 'zh' ? article.title : article.titleEn;
+            document.getElementById('articleDetailExcerpt').textContent = currentLang === 'zh' ? article.excerpt : article.excerptEn;
+            document.getElementById('articleDetailDate').textContent = currentLang === 'zh' ? article.date : article.dateEn;
+            document.getElementById('articleDetailReadTime').textContent = currentLang === 'zh' ? article.readTime : article.readTimeEn;
+
+            // 切换页面显示
+            const homePage = document.querySelector('.home-page');
+            const detailPage = document.querySelector('.article-detail-page');
+
+            // console.log('Hiding home page...');
+            // console.log('Home page element:', homePage);
+            homePage.classList.add('hidden');
+            // console.log('Home page classes after hiding:', homePage.className);
+
+            // console.log('Showing article detail page...');
+            // console.log('Detail page element:', detailPage);
+            detailPage.classList.add('active');
+            // console.log('Detail page classes after showing:', detailPage.className);
+
+            // 检查显示状态
+            // console.log('Home page display:', window.getComputedStyle(homePage).display);
+            // console.log('Detail page display:', window.getComputedStyle(detailPage).display);
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 更新页面标题
+            document.title = `${currentLang === 'zh' ? article.title : article.titleEn} - COLIN`;
+
+            // 从Markdown文件加载文章内容
+            // 将反斜杠转换为正斜杠
+            const normalizedFilename = article.filename.replace(/\\/g, '/');
+            const articlePath = `articles/${normalizedFilename}`;
+            // console.log('Loading article content from:', articlePath);
+            loadArticleContent(articlePath);
+        }
+
+        // 从Markdown文件加载文章内容
+        async function loadArticleContent(filePath) {
+            const contentElement = document.getElementById('articleDetailContent');
+
+            // 显示加载状态
+            contentElement.innerHTML = `
+                <div style="text-align: center; padding: 3rem;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⏳</div>
+                    <p style="color: var(--text-secondary);">Loading content...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load article: ${response.status}`);
+                }
+                const markdownText = await response.text();
+
+                // 使用marked.js将Markdown转换为HTML
+                if (typeof marked !== 'undefined') {
+                    const htmlContent = marked.parse(markdownText);
+                    contentElement.innerHTML = htmlContent;
+                } else {
+                    // 如果marked.js没有加载，直接显示原始文本
+                    contentElement.innerHTML = `<pre style="white-space: pre-wrap; word-wrap: break-word;">${markdownText}</pre>`;
+                }
+            } catch (error) {
+                console.error('Error loading article content:', error);
+                contentElement.innerHTML = `
+                    <div style="text-align: center; padding: 3rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">❌</div>
+                        <h3 style="margin-bottom: 1rem;">Failed to load article</h3>
+                        <p style="color: var(--text-secondary);">Error: ${error.message}</p>
+                        <button onclick="showHome(event)" style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer;">
+                            ← Back to Articles
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function showHome(event) {
+            if (event) event.preventDefault();
+            
+            // 切换页面显示
+            document.querySelector('.home-page').classList.remove('hidden');
+            document.querySelector('.article-detail-page').classList.remove('active');
+            
+            currentArticleId = null;
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 恢复页面标题
+            document.title = 'COLIN - Explore Deep Thoughts';
+        }
+
+        // ===== 加载屏幕 =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-screen').classList.add('hidden');
+            }, 500);
+        });
+
+        // ===== 语言切换功能 =====
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                if (el.tagName === 'INPUT') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || el.dataset[lang];
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A') {
+                    el.textContent = el.dataset[lang];
+                } else {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+
+            // 更新社交链接的伪元素内容
+            document.querySelectorAll('.social-link[data-zh][data-en]').forEach(el => {
+                el.setAttribute('data-current', el.dataset[lang]);
+            });
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+
+            // 重新渲染文章卡片以更新语言
+            if (allArticles && allArticles.length > 0) {
+                articlesGrid.innerHTML = '';
+                allArticles.forEach((article, index) => {
+                    const card = createArticleCard(article, index);
+                    articlesGrid.appendChild(card);
+                });
+                // 重新初始化显示和事件
+                initArticleCards();
+                attachArticleCardEvents();
+            }
+        }
+        
+        // 初始化语言
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+        
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
+        // ===== 主题切换功能 =====
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            const themeIcon = document.querySelector('.theme-icon');
+            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            
+            localStorage.setItem('preferred-theme', currentTheme);
+        }
+
+        document.querySelector('.theme-switcher').addEventListener('click', toggleTheme);
+
+        // ===== 阅读进度条 =====
+        function updateReadingProgress() {
+            const progressBar = document.querySelector('.reading-progress');
+            if (!progressBar) return;
+
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateReadingProgress);
+
+        // ===== 返回顶部按钮 =====
+        const backToTopBtn = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== 搜索功能 =====
+        const searchBtn = document.querySelector('.search-btn');
+        const searchModal = document.querySelector('.search-modal');
+        const closeSearchBtn = document.querySelector('.close-search');
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        // 文章数据库（实际应用中应该从服务器获取）
+        const articles = [
+            {
+                title: { zh: '如何在信息爆炸时代保持深度思考', en: 'How to Maintain Deep Thinking in the Information Age' },
+                excerpt: { zh: '在这个快节奏的时代，我们被无尽的信息流淹没...', en: 'In this fast-paced era, we are overwhelmed by endless streams...' },
+                category: 'thinking'
+            },
+            {
+                title: { zh: '终身学习者的自我修养', en: 'The Self-Cultivation of Lifelong Learners' },
+                excerpt: { zh: '学习不是为了考试，而是为了成为更好的自己...', en: 'Learning isn\'t for exams—it\'s about becoming a better version...' },
+                category: 'learning'
+            },
+            {
+                title: { zh: '注意力：21世纪最宝贵的资源', en: 'Attention: The Most Valuable Resource of the 21st Century' },
+                excerpt: { zh: '在算法和短视频的时代，你的注意力被无数人争夺...', en: 'In the age of algorithms and short videos, your attention is fiercely contested...' },
+                category: 'productivity'
+            },
+            {
+                title: { zh: '从焦虑到行动：目标设定的艺术', en: 'From Anxiety to Action: The Art of Goal Setting' },
+                excerpt: { zh: '焦虑往往源于目标的缺失或模糊...', en: 'Anxiety often stems from unclear or missing goals...' },
+                category: 'life'
+            },
+            {
+                title: { zh: '写作即思考：用文字塑造思想', en: 'Writing is Thinking: Shaping Thoughts with Words' },
+                excerpt: { zh: '写作不仅是表达，更是思考的工具...', en: 'Writing is not just expression—it\'s a tool for thinking...' },
+                category: 'thinking'
+            },
+            {
+                title: { zh: '数字极简主义：在互联网时代找回自我', en: 'Digital Minimalism: Finding Yourself in the Internet Age' },
+                excerpt: { zh: '我们不需要抛弃科技，而是需要更聪明地使用它...', en: 'We don\'t need to abandon technology—we need to use it more wisely...' },
+                category: 'productivity'
+            }
+        ];
+
+        searchBtn.addEventListener('click', () => {
+            searchModal.classList.add('active');
+            searchInput.focus();
+        });
+
+        closeSearchBtn.addEventListener('click', () => {
+            searchModal.classList.remove('active');
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+        });
+
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) {
+                searchModal.classList.remove('active');
+                searchInput.value = '';
+                searchResults.innerHTML = '';
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+
+            if (query.length < 2) {
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            const filtered = allArticles.filter(article => {
+                const title = (currentLang === 'zh' ? article.title : article.titleEn).toLowerCase();
+                const excerpt = (currentLang === 'zh' ? article.excerpt : article.excerptEn).toLowerCase();
+                return title.includes(query) || excerpt.includes(query);
+            });
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = `<p style="padding: 1rem; color: var(--text-secondary);">${currentLang === 'zh' ? '没有找到相关文章' : 'No articles found'}</p>`;
+            } else {
+                searchResults.innerHTML = filtered.map(article => `
+                    <div class="search-result-item" onclick="window.location.href='article.html?id=${article.id}'" style="cursor: pointer;">
+                        <div class="search-result-title">${currentLang === 'zh' ? article.title : article.titleEn}</div>
+                        <div class="search-result-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</div>
+                    </div>
+                `).join('');
+            }
+        });
+
+        // ===== 订阅表单处理 =====
+        document.querySelectorAll('.subscribe-form, .newsletter-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    const message = currentLang === 'zh' 
+                        ? '感谢订阅！我们会将最新内容发送到: ' + email
+                        : 'Thank you for subscribing! We will send the latest content to: ' + email;
+                    showToast(message);
+                    this.querySelector('input[type="email"]').value = '';
+                }
+            });
+        });
+
+        // ===== 评论表单处理 =====
+        document.querySelector('.comment-form button')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const textarea = document.querySelector('.comment-form textarea');
+            const comment = textarea.value.trim();
+            
+            if (comment) {
+                const message = currentLang === 'zh' 
+                    ? '感谢您的评论！' 
+                    : 'Thank you for your comment!';
+                showToast(message);
+                textarea.value = '';
+            } else {
+                const message = currentLang === 'zh' 
+                    ? '请输入评论内容' 
+                    : 'Please enter your comment';
+                showToast(message);
+            }
+        });
+
+        // ===== Toast通知 =====
+        function showToast(message) {
+            const toast = document.querySelector('.toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ===== 分类过滤功能 =====
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                // 更新按钮状态
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // 过滤文章
+                articleCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ===== 分享功能 =====
+        function shareArticle(platform) {
+            const url = window.location.href;
+            const title = document.title;
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast(currentLang === 'zh' ? '链接已复制到剪贴板！' : 'Link copied to clipboard!');
+            });
+        }
+
+        // ===== 平滑滚动增强 =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===== 滚动时导航栏效果 =====
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // ===== 动态加载文章 =====
+        let allArticles = [];
+        let visibleArticles = 6;
+        const articlesPerPage = 6;
+        const articlesGrid = document.getElementById('articlesGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        // 加载文章列表
+        async function loadArticles() {
+            try {
+                // console.log('Loading articles...');
+
+                // 添加时间戳强制刷新缓存
+                const timestamp = Date.now();
+                const response = await fetch(`articles.json?t=${timestamp}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                allArticles = await response.json();
+
+                // 清空现有的静态文章卡片
+                articlesGrid.innerHTML = '';
+
+                // 生成文章卡片
+                allArticles.forEach((article, index) => {
+                    const card = createArticleCard(article, index);
+                    articlesGrid.appendChild(card);
+                });
+
+                // 初始化显示前6篇
+                initArticleCards();
+
+                // 为文章卡片添加点击事件
+                attachArticleCardEvents();
+
+                // console.log(`✅ Loaded ${allArticles.length} articles`);
+            } catch (error) {
+                console.error('Failed to load articles:', error);
+                console.error('Error details:', error.message);
+
+                // 显示错误信息给用户
+                if (articlesGrid) {
+                    articlesGrid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                                Failed to load articles. Please refresh the page.
+                            </p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+                                Error: ${error.message}
+                            </p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // 创建文章卡片
+        function createArticleCard(article, index) {
+            const card = document.createElement('article');
+            card.className = 'article-card';
+            card.dataset.category = article.category;
+            card.dataset.articleId = article.id;
+            card.style.display = 'none';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            card.innerHTML = `
+                <span class="article-category">${currentLang === 'zh' ? article.categoryName : article.categoryNameEn}</span>
+                <div class="article-date">${currentLang === 'zh' ? article.date : article.dateEn}</div>
+                <h3 class="article-title">${currentLang === 'zh' ? article.title : article.titleEn}</h3>
+                <div class="article-meta">
+                    <span class="read-time">${currentLang === 'zh' ? '📖 ' + article.readTime : '📖 ' + article.readTimeEn}</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
+                <a href="#" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // 为动态生成的文章卡片添加点击事件
+        function attachArticleCardEvents() {
+            // console.log('attachArticleCardEvents called');
+            const cards = document.querySelectorAll('.article-card');
+            // console.log('Found article cards:', cards.length);
+
+            cards.forEach((card) => {
+                // 从卡片的data-article-id属性获取文章ID
+                const articleId = card.dataset.articleId;
+                // console.log('Processing card with articleId:', articleId);
+
+                // 移除旧的点击事件监听器
+                card.onclick = null;
+
+                card.addEventListener('click', function(e) {
+                    // console.log('Card clicked, articleId:', articleId);
+                    // 如果点击的是分享按钮或"阅读全文"链接，不触发卡片点击
+                    if (e.target.classList.contains('share-btn') ||
+                        e.target.closest('.share-buttons') ||
+                        e.target.classList.contains('read-more')) {
+                        if (e.target.classList.contains('read-more')) {
+                            e.preventDefault();
+                            // console.log('Read more clicked, calling showArticle');
+                            showArticle(articleId);
+                        }
+                        return;
+                    }
+                    // 点击卡片其他区域也显示文章
+                    // console.log('Card area clicked, calling showArticle');
+                    showArticle(articleId);
+                });
+
+                // 更新"阅读全文"链接
+                const readMoreLink = card.querySelector('.read-more');
+                if (readMoreLink) {
+                    readMoreLink.href = '#';
+                    readMoreLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // console.log('Read more link clicked, calling showArticle');
+                        showArticle(articleId);
+                    });
+                }
+            });
+        }
+
+        // 初始化文章卡片显示
+        function initArticleCards() {
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+            const totalArticles = allCards.length;
+
+            if (totalArticles <= articlesPerPage) {
+                loadMoreBtn.style.display = 'none';
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            } else {
+                for (let i = articlesPerPage; i < totalArticles; i++) {
+                    allCards[i].style.display = 'none';
+                }
+                for (let i = 0; i < articlesPerPage; i++) {
+                    allCards[i].style.display = 'block';
+                    setTimeout(() => {
+                        allCards[i].style.opacity = '1';
+                        allCards[i].style.transform = 'translateY(0)';
+                    }, 50 * i);
+                }
+            }
+        }
+
+        // ===== 资源滚动功能 =====
+        function scrollToResource(resourceType, event) {
+            if (event) event.preventDefault();
+
+            const targetId = `resource-${resourceType}`;
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // 高亮选中的资源卡片
+                const allResourceCards = document.querySelectorAll('.resource-card');
+                allResourceCards.forEach(card => {
+                    card.style.boxShadow = 'none';
+                    card.style.borderColor = 'var(--border)';
+                });
+
+                targetElement.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.3)';
+                targetElement.style.borderColor = 'var(--accent)';
+
+                // 平滑滚动到目标资源
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // 3秒后移除高亮效果
+                setTimeout(() => {
+                    targetElement.style.boxShadow = '';
+                    targetElement.style.borderColor = '';
+                }, 3000);
+            }
+        }
+
+        // ===== 导航栏分类过滤功能 =====
+        function filterByCategory(category, event) {
+            if (event) event.preventDefault();
+
+            // 显示所有文章
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+
+            // 重置visibleArticles
+            visibleArticles = 0;
+
+            if (category === 'all') {
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                visibleArticles = allCards.length;
+            } else {
+                allCards.forEach(card => {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                        visibleArticles++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // 重新初始化显示
+            if (visibleArticles > articlesPerPage) {
+                for (let i = articlesPerPage; i < allCards.length; i++) {
+                    if (allCards[i].style.display === 'block') {
+                        allCards[i].style.display = 'none';
+                    }
+                }
+                visibleArticles = Math.min(visibleArticles, articlesPerPage);
+                loadMoreBtn.style.display = 'flex';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+
+            // 重新添加动画效果
+            setTimeout(() => {
+                allCards.forEach(card => {
+                    if (card.style.display === 'block') {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }, 50);
+        }
+
+        function loadMoreArticles() {
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+            const totalArticles = allCards.length;
+
+            if (visibleArticles >= totalArticles) {
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">${currentLang === 'zh' ? '已加载全部文章' : 'All Articles Loaded'}</span>`;
+                return;
+            }
+
+            // 显示加载状态
+            loadMoreBtn.classList.add('loading');
+            loadMoreBtn.disabled = true;
+
+            // 模拟加载延迟
+            setTimeout(() => {
+                const nextBatch = Math.min(visibleArticles + articlesPerPage, totalArticles);
+
+                for (let i = visibleArticles; i < nextBatch; i++) {
+                    allCards[i].style.display = 'block';
+                    setTimeout(() => {
+                        allCards[i].style.opacity = '1';
+                        allCards[i].style.transform = 'translateY(0)';
+                    }, 50 * (i - visibleArticles));
+                }
+
+                visibleArticles = nextBatch;
+                loadMoreBtn.classList.remove('loading');
+                loadMoreBtn.disabled = false;
+
+                // 检查是否还有更多文章
+                if (visibleArticles >= totalArticles) {
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.innerHTML = `<span data-zh="已加载全部文章" data-en="All Articles Loaded">${currentLang === 'zh' ? '已加载全部文章' : 'All Articles Loaded'}</span>`;
+                    loadMoreBtn.style.background = 'var(--bg-secondary)';
+                    loadMoreBtn.style.color = 'var(--text-secondary)';
+                    loadMoreBtn.style.boxShadow = 'none';
+                }
+            }, 500);
+        }
+
+        // ===== 懒加载图片（如果需要） =====
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // ===== 键盘快捷键 =====
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K 打开搜索
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchBtn.click();
+            }
+            
+            // ESC 关闭搜索
+            if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+                closeSearchBtn.click();
+            }
+
+            // ESC 关闭打赏弹窗
+            if (e.key === 'Escape') {
+                const coffeeModal = document.getElementById('coffeeModal');
+                if (coffeeModal && coffeeModal.classList.contains('active')) {
+                    closeCoffeeModal();
+                }
+            }
+
+            // ESC 关闭公众号二维码弹窗
+            if (e.key === 'Escape') {
+                const wechatQrModal = document.getElementById('wechatQrModal');
+                if (wechatQrModal && wechatQrModal.classList.contains('active')) {
+                    closeWechatQrModal();
+                }
+            }
+        });
+
+        // ===== 公众号二维码弹窗 =====
+        function openWechatQrModal() {
+            const modal = document.getElementById('wechatQrModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWechatQrModal() {
+            const modal = document.getElementById('wechatQrModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 点击弹窗外部关闭
+        document.getElementById('wechatQrModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWechatQrModal();
+            }
+        });
+
+        // ===== 打赏功能 =====
+        let selectedCoffeeAmount = 1;
+        let selectedPaymentMethod = null;
+        let currentCurrency = 'CNY'; // 默认人民币
+
+        // 币种对应的金额配置
+        const coffeeAmounts = {
+            CNY: [35, 68, 128],   // 人民币金额
+            USD: [5, 10, 20]       // 美元金额
+        };
+
+        // 币种符号
+        const currencySymbols = {
+            CNY: '¥',
+            USD: '$'
+        };
+
+        function switchCurrency(currency) {
+            currentCurrency = currency;
+            
+            // 更新按钮状态
+            document.querySelectorAll('.currency-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.currency-btn').classList.add('active');
+            
+            // 更新所有金额显示
+            const amountBtns = document.querySelectorAll('.amount-btn');
+            const amounts = coffeeAmounts[currency];
+            const symbol = currencySymbols[currency];
+            
+            amountBtns.forEach((btn, index) => {
+                const priceEl = btn.querySelector('.amount-price');
+                priceEl.textContent = symbol + amounts[index];
+            });
+            
+            // 更新支付方式显示
+            const cnPayments = document.querySelectorAll('.payment-cny');
+            const usdPayments = document.querySelectorAll('.payment-usd');
+            
+            if (currency === 'CNY') {
+                cnPayments.forEach(el => el.style.display = 'flex');
+                usdPayments.forEach(el => el.style.display = 'none');
+            } else {
+                cnPayments.forEach(el => el.style.display = 'none');
+                usdPayments.forEach(el => el.style.display = 'flex');
+            }
+            
+            // 重置支付方式选择
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('qrCodeContainer').classList.remove('active');
+            
+            // 更新已选金额显示
+            updateSelectedAmount();
+        }
+
+        // 复制RSS链接
+        function copyRSSLink() {
+            const rssUrl = window.location.origin + '/rss.xml';
+            navigator.clipboard.writeText(rssUrl);
+            showToast('RSS链接已复制到剪贴板！');
+        }
+
+        // 复制订阅邮箱
+        function copySubscribeEmail() {
+            const email = document.getElementById('subscribeEmail');
+            // 如果用户输入了邮箱，复制用户输入的；否则复制默认邮箱
+            const emailToCopy = (email && email.value.trim()) ? email.value.trim() : 'littlelinthinks@gmail.com';
+            navigator.clipboard.writeText(emailToCopy);
+        }
+
+        // ===== 文章搜索和筛选功能 =====
+        let currentCategory = 'all';
+        let currentSearchTerm = '';
+
+        // 按分类筛选文章
+        function filterByCategory(category) {
+            currentCategory = category;
+
+            // 更新按钮状态
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            filterArticles();
+        }
+
+        // 搜索文章
+        function filterArticles() {
+            const searchInput = document.getElementById('searchInput');
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
+
+            const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
+
+            articles.forEach(article => {
+                const title = article.querySelector('.article-title').textContent.toLowerCase();
+                const excerpt = article.querySelector('.article-excerpt')?.textContent.toLowerCase() || '';
+                const category = article.dataset.category || '';
+
+                // 检查是否匹配搜索词
+                const matchesSearch = currentSearchTerm === '' ||
+                    title.includes(currentSearchTerm) ||
+                    excerpt.includes(currentSearchTerm);
+
+                // 检查是否匹配分类
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                // 显示或隐藏文章
+                if (matchesSearch && matchesCategory) {
+                    article.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+
+            // 显示搜索结果数量
+            const searchResults = document.getElementById('searchResults');
+            const resultCount = document.getElementById('resultCount');
+
+            if (currentSearchTerm !== '' || currentCategory !== 'all') {
+                searchResults.style.display = 'block';
+                resultCount.textContent = visibleCount;
+
+                if (visibleCount === 0) {
+                    searchResults.innerHTML = '没有找到匹配的文章';
+                } else {
+                    searchResults.innerHTML = `找到 <strong>${visibleCount}</strong> 篇文章`;
+                }
+            } else {
+                searchResults.style.display = 'none';
+            }
+        }
+
+        // 监听搜索输入（防抖）
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterArticles, 300);
+        });
+
+        // Enter键搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                filterArticles();
+            }
+        });
+
+        function updateSelectedAmount() {
+            const amounts = coffeeAmounts[currentCurrency];
+            const symbol = currencySymbols[currentCurrency];
+            const amount = amounts[selectedCoffeeAmount - 1];
+            document.getElementById('selectedAmount').textContent = symbol + amount;
+        }
+
+        function openCoffeeModal() {
+            const modal = document.getElementById('coffeeModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // 重置状态
+            currentCurrency = 'CNY';
+            selectedCoffeeAmount = 1;
+            document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.currency-btn').classList.add('active');
+            document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('qrCodeContainer').classList.remove('active');
+            document.querySelector('.coffee-thank-you').classList.remove('active');
+            
+            // 默认选中第一个金额
+            document.querySelector('.amount-btn').classList.add('selected');
+            
+            // 确保显示人民币金额
+            switchCurrency('CNY');
+        }
+
+        function closeCoffeeModal() {
+            const modal = document.getElementById('coffeeModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function selectAmount(element, amountIndex) {
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedCoffeeAmount = amountIndex;
+            updateSelectedAmount();
+        }
+
+        function selectPayment(element, method) {
+            document.querySelectorAll('.payment-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedPaymentMethod = method;
+            
+            // 显示二维码区域
+            const qrContainer = document.getElementById('qrCodeContainer');
+            qrContainer.classList.add('active');
+            
+            // 根据支付方式显示不同图标
+            const qrIcon = document.getElementById('qrCodeIcon');
+            switch(method) {
+                case 'wechat':
+                    qrIcon.textContent = '💚';
+                    break;
+                case 'alipay':
+                    qrIcon.textContent = '💙';
+                    break;
+                case 'paypal':
+                    qrIcon.textContent = '🌐';
+                    break;
+            }
+            
+            // 模拟扫码后的感谢提示（3秒后显示）
+            setTimeout(() => {
+                showCoffeeThankYou();
+            }, 3000);
+        }
+
+        function showCoffeeThankYou() {
+            document.querySelector('.coffee-thank-you').classList.add('active');
+            
+            // 5秒后自动关闭弹窗
+            setTimeout(() => {
+                closeCoffeeModal();
+            }, 5000);
+        }
+
+        // 点击弹窗外部关闭
+        document.getElementById('coffeeModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCoffeeModal();
+            }
+        });
+
+        // ===== 页面初始化 =====
+        window.addEventListener('DOMContentLoaded', () => {
+            // 初始化主题
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+
+            // 初始化语言
+            initLanguage();
+
+            // 加载文章
+            loadArticles();
+        });
+    </script>
+</body>
+</html>
