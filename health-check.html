@@ -346,12 +346,16 @@
         <div class="nav-content">
             <a href="index.html" class="nav-logo">COLIN</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="archive.html" class="nav-link">文章归档</a>
-                <a href="products.html" class="nav-link">精选资源</a>
-                <a href="subscribe.html" class="nav-link">订阅</a>
-                <button class="theme-switcher" aria-label="Toggle theme">
-                    <span class="theme-icon">🌙</span>
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home" role="menuitem">首页</a>
+                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive" role="menuitem">文章归档</a>
+                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources" role="menuitem">精选资源</a>
+                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe" role="menuitem">订阅</a>
+                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
+                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
+                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
+                </div>
+                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
             </div>
         </div>
@@ -359,7 +363,7 @@
 
     <div class="container" style="padding-top: 80px;">
         <div class="card">
-            <h1>🏥 网站健康检查</h1>
+            <h1 data-zh="🏥 网站健康检查" data-en="🏥 Health Check">🏥 网站健康检查</h1>
 
             <div class="progress-bar">
                 <div class="progress-fill" id="progress" style="width: 0%"></div>
@@ -367,57 +371,62 @@
 
             <div id="checkList">
                 <div class="check-item" id="check-https">
-                    <span class="check-name">HTTPS 证书</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="HTTPS 证书" data-en="HTTPS Certificate">HTTPS 证书</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-ga">
-                    <span class="check-name">Google Analytics</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="Google Analytics" data-en="Google Analytics">Google Analytics</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-robots">
-                    <span class="check-name">robots.txt</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="robots.txt" data-en="robots.txt File">robots.txt</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-sitemap">
-                    <span class="check-name">sitemap.xml</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="sitemap.xml" data-en="sitemap.xml File">sitemap.xml</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-pages">
-                    <span class="check-name">页面可用性</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="页面可用性" data-en="Page Availability">页面可用性</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-performance">
-                    <span class="check-name">页面性能</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="页面性能" data-en="Page Performance">页面性能</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-mobile">
-                    <span class="check-name">移动端适配</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="移动端适配" data-en="Mobile Optimization">移动端适配</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
 
                 <div class="check-item" id="check-links">
-                    <span class="check-name">链接完整性</span>
-                    <span class="check-status pending">检查中...</span>
+                    <span class="check-name" data-zh="链接完整性" data-en="Link Integrity">链接完整性</span>
+                    <span class="check-status pending" data-zh="检查中..." data-en="Checking...">检查中...</span>
                 </div>
             </div>
 
             <div class="summary" id="summary" style="display: none;">
-                <h2>总体健康评分</h2>
+                <h2 data-zh="总体健康评分" data-en="Overall Health Score">总体健康评分</h2>
                 <div class="score" id="score">0</div>
                 <div>/ 100</div>
             </div>
 
-            <button class="refresh-btn" id="refreshBtn">🔄 重新检查</button>
+            <button class="refresh-btn" id="refreshBtn" data-zh="🔄 重新检查" data-en="🔄 Re-check">🔄 重新检查</button>
         </div>
     </div>
 
+    <!-- Common JS -->
+    <script src="/js/common.js" defer></script>
+
     <script>
+        let currentLang = localStorage.getItem('preferred-lang') || 'zh';
+
         // 使用事件委托移除内联事件处理器
         document.getElementById('refreshBtn').addEventListener('click', runHealthCheck);
 
@@ -440,8 +449,10 @@
             // 重置所有状态
             checkIds.forEach(id => {
                 document.getElementById(id).className = 'check-item';
-                document.querySelector(`#${id} .check-status`).className = 'check-status pending';
-                document.querySelector(`#${id} .check-status`).textContent = '检查中...';
+                const statusEl = document.querySelector(`#${id} .check-status`);
+                statusEl.className = 'check-status pending';
+                const currentLang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'zh';
+                statusEl.textContent = statusEl.getAttribute(currentLang === 'zh' ? 'data-zh' : 'data-en');
             });
             document.getElementById('summary').style.display = 'none';
 
