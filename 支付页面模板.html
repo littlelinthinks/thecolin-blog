@@ -508,398 +508,197 @@
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav style="background: var(--bg-card); padding: 1.2rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <ul style="display: flex; gap: 2rem; list-style: none; align-items: center; margin: 0; padding: 0;">
-                <li><a href="index.html" data-zh="首页" data-en="Home" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a></li>
-                <li style="position: relative;">
-                    <a href="#articles" data-zh="文章" data-en="Articles" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; display: flex; align-items: center; gap: 0.3rem;">
-                        <span data-zh="文章" data-en="Articles">文章</span>
-                        <span style="font-size: 0.6rem; transition: transform 0.3s;">▼</span>
-                    </a>
-                    <ul style="position: absolute; top: 100%; left: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1000; list-style: none; margin: 0; padding: 0;">
-                        <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive" style="display: block; padding: 0.6rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.9rem; white-space: nowrap;">📚 文章归档</a></li>
-                    </ul>
-                </li>
-                <li style="position: relative;">
-                    <a href="#resources" data-zh="精选资源" data-en="Resources" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; display: flex; align-items: center; gap: 0.3rem;">
-                        <span data-zh="精选资源" data-en="Resources">精选资源</span>
-                        <span style="font-size: 0.6rem; transition: transform 0.3s;">▼</span>
-                    </a>
-                    <ul style="position: absolute; top: 100%; left: 0; background: var(--bg-card); min-width: 280px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1000; list-style: none; margin: 0; padding: 0;">
-                        <li style="position: relative;">
-                            <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem;">✍️ 写作指南</a>
-                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📝 写作模板大全（¥49）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 爆款标题库（¥39）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📬 Newsletter指南（¥39）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎨 Notion模板（¥29）</a></li>
-                                <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 写作套装（¥99）</a></li>
-                            </ul>
-                        </li>
-                        <li style="position: relative;">
-                            <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem;">🎯 目标规划</a>
-                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 Notion目标系统（¥49）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📊 年度规划模板（¥29）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📈 Excel追踪表（¥19）</a></li>
-                                <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 目标套装（¥79）</a></li>
-                            </ul>
-                        </li>
-                        <li style="position: relative;">
-                            <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem;">🧠 思维模型</a>
-                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🧠 第一性原理（¥39）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔄 逆向思维（¥39）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🌐 系统思考（¥49）</a></li>
-                                <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥79）" data-en="🔥 Thinking Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 思维套装（¥79）</a></li>
-                            </ul>
-                        </li>
-                        <li style="position: relative;">
-                            <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="font-weight: bold; color: var(--text-primary); padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem;">📚 学习方法</a>
-                            <ul style="position: absolute; left: 100%; top: 0; background: var(--bg-card); min-width: 200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s ease; padding: 0.5rem 0; z-index: 1001; list-style: none; margin: 0; padding: 0;">
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📚 主动学习法（¥39）" data-en="📚 Active Learning (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📚 主动学习法（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 费曼技巧（¥39）" data-en="🎯 Feynman Technique (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🎯 费曼技巧（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 间隔重复（¥39）" data-en="📖 Spaced Repetition (¥39)" style="display: block; padding: 0.5rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">📖 间隔重复（¥39）</a></li>
-                                <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥79）" data-en="🔥 Learning Bundle (¥79)" style="display: block; padding: 0.5rem 1rem; color: var(--accent); font-weight: bold; text-decoration: none; transition: all 0.2s; font-size: 0.85rem; white-space: nowrap;">🔥 学习套装（¥79）</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="subscribe.html" data-zh="订阅" data-en="Subscribe" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a></li>
-                <li>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
-                        <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
-                    </div>
-                </li>
-                <li>
-                    <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch" style="width: 45px; height: 45px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: all 0.3s;">
-                        <span class="theme-icon" aria-hidden="true">🌙</span>
-                    </button>
-                </li>
-            </ul>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">COLIN</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#articles" data-zh="文章" data-en="Articles">
+                            <span data-zh="文章" data-en="Articles">文章</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive">📚 文章归档</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#resources" data-zh="精选资源" data-en="Resources">
+                            <span data-zh="精选资源" data-en="Resources">精选资源</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-section">
+                                <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide">✍️ 写作指南</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)">📝 写作模板大全（¥49）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板（¥29）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)">🔥 写作套装（¥99）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning">🎯 目标规划</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)">🎯 Notion目标系统（¥49）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)">📊 年度规划模板（¥29）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)">📈 Excel追踪表（¥19）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)">🔥 目标套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)">🧠 第一性原理（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)">🔄 逆向思维（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)">🌐 系统思考（¥49）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥79）" data-en="🔥 Thinking Bundle (¥79)">🔥 思维套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📚 主动学习法（¥39）" data-en="📚 Active Learning (¥39)">📚 主动学习法（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 费曼技巧（¥39）" data-en="🎯 Feynman Technique (¥39)">🎯 费曼技巧（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 间隔重复（¥39）" data-en="📖 Spaced Repetition (¥39)">📖 间隔重复（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥79）" data-en="🔥 Learning Bundle (¥79)">🔥 学习套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="subscribe.html" data-zh="订阅" data-en="Subscribe">订阅</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="theme-switcher" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
-        <style>
-            nav ul li:hover > ul {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-            nav ul li:hover > ul > li > ul {
-                opacity: 1;
-                visibility: visible;
-                transform: translateX(0);
-            }
-            nav ul li > a:hover, nav ul li > ul > li > a:hover, nav ul li > ul > li > ul > li > a:hover {
-                color: var(--accent);
-            }
-        
-        /* Navigation styles */
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            font-family: Georgia, serif;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .dropdown-arrow {
-            font-size: 0.6rem;
-            margin-left: 0.3rem;
-            transition: transform 0.3s;
-            display: inline-block;
-        }
-
-        .nav-dropdown:hover > .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-card);
-            min-width: 200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            border: 1px solid var(--border);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            z-index: 1000;
-            list-style: none;
-            margin: 0;
-        }
-
-        .nav-dropdown:hover > .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu > li {
-            position: relative;
-        }
-
-        .dropdown-menu > li > a {
-            display: block;
-            padding: 0.6rem 1rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            white-space: nowrap;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .dropdown-menu > li > a:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-
-        .dropdown-section {
-            position: relative;
-        }
-
-        .dropdown-submenu {
-            position: absolute;
-            left: 100%;
-            top: 0;
-            min-width: 200px;
-            transform: translateX(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1001;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            background: var(--bg-card);
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            border: 1px solid var(--border);
-        }
-
-        .dropdown-section:hover > .dropdown-submenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .dropdown-submenu > li > a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            white-space: nowrap;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .dropdown-submenu > li > a:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .lang-btn {
-            padding: 0.4rem 0.8rem;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: all 0.3s;
-        }
-
-        .lang-btn.active {
-            background: var(--accent);
-            color: var(--button-text-dark);
-        }
-
-        .theme-switcher {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-
-        .theme-switcher:hover {
-            background: var(--bg-secondary);
-        }
-
-    </style>
     </nav>
 
     <div class="container">
         <div class="header">
-            <h1 style="color: white;">📚 个人成长资源库</h1>
-            <p style="color: rgba(255,255,255,0.9);">用知识改变人生，用系统实现目标</p>
+            <h1 style="color: white;" data-zh="📚 个人成长资源库" data-en="📚 Personal Growth Resource Library">📚 个人成长资源库</h1>
+            <p style="color: rgba(255,255,255,0.9);" data-zh="用知识改变人生，用系统实现目标" data-en="Change Your Life with Knowledge, Achieve Goals with Systems">用知识改变人生，用系统实现目标</p>
         </div>
 
         <div class="products">
             <!-- 免费资源 -->
             <div class="product product-free">
                 <div class="product-header">
-                    <h2 class="product-title">完整资源包（免费）</h2>
-                    <span class="product-tag tag-free">免费</span>
+                    <h2 class="product-title" data-zh="完整资源包（免费）" data-en="Complete Resource Bundle (Free)">完整资源包（免费）</h2>
+                    <span class="product-tag tag-free" data-zh="免费" data-en="Free">免费</span>
                 </div>
-                <p class="product-desc">包含4本电子书 + 10个清单工具 + 8大类别指南，帮你快速建立个人成长系统</p>
+                <p class="product-desc" data-zh="包含4本电子书 + 10个清单工具 + 8大类别指南，帮你快速建立个人成长系统" data-en="Includes 4 ebooks + 10 checklist tools + 8 category guides to help you quickly build a personal growth system">包含4本电子书 + 10个清单工具 + 8大类别指南，帮你快速建立个人成长系统</p>
                 <ul class="features">
-                    <li>4本精选电子书（思维/写作/目标/学习）</li>
-                    <li>10个实用清单工具</li>
-                    <li>8大类别免费指南</li>
-                    <li>Notion模板版本</li>
+                    <li data-zh="4本精选电子书（思维/写作/目标/学习）" data-en="4 curated ebooks (Thinking/Writing/Goals/Learning)">4本精选电子书（思维/写作/目标/学习）</li>
+                    <li data-zh="10个实用清单工具" data-en="10 practical checklist tools">10个实用清单工具</li>
+                    <li data-zh="8大类别免费指南" data-en="8 free category guides">8大类别免费指南</li>
+                    <li data-zh="Notion模板版本" data-en="Notion template version">Notion模板版本</li>
                 </ul>
                 <div class="product-price product-price-free">¥0</div>
                 <div class="buttons">
-                    <a href="[云盘分享链接]" class="btn btn-free">立即下载</a>
+                    <a href="[云盘分享链接]" class="btn btn-free" data-zh="立即下载" data-en="Download Now">立即下载</a>
                 </div>
             </div>
 
             <!-- 写作套装 -->
             <div class="product product-paid">
                 <div class="product-header">
-                    <h2 class="product-title">写作套装（¥99）</h2>
-                    <span class="product-tag tag-paid">付费</span>
+                    <h2 class="product-title" data-zh="写作套装（¥99）" data-en="Writing Bundle (¥99)">写作套装（¥99）</h2>
+                    <span class="product-tag tag-paid" data-zh="付费" data-en="Paid">付费</span>
                 </div>
-                <p class="product-desc">30+写作模板 + 爆款标题库 + Newsletter运营指南，快速提升写作效率</p>
+                <p class="product-desc" data-zh="30+写作模板 + 爆款标题库 + Newsletter运营指南，快速提升写作效率" data-en="30+ writing templates + Viral title library + Newsletter guide, quickly boost writing efficiency">30+写作模板 + 爆款标题库 + Newsletter运营指南，快速提升写作效率</p>
                 <ul class="features">
-                    <li>30+实用写作模板</li>
-                    <li>100+爆款标题库</li>
-                    <li>Newsletter运营指南</li>
-                    <li>读者增长策略</li>
-                    <li>终身免费更新</li>
+                    <li data-zh="30+实用写作模板" data-en="30+ practical writing templates">30+实用写作模板</li>
+                    <li data-zh="100+爆款标题库" data-en="100+ viral title library">100+爆款标题库</li>
+                    <li data-zh="Newsletter运营指南" data-en="Newsletter operation guide">Newsletter运营指南</li>
+                    <li data-zh="读者增长策略" data-en="Reader growth strategies">读者增长策略</li>
+                    <li data-zh="终身免费更新" data-en="Lifetime free updates">终身免费更新</li>
                 </ul>
                 <div class="product-price">¥99</div>
                 <div class="buttons">
-                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
-                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                    <a href="[支付宝链接]" class="btn btn-alipay" data-zh="支付宝支付" data-en="Pay with Alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat" data-zh="微信支付" data-en="Pay with WeChat">微信支付</a>
                 </div>
             </div>
 
             <!-- 目标套装 -->
             <div class="product product-paid">
                 <div class="product-header">
-                    <h2 class="product-title">目标套装（¥79）</h2>
-                    <span class="product-tag tag-paid">付费</span>
+                    <h2 class="product-title" data-zh="目标套装（¥79）" data-en="Goal Bundle (¥79)">目标套装（¥79）</h2>
+                    <span class="product-tag tag-paid" data-zh="付费" data-en="Paid">付费</span>
                 </div>
-                <p class="product-desc">Notion目标系统 + 年度规划 + 季度复盘框架，科学实现任何目标</p>
+                <p class="product-desc" data-zh="Notion目标系统 + 年度规划 + 季度复盘框架，科学实现任何目标" data-en="Notion goal system + Annual planning + Quarterly review framework, achieve any goal scientifically">Notion目标系统 + 年度规划 + 季度复盘框架，科学实现任何目标</p>
                 <ul class="features">
-                    <li>Notion目标管理模板</li>
-                    <li>年度规划框架</li>
-                    <li>季度复盘系统</li>
-                    <li>习惯追踪模板</li>
-                    <li>终身免费更新</li>
+                    <li data-zh="Notion目标管理模板" data-en="Notion goal management template">Notion目标管理模板</li>
+                    <li data-zh="年度规划框架" data-en="Annual planning framework">年度规划框架</li>
+                    <li data-zh="季度复盘系统" data-en="Quarterly review system">季度复盘系统</li>
+                    <li data-zh="习惯追踪模板" data-en="Habit tracker template">习惯追踪模板</li>
+                    <li data-zh="终身免费更新" data-en="Lifetime free updates">终身免费更新</li>
                 </ul>
                 <div class="product-price">¥79</div>
                 <div class="buttons">
-                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
-                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                    <a href="[支付宝链接]" class="btn btn-alipay" data-zh="支付宝支付" data-en="Pay with Alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat" data-zh="微信支付" data-en="Pay with WeChat">微信支付</a>
                 </div>
             </div>
 
             <!-- 写作系统完整课程 -->
             <div class="product product-paid">
                 <div class="product-header">
-                    <h2 class="product-title">写作系统完整课程（¥299）</h2>
-                    <span class="product-tag tag-paid">热门</span>
+                    <h2 class="product-title" data-zh="写作系统完整课程（¥299）" data-en="Complete Writing System Course (¥299)">写作系统完整课程（¥299）</h2>
+                    <span class="product-tag tag-paid" data-zh="热门" data-en="Popular">热门</span>
                 </div>
-                <p class="product-desc">12周系统化写作训练，从0到1建立个人品牌，实现写作变现</p>
+                <p class="product-desc" data-zh="12周系统化写作训练，从0到1建立个人品牌，实现写作变现" data-en="12-week systematic writing training, build personal brand from 0 to 1, monetize writing">12周系统化写作训练，从0到1建立个人品牌，实现写作变现</p>
                 <ul class="features">
-                    <li>12周系统课程（36课时）</li>
-                    <li>写作模板大全（¥49）</li>
-                    <li>爆款文章速成（¥49）</li>
-                    <li>Newsletter运营手册（¥79）</li>
-                    <li>3次一对一辅导（¥297）</li>
-                    <li>终身复听权限</li>
+                    <li data-zh="12周系统课程（36课时）" data-en="12-week systematic course (36 lessons)">12周系统课程（36课时）</li>
+                    <li data-zh="写作模板大全（¥49）" data-en="Writing template collection (¥49)">写作模板大全（¥49）</li>
+                    <li data-zh="爆款文章速成（¥49）" data-en="Viral article quick guide (¥49)">爆款文章速成（¥49）</li>
+                    <li data-zh="Newsletter运营手册（¥79）" data-en="Newsletter operation manual (¥79)">Newsletter运营手册（¥79）</li>
+                    <li data-zh="3次一对一辅导（¥297）" data-en="3 one-on-one coaching sessions (¥297)">3次一对一辅导（¥297）</li>
+                    <li data-zh="终身复听权限" data-en="Lifetime access to replay">终身复听权限</li>
                 </ul>
-                <div class="product-price">¥299 <span style="font-size: 0.5em; color: #95a5a6;">价值¥474</span></div>
+                <div class="product-price">¥299 <span style="font-size: 0.5em; color: #95a5a6;" data-zh="价值¥474" data-en="Value ¥474">价值¥474</span></div>
                 <div class="buttons">
-                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
-                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                    <a href="[支付宝链接]" class="btn btn-alipay" data-zh="支付宝支付" data-en="Pay with Alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat" data-zh="微信支付" data-en="Pay with WeChat">微信支付</a>
                 </div>
             </div>
 
             <!-- 目标达成大师课 -->
             <div class="product product-paid">
                 <div class="product-header">
-                    <h2 class="product-title">目标达成大师课（¥399）</h2>
-                    <span class="product-tag tag-paid">热门</span>
+                    <h2 class="product-title" data-zh="目标达成大师课（¥399）" data-en="Goal Achievement Masterclass (¥399)">目标达成大师课（¥399）</h2>
+                    <span class="product-tag tag-paid" data-zh="热门" data-en="Popular">热门</span>
                 </div>
-                <p class="product-desc">10周深度训练，掌握目标设定、执行、追踪的完整系统</p>
+                <p class="product-desc" data-zh="10周深度训练，掌握目标设定、执行、追踪的完整系统" data-en="10-week intensive training, master the complete system of goal setting, execution, and tracking">10周深度训练，掌握目标设定、执行、追踪的完整系统</p>
                 <ul class="features">
-                    <li>10周系统课程（30课时）</li>
-                    <li>Notion目标系统（¥49）</li>
-                    <li>年度规划模板（¥99）</li>
-                    <li>月度复盘框架（¥49）</li>
-                    <li>3次团队答疑（¥300）</li>
-                    <li>终身复听权限</li>
+                    <li data-zh="10周系统课程（30课时）" data-en="10-week systematic course (30 lessons)">10周系统课程（30课时）</li>
+                    <li data-zh="Notion目标系统（¥49）" data-en="Notion goal system (¥49)">Notion目标系统（¥49）</li>
+                    <li data-zh="年度规划模板（¥99）" data-en="Annual planning template (¥99)">年度规划模板（¥99）</li>
+                    <li data-zh="月度复盘框架（¥49）" data-en="Monthly review framework (¥49)">月度复盘框架（¥49）</li>
+                    <li data-zh="3次团队答疑（¥300）" data-en="3 group Q&A sessions (¥300)">3次团队答疑（¥300）</li>
+                    <li data-zh="终身复听权限" data-en="Lifetime access to replay">终身复听权限</li>
                 </ul>
-                <div class="product-price">¥399 <span style="font-size: 0.5em; color: #95a5a6;">价值¥497</span></div>
+                <div class="product-price">¥399 <span style="font-size: 0.5em; color: #95a5a6;" data-zh="价值¥497" data-en="Value ¥497">价值¥497</span></div>
                 <div class="buttons">
-                    <a href="[支付宝链接]" class="btn btn-alipay">支付宝支付</a>
-                    <a href="[微信链接]" class="btn btn-wechat">微信支付</a>
+                    <a href="[支付宝链接]" class="btn btn-alipay" data-zh="支付宝支付" data-en="Pay with Alipay">支付宝支付</a>
+                    <a href="[微信链接]" class="btn btn-wechat" data-zh="微信支付" data-en="Pay with WeChat">微信支付</a>
                 </div>
             </div>
 
         </div>
 
         <div class="footer">
-            <p>💡 购买后30分钟内发送资源，24小时响应</p>
-            <p>📧 有问题？联系微信：[您的微信]</p>
-            <p>© 2026 小Lin成长笔记 | <a href="[您的网站]">返回网站</a></p>
+            <p data-zh="💡 购买后30分钟内发送资源，24小时响应" data-en="💡 Resources sent within 30 minutes after purchase, 24-hour response">💡 购买后30分钟内发送资源，24小时响应</p>
+            <p data-zh="📧 有问题？联系微信：[您的微信]" data-en="📧 Questions? Contact WeChat: [Your WeChat]">📧 有问题？联系微信：[您的微信]</p>
+            <p data-zh="© 2026 小Lin成长笔记" data-en="© 2026 XiaoLin Growth Notes">© 2026 小Lin成长笔记</p> | <a href="[您的网站]" data-zh="返回网站" data-en="Back to Website">返回网站</a>
         </div>
     </div>
 
@@ -908,10 +707,23 @@
     <script>
         // 深色模式初始化
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        let currentLang = localStorage.getItem('preferred-lang') || 'zh';
         document.documentElement.setAttribute('data-theme', currentTheme);
 
         const themeIcon = document.querySelector('.theme-icon');
         const themeSwitcher = document.querySelector('.theme-switcher');
+
+        // 主题标签翻译
+        const themeLabels = {
+            zh: {
+                dark: '切换到浅色主题',
+                light: '切换到深色主题'
+            },
+            en: {
+                dark: 'Switch to light theme',
+                light: 'Switch to dark theme'
+            }
+        };
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -922,7 +734,7 @@
             }
             if (themeSwitcher) {
                 themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
+                themeSwitcher.setAttribute('aria-label', themeLabels[currentLang][currentTheme]);
             }
 
             localStorage.setItem('preferred-theme', currentTheme);

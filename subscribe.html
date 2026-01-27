@@ -291,6 +291,40 @@
             h1 {
                 font-size: 1.5rem;
             }
+
+            /* 修复导航栏在移动端的显示 - 保持横向排列 */
+            .nav-header {
+                padding: 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row !important;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .theme-switcher {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
         }
 
         /* 深色模式适配 */
@@ -344,19 +378,21 @@
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav style="background: var(--bg-card); padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" style="color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: bold; font-family: Georgia, serif;">COLIN</a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" data-zh="首页" data-en="Home" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">首页</a>
-                <a href="archive.html" data-zh="文章归档" data-en="Archive" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">文章归档</a>
-                <a href="products.html" data-zh="精选资源" data-en="Resources" style="color: var(--text-primary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">精选资源</a>
-                <a href="subscribe.html" data-zh="订阅" data-en="Subscribe" style="color: var(--accent); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;">订阅</a>
-                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
-                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
-                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">COLIN</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+                    <li><a href="archive.html" data-zh="文章归档" data-en="Archive">文章归档</a></li>
+                    <li><a href="products.html" data-zh="精选资源" data-en="Resources">精选资源</a></li>
+                    <li><a href="subscribe.html" data-zh="订阅" data-en="Subscribe" class="active">订阅</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
-                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false">
+                <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
             </div>

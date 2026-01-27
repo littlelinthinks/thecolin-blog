@@ -21,6 +21,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
 
+    <!-- Common CSS and JS -->
+    <link rel="stylesheet" href="/css/common.css">
+
     <style>
         * {
             margin: 0;
@@ -498,6 +501,40 @@
             .archive-item-date {
                 margin-top: 8px;
             }
+
+            /* 修复导航栏在移动端的显示 - 保持横向排列 */
+            .nav-header {
+                padding: 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row !important;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .theme-switcher {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
         }
 
         /* 导航栏深色模式适配 */
@@ -525,9 +562,9 @@
                 <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive">文章归档</a>
                 <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">精选资源</a>
                 <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a>
-                <div class="lang-switcher" style="display: flex; gap: 0.5rem;">
-                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">中文</button>
-                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;">EN</button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
                 <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false">
                     <span class="theme-icon">🌙</span>
@@ -879,5 +916,6 @@
             }
         });
     </script>
+    <script src="/js/common.js" defer></script>
 </body>
 </html>

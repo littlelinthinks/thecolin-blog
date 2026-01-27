@@ -441,6 +441,40 @@
                 padding: 12px;
                 font-size: 0.9rem;
             }
+
+            /* 修复导航栏在移动端的显示 - 保持横向排列 */
+            .nav-header {
+                padding: 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row !important;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .theme-switcher {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
         }
 
         /* 返回顶部按钮 */
@@ -1053,6 +1087,8 @@
     </nav>
 
 
+
+
     <div class="container">
         <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
 
@@ -1321,10 +1357,23 @@
 
         // 深色模式初始化
         let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        let currentLang = localStorage.getItem('preferred-lang') || 'zh';
         document.documentElement.setAttribute('data-theme', currentTheme);
 
         const themeIcon = document.querySelector('.theme-icon');
         const themeSwitcher = document.querySelector('.theme-switcher');
+
+        // 主题标签翻译
+        const themeLabels = {
+            zh: {
+                dark: '切换到浅色主题',
+                light: '切换到深色主题'
+            },
+            en: {
+                dark: 'Switch to light theme',
+                light: 'Switch to dark theme'
+            }
+        };
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -1335,7 +1384,7 @@
             }
             if (themeSwitcher) {
                 themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
+                themeSwitcher.setAttribute('aria-label', themeLabels[currentLang][currentTheme]);
             }
 
             localStorage.setItem('preferred-theme', currentTheme);
@@ -1370,7 +1419,7 @@
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.background = 'var(--bg-card)';
-                btn.style.color = 'var(--text-secondary)';
+                btn.style.color = 'var(--text-secondary)');
                 btn.setAttribute('aria-pressed', 'false');
                 if (btn.dataset.lang === lang) {
                     btn.classList.add('active');
@@ -1392,6 +1441,11 @@
                 } else {
                     el.innerHTML = textContent;
                 }
+            });
+
+            // 更新aria-label属性
+            document.querySelectorAll('[data-aria-zh][data-aria-en]').forEach(el => {
+                el.setAttribute('aria-label', el.dataset['aria' + lang.charAt(0).toUpperCase() + lang.slice(1)]);
             });
 
             // 更新页面语言属性
