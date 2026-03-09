@@ -22,6 +22,9 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
 
     <!-- Common CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/common.css">
 
     <style>
@@ -59,7 +62,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Noto Serif SC', Georgia, serif;
             line-height: 1.6;
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -548,40 +551,6 @@
                 height: 40px;
                 font-size: 20px;
             }
-
-            /* 修复导航栏在移动端的显示 - 保持横向排列 */
-            .nav-header {
-                padding: 1rem;
-            }
-
-            .nav-content {
-                flex-direction: row !important;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-            }
-
-            .nav-link {
-                font-size: 0.85rem;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .theme-switcher {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .lang-btn {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
-            }
         }
 
         /* 深色模式适配 */
@@ -676,28 +645,52 @@
         [data-theme="dark"] nav a:hover {
             color: #ffffff;
         }
-    </style>
+    
+        .nav-logo, .logo { font-family: "Playfair Display", Georgia, serif !important; }
+        .article-title { font-family: "Playfair Display", Georgia, serif !important; font-weight: 900 !important; }
+        .article-content p { font-family: "Noto Serif SC", Georgia, serif; line-height: 2.0; }
+        .article-content h2 { font-family: "Playfair Display", Georgia, serif !important; }
+        .article-content h3 { font-family: "Noto Serif SC", Georgia, serif !important; }
+</style>
 </head>
 <body>
     <!-- 简化导航栏 -->
-    <nav class="nav-header">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">COLIN</a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home" role="menuitem">首页</a>
-                <a href="archive.html" class="nav-link" data-zh="文章归档" data-en="Archive" role="menuitem">文章归档</a>
-                <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources" role="menuitem">精选资源</a>
-                <a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe" role="menuitem">订阅</a>
-                <div class="lang-switcher" style="display: flex; gap: 0.5rem;" role="group" aria-label="语言选择">
-                    <button class="lang-btn" data-lang="zh" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="中文" aria-pressed="true">中文</button>
-                    <button class="lang-btn" data-lang="en" style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all 0.3s;" aria-label="English" aria-pressed="false">EN</button>
-                </div>
-                <button class="theme-switcher" aria-label="切换深色/浅色主题" aria-pressed="false" role="switch">
-                    <span class="theme-icon" aria-hidden="true">🌙</span>
-                </button>
+    <nav class="nav-header" role="navigation" aria-label="主导航">
+    <div class="nav-content">
+        <a href="index.html" class="nav-logo logo">COLIN</a>
+        <div class="nav-right" style="display:flex;align-items:center;gap:1.5rem;">
+            <ul class="nav-links" style="display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;">
+                <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
+                <li><a href="archive.html" class="nav-link" data-zh="文章" data-en="Articles">文章</a></li>
+                <li class="nav-dropdown">
+                    <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">
+                        <span data-zh="精选资源" data-en="Resources">精选资源</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide">✍️ 写作指南</a></li>
+                        <li><a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning">🎯 目标规划</a></li>
+                        <li><a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a></li>
+                        <li><a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a></li>
+                        <li style="border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem;">
+                            <a href="products.html#payment-complete" data-zh="🎉 完整套装（¥159）" data-en="🎉 Complete Bundle (¥159)" style="font-weight:bold;color:#ff6b6b;">🎉 完整套装（¥159）</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="wisdom.html" class="nav-link" style="color:#C9A84C;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
+                <li><a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a></li>
+                <li><a href="index.html#about" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
+            <button class="theme-switcher" aria-label="切换主题">
+                <span class="theme-icon">🌙</span>
+            </button>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- 阅读进度条 -->
     <div class="reading-progress" id="readingProgress"></div>
@@ -720,29 +713,194 @@
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
 
+
+        // ===== 内联文章数据（无需 articles.json 文件）=====
+        const ARTICLES_DATA = [
+            {
+                id: "deep-thinking-information-age",
+                title: "如何在信息爆炸时代保持深度思考",
+                titleEn: "How to Maintain Deep Thinking in the Information Age",
+                category: "thinking",
+                categoryName: "深度思考",
+                categoryNameEn: "Deep Thinking",
+                date: "2026年1月10日",
+                readTime: "📖 5分钟阅读",
+                excerpt: "在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？",
+                excerptEn: "In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise?",
+                filename: "deep-thinking.md",
+                content: `<h2>为什么深度思考越来越难？</h2>
+<p>在算法推荐的时代，我们每天接收的信息量是十年前的数百倍。手机通知、社交媒体、短视频——每一个都在争夺我们最宝贵的资源：<strong>注意力</strong>。</p>
+<p>心理学家米哈里·契克森米哈伊在研究「心流」时发现，深度专注需要至少 15-20 分钟的不间断时间。但现代人平均每 3 分钟就会被打断一次。</p>
+<h2>三个重建深度思考的方法</h2>
+<h3>1. 信息断食（Information Fasting）</h3>
+<p>每天设定 2 小时的「信息断食期」。不看新闻、不刷社交媒体。这段时间专门用于阅读、思考和写作。</p>
+<p>Naval Ravikant 说过：<em>「真正的财富不是金钱，而是拥有思考的时间。」</em></p>
+<h3>2. 费曼写作法</h3>
+<p>把你想理解的概念，用最简单的语言写下来，假装你在教一个 10 岁的孩子。写不出来的地方，就是你真正不懂的地方。</p>
+<h3>3. 构建「第二大脑」</h3>
+<p>不要试图记住所有东西。用 Notion 或纸质笔记本建立个人知识系统，把思考的结果存储起来，让大脑专注于连接和创造，而非记忆。</p>
+<h2>深度思考的本质</h2>
+<p>真正的深度思考不是想得更复杂，而是把复杂的事情想得更简单。查理·芒格说：<em>「如果你不能用简单的语言解释它，你就没有真正理解它。」</em></p>
+<blockquote>深度思考是一种稀有的能力，在信息爆炸的时代，它将成为你最重要的竞争优势。</blockquote>`
+            },
+            {
+                id: "lifelong-learning-cultivation",
+                title: "终身学习者的自我修养",
+                titleEn: "The Self-Cultivation of Lifelong Learners",
+                category: "learning",
+                categoryName: "终身学习",
+                categoryNameEn: "Lifelong Learning",
+                date: "2026年1月5日",
+                readTime: "📖 7分钟阅读",
+                excerpt: "学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。",
+                excerptEn: "Learning isn't for exams—it's about becoming a better version of yourself.",
+                filename: "lifelong-learning.md",
+                content: `<h2>终身学习者的核心信念</h2>
+<p>真正的终身学习者有一个共同的信念：<strong>能力不是天生的，而是可以通过刻意练习习得的。</strong></p>
+<p>斯坦福心理学教授卡罗尔·德韦克将人的思维模式分为两种：固定型思维（Fixed Mindset）和成长型思维（Growth Mindset）。前者认为能力是固定的，后者认为能力可以通过努力成长。</p>
+<h2>建立个人学习系统</h2>
+<h3>输入系统：精选而非贪多</h3>
+<p>每年精读 12 本书，胜过浅读 100 本。选书标准：经典 > 畅销；原著 > 解读；深度 > 广度。</p>
+<h3>处理系统：费曼技巧</h3>
+<p>学了新知识后，立刻用自己的话写出来。写不出来的部分，回去再学，直到能写清楚为止。</p>
+<h3>输出系统：教是最好的学</h3>
+<p>把你学到的写成文章、做成视频、讲给朋友听。输出倒逼输入，是最高效的学习方式。</p>
+<h2>Charlie Munger 的学习哲学</h2>
+<blockquote>我没有什么特别的才能，我只是极度好奇。每天起床的时候，我都在想如何让自己比昨天聪明一点点。</blockquote>
+<p>芒格的「多元思维模型」告诉我们，真正的智慧来自跨领域的学习。心理学、物理学、生物学、经济学……不同学科的框架相互印证，才能看清复杂世界的本质。</p>`
+            },
+            {
+                id: "attention-21st-century",
+                title: "注意力：21世纪最宝贵的资源",
+                titleEn: "Attention: The Most Valuable Resource of the 21st Century",
+                category: "productivity",
+                categoryName: "效率提升",
+                categoryNameEn: "Productivity",
+                date: "2025年12月28日",
+                readTime: "📖 6分钟阅读",
+                excerpt: "在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。",
+                filename: "attention.md",
+                content: `<h2>注意力经济的本质</h2>
+<p>你每天刷抖音、刷微博、刷朋友圈——这些「免费」的产品背后，真正的商品是<strong>你的注意力</strong>。平台把你的注意力打包卖给广告主，每一秒钟都在变现。</p>
+<p>硅谷前产品设计师 Tristan Harris 说：<em>「这不是一场人与科技的战争，而是一场人与数千名工程师的战争，他们每天上班，就是为了让你无法停止刷手机。」</em></p>
+<h2>注意力残留现象</h2>
+<p>认知科学家 Sophie Leroy 发现了「注意力残留」现象：当你从一项任务切换到另一项任务时，你的注意力不会立刻跟上——部分注意力仍然停留在前一件事上。</p>
+<p>这就是为什么频繁切换任务会让你感到精疲力竭，却什么都没做好。</p>
+<h2>四个重夺注意力的策略</h2>
+<h3>1. 深度工作时间块</h3>
+<p>每天早上设定 90 分钟的深度工作时间。手机关机、关闭所有通知，只做一件事。</p>
+<h3>2. 数字极简主义</h3>
+<p>删除手机上所有社交媒体 App。如果需要用，用电脑浏览器登录——这个额外的摩擦力会大幅减少使用时间。</p>
+<h3>3. 意图性使用科技</h3>
+<p>在拿起手机之前，先问自己：<em>「我要做什么？」</em>有意图地使用，而非无意识地刷。</p>
+<h3>4. 晨间仪式</h3>
+<p>早上第一件事不是看手机。可以冥想、运动、写日记——用你自己的想法开启一天，而不是别人的内容。</p>
+<blockquote>你的注意力流向哪里，你的人生就流向哪里。</blockquote>`
+            },
+            {
+                id: "anxiety-to-action",
+                title: "从焦虑到行动：目标设定的艺术",
+                titleEn: "From Anxiety to Action: The Art of Goal Setting",
+                category: "life",
+                categoryName: "人生哲学",
+                categoryNameEn: "Life Philosophy",
+                date: "2025年12月20日",
+                readTime: "📖 8分钟阅读",
+                excerpt: "焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。",
+                filename: "anxiety-to-action.md",
+                content: `<h2>焦虑的根源</h2>
+<p>心理学研究表明，焦虑的核心往往不是事情本身，而是<strong>不确定性</strong>。当我们不知道该往哪走、该做什么，大脑就会进入警戒状态，制造焦虑感。</p>
+<p>好消息是：清晰的目标是焦虑最好的解药。</p>
+<h2>SMART 目标框架的局限</h2>
+<p>大多数人学过 SMART 目标（具体、可衡量、可实现、相关、有时限），但研究发现，光有 SMART 还不够——目标还必须与你的<strong>核心价值观</strong>对齐。</p>
+<p>一个你不真正在乎的目标，就算设定得多么 SMART，你也不会有动力去追求它。</p>
+<h2>OKR 框架：从方向到行动</h2>
+<h3>O（Objective）：你想去哪里？</h3>
+<p>设定一个鼓舞人心、有点挑战性的方向性目标。例如：<em>「成为中文世界最有价值的个人成长内容创作者。」</em></p>
+<h3>KR（Key Results）：如何知道你到了？</h3>
+<p>为这个目标设定 2-4 个可量化的关键结果。例如：公众号订阅达到 10 万、付费产品月销售额达到 5 万元。</p>
+<h2>段永平的目标哲学</h2>
+<blockquote>做对的事情，比把事情做对更重要。先确认方向，再谈效率。</blockquote>
+<p>很多人在错误的方向上拼命努力，结果越走越远。目标设定的第一步，是先问：<em>「这件事值得我做吗？」</em></p>`
+            },
+            {
+                id: "writing-is-thinking",
+                title: "写作即思考：用文字塑造思想",
+                titleEn: "Writing is Thinking: Shaping Thoughts with Words",
+                category: "thinking",
+                categoryName: "深度思考",
+                categoryNameEn: "Deep Thinking",
+                date: "2025年12月15日",
+                readTime: "📖 6分钟阅读",
+                excerpt: "写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。",
+                filename: "writing-thinking.md",
+                content: `<h2>写作是思考的外化</h2>
+<p>你有没有过这种体验：脑子里感觉想明白了，但一写下来，发现漏洞百出？</p>
+<p>这不是你的问题，这是人脑的正常工作方式。大脑善于制造「理解的幻觉」——觉得自己懂了，其实只是感觉懂了。写作能击破这种幻觉。</p>
+<h2>亚马逊的「六页纸」文化</h2>
+<p>贝佐斯在亚马逊有一个著名规定：所有重要会议，不能用 PPT，必须写一篇叙述性文章，参会者开会前先安静阅读 20 分钟。</p>
+<p>理由很简单：<em>写文章比做 PPT 需要更深的思考。一个人能写清楚，才说明他真的想清楚了。</em></p>
+<h2>「橡皮鸭调试法」的写作版本</h2>
+<p>程序员有一个著名方法：把问题讲给一只橡皮鸭听，在讲的过程中往往就找到了解决方案。</p>
+<p>写作是这个方法的升级版——把你的想法写给「未来的自己」看。写的过程中，你会发现思维的跳跃、逻辑的缺口、没有考虑到的反例。</p>
+<h2>从今天开始写作的三个入口</h2>
+<h3>1. 晨间日记（Morning Pages）</h3>
+<p>每天早上起来，不加思考地写满三页纸。不追求质量，只是把脑子里的东西清空。</p>
+<h3>2. 读书笔记</h3>
+<p>读完每章，用自己的话总结核心观点。不能总结出来的，就是没真正读懂的。</p>
+<h3>3. 「一句话」原则</h3>
+<p>每天写一句话，记录今天最重要的洞见。一年下来，就是 365 条思想的结晶。</p>
+<blockquote>写作不是记录思想，而是创造思想。——奥利弗·桑德斯</blockquote>`
+            },
+            {
+                id: "digital-minimalism",
+                title: "数字极简主义：在互联网时代找回自我",
+                titleEn: "Digital Minimalism: Finding Yourself in the Internet Age",
+                category: "productivity",
+                categoryName: "效率提升",
+                categoryNameEn: "Productivity",
+                date: "2025年12月8日",
+                readTime: "📖 9分钟阅读",
+                excerpt: "我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。",
+                filename: "digital-minimalism.md",
+                content: `<h2>什么是数字极简主义？</h2>
+<p>卡尔·纽波特在《数字极简主义》中提出：数字极简主义不是反对科技，而是<strong>有意识地选择</strong>哪些数字工具值得进入你的生活。</p>
+<p>核心原则：只保留那些对你真正重要的事情有实质贡献的数字工具，其他的全部放弃。</p>
+<h2>「数字整理」的30天实验</h2>
+<p>纽波特建议进行一个 30 天的数字整理实验：</p>
+<h3>第1-30天：数字断食</h3>
+<p>暂停所有可选的数字技术（社交媒体、流媒体、游戏等）。注意「可选的」——你仍然可以使用工作必须的工具。</p>
+<h3>第31天：有选择地重新引入</h3>
+<p>对于想要重新引入的每一项技术，问自己三个问题：它对我真正重要的事情有帮助吗？它是实现这个价值的最佳方式吗？我应该如何使用它？</p>
+<h2>删除社交媒体的实验</h2>
+<p>我曾经做过一个实验：把手机上所有社交媒体 App 全部删除，坚持 30 天。</p>
+<p>结果：前三天极度焦虑，不断地拿起手机又放下。第七天开始，发现多出了大量时间。第三十天，我读完了 2 本书、写了 5 篇文章、和家人的相处时间增加了 40%。</p>
+<h2>数字极简主义的三个操作原则</h2>
+<h3>1. 减法原则</h3>
+<p>手机首页只保留 5 个最重要的 App。其余的放到第二屏，增加使用摩擦力。</p>
+<h3>2. 时间块原则</h3>
+<p>规定查看社交媒体的专属时间（比如每天中午 12 点和晚上 8 点，各 15 分钟），而不是随时随地刷。</p>
+<h3>3. 意图原则</h3>
+<p>拿起手机前先问：我要做什么？做完立刻放下。不允许漫无目的地刷。</p>
+<blockquote>科技应该服务于你的价值观，而不是劫持它们。——卡尔·纽波特</blockquote>`
+            }
+        ];
+
+        // 替换 fetch('articles.json') 调用
+        function getArticleData(articleId) {
+            return Promise.resolve(ARTICLES_DATA.find(a => a.id === articleId) || null);
+        }
+
         if (!articleId) {
             document.getElementById('articleContainer').innerHTML = '<p data-zh="未找到文章" data-en="Article not found">未找到文章</p>';
         } else {
-            // 加载文章数据
-            fetch('articles.json')
-                .then(response => response.json())
-                .then(articles => {
-                    const article = articles.find(a => a.id === articleId);
-
+            getArticleData(articleId).then(article => {
                     if (!article) {
-                        document.getElementById('articleContainer').innerHTML = '<p data-zh="未找到文章" data-en="Article not found">未找到文章</p>';
+                        document.getElementById('articleContainer').innerHTML = '<p style="padding:40px;text-align:center;">未找到文章 — <a href="index.html">返回首页</a></p>';
                         return;
                     }
-
-                    // 加载文章内容
-                    return fetch(`articles/${encodeURIComponent(article.filename)}`)
-                        .then(response => {
-                            if (!response.ok) throw new Error('文章未找到');
-                            return response.text();
-                        })
-                        .then(markdownContent => {
-                            // 简单的Markdown渲染
-                            const htmlContent = renderMarkdown(markdownContent);
+                    // 直接使用内联内容
+                    Promise.resolve(article.content || '').then(htmlContent => {
                             
                             // 渲染文章
                             document.getElementById('articleContainer').innerHTML = `
@@ -821,24 +979,11 @@
                                 });
                             }
                         })
-                        .catch(error => {
-                            console.error('加载文章失败:', error);
-                            document.getElementById('articleContainer').innerHTML = `
-                                <div class="article-header">
-                                    <div class="article-meta">
-                                        <span data-zh="${article.categoryName}" data-en="${article.categoryNameEn || article.categoryName}">${article.categoryName}</span>
-                                        <span>${article.date}</span>
-                                    </div>
-                                    <h1 class="article-title" data-zh="${article.title}" data-en="${article.titleEn || article.title}">${article.title}</h1>
-                                    <p data-zh="${article.excerpt}" data-en="${article.excerptEn || article.excerpt}">${article.excerpt}</p>
-                                </div>
-                            `;
-                        });
-                })
-                .catch(error => {
-                    console.error('加载文章列表失败:', error);
-                    document.getElementById('articleContainer').innerHTML = '<p data-zh="加载失败" data-en="Failed to load">加载失败</p>';
-                });
+                    }).catch(err => {
+                        console.error('渲染失败:', err);
+                        document.getElementById('articleContainer').innerHTML = '<p style="padding:40px;text-align:center;">加载失败 — <a href="index.html">返回首页</a></p>';
+                    });
+            });
         }
 
         // 增强的 Markdown 渲染器
@@ -1033,9 +1178,7 @@
 
         // 加载相关文章
         function loadRelatedArticles(currentArticle) {
-            fetch('articles.json')
-                .then(response => response.json())
-                .then(articles => {
+            Promise.resolve(ARTICLES_DATA).then(articles => {
                     const relatedList = document.getElementById('relatedList');
 
                     // 过滤掉当前文章，按分类筛选
@@ -1053,9 +1196,7 @@
                         `<li><a href="article.html?id=${a.id}" data-zh="${a.title}" data-en="${a.titleEn || a.title}">${a.title}</a></li>`
                     ).join('');
                 })
-                .catch(() => {
-                    document.getElementById('relatedList').innerHTML = `<li data-zh="加载失败" data-en="Failed to load">加载失败</li>`;
-                });
+
         }
 
         // 阅读进度条

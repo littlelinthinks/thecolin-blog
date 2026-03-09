@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - COLIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+SC:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/common.css">
+    <style>
+        body { font-family: "Noto Serif SC", serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { text-align: center; padding: 40px 20px; max-width: 600px; }
+        .error-code { font-family: "Space Mono", monospace; font-size: 8rem; font-weight: 700; line-height: 1; color: var(--accent); opacity: 0.15; }
+        h1 { font-family: "Playfair Display", Georgia, serif; font-size: 2rem; margin: 1rem 0; }
+        p { color: var(--text-secondary); margin: 1rem 0 2rem; line-height: 1.8; }
+        .btn-home { display: inline-block; padding: 14px 40px; background: var(--accent); color: var(--button-text-dark); text-decoration: none; font-family: "Space Mono", monospace; font-size: 0.85rem; letter-spacing: 2px; transition: opacity 0.3s; }
+        .btn-home:hover { opacity: 0.75; }
+        .links { margin-top: 2rem; display: flex; gap: 2rem; justify-content: center; }
+        .links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.3s; }
+        .links a:hover { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>页面不见了</h1>
+        <p>你访问的页面可能已移动、删除，或链接有误。<br>不用担心，从这里重新出发。</p>
+        <a href="index.html" class="btn-home">← 返回首页</a>
+        <div class="links">
+            <a href="archive.html">文章归档</a>
+            <a href="wisdom.html">心智折叠</a>
+            <a href="products.html">精选资源</a>
+            <a href="subscribe.html">订阅</a>
+        </div>
+    </div>
+    <script src="/js/common.js" defer></script>
+</body>
+</html>
