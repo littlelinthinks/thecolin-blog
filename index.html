@@ -4988,4 +4988,13 @@
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
 
+            // ★ 修复：初始化时显示正确文章总数
+            const totalCards = document.querySelectorAll('.article-card');
+            const searchResults = document.getElementById('searchResults');
+            const resultCount = document.getElementById('resultCount');
+            if (searchResults && resultCount && totalCards.length > 0) {
+                searchResults.style.display = 'block';
+                searchResults.innerHTML = `共 <strong>${totalCards.length}</strong> 篇文章`;
+            }
+
  
