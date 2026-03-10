@@ -3792,7 +3792,8 @@
 
     <!-- 支付说明弹窗 -->
     <div id="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3);" role="document">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3); position: relative;" role="document">
+            <button type="button" id="closePaymentModal" style="position: absolute; top: 15px; right: 15px; background: var(--bg-secondary); border: 1px solid var(--border); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--text-secondary); transition: all 0.3s;" onclick="closePaymentModal()" aria-label="关闭弹窗">×</button>
             <h3 id="payment-modal-title" style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.5rem;" data-zh="💳 支付说明" data-en="💳 Payment Info">💳 支付说明</h3>
             <p style="color: var(--text-secondary); margin-bottom: 15px; line-height: 1.6;" data-zh="我们使用小鹅通安全支付平台，支持多种支付方式：" data-en="We use XiaoeTong secure payment platform supporting multiple methods:"></p>
             <ul style="margin-bottom: 20px; color: var(--text-secondary); padding-left: 20px; line-height: 1.8;">
