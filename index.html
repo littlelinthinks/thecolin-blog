@@ -2684,10 +2684,10 @@
 </head>
 <a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
-    <!-- 加载屏幕 -->
-    <div class="loading-screen">
+    <!-- 加载屏幕已禁用（调试） -->
+    <!-- <div class="loading-screen">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- 阅读进度条 -->
     <div class="reading-progress"></div>
@@ -3991,17 +3991,10 @@
             document.title = 'COLIN - Explore Deep Thoughts';
         }
 
-        // ===== 加载屏幕（防卡死版）=====
+        // ===== 加载屏幕已禁用（调试用）=====
         function hideLoadingScreen() {
-            const screen = document.querySelector('.loading-screen');
-            if (screen) screen.classList.add('hidden');
+            // 已禁用
         }
-        // 正常加载完成时隐藏
-        window.addEventListener('load', () => setTimeout(hideLoadingScreen, 300));
-        // 保险：最多等 2.5 秒，无论如何强制隐藏
-        setTimeout(hideLoadingScreen, 2500);
-        // DOMContentLoaded 时也触发一次（应对 load 不触发的情况）
-        document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoadingScreen, 800));
 
         // ===== 语言切换功能 =====
         function switchLanguage(lang) {
