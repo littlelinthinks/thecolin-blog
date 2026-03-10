@@ -1552,8 +1552,8 @@
                 <li><a href="index.html#about" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
             </ul>
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="zh">中文</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn active" data-lang="zh">中文</button>
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
             </div>
             <button class="theme-switcher" aria-label="切换主题">
                 <span class="theme-icon">🌙</span>
@@ -1571,7 +1571,7 @@
     </div>
 
     <!-- 侧边导航按钮 -->
-    <button class="sidebar-toggle" onclick="toggleSidebar()" data-zh-title="快速导航" data-en-title="Quick nav">📋</button>
+    <button type="button" class="sidebar-toggle" onclick="toggleSidebar()" data-zh-title="快速导航" data-en-title="Quick nav">📋</button>
 
     <!-- 侧边导航 -->
     <nav class="sidebar-nav" id="sidebar">
@@ -1668,7 +1668,7 @@
 
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
-                    <button class="product-expand-btn" onclick="toggleProductExpand('writing', this)">
+                    <button type="button" class="product-expand-btn" onclick="toggleProductExpand('writing', this)">
                         <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -1902,7 +1902,7 @@
                             <div style="font-weight: 600; color: var(--color-gray-800); margin-bottom: 8px;">📝 写作模板大全</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('template-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('template-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -1911,7 +1911,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🎯 爆款标题库</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('title-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('title-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -1920,7 +1920,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">📬 Newsletter指南</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('newsletter-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('newsletter-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -1929,7 +1929,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🎨 Notion模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-writing-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2015,7 +2015,7 @@
 
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
-                    <button class="product-expand-btn" onclick="toggleProductExpand('goals', this)">
+                    <button type="button" class="product-expand-btn" onclick="toggleProductExpand('goals', this)">
                         <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -2219,7 +2219,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;" data-zh="🎯 Notion目标系统" data-en="🎯 Notion Goal System">🎯 Notion目标系统</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('goals-notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;" data-zh="详情" data-en="Details">详情</button>
+                                <button type="button" onclick="toggleProductDetail('goals-notion-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;" data-zh="详情" data-en="Details">详情</button>
                                 <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;" data-zh="购买" data-en="Buy">购买</a>
                             </div>
                         </div>
@@ -2228,7 +2228,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;" data-zh="📊 年度规划模板" data-en="📊 Annual Planning Template">📊 年度规划模板</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥29</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('goals-planning-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;" data-zh="详情" data-en="Details">详情</button>
+                                <button type="button" onclick="toggleProductDetail('goals-planning-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;" data-zh="详情" data-en="Details">详情</button>
                                 <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2237,7 +2237,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">📈 Excel追踪表</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥19</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('goals-excel-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('goals-excel-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-goals-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2308,7 +2308,7 @@
 
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
-                    <button class="product-expand-btn" onclick="toggleProductExpand('thinking', this)">
+                    <button type="button" class="product-expand-btn" onclick="toggleProductExpand('thinking', this)">
                         <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -2496,7 +2496,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🧠 第一性原理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('thinking-first-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('thinking-first-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2505,7 +2505,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🔄 逆向思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('thinking-inverse-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('thinking-inverse-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2514,7 +2514,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🌐 系统思考</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('thinking-system-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('thinking-system-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2523,7 +2523,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">⚖️ 概率思维</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('thinking-probability-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('thinking-probability-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-thinking-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2608,7 +2608,7 @@
 
                 <!-- 展开按钮 -->
                 <div style="text-align: center;">
-                    <button class="product-expand-btn" onclick="toggleProductExpand('learning', this)">
+                    <button type="button" class="product-expand-btn" onclick="toggleProductExpand('learning', this)">
                         <span data-zh="查看详细内容" data-en="View Details">查看详细内容</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -2807,7 +2807,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🎓 费曼学习法</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('learning-feynman-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('learning-feynman-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2816,7 +2816,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">📅 间隔重复</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥39</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('learning-spaced-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('learning-spaced-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2825,7 +2825,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">📖 深度阅读</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('learning-reading-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('learning-reading-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>
@@ -2834,7 +2834,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">🎯 知识管理</div>
                             <div style="color: #ff6b6b; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">¥49</div>
                             <div style="display: flex; gap: 8px;">
-                                <button onclick="toggleProductDetail('learning-knowledge-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
+                                <button type="button" onclick="toggleProductDetail('learning-knowledge-detail')" class="view-details-btn" style="flex: 1; padding: 8px 10px; font-size: 0.85rem;">详情</button>
                                 <a href="#payment-learning-single" style="flex: 1; padding: 8px 15px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">购买</a>
                             </div>
                         </div>

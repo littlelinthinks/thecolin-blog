@@ -2005,6 +2005,22 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border);
             animation: modalSlideIn 0.3s ease;
+            z-index: 10001;
+        }
+        
+        /* 确保按钮可点击 */
+        .coffee-modal .currency-btn,
+        .coffee-modal .amount-btn,
+        .coffee-modal .payment-btn {
+            cursor: pointer;
+            pointer-events: auto;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        
+        .coffee-modal .amount-btn:active,
+        .coffee-modal .payment-btn:active {
+            transform: scale(0.98);
         }
 
         @keyframes modalSlideIn {
@@ -2710,7 +2726,7 @@
     <!-- 公众号二维码弹窗 -->
     <div class="wechat-qr-modal" id="wechatQrModal">
         <div class="wechat-qr-content">
-            <button class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
+            <button type="button" class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
             <h3>💚 关注公众号</h3>
             <p data-zh="扫描二维码关注「小Lin思考」" data-en="Scan QR code to follow \"小Lin思考\"">扫描二维码关注「小Lin思考」</p>
             <div class="wechat-qr-image" id="wechatQrImage">
@@ -2725,17 +2741,17 @@
     <!-- 打赏弹窗 -->
     <div class="coffee-modal" id="coffeeModal">
         <div class="coffee-modal-content">
-            <button class="coffee-modal-close" onclick="closeCoffeeModal()">×</button>
+            <button type="button" class="coffee-modal-close" onclick="closeCoffeeModal()">×</button>
             <h2 class="coffee-modal-title">
                 <span data-zh="☕ 请我喝杯美式" data-en="☕ Buy Me a Coffee">☕ 请我喝杯美式</span>
             </h2>
             <p class="coffee-modal-subtitle" data-zh="如果内容对你有帮助，支持一杯咖啡让我继续创作 😊" data-en="If you found this helpful, support me with a coffee 😊">如果内容对你有帮助，支持一杯咖啡让我继续创作 😊</p>
             
             <div class="currency-switcher">
-                <button class="currency-btn active" onclick="switchCurrency('CNY', event)">
+                <button type="button" class="currency-btn active" onclick="switchCurrency('CNY', event)">
                     <span data-zh="¥ 人民币" data-en="¥ CNY">¥ 人民币</span>
                 </button>
-                <button class="currency-btn" onclick="switchCurrency('USD', event)">
+                <button type="button" class="currency-btn" onclick="switchCurrency('USD', event)">
                     <span data-zh="$ 美元" data-en="$ USD">$ 美元</span>
                 </button>
             </div>
@@ -2835,13 +2851,13 @@
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
-                    <button class="search-btn">
+                    <button type="button" class="search-btn">
                         <span data-zh="🔍 搜索" data-en="🔍 Search">🔍 搜索</span>
                     </button>
                 </div>
                 <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button type="button" class="lang-btn active" data-lang="zh">中文</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
                 </div>
                 <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
@@ -2892,27 +2908,27 @@
             <!-- 搜索框 -->
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles..." oninput="filterArticles()">
-                <button class="search-btn">🔍</button>
+                <button type="button" class="search-btn">🔍</button>
             </div>
 
             <!-- 分类筛选 -->
             <div class="category-filters">
-                <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                <button type="button" class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
                     <span data-zh="全部" data-en="All">全部</span>
                 </button>
-                <button class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
+                <button type="button" class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
                     <span data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
                 </button>
-                <button class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
+                <button type="button" class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
                     <span data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
                 </button>
-                <button class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
+                <button type="button" class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
                     <span data-zh="写作技巧" data-en="Writing Skills">写作技巧</span>
                 </button>
-                <button class="filter-btn" data-category="life" onclick="filterByCategory('life')">
+                <button type="button" class="filter-btn" data-category="life" onclick="filterByCategory('life')">
                     <span data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
                 </button>
-                <button class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
+                <button type="button" class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
                     <span data-zh="效率提升" data-en="Productivity">效率提升</span>
                 </button>
             </div>
@@ -2936,7 +2952,7 @@
 
         <!-- Load More Button -->
         <div class="load-more-container" style="display:none;">
-            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+            <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
                 <span data-zh="更多美文" data-en="Load More">更多美文</span>
             </button>
         </div>
@@ -3136,7 +3152,7 @@
                         </a>
                     </div>
                 </div>
-                <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
+                <button type="button" class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
                     <span>☕</span>
                     <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
                 </button>
@@ -3186,7 +3202,7 @@
             </article>
 
             <div class="article-actions">
-                <button class="back-to-articles" onclick="showHome(event)">
+                <button type="button" class="back-to-articles" onclick="showHome(event)">
                     ← <span data-zh="返回文章列表" data-en="Back to Articles">返回文章列表</span>
                 </button>
                 <div class="article-tags">
@@ -3199,7 +3215,7 @@
             <div class="coffee-support">
                 <h3 data-zh="☕ 觉得内容有价值？" data-en="☕ Found this valuable?">☕ 觉得内容有价值？</h3>
                 <p data-zh="请我喝杯美式咖啡，让我保持清醒继续创作 😊" data-en="Buy me a coffee to keep me awake and creating 😊">请我喝杯美式咖啡，让我保持清醒继续创作 😊</p>
-                <button class="coffee-btn" onclick="openCoffeeModal()">
+                <button type="button" class="coffee-btn" onclick="openCoffeeModal()">
                     <span>☕</span>
                     <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
                 </button>
@@ -3967,7 +3983,7 @@
                         <div style="font-size: 3rem; margin-bottom: 1rem;">❌</div>
                         <h3 style="margin-bottom: 1rem;">Failed to load article</h3>
                         <p style="color: var(--text-secondary);">Error: ${error.message}</p>
-                        <button onclick="showHome(event)" style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer;">
+                        <button type="button" onclick="showHome(event)" style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer;">
                             ← Back to Articles
                         </button>
                     </div>
@@ -4404,10 +4420,10 @@
                 <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
                 <a href="article.html?id=attention-21st-century" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
                 <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                    <button type="button" class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button type="button" class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button type="button" class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button type="button" class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
                 </div>
             `;
 
