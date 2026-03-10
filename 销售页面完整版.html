@@ -2,6 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <!-- Content Security Policy (统一策略) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://api.github.com https://www.google-analytics.com;">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>知识付费产品 - 销售页面 | COLIN</title>
     <meta name="description" content="精选写作、目标、思维、学习四大成长套装，30天完成蜕变。包含30+模板、100+爆款标题，立即开始你的成长之旅。">
@@ -440,40 +443,6 @@
             .comparison-table td {
                 padding: 12px;
                 font-size: 0.9rem;
-            }
-
-            /* 修复导航栏在移动端的显示 - 保持横向排列 */
-            .nav-header {
-                padding: 1rem;
-            }
-
-            .nav-content {
-                flex-direction: row !important;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-            }
-
-            .nav-link {
-                font-size: 0.85rem;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .theme-switcher {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .lang-btn {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
             }
         }
 
@@ -1010,10 +979,24 @@
         }
 
     </style>
+    <link rel="canonical" href="https://thecolin.vip/">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thecolin.vip/">
+    <meta property="og:title" content="COLIN - 探索深邃思想">
+    <meta property="og:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="og:image" content="https://thecolin.vip/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thecolin.vip/">
+    <meta property="twitter:title" content="COLIN - 探索深邃思想">
+    <meta property="twitter:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="twitter:image" content="https://thecolin.vip/og-image.jpg">
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav>
+    <nav role="navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">COLIN</a>
             <div class="nav-right">

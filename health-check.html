@@ -7,7 +7,8 @@
     <meta name="description" content="网站健康检查页面 - 检查网站各项功能和配置是否正常">
     <meta name="keywords" content="健康检查,网站检测,性能监测,SEO检查">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
+    <!-- Content Security Policy (统一策略) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://api.github.com https://www.google-analytics.com;">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -338,47 +339,25 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
-
-        /* 修复导航栏在移动端的显示 - 保持横向排列 */
-        @media (max-width: 768px) {
-            .nav-header {
-                padding: 1rem;
-            }
-
-            .nav-content {
-                flex-direction: row !important;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-            }
-
-            .nav-link {
-                font-size: 0.85rem;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .theme-switcher {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .lang-btn {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
-            }
-        }
     </style>
+    <link rel="canonical" href="https://thecolin.vip/">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thecolin.vip/">
+    <meta property="og:title" content="COLIN - 探索深邃思想">
+    <meta property="og:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="og:image" content="https://thecolin.vip/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thecolin.vip/">
+    <meta property="twitter:title" content="COLIN - 探索深邃思想">
+    <meta property="twitter:description" content="深度思考 · 终身学习 · 持续成长">
+    <meta property="twitter:image" content="https://thecolin.vip/og-image.jpg">
 </head>
 <body>
     <!-- 简化导航栏 -->
-    <nav class="nav-header">
+    <nav role="navigation" class="nav-header">
         <div class="nav-content">
             <a href="index.html" class="nav-logo">COLIN</a>
             <div class="nav-links">

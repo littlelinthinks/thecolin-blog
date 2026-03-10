@@ -1,12 +1,27 @@
+# robots.txt for COLIN Blog (thecolin.vip)
+# Allow all crawlers full access
+
 User-agent: *
 Allow: /
 
-# Disallow sensitive paths if any
+# Disallow sensitive paths
 Disallow: /admin/
 Disallow: /private/
+Disallow: /*.py$
+Disallow: /*.command$
 
 # Sitemap
 Sitemap: https://thecolin.vip/sitemap.xml
 
-# Crawl delay (optional)
+# Crawl delay (polite crawling)
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1

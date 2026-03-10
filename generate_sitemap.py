@@ -41,13 +41,22 @@ def generate_sitemap():
     <priority>0.8</priority>
   </url>'''
 
-    # 文章列表页（如果有的话）
+    # 归档页
     sitemap_content += f'''
   <url>
-    <loc>{base_url}/index.html#articles</loc>
+    <loc>{base_url}/archive.html</loc>
     <lastmod>{current_date}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>'''
+
+    # 订阅页
+    sitemap_content += f'''
+  <url>
+    <loc>{base_url}/subscribe.html</loc>
+    <lastmod>{current_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>'''
 
     # 所有文章页

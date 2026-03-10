@@ -1,31 +1,29 @@
 #!/bin/bash
-
 cd "/Users/colinying/Desktop/Personal Blog Website"
 
-echo "=== 开始推送代码 ==="
+echo "=== 开始推送代码到 GitHub ==="
 echo ""
 
-# 1. 查看状态
-echo "1. 查看修改的文件..."
+echo "1. 查看修改状态..."
 git status
 echo ""
 
-# 2. 添加所有修改
 echo "2. 添加所有修改..."
 git add -A
 echo "✓ 已添加"
 echo ""
 
-# 3. 提交
 echo "3. 提交更改..."
 git commit -m "修复导航栏：统一结构，移除内联样式，修正 lang-switcher 和 theme-switcher 位置"
 echo "✓ 已提交"
 echo ""
 
-# 4. 推送到 GitHub
 echo "4. 推送到 GitHub..."
 git push
-echo "✓ 推送成功"
+echo "✓ 推送成功！"
 echo ""
 
-echo "=== 完成！Vercel 将自动触发部署 ==="
+echo "=== 部署完成 ==="
+echo "Vercel 将自动检测到更新并重新部署网站"
+echo ""
+echo "您可以在 Vercel 控制台查看部署状态"
