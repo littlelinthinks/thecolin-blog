@@ -1359,15 +1359,17 @@
             margin: 0;
         }
 
-        /* 桌面端：下拉菜单默认隐藏，悬停时显示 */
+        /* 桌面端：下拉菜单默认隐藏，悬停时显示 - 高优先级覆盖 */
         @media (min-width: 901px) {
-            .nav-dropdown .dropdown-menu {
+            .nav-right ul.nav-links .nav-dropdown .dropdown-menu {
                 opacity: 0 !important;
                 visibility: hidden !important;
                 display: block !important;
-                transform: translateY(10px);
+                position: absolute !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+                background: var(--bg-card) !important;
             }
-            .nav-dropdown:hover .dropdown-menu {
+            .nav-right ul.nav-links .nav-dropdown:hover .dropdown-menu {
                 opacity: 1 !important;
                 visibility: visible !important;
                 transform: translateY(0) !important;
