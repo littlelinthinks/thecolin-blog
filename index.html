@@ -2732,10 +2732,10 @@
             <p class="coffee-modal-subtitle" data-zh="如果内容对你有帮助，支持一杯咖啡让我继续创作 😊" data-en="If you found this helpful, support me with a coffee 😊">如果内容对你有帮助，支持一杯咖啡让我继续创作 😊</p>
             
             <div class="currency-switcher">
-                <button class="currency-btn active" onclick="switchCurrency('CNY')">
+                <button class="currency-btn active" onclick="switchCurrency('CNY', event)">
                     <span data-zh="¥ 人民币" data-en="¥ CNY">¥ 人民币</span>
                 </button>
-                <button class="currency-btn" onclick="switchCurrency('USD')">
+                <button class="currency-btn" onclick="switchCurrency('USD', event)">
                     <span data-zh="$ 美元" data-en="$ USD">$ 美元</span>
                 </button>
             </div>
@@ -4646,14 +4646,18 @@
             USD: '$'
         };
 
-        function switchCurrency(currency) {
+        function switchCurrency(currency, event) {
             currentCurrency = currency;
             
             // 更新按钮状态
             document.querySelectorAll('.currency-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.closest('.currency-btn').classList.add('active');
+            if (event && event.target) {
+                event.target.closest('.currency-btn').classList.add('active');
+            } else {
+                document.querySelector('.currency-btn').classList.add('active');
+            }
             
             // 更新所有金额显示
             const amountBtns = document.querySelectorAll('.amount-btn');
@@ -4793,7 +4797,12 @@
         }
 
         function openCoffeeModal() {
+            console.log('☕ Opening coffee modal...');
             const modal = document.getElementById('coffeeModal');
+            if (!modal) {
+                console.error('Coffee modal not found');
+                return;
+            }
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
@@ -4811,7 +4820,7 @@
             document.querySelector('.amount-btn').classList.add('selected');
             
             // 确保显示人民币金额
-            switchCurrency('CNY');
+            switchCurrency('CNY', null);
         }
 
         function closeCoffeeModal() {
@@ -4821,6 +4830,7 @@
         }
 
         function selectAmount(element, amountIndex) {
+            console.log('💰 Selecting amount:', amountIndex);
             document.querySelectorAll('.amount-btn').forEach(btn => {
                 btn.classList.remove('selected');
             });
@@ -4830,6 +4840,7 @@
         }
 
         function selectPayment(element, method) {
+            console.log('💳 Selecting payment:', method);
             document.querySelectorAll('.payment-btn').forEach(btn => {
                 btn.classList.remove('selected');
             });
