@@ -1359,10 +1359,19 @@
             margin: 0;
         }
 
-        .nav-dropdown:hover > .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        /* 桌面端：下拉菜单默认隐藏，悬停时显示 */
+        @media (min-width: 901px) {
+            .nav-dropdown .dropdown-menu {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                display: block !important;
+                transform: translateY(10px);
+            }
+            .nav-dropdown:hover .dropdown-menu {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important;
+            }
         }
 
         .dropdown-menu > li {
