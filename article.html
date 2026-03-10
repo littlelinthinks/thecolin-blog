@@ -710,7 +710,7 @@
     <div class="nav-content">
         <a href="index.html" class="nav-logo logo">COLIN</a>
         <div class="nav-right" style="display:flex;align-items:center;gap:1.5rem;">
-            <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mainNavLinks">
+            <button type="button" class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mainNavLinks">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="mainNavLinks" style="display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;">
@@ -736,10 +736,10 @@
                 <li><a href="index.html#about" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
             </ul>
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="zh">中文</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn active" data-lang="zh">中文</button>
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
             </div>
-            <button class="theme-switcher" aria-label="切换主题">
+            <button type="button" class="theme-switcher" aria-label="切换主题">
                 <span class="theme-icon">🌙</span>
             </button>
         </div>
@@ -974,13 +974,13 @@
                                     </div>
                                     <h1 class="article-title" data-zh="${article.title}" data-en="${article.titleEn || article.title}">${article.title}</h1>
                                     <div class="share-buttons" id="shareButtons">
-                                        <button class="share-btn" data-share="twitter">
+                                        <button type="button" class="share-btn" data-share="twitter">
                                             <span>𝕏</span> <span data-zh="分享到 X" data-en="Share to X">分享到 X</span>
                                         </button>
-                                        <button class="share-btn" data-share="wechat">
+                                        <button type="button" class="share-btn" data-share="wechat">
                                             <span>💬</span> <span data-zh="分享到微信" data-en="Share to WeChat">分享到微信</span>
                                         </button>
-                                        <button class="share-btn" data-share="copy">
+                                        <button type="button" class="share-btn" data-share="copy">
                                             <span>📋</span> <span data-zh="复制链接" data-en="Copy Link">复制链接</span>
                                         </button>
                                     </div>
