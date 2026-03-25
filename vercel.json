@@ -1,104 +1,23 @@
 {
-  "version": 2,
-  "name": "colin-blog",
-  "buildCommand": "echo 'Static site - no build needed'",
-  "devCommand": "echo 'Static site'",
-  "installCommand": "echo 'No dependencies'",
+  "buildCommand": "echo 'No build needed'",
+  "devCommand": "echo 'No dev command needed'",
+  "installCommand": "echo 'No install needed'",
   "framework": null,
   "outputDirectory": ".",
   "rewrites": [
     {
-      "source": "/((?!.*\\.(?:html|css|js|json|xml|txt|ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|avif).*$).*)",
+      "source": "/:all*",
       "destination": "/index.html"
     }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/sw.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Service-Worker-Allowed",
-          "value": "/"
-        }
-      ]
+      "handle": "filesystem"
     },
     {
-      "source": "/manifest.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/manifest+json"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        }
-      ]
-    },
-    {
-      "source": "/css/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/js/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/images/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/404.html",
+      "status": 404
     }
   ]
 }

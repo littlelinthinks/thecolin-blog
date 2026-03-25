@@ -25,7 +25,20 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
-    
+
+    <!-- Google Fonts — 品牌字体升级 -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
+    <!-- Common CSS and JS -->
+    <link rel="canonical" href="https://thecolin.vip/">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="/js/common.js" defer></script>
+
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
 
@@ -63,92 +76,2613 @@
     </script>
 
     <title>COLIN - Explore Deep Thoughts</title>
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/css/common.css" as="style">
-    <link rel="preload" href="/css/home.css" as="style">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Critical CSS inline -->
     <style>
-/* Critical: CSS Variables & Reset */
-:root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --bg-card: #ffffff;
-    --text-primary: #000000;
-    --text-secondary: #666666;
-    --accent: #000000;
-    --accent-hover: #333333;
-    --border: #e5e5e5;
-    --button-bg-dark: #000000;
-    --button-text-dark: #ffffff;
-}
-[data-theme="dark"] {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #141414;
-    --bg-card: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --accent: #ffffff;
-    --accent-hover: #e0e0e0;
-    --border: #2a2a2a;
-    --button-bg-dark: #ffffff;
-    --button-text-dark: #000000;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.6;background:var(--bg-primary);color:var(--text-primary);transition:background-color .3s,color .3s;min-height:100vh}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Critical: Navigation */
-.nav-header{background:rgba(255,255,255,.98);padding:1rem 2rem;position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-[data-theme="dark"] .nav-header{background:rgba(10,10,10,.98)}
-.nav-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{color:var(--text-primary);text-decoration:none;font-size:1.5rem;font-weight:bold;font-family:Georgia,serif}
-.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
-.nav-link{color:var(--text-primary);text-decoration:none;font-size:.95rem;transition:color .3s}
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --accent-hover: #333333;
+            --border: #e5e5e5;
+            --button-bg-dark: #000000;
+            --button-text-dark: #ffffff;
+        }
 
-/* Critical: Hero */
-.hero{margin-top:80px;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem}
-.hero-content{max-width:900px;z-index:1;animation:fadeInUp 1s ease-out}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero-name{font-size:5rem;font-weight:900;margin-bottom:2rem;letter-spacing:8px;background:linear-gradient(135deg,#000,#666,#000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase}
-[data-theme="dark"] .hero-name{background:linear-gradient(135deg,#fff,#ccc,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero h1{font-size:4rem;font-weight:800;margin-bottom:1.5rem;line-height:1.2;letter-spacing:-2px}
-.hero .tagline{font-size:1.5rem;color:var(--text-secondary);margin-bottom:2rem;font-weight:300}
+        /* 深色模式 */
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #e0e0e0;
+            --border: #2a2a2a;
+            --button-bg-dark: #ffffff;
+            --button-text-dark: #000000;
+        }
 
-/* Critical: Loading */
-.loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s,visibility .5s}
-.loading-screen.hidden{opacity:0;visibility:hidden}
-.loader{width:50px;height:50px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+        /* 阅读进度条 */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
 
-/* Critical: Responsive */
-@media(max-width:768px){
-    .hero-name{font-size:3rem;letter-spacing:4px}
-    .hero h1{font-size:2.5rem}
-    .hero .tagline{font-size:1.2rem}
-    .nav-links{gap:1rem}
-    .nav-header{padding:1rem}
-}
+        /* 语言切换按钮 */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
 
-    </style>
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
 
-    <!-- Async load non-critical CSS -->
-    <link rel="stylesheet" href="/css/common.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/home.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="/css/common.css">
-        <link rel="stylesheet" href="/css/home.css">
-    </noscript>
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
 
+        .lang-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--button-text-dark);
+        }
+
+        /* 主题切换按钮 */
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #000000, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        [data-theme="dark"] .logo {
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 下拉菜单 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-arrow {
+            font-size: 0.6rem;
+            margin-left: 0.3rem;
+            transition: transform 0.3s;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            min-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-section {
+            position: relative;
+        }
+
+        .dropdown-section > a {
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 0.7rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--bg-card);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-section:hover .dropdown-submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .dropdown-submenu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu > li > a:not(.dropdown-submenu a) {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding-left: 1.3rem;
+        }
+
+        /* 搜索框 */
+        .search-container {
+            position: relative;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-btn:hover {
+            border-color: var(--accent);
+            color: var(--button-text-dark);
+        }
+
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10vh;
+        }
+
+        .search-modal.active {
+            display: flex;
+        }
+
+        .search-box {
+            width: 90%;
+            max-width: 600px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .search-results {
+            margin-top: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-result-item:hover {
+            background: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .search-result-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .close-search:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-name {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #000000, #666666, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -2px;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .subscribe-form {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .subscribe-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* 内容区域 */
+        .content-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        /* 博客标题区域 - Dankoe风格 */
+        .blog-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 5rem 0 3rem;
+        }
+
+        .blog-title {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        .blog-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .blog-quote {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: normal;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 文章网格 */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--button-text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .article-date {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .article-author::before {
+            content: '✍️';
+            font-size: 0.7rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: gap 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .read-more:hover {
+            gap: 0.6rem;
+        }
+
+        /* 分享按钮 */
+        .share-buttons {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.8rem;
+        }
+
+        .share-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .share-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* 特色资源 */
+        .featured-resources {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 6rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        .resource-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* 关于部分 */
+        .about-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            border: 1px solid var(--border);
+        }
+
+        .about-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .about-image.has-photo img {
+            display: block;
+        }
+
+        .about-image.has-photo::after {
+            display: none;
+        }
+
+        .about-image::after {
+            content: '👤';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* 所有链接容器 */
+        .all-links {
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            border-width: 2px;
+        }
+
+        /* X 平台 - 扁平化 */
+        .social-link.platform-link.x {
+            stroke: #000;
+            border-color: #000;
+        }
+
+        .social-link.platform-link.x:hover {
+            stroke: #000;
+            border-color: #000;
+        }
+
+        /* 微信 - 扁平化 */
+        .social-link.platform-link.wechat {
+            stroke: #07c160;
+            border-color: #07c160;
+        }
+
+        .social-link.platform-link.wechat:hover {
+            stroke: #07c160;
+            border-color: #07c160;
+        }
+
+        /* 知乎 - 扁平化 */
+        .social-link.platform-link.zhihu {
+            stroke: #0066ff;
+            border-color: #0066ff;
+        }
+
+        .social-link.platform-link.zhihu:hover {
+            stroke: #0066ff;
+            border-color: #0066ff;
+        }
+
+        /* 简书 - 扁平化 */
+        .social-link.platform-link.jianshu {
+            stroke: #ea6f5a;
+            border-color: #ea6f5a;
+        }
+
+        .social-link.platform-link.jianshu:hover {
+            stroke: #ea6f5a;
+            border-color: #ea6f5a;
+        }
+
+        /* 今日头条 - 扁平化 */
+        .social-link.platform-link.toutiao {
+            stroke: #f85959;
+            border-color: #f85959;
+        }
+
+        .social-link.platform-link.toutiao:hover {
+            stroke: #f85959;
+            border-color: #f85959;
+        }
+
+        /* 少数派 - 扁平化 */
+        .social-link.platform-link.sspai {
+            stroke: #ff9f0a;
+            border-color: #ff9f0a;
+        }
+
+        .social-link.platform-link.sspai:hover {
+            stroke: #ff9f0a;
+            border-color: #ff9f0a;
+        }
+
+        /* Substack - 扁平化 */
+        .social-link.platform-link.substack {
+            stroke: #ff6719;
+            border-color: #ff6719;
+        }
+
+        .social-link.platform-link.substack:hover {
+            stroke: #ff6719;
+            border-color: #ff6719;
+        }
+
+        /* 邮箱 - 扁平化 */
+        .social-link.platform-link.email {
+            stroke: #666;
+            border-color: var(--text-secondary);
+        }
+
+        .social-link.platform-link.email:hover {
+            stroke: #666;
+            border-color: var(--text-secondary);
+        }
+
+        /* RSS订阅按钮 */
+        .rss-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s;
+        }
+
+        .rss-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Toast通知 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
+
+            .nav-container {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .nav-right {
+                gap: 1rem;
+            }
+
+            .lang-switcher {
+                gap: 0.3rem;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .blog-header {
+                padding: 3rem 0;
+                margin-bottom: 3rem;
+            }
+
+            .blog-title {
+                font-size: 3rem;
+                letter-spacing: 0.03em;
+            }
+
+            .blog-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .blog-quote {
+                font-size: 1rem;
+                padding: 0 1rem;
+                font-weight: 400;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content input[type="email"] {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .search-box {
+                padding: 1.5rem;
+            }
+
+            .category-filters {
+                gap: 0.5rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 选中文本样式 */
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* 加载动画 */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== 文章详情页样式 ===== */
+        .article-detail-page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .article-detail-page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .home-page.hidden {
+            display: none;
+        }
+
+        .article-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-hero .article-category {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .article-hero .article-excerpt {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta-detail {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .article-date-detail {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .article-stats {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .article-content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .article-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.5rem;
+            line-height: 1.3;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            line-height: 1.3;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--bg-secondary);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .article-content .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-actions {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .back-to-articles {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .back-to-articles:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .newsletter-cta {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .newsletter-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .related-articles {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .related-articles h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 评论区样式 */
+        .comments-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .comments-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-form {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .comment-form button {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .comment-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .comment {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .comment-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .comment-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .comment-body {
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* 搜索和筛选区域 */
+        .search-filter-section {
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-btn {
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        #searchResults {
+            margin-top: 1rem;
+            padding: 10px 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-card);
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: var(--color-success);
+        }
+
+        /* 打赏功能 */
+        .coffee-support {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coffee-support::before {
+            content: '☕';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .coffee-support h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .coffee-support p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .coffee-btn {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .coffee-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .coffee-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 打赏弹窗 */
+        .coffee-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .coffee-modal.active {
+            display: flex;
+        }
+
+        .coffee-modal-content {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coffee-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .coffee-modal-close:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .coffee-modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .coffee-modal-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .coffee-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .amount-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            padding: 1.2rem 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .amount-btn:hover {
+            border-color: var(--accent);
+            background: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .amount-btn.selected {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .amount-emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .amount-price {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-btn:hover {
+            border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        .payment-btn.selected {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+        }
+
+        .qr-code-container {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+        }
+
+        .qr-code-container.active {
+            display: block;
+        }
+
+        .qr-code-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .qr-code-hint {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .coffee-thank-you {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .coffee-thank-you.active {
+            display: block;
+        }
+
+        /* 平台链接 */
+        .platform-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .platform-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .platform-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .platform-item:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-item span:last-child {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .platform-item.wechat:hover {
+            background: #07c160;
+            border-color: #07c160;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+
+        .platform-item.zhihu:hover {
+            background: #0066ff;
+            border-color: #0066ff;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .platform-item.medium:hover {
+            background: #1a8917;
+            border-color: #1a8917;
+            box-shadow: 0 4px 15px rgba(26, 137, 23, 0.3);
+        }
+
+        .platform-item.substack:hover {
+            background: #ff6719;
+            border-color: #ff6719;
+            box-shadow: 0 4px 15px rgba(255, 103, 25, 0.3);
+        }
+
+        /* 公众号二维码弹窗 */
+        .wechat-qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-qr-modal.active {
+            display: flex;
+        }
+
+        .wechat-qr-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .wechat-qr-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .wechat-qr-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .wechat-qr-image {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-card);
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 2px dashed var(--border);
+        }
+
+        .wechat-qr-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .wechat-qr-hint strong {
+            color: var(--color-success);
+        }
+
+        /* 币种切换 */
+        .currency-switcher {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .currency-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .currency-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .currency-btn.active {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .article-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .article-hero .article-excerpt {
+                font-size: 1.1rem;
+            }
+
+            .article-meta-detail {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .article-content {
+                font-size: 1.1rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .newsletter-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .social-links {
+                gap: 0.75rem;
+                justify-content: center;
+            }
+
+            .social-link {
+                width: 48px;
+                height: 48px;
+                font-size: 0.8rem;
+            }
+
+            .wechat-qr-content {
+                padding: 2rem;
+            }
+
+            .wechat-qr-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .load-more-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Load More 按钮 */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .load-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .load-more-btn:active {
+            transform: translateY(0);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .load-more-btn.loading {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .load-more-btn.loading::after {
+            content: '...';
+        }
+    
+        /* ===== 视觉升级 — 品牌字体 & 细节优化 ===== */
+
+        /* 品牌 Logo 字体 */
+        .logo, .nav-logo {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero 标题字体升级 */
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-weight: 900 !important;
+            letter-spacing: -1px;
+            line-height: 1.1 !important;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            letter-spacing: 4px;
+        }
+
+        /* 文章标题字体升级 */
+        .article-title {
+            font-family: 'Noto Serif SC', 'PingFang SC', serif !important;
+            font-weight: 700 !important;
+            line-height: 1.5 !important;
+        }
+
+        /* 章节标题 */
+        .section-title, .blog-title {
+            font-family: 'Playfair Display', Georgia, serif !important;
+        }
+
+        /* 文章卡片升级 */
+        .article-card {
+            border-radius: 0 !important;
+            border: 1px solid var(--border) !important;
+            border-top: 3px solid transparent !important;
+            transition: border-top-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .article-card:hover {
+            border-top-color: var(--accent) !important;
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
+        }
+
+        [data-theme="dark"] .article-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4) !important;
+        }
+
+        /* 文章分类标签升级 */
+        .article-category {
+            font-family: 'Space Mono', monospace !important;
+            font-size: 0.7rem !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            padding: 3px 10px !important;
+            background: var(--bg-secondary) !important;
+            border-radius: 0 !important;
+        }
+
+        /* 阅读全文按钮升级 */
+        .read-more {
+            font-family: 'Space Mono', monospace !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 1px !important;
+            border-bottom: 1px solid var(--accent) !important;
+            padding-bottom: 1px !important;
+            text-decoration: none !important;
+            transition: letter-spacing 0.3s ease !important;
+        }
+
+        .read-more:hover {
+            letter-spacing: 3px !important;
+        }
+
+        /* 资源卡片升级 */
+        .resource-card {
+            border-radius: 0 !important;
+            border-left: 3px solid transparent !important;
+            transition: border-left-color 0.3s, transform 0.3s !important;
+        }
+
+        .resource-card:hover {
+            border-left-color: var(--accent) !important;
+            transform: translateX(4px) !important;
+        }
+
+        /* 导航字体升级 */
+        .nav-links a {
+            font-size: 0.9rem !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        /* Hero tagline */
+        .hero .tagline {
+            font-family: 'Space Mono', monospace !important;
+            font-size: 0.85rem !important;
+            letter-spacing: 3px !important;
+            opacity: 0.7;
+        }
+
+        /* 筛选按钮升级 */
+        .filter-btn {
+            border-radius: 0 !important;
+            font-family: 'Space Mono', monospace !important;
+            font-size: 0.75rem !important;
+            letter-spacing: 1px !important;
+        }
+
+        /* About 区域标题 */
+        .about-content h2 {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-size: 2.2rem !important;
+        }
+
+        /* Footer 升级 */
+        footer {
+            border-top: 3px solid var(--border) !important;
+        }
+
+        /* 搜索结果数量提示 */
+        #searchResults {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            padding: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        
+        /* ===== Mobile Hamburger Nav ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            background: transparent;
+            z-index: 1100;
+            flex-shrink: 0;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 900px) {
+            .hamburger { display: flex !important; }
+
+            .nav-right ul.nav-links {
+                display: none !important;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--bg-primary);
+                border-top: 1px solid var(--border);
+                flex-direction: column !important;
+                gap: 0 !important;
+                padding: 0.5rem 0 2rem;
+                z-index: 998;
+                overflow-y: auto;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            }
+            .nav-right ul.nav-links.mobile-open {
+                display: flex !important;
+            }
+            .nav-right ul.nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-right ul.nav-links > li > a {
+                display: block !important;
+                padding: 1rem 2rem !important;
+                font-size: 1rem !important;
+            }
+            /* Dropdown stays open on mobile */
+            .nav-right ul.nav-links .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: var(--bg-secondary);
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                display: block !important;
+                pointer-events: auto !important;
+            }
+            .nav-right ul.nav-links .dropdown-menu li a {
+                padding: 0.75rem 3rem !important;
+                font-size: 0.9rem !important;
+                color: var(--text-secondary) !important;
+            }
+            .dropdown-arrow { display: none !important; }
+
+            /* Hide lang switcher on mobile to save space */
+            .lang-switcher { display: none !important; }
+
+            /* Hero mobile */
+            .hero-content { padding: 80px 20px 40px !important; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
+        }
+
+        </style>
 </head>
+<a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
     <!-- 加载屏幕 -->
     <div class="loading-screen">
@@ -265,10 +2799,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
     <!-- 导航栏 -->
     <nav>
         <div class="nav-container">
-            <a href="#" onclick="showHome(event)" class="logo">COLIN</a>
+            <a href="index.html" class="logo nav-logo">COLIN</a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
+                    <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
                     <li class="nav-dropdown">
                         <a href="#articles" data-zh="文章" data-en="Articles">
                             <span data-zh="文章" data-en="Articles">文章</span>
@@ -283,55 +2817,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                         </ul>
                     </li>
                     <li class="nav-dropdown">
-                        <a href="#resources" data-zh="精选资源" data-en="Resources">
+                        <a href="products.html" data-zh="精选资源" data-en="Resources">
                             <span data-zh="精选资源" data-en="Resources">精选资源</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-section">
-                                <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="font-weight: bold; color: var(--accent);">✍️ 写作指南</a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)">📝 写作模板大全（¥49）</a></li>
-                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库（¥39）</a></li>
-                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南（¥39）</a></li>
-                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板（¥29）</a></li>
-                                    <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 写作套装（¥99）</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-section">
-                                <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="font-weight: bold; color: var(--accent);">🎯 目标规划</a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)">🎯 Notion目标系统（¥49）</a></li>
-                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)">📊 年度规划模板（¥29）</a></li>
-                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)">📈 Excel追踪表（¥19）</a></li>
-                                    <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="font-weight: bold; color: var(--accent);">🔥 目标套装（¥79）</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-section">
-                                <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="font-weight: bold; color: var(--accent);">🧠 思维模型</a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)">🧠 第一性原理（¥39）</a></li>
-                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)">🔄 逆向思维（¥39）</a></li>
-                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)">🌐 系统思考（¥49）</a></li>
-                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="⚖️ 概率思维（¥39）" data-en="⚖️ Probabilistic Thinking (¥39)">⚖️ 概率思维（¥39）</a></li>
-                                    <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥89）" data-en="🔥 Thinking Bundle (¥89)" style="font-weight: bold; color: var(--accent);">🔥 思维套装（¥89）</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-section">
-                                <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="font-weight: bold; color: var(--accent);">📚 学习方法</a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎓 费曼学习法（¥39）" data-en="🎓 Feynman Technique (¥39)">🎓 费曼学习法（¥39）</a></li>
-                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📅 间隔重复（¥39）" data-en="📅 Spaced Repetition (¥39)">📅 间隔重复（¥39）</a></li>
-                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 深度阅读（¥49）" data-en="📖 Deep Reading (¥49)">📖 深度阅读（¥49）</a></li>
-                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 知识管理（¥49）" data-en="🎯 Knowledge Management (¥49)">🎯 知识管理（¥49）</a></li>
-                                    <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥99）" data-en="🔥 Learning Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 学习套装（¥99）</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide">✍️ 写作指南</a></li>
+                            <li><a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning">🎯 目标规划</a></li>
+                            <li><a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a></li>
+                            <li><a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a></li>
                             <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;">
                                 <a href="products.html#payment-complete" data-zh="🎉 完整套装（¥159）" data-en="🎉 Complete Bundle (¥159)" style="font-weight: bold; color: #ff6b6b;">🎉 完整套装（¥159）</a>
                             </li>
                         </ul>
                     </li>
+                    <li><a href="wisdom.html" style="color:#C9A84C!important;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
@@ -349,6 +2849,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
             </div>
         </div>
     </nav>
+
+    <main id="mainContent" role="main">
 
     <!-- 主页内容 -->
     <div class="home-page">
@@ -369,14 +2871,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                 </a>
             </div>
             
-            <!-- RSS订阅 - 改为复制链接 -->
-            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem;">
+            <!-- RSS订阅 -->
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem; opacity: 0.6; font-size: 0.85rem;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
-            </div>
-            <!-- 邮箱订阅 -->
-            <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                <input type="email" id="subscribeEmail" placeholder="your@email.com" style="padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
-                <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 2rem; background: var(--accent); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap;" data-zh="订阅更新" data-en="Subscribe">订阅更新</button>
             </div>
         </div>
     </section>
@@ -427,117 +2924,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
         </div>
 
         <div class="articles-grid" id="articlesGrid">
-            <article class="article-card" data-category="thinking" data-article-id="deep-thinking-information-age">
-                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
-                <div class="article-date" data-zh="2026年1月10日" data-en="January 10, 2026">2026年1月10日</div>
-                <h3 class="article-title" data-zh="如何在信息爆炸时代保持深度思考" data-en="How to Maintain Deep Thinking in the Information Age">如何在信息爆炸时代保持深度思考</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 5分钟阅读" data-en="📖 5 min read">📖 5分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？" data-en="In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?">在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
-
-            <article class="article-card" data-category="learning" data-article-id="lifelong-learning-cultivation">
-                <span class="article-category" data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
-                <div class="article-date" data-zh="2026年1月5日" data-en="January 5, 2026">2026年1月5日</div>
-                <h3 class="article-title" data-zh="终身学习者的自我修养" data-en="The Self-Cultivation of Lifelong Learners">终身学习者的自我修养</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 7分钟阅读" data-en="📖 7 min read">📖 7分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。" data-en="Learning isn't for exams—it's about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.">学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
-
-            <article class="article-card" data-category="productivity">
-                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
-                <div class="article-date" data-zh="2025年12月28日" data-en="December 28, 2025">2025年12月28日</div>
-                <h3 class="article-title" data-zh="注意力：21世纪最宝贵的资源" data-en="Attention: The Most Valuable Resource of the 21st Century">注意力：21世纪最宝贵的资源</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。" data-en="In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.">在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
-
-            <article class="article-card" data-category="life" data-article-id="anxiety-to-action">
-                <span class="article-category" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
-                <div class="article-date" data-zh="2025年12月20日" data-en="December 20, 2025">2025年12月20日</div>
-                <h3 class="article-title" data-zh="从焦虑到行动：目标设定的艺术" data-en="From Anxiety to Action: The Art of Goal Setting">从焦虑到行动：目标设定的艺术</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 8分钟阅读" data-en="📖 8 min read">📖 8分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。" data-en="Anxiety often stems from unclear or missing goals. Learn to set goals scientifically and transform anxiety into momentum for action.">焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
-
-            <article class="article-card" data-category="thinking">
-                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
-                <div class="article-date" data-zh="2025年12月15日" data-en="December 15, 2025">2025年12月15日</div>
-                <h3 class="article-title" data-zh="写作即思考：用文字塑造思想" data-en="Writing is Thinking: Shaping Thoughts with Words">写作即思考：用文字塑造思想</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。" data-en="Writing is not just expression—it's a tool for thinking. Through writing, we clarify thoughts, discover blind spots, and deepen understanding.">写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
-
-            <article class="article-card" data-category="productivity" data-article-id="digital-minimalism">
-                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
-                <div class="article-date" data-zh="2025年12月8日" data-en="December 8, 2025">2025年12月8日</div>
-                <h3 class="article-title" data-zh="数字极简主义：在互联网时代找回自我" data-en="Digital Minimalism: Finding Yourself in the Internet Age">数字极简主义：在互联网时代找回自我</h3>
-                <div class="article-meta">
-                    <span class="read-time" data-zh="📖 9分钟阅读" data-en="📖 9 min read">📖 9分钟阅读</span>
-                    <span class="article-author">Colin</span>
-                </div>
-                <p class="article-excerpt" data-zh="我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。" data-en="We don't need to abandon technology—we need to use it more wisely. Digital minimalism helps you redefine your relationship with tech.">我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。</p>
-                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
-                </div>
-            </article>
+            <!-- 文章将在此显示 -->
+        </div>
+        <!-- 空状态提示 -->
+        <div id="emptyState" style="text-align:center;padding:80px 20px;color:var(--text-secondary);">
+            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;opacity:0.5;">COMING SOON</p>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;color:var(--text-primary);margin-bottom:1rem;">文章持续更新中</p>
+            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">订阅「小Lin思考」，第一时间收到新文章通知</p>
+            <a href="subscribe.html" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">免费订阅 →</a>
         </div>
 
         <!-- Load More Button -->
-        <div class="load-more-container">
+        <div class="load-more-container" style="display:none;">
             <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
                 <span data-zh="更多美文" data-en="Load More">更多美文</span>
             </button>
@@ -545,6 +2943,109 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
     </section>
 
     <!-- 特色资源 -->
+
+    <!-- ===== 心智折叠 IP 入口 ===== -->
+    <section class="content-section" id="wisdom-banner" style="padding:0;margin:0;">
+        <div style="
+            background: linear-gradient(135deg, #0D0D0D 0%, #1a1408 40%, #0D0D0D 100%);
+            border-top: 1px solid rgba(201,168,76,0.15);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Playfair Display', Georgia, serif;
+        ">
+            <!-- 装饰大字 -->
+            <div style="
+                position:absolute; top:-20px; right:40px;
+                font-size:180px; font-weight:900;
+                color:transparent;
+                -webkit-text-stroke: 1px rgba(201,168,76,0.08);
+                line-height:1; pointer-events:none;
+                font-family:Georgia,serif; letter-spacing:-8px;
+            " aria-hidden="true">186</div>
+
+            <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
+                <!-- 左侧文案 -->
+                <div>
+                    <div style="
+                        font-size:10px; letter-spacing:4px; text-transform:uppercase;
+                        color:#C9A84C; margin-bottom:20px;
+                        font-family:monospace;
+                        display:flex;align-items:center;gap:10px;
+                    ">
+                        <span style="width:20px;height:1px;background:#C9A84C;display:inline-block;"></span>
+                        小Lin思考 · 旗下IP
+                    </div>
+                    <h2 style="
+                        font-size:52px; font-weight:900; line-height:1.0;
+                        color:#F5F0E8; margin-bottom:12px;
+                    ">
+                        <span style="color:#C9A84C;font-style:italic;">心智</span>折叠
+                    </h2>
+                    <p style="font-size:14px;color:rgba(245,240,232,0.4);letter-spacing:4px;margin-bottom:28px;font-family:monospace;">
+                        MIND FOLDING · 186 PRINCIPLES
+                    </p>
+                    <p style="font-size:15px;line-height:2.0;color:rgba(245,240,232,0.6);max-width:420px;margin-bottom:36px;">
+                        系统整理全球 <strong style="color:#C9A84C;">186 位</strong> 最具影响力的商业领袖、学者与实践家的第一手原则——不是成功学，而是<strong style="color:#F5F0E8;">真正指导他们决策的底层逻辑</strong>。
+                    </p>
+                    <a href="wisdom.html" style="
+                        background:#C9A84C; color:#0D0D0D;
+                        padding:14px 36px;
+                        font-size:14px; font-weight:700; letter-spacing:2px;
+                        text-decoration:none; display:inline-block;
+                        transition:all 0.3s;
+                        font-family:-apple-system,sans-serif;
+                    " onmouseover="this.style.background='#F5F0E8'" onmouseout="this.style.background='#C9A84C'">
+                        探索全部 186 位人物 →
+                    </a>
+                </div>
+                <!-- 右侧人物卡片预览 -->
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                    <div style="
+                        background:rgba(255,255,255,0.03);
+                        border:1px solid rgba(201,168,76,0.15);
+                        border-left:3px solid #C9A84C;
+                        padding:20px 22px;
+                        transition:background 0.3s;
+                    " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                        <div style="font-size:9px;color:#C9A84C;letter-spacing:2px;font-family:monospace;margin-bottom:8px;">#001 · 投资财富</div>
+                        <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">Charlie Munger</div>
+                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">查理·芒格</div>
+                        <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">把所有重大错误列成清单，然后努力避免它们。逆向思维能帮你躲开最大的坑。</p>
+                    </div>
+                    <div style="
+                        background:rgba(255,255,255,0.03);
+                        border:1px solid rgba(201,168,76,0.1);
+                        border-left:3px solid rgba(201,168,76,0.4);
+                        padding:20px 22px;
+                        transition:background 0.3s;
+                    " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                        <div style="font-size:9px;color:#C9A84C;letter-spacing:2px;font-family:monospace;margin-bottom:8px;">#034 · 长期主义</div>
+                        <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">段永平</div>
+                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">步步高 · OPPO · vivo 创始人</div>
+                        <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">停止做错的事，比开始做对的事更难，也更重要。</p>
+                    </div>
+                    <a href="wisdom.html" style="
+                        background:rgba(201,168,76,0.06);
+                        border:1px solid rgba(201,168,76,0.15);
+                        padding:16px 22px;
+                        text-align:center;
+                        font-size:12px;
+                        color:rgba(245,240,232,0.4);
+                        letter-spacing:2px;
+                        text-decoration:none;
+                        font-family:monospace;
+                        transition:all 0.3s;
+                        display:block;
+                    " onmouseover="this.style.color='#C9A84C';this.style.borderColor='rgba(201,168,76,0.35)'" onmouseout="this.style.color='rgba(245,240,232,0.4)';this.style.borderColor='rgba(201,168,76,0.15)'">
+                        还有 184 位人物等待探索 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="content-section" id="resources">
         <div class="featured-resources">
             <h2 class="section-title" data-zh="精选资源" data-en="Featured Resources">精选资源</h2>
@@ -581,10 +3082,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
     </section>
 
     <!-- 关于部分 -->
-    <section class="content-section" id="about">
+    
+    <!-- ===== 邮件订阅 CTA ===== -->
+    <section style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 20px;text-align:center;">
+        <div style="max-width:540px;margin:0 auto;">
+            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周一封" data-en="WEEKLY">每周一封</p>
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="订阅「小Lin思考」" data-en="Subscribe to Thinking">订阅「小Lin思考」</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。" data-en="One deep article per week on thinking, growth, and life. 1,200+ subscribers.">每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。</p>
+            <a href="subscribe.html" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
+        </div>
+    </section>
+
+<section class="content-section" id="about">
         <div class="about-section">
             <div class="about-image has-photo">
-                <img src="thecolin.vip image.jpg" alt="COLIN" loading="lazy">
+                <img src="thecolin.vip image.jpg" onerror="this.style.display='none'" alt="COLIN" loading="lazy">
             </div>
             <div class="about-content">
                 <h2 data-zh="关于我" data-en="About Me">关于我</h2>
@@ -593,7 +3105,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                 <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
                 <div class="all-links">
                     <div class="social-links">
-                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x">
+                        <a href="https://x.com/littlelinthinks" target="_blank" rel="noopener noreferrer" class="social-link platform-link x">
                             <img src="images/x平台logo.png" alt="X" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
                         <div class="social-link platform-link wechat" onclick="openWechatQrModal()">
@@ -601,22 +3113,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                             </svg>
                         </div>
-                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu">
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" rel="noopener noreferrer" class="social-link platform-link zhihu">
                             <img src="images/知乎logo.png" alt="知乎" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu">
+                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" rel="noopener noreferrer" class="social-link platform-link jianshu">
                             <img src="images/简书logo.png" alt="简书" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao">
+                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" rel="noopener noreferrer" class="social-link platform-link toutiao">
                             <img src="images/今日头条logo.png" alt="今日头条" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai">
+                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" rel="noopener noreferrer" class="social-link platform-link sspai">
                             <img src="images/少数派logo.png" alt="少数派" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack">
+                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" rel="noopener noreferrer" class="social-link platform-link substack">
                             <img src="images/substack平台logo.png" alt="Substack" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email">
+                        <a href="/cdn-cgi/l/email-protection#64080d10100801080d0a100c0d0a0f17240309050d084a070b09" class="social-link platform-link email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -640,7 +3152,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
             <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
             <span data-zh="（复制链接到RSS阅读器）" data-en="(Copy link to RSS reader)">（复制链接到RSS阅读器）</span>
         </p>
-    </footer>
+    </main>
+</footer>
     </div>
     <!-- 主页内容结束 -->
 
@@ -762,7 +3275,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+        // ===== 汉堡菜单（手机导航）=====
+        (function() {
+            const btn = document.getElementById('hamburgerBtn');
+            const nav = document.getElementById('mainNavLinks');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function() {
+                const isOpen = nav.classList.toggle('mobile-open');
+                btn.classList.toggle('active', isOpen);
+                btn.setAttribute('aria-expanded', String(isOpen));
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    nav.classList.remove('mobile-open');
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+            // Close on resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 900) {
+                    nav.classList.remove('mobile-open');
+                    btn.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        })();
+
+        </script><script>
         // ===== 全局错误处理 =====
         window.onerror = function(message, source, lineno, colno, error) {
             console.error('Global error:', { message, source, lineno, colno, error });
@@ -1448,12 +3991,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
             document.title = 'COLIN - Explore Deep Thoughts';
         }
 
-        // ===== 加载屏幕 =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.loading-screen').classList.add('hidden');
-            }, 500);
-        });
+        // ===== 加载屏幕（防卡死版）=====
+        function hideLoadingScreen() {
+            const screen = document.querySelector('.loading-screen');
+            if (screen) screen.classList.add('hidden');
+        }
+        // 正常加载完成时隐藏
+        window.addEventListener('load', () => setTimeout(hideLoadingScreen, 300));
+        // 保险：最多等 2.5 秒，无论如何强制隐藏
+        setTimeout(hideLoadingScreen, 2500);
+        // DOMContentLoaded 时也触发一次（应对 load 不触发的情况）
+        document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoadingScreen, 800));
 
         // ===== 语言切换功能 =====
         function switchLanguage(lang) {
@@ -1861,7 +4409,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                     <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
-                <a href="#" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
+                <a href="article.html?id=attention-21st-century" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
                 <div class="share-buttons">
                     <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
                     <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
@@ -1977,55 +4525,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
             }
         }
 
-        // ===== 导航栏分类过滤功能 =====
-        function filterByCategory(category, event) {
-            if (event) event.preventDefault();
-
-            // 显示所有文章
-            const allCards = articlesGrid.querySelectorAll('.article-card');
-
-            // 重置visibleArticles
-            visibleArticles = 0;
-
-            if (category === 'all') {
-                allCards.forEach(card => {
-                    card.style.display = 'block';
-                });
-                visibleArticles = allCards.length;
-            } else {
-                allCards.forEach(card => {
-                    if (card.dataset.category === category) {
-                        card.style.display = 'block';
-                        visibleArticles++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            // 重新初始化显示
-            if (visibleArticles > articlesPerPage) {
-                for (let i = articlesPerPage; i < allCards.length; i++) {
-                    if (allCards[i].style.display === 'block') {
-                        allCards[i].style.display = 'none';
-                    }
-                }
-                visibleArticles = Math.min(visibleArticles, articlesPerPage);
-                loadMoreBtn.style.display = 'flex';
-            } else {
-                loadMoreBtn.style.display = 'none';
-            }
-
-            // 重新添加动画效果
-            setTimeout(() => {
-                allCards.forEach(card => {
-                    if (card.style.display === 'block') {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-            }, 50);
-        }
+        
 
         function loadMoreArticles() {
             const allCards = articlesGrid.querySelectorAll('.article-card');
@@ -2256,20 +4756,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                 }
             });
 
-            // 显示搜索结果数量
+            // 显示文章数量（始终显示）
             const searchResults = document.getElementById('searchResults');
             const resultCount = document.getElementById('resultCount');
+            const totalCards = document.querySelectorAll('.article-card').length;
 
-            if (currentSearchTerm !== '' || currentCategory !== 'all') {
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) emptyState.style.display = totalCards === 0 ? 'block' : 'none';
+
+            if (searchResults && totalCards > 0) {
                 searchResults.style.display = 'block';
-                resultCount.textContent = visibleCount;
-
-                if (visibleCount === 0) {
+                if (currentSearchTerm === '' && currentCategory === 'all') {
+                    searchResults.innerHTML = `共 <strong>${totalCards}</strong> 篇文章`;
+                } else if (visibleCount === 0) {
                     searchResults.innerHTML = '没有找到匹配的文章';
                 } else {
                     searchResults.innerHTML = `找到 <strong>${visibleCount}</strong> 篇文章`;
                 }
-            } else {
+            } else if (searchResults) {
                 searchResults.style.display = 'none';
             }
         }
@@ -2389,48 +4893,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
 
-            // 初始化语言
-            initLanguage();
+            // 初始化文章计数
+            setTimeout(() => { if(typeof filterArticles === 'function') filterArticles(); }, 50);
 
-            // 加载文章
-            loadArticles();
-        });
-    </script>
-
-        // ===== Service Worker Registration =====
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('[SW] Registered:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('[SW] Registration failed:', error);
-                    });
-            });
-        }
-
-        // ===== Performance: Lazy load images =====
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            }, { rootMargin: '50px' });
-
-            document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-    </script>
-</body>
-</html>
+ 

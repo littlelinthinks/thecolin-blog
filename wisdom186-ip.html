@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>186智识 — 顶尖心智的工作与生活原则</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0D0D;
+    --paper: #F5F0E8;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --rust: #8B3A2A;
+    --sage: #3D5A4C;
+    --cream: #FAF7F2;
+    --mid: #6B6357;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', serif;
+    overflow-x: hidden;
+  }
+
+  /* ——— HERO ——— */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    background: var(--ink);
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    z-index: 3;
+  }
+
+  .brand-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--gold);
+    line-height: 0.85;
+    letter-spacing: -8px;
+    opacity: 0.4;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--paper);
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-subtitle-cn {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 40px;
+    letter-spacing: 6px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.75);
+    max-width: 380px;
+    margin-bottom: 48px;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 14px 32px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--paper);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    color: rgba(245,240,232,0.6);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245,240,232,0.3);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+  }
+
+  .btn-ghost:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 80px 100px;
+    position: relative;
+  }
+
+  .hero-right-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--mid);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .featured-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .featured-quote::before {
+    content: '"';
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    font-size: 100px;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .quote-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .author-dot {
+    width: 40px;
+    height: 40px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    flex-shrink: 0;
+  }
+
+  .author-info strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 1px;
+  }
+
+  .author-info span {
+    font-size: 12px;
+    color: var(--mid);
+    letter-spacing: 1px;
+  }
+
+  /* scroll indicator */
+  .scroll-line {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--mid);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+
+  .scroll-line::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--mid), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ——— STATS BAR ——— */
+  .stats-bar {
+    background: var(--ink);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .stat-item {
+    padding: 0 48px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ——— CONCEPT SECTION ——— */
+  .concept {
+    padding: 120px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .concept-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  .concept-title em {
+    color: var(--rust);
+    font-style: italic;
+  }
+
+  .concept-body p {
+    font-size: 16px;
+    line-height: 2.0;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+
+  .concept-body strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .concept-right {
+    padding-top: 20px;
+  }
+
+  /* The "Why" cards */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--ink);
+  }
+
+  .why-card {
+    background: var(--cream);
+    padding: 32px 28px;
+    transition: background 0.3s;
+  }
+
+  .why-card:hover {
+    background: var(--gold-light);
+  }
+
+  .why-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .why-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .why-card p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
+  /* ——— CATEGORIES ——— */
+  .categories {
+    background: var(--ink);
+    padding: 100px 80px;
+  }
+
+  .categories-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.2;
+  }
+
+  .cat-title span { color: var(--gold); }
+
+  .cat-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    max-width: 240px;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .cat-item {
+    background: var(--ink);
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .cat-item:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  .cat-emoji { font-size: 26px; display: block; margin-bottom: 10px; }
+  .cat-name {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  .cat-count {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ——— FEATURED LEADERS ——— */
+  .leaders {
+    padding: 100px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .leaders-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .leaders-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .leaders-sub {
+    font-size: 15px;
+    color: var(--mid);
+    letter-spacing: 2px;
+  }
+
+  .leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .leader-card {
+    background: var(--cream);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .leader-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .leader-card:hover::before { height: 100%; }
+  .leader-card:hover { background: white; }
+
+  .leader-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .leader-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .leader-name-cn {
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+
+  .leader-role {
+    font-size: 12px;
+    color: var(--sage);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .leader-principle {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.8;
+    font-style: italic;
+    border-left: 2px solid var(--gold-light);
+    padding-left: 14px;
+    margin-bottom: 16px;
+  }
+
+  .leader-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 10px;
+    background: rgba(61,90,76,0.1);
+    color: var(--sage);
+    letter-spacing: 1px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ——— IP STRATEGY ——— */
+  .strategy {
+    background: var(--paper);
+    padding: 100px 80px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .strategy-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .strategy-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .strategy-title span { color: var(--rust); font-style: italic; }
+
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .pipeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    z-index: 0;
+  }
+
+  .pipe-step {
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pipe-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    border: 2px solid var(--gold);
+    transition: all 0.3s;
+  }
+
+  .pipe-step:hover .pipe-circle {
+    background: var(--gold);
+    transform: scale(1.1);
+  }
+
+  .pipe-step h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .pipe-step p {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  /* ——— CONTENT FORMATS ——— */
+  .formats {
+    background: var(--cream);
+    padding: 100px 80px;
+  }
+
+  .formats-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .format-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 36px 28px;
+    background: white;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .format-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  }
+
+  .format-card.featured {
+    background: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .format-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .format-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+
+  .format-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .format-card.featured .format-name { color: var(--paper); }
+
+  .format-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
+  .format-card.featured .format-desc { color: rgba(245,240,232,0.6); }
+
+  .format-freq {
+    margin-top: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--sage);
+    letter-spacing: 2px;
+  }
+
+  .format-card.featured .format-freq { color: var(--gold); }
+
+  /* ——— NAME IDEAS ——— */
+  .names {
+    background: var(--ink);
+    padding: 100px 80px;
+  }
+
+  .names-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .names-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .names-sub {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+  }
+
+  .name-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .name-option {
+    background: #0D0D0D;
+    padding: 36px 32px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .name-option:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .name-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .name-cn {
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+  }
+
+  .name-concept {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 16px;
+  }
+
+  .name-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  /* ——— MONETIZATION ——— */
+  .monetize {
+    padding: 100px 80px;
+    background: var(--paper);
+  }
+
+  .monetize-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .monetize-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2px;
+    background: var(--ink);
+    margin-top: 60px;
+  }
+
+  .mono-card {
+    background: var(--cream);
+    padding: 40px 36px;
+    transition: all 0.3s;
+  }
+
+  .mono-card:hover { background: white; }
+
+  .mono-card.hero-card {
+    background: var(--sage);
+    grid-row: span 1;
+  }
+
+  .mono-tier {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  .mono-card.hero-card .mono-tier { color: rgba(255,255,255,0.5); }
+
+  .mono-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .mono-card.hero-card .mono-name { color: white; }
+
+  .mono-price {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--rust);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .mono-card.hero-card .mono-price { color: var(--gold-light); }
+
+  .mono-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.9;
+  }
+
+  .mono-card.hero-card .mono-desc { color: rgba(255,255,255,0.65); }
+
+  .mono-features {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .mono-features li {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .mono-card.hero-card .mono-features li { color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.08); }
+
+  .mono-features li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+  /* ——— FOOTER ——— */
+  footer {
+    background: var(--ink);
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .footer-mission {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    max-width: 360px;
+    line-height: 1.8;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .footer-socials a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+
+  .footer-socials a:hover { color: var(--gold); }
+
+  /* ——— ANIMATIONS ——— */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag { animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-title { animation: fadeUp 0.8s ease 0.4s both; }
+  .hero-subtitle-cn { animation: fadeUp 0.8s ease 0.6s both; }
+  .hero-desc { animation: fadeUp 0.8s ease 0.8s both; }
+  .cta-group { animation: fadeUp 0.8s ease 1.0s both; }
+  .featured-quote { animation: fadeUp 0.8s ease 0.6s both; }
+
+  /* ——— RESPONSIVE ——— */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 60px 40px; }
+    .hero-title { font-size: 48px; }
+    .concept { grid-template-columns: 1fr; padding: 60px 32px; }
+    .leaders-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: repeat(3, 1fr); }
+    .pipeline { grid-template-columns: 1fr 1fr; }
+    .formats-grid { grid-template-columns: 1fr 1fr; }
+    .name-options { grid-template-columns: 1fr; }
+    .monetize-grid { grid-template-columns: 1fr; }
+    .categories, .leaders, .strategy, .formats, .names, .monetize { padding: 60px 32px; }
+    footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 32px; }
+    .footer-socials { align-items: center; }
+    .stats-bar { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ——— HERO ——— -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="brand-num">186</div>
+    <div class="hero-tag">IP 品牌策划方案</div>
+    <h1 class="hero-title">The <span>186</span><br>Principles</h1>
+    <p class="hero-subtitle-cn">顶尖心智的工作与生活原则</p>
+    <p class="hero-desc">
+      我们系统整理全球 <strong style="color:var(--gold)">186 位</strong> 最具影响力的商业领袖、学者与实践家的第一手原则——不是成功学，不是励志口号，而是<strong style="color:var(--gold)">真正指导他们决策的底层逻辑</strong>。专为中文世界中渴望终身成长的人而生。
+    </p>
+    <div class="cta-group">
+      <a href="#concept" class="btn-primary">探索方案全貌</a>
+      <a href="#names" class="btn-ghost">查看IP命名方案</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-label">本周精选 · Ray Dalio</div>
+    <blockquote class="featured-quote">
+      痛苦加反思，等于进步。大多数人逃避痛苦，但痛苦才是成长的入口。
+    </blockquote>
+    <div class="quote-author">
+      <div class="author-dot">RD</div>
+      <div class="author-info">
+        <strong>Ray Dalio</strong>
+        <span>瑞·达利欧 · Bridgewater 创始人</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-line">SCROLL</div>
+</section>
+
+<!-- ——— STATS ——— -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">186</span><span class="stat-label">位顶尖人物</span></div>
+  <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">核心领域</span></div>
+  <div class="stat-item"><span class="stat-num">1000+</span><span class="stat-label">条具体原则</span></div>
+  <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">国籍背景</span></div>
+  <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">终身成长</span></div>
+</div>
+
+<!-- ——— CONCEPT ——— -->
+<section class="concept" id="concept">
+  <div class="concept-left">
+    <div class="section-eyebrow">IP 核心概念</div>
+    <h2 class="concept-title">为什么是<br><em>原则</em>，<br>而不是<br>故事？</h2>
+  </div>
+
+  <div class="concept-right">
+    <div class="concept-body">
+      <p>市面上关于成功人士的内容 99% 是<strong>传记故事</strong>——讲他们经历了什么，遇到了谁，运气多好。这些固然好看，却很难被普通人复用。</p>
+      <p>我们做的是另一件事：<strong>提炼他们如何思考、如何做决策、如何管理自己与他人的底层原则</strong>。这些原则像操作系统一样，可以被安装进任何人的头脑。</p>
+      <p>Ray Dalio 的「激进透明」，Munger 的「逆向思维」，Bezos 的「两张披萨原则」，Naval 的「杠杆哲学」……每一条背后都有<strong>具体情境、操作步骤与反面案例</strong>。</p>
+      <p>中国有数千万渴望成长的人，他们需要的不是翻译版的鸡汤，而是<strong>真正可以内化、实操的智识系统</strong>。这就是这个IP存在的理由。</p>
+    </div>
+
+    <div class="why-grid" style="margin-top: 32px;">
+      <div class="why-card">
+        <span class="why-icon">🔬</span>
+        <h4>来源严格</h4>
+        <p>只选有文字记录、演讲、访谈一手来源的原则，拒绝二手转述与道听途说</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🧩</span>
+        <h4>系统整理</h4>
+        <p>按领域、情景、适用人群分类，而非随机罗列，形成可检索的智识数据库</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌍</span>
+        <h4>东西方兼容</h4>
+        <p>包含查理芒格、Dalio等西方领袖，也纳入任正非、段永平等中国实践家视角</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <h4>直指行动</h4>
+        <p>每条原则配有"如何用"模块，从认知升级到具体行动，不止步于启发</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— CATEGORIES ——— -->
+<section class="categories" id="categories">
+  <div class="categories-inner">
+    <div class="categories-header">
+      <h2 class="cat-title">12个<br><span>核心领域</span></h2>
+      <p class="cat-note">横跨商业、投资、创造、人生哲学，覆盖终身成长者的核心关切</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-item">
+        <span class="cat-emoji">🧠</span>
+        <div class="cat-name">思维决策</div>
+        <span class="cat-count">28人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">💰</span>
+        <div class="cat-name">投资财富</div>
+        <span class="cat-count">24人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🏗️</span>
+        <div class="cat-name">创业建设</div>
+        <span class="cat-count">32人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">👥</span>
+        <div class="cat-name">领导力</div>
+        <span class="cat-count">21人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">📚</span>
+        <div class="cat-name">学习成长</div>
+        <span class="cat-count">18人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🎨</span>
+        <div class="cat-name">创造力</div>
+        <span class="cat-count">15人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🌱</span>
+        <div class="cat-name">身心健康</div>
+        <span class="cat-count">12人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🔗</span>
+        <div class="cat-name">关系网络</div>
+        <span class="cat-count">11人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">⚙️</span>
+        <div class="cat-name">执行系统</div>
+        <span class="cat-count">14人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🌐</span>
+        <div class="cat-name">科技未来</div>
+        <span class="cat-count">9人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">⚖️</span>
+        <div class="cat-name">人生哲学</div>
+        <span class="cat-count">13人</span>
+      </div>
+      <div class="cat-item">
+        <span class="cat-emoji">🎯</span>
+        <div class="cat-name">目标专注</div>
+        <span class="cat-count">16人</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— FEATURED LEADERS ——— -->
+<section class="leaders" id="leaders">
+  <div class="leaders-header">
+    <div class="section-eyebrow" style="justify-content:center">精选人物预览</div>
+    <h2 class="leaders-title">186 位心智样本</h2>
+    <p class="leaders-sub">商业领袖 · 投资大师 · 学术思想家 · 艺术实践家</p>
+  </div>
+  <div class="leaders-grid">
+
+    <div class="leader-card">
+      <div class="leader-num">#001</div>
+      <div class="leader-name">Charlie Munger</div>
+      <div class="leader-name-cn">查理·芒格</div>
+      <div class="leader-role">Berkshire Hathaway 副董事长</div>
+      <p class="leader-principle">把所有重大错误列成清单，然后努力避免它们。正向思考固然重要，但逆向思维能帮你躲开最大的坑。</p>
+      <div class="leader-tags">
+        <span class="tag">逆向思维</span>
+        <span class="tag">认知偏误</span>
+        <span class="tag">多元思维模型</span>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-num">#007</div>
+      <div class="leader-name">Naval Ravikant</div>
+      <div class="leader-name-cn">纳瓦尔·拉维坎特</div>
+      <div class="leader-role">AngelList 创始人 · 哲学投资人</div>
+      <p class="leader-principle">真正的财富来自于拥有「无法被替代的知识」与可被无限复制的杠杆——代码、媒体、资本，而非出售时间。</p>
+      <div class="leader-tags">
+        <span class="tag">财富哲学</span>
+        <span class="tag">杠杆思维</span>
+        <span class="tag">自由定义</span>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-num">#012</div>
+      <div class="leader-name">任正非</div>
+      <div class="leader-name-cn">Ren Zhengfei</div>
+      <div class="leader-role">华为创始人 · CEO</div>
+      <p class="leader-principle">方向要大致正确，组织必须充满活力。不要追求完美决策，要追求快速迭代与高速学习的能力。</p>
+      <div class="leader-tags">
+        <span class="tag">组织建设</span>
+        <span class="tag">战略模糊</span>
+        <span class="tag">危机管理</span>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-num">#019</div>
+      <div class="leader-name">Brené Brown</div>
+      <div class="leader-name-cn">布芮尼·布朗</div>
+      <div class="leader-role">德克萨斯大学 · 研究教授</div>
+      <p class="leader-principle">脆弱不是软弱，而是勇气的起点。那些敢于展示不确定、敢于冒风险的人，才是真正在从事创造性工作的人。</p>
+      <div class="leader-tags">
+        <span class="tag">脆弱领导力</span>
+        <span class="tag">羞耻研究</span>
+        <span class="tag">同理心</span>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-num">#034</div>
+      <div class="leader-name">段永平</div>
+      <div class="leader-name-cn">Duan Yongping</div>
+      <div class="leader-role">步步高 · OPPO · vivo 创始人</div>
+      <p class="leader-principle">做对的事情和把事情做对，同样重要。但如果只能选一个，先确保你在做对的事。停止做错的事比开始做对的事更难。</p>
+      <div class="leader-tags">
+        <span class="tag">本分哲学</span>
+        <span class="tag">长期主义</span>
+        <span class="tag">价值投资</span>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-num">#051</div>
+      <div class="leader-name">Adam Grant</div>
+      <div class="leader-name-cn">亚当·格兰特</div>
+      <div class="leader-role">宾大沃顿商学院 · 组织心理学教授</div>
+      <p class="leader-principle">最优秀的「给予者」不是燃烧自己、也不是只顾自己，而是懂得策略性地付出——在不损耗自己的前提下，帮助他人成功。</p>
+      <div class="leader-tags">
+        <span class="tag">给予者文化</span>
+        <span class="tag">组织行为</span>
+        <span class="tag">重新思考</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ——— IP STRATEGY ——— -->
+<section class="strategy" id="strategy">
+  <div class="strategy-inner">
+    <div class="section-eyebrow" style="justify-content:center; margin-bottom:16px">内容生产流程</div>
+    <h2 class="strategy-title">从原始素材到<span>可传播的智识</span></h2>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-circle">📖</div>
+        <h4>原始挖掘</h4>
+        <p>书籍、访谈、演讲、信件等一手资料全面扫描</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-circle">✂️</div>
+        <h4>原则提炼</h4>
+        <p>从叙事中萃取可操作的原则命题，去除冗余故事</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-circle">🔍</div>
+        <h4>情境还原</h4>
+        <p>补充原则的适用场景、反例与边界条件</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-circle">🌐</div>
+        <h4>本土化转译</h4>
+        <p>结合中国语境举例，打通跨文化认知障碍</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-circle">📡</div>
+        <h4>多平台分发</h4>
+        <p>适配微信、小红书、播客、知识星球等渠道</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— CONTENT FORMATS ——— -->
+<section class="formats" id="formats">
+  <div class="formats-inner">
+    <div class="section-eyebrow">内容产品矩阵</div>
+    <h2 class="concept-title" style="font-family:'Playfair Display',serif; font-size:48px; color:var(--ink); margin-bottom:0">多维内容触达，<br>深度与广度兼顾</h2>
+    <div class="formats-grid">
+      <div class="format-card featured">
+        <div class="format-num">CORE</div>
+        <span class="format-icon">🌟</span>
+        <div class="format-name">每周「原则卡片」</div>
+        <p class="format-desc">每周精选 1-2 位人物的核心原则，配以深度解读和实践建议，微信图文+小红书双平台分发</p>
+        <div class="format-freq">每周 · 免费</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">01</div>
+        <span class="format-icon">🎙️</span>
+        <div class="format-name">对话式播客</div>
+        <p class="format-desc">邀请在某领域深度践行该原则的中国实践者，聊「这条原则如何改变了我」</p>
+        <div class="format-freq">双周 · 免费</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">02</div>
+        <span class="format-icon">📊</span>
+        <div class="format-name">原则对比系列</div>
+        <p class="format-desc">横向对比：「巴菲特vs达利欧的风险管理哲学」「马斯克vs任正非的组织原则」</p>
+        <div class="format-freq">月刊 · 付费</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">03</div>
+        <span class="format-icon">📚</span>
+        <div class="format-name">年度智识手册</div>
+        <p class="format-desc">每年精选30位人物的100条原则，精装出版或电子书，作为品牌旗舰产品</p>
+        <div class="format-freq">年度 · 付费</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— IP NAMES ——— -->
+<section class="names" id="names">
+  <div class="names-inner">
+    <div class="section-eyebrow" style="justify-content:center; margin-bottom:16px; color:var(--gold)">IP 命名方案</div>
+    <h2 class="names-title">六个品牌名称方向</h2>
+    <p class="names-sub">各有定位，可根据创始人风格与目标人群选择</p>
+    <div class="name-options">
+      <div class="name-option">
+        <div class="name-tag">精英感 · 国际化</div>
+        <div class="name-main">The 186</div>
+        <div class="name-cn">一百八十六</div>
+        <p class="name-concept">以数字为核心符号，简洁有力，具有悬念感。「186」本身就是话题——为什么是这个数字？触发好奇心与传播动力。适合想打造国际化调性的创始人。</p>
+      </div>
+      <div class="name-option">
+        <div class="name-tag">哲学感 · 深度</div>
+        <div class="name-main">原则库</div>
+        <div class="name-cn">Principles Vault</div>
+        <p class="name-concept">直接点题，「库」字暗示系统性与积累感，像一个不断增长的智识宝库。适合定位知识付费、强调系统性的方向，容易在搜索中被找到。</p>
+      </div>
+      <div class="name-option">
+        <div class="name-tag">传承感 · 温度</div>
+        <div class="name-main">心智传记</div>
+        <div class="name-cn">Mind Biographies</div>
+        <p class="name-concept">不讲人生故事，只讲「心智的传记」——他们如何思考、如何决策。有温度，有故事性，同时保持了与普通传记的差异化，适合长文和播客。</p>
+      </div>
+      <div class="name-option">
+        <div class="name-tag">实践感 · 行动力</div>
+        <div class="name-main">活法研究所</div>
+        <div class="name-cn">Ways of Living Lab</div>
+        <p class="name-concept">「活法」二字点出工作与生活的结合，「研究所」赋予专业感与组织感。偏向社区化运营，适合打造有参与感的学习社群，吸引喜欢实践的用户。</p>
+      </div>
+      <div class="name-option">
+        <div class="name-tag">极简 · 记忆点强</div>
+        <div class="name-main">顶配脑</div>
+        <div class="name-cn">Peak Mind</div>
+        <p class="name-concept">口语化、有冲击力，「顶配」是当下流行词汇，传播性极强。适合在抖音、小红书等大众化平台快速起量，牺牲一定高端感换取更大覆盖面。</p>
+      </div>
+      <div class="name-option">
+        <div class="name-tag">文化感 · 差异化</div>
+        <div class="name-main">智识志</div>
+        <div class="name-cn">The Intelligence Record</div>
+        <p class="name-concept">「志」是中文传统文体（县志、山志），将西方顶尖智识用中国古典形式记录，文化碰撞本身就是差异化。适合想打造高端定位、目标知识分子群体的方向。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— MONETIZATION ——— -->
+<section class="monetize" id="monetize">
+  <div class="monetize-inner">
+    <div class="section-eyebrow">商业化路径</div>
+    <h2 class="strategy-title" style="font-family:'Playfair Display',serif; font-size:48px; text-align:center">从<span style="color:var(--rust);font-style:italic">流量</span>到<span style="color:var(--rust);font-style:italic">收入</span><br>的完整路径</h2>
+    <div class="monetize-grid">
+      <div class="mono-card hero-card">
+        <div class="mono-tier">PHASE 1 · 0-12个月</div>
+        <div class="mono-name">免费内容建立信任</div>
+        <div class="mono-price">先给后得</div>
+        <p class="mono-desc">在前12个月，核心任务只有一件事：成为「这个品类中最好的免费资源」。让每一个看过的人都觉得「这比我付费买的书还值」。</p>
+        <ul class="mono-features">
+          <li>每周原则卡片（微信公众号+小红书）</li>
+          <li>双周精选人物深度长文</li>
+          <li>月度原则对比系列（免费版）</li>
+          <li>建立早期粉丝社群（微信群）</li>
+          <li>目标：1万核心读者，5万泛关注</li>
+        </ul>
+      </div>
+
+      <div class="mono-card">
+        <div class="mono-tier">PHASE 2 · 知识付费</div>
+        <div class="mono-name">会员与课程</div>
+        <div class="mono-price">¥365/年</div>
+        <p class="mono-desc">针对核心用户推出付费会员，提供深度内容、原则数据库访问权限与社群连接。</p>
+        <ul class="mono-features">
+          <li>全库原则检索与下载</li>
+          <li>每月专题深度报告</li>
+          <li>小班讨论与问答</li>
+          <li>年度智识手册电子版</li>
+        </ul>
+      </div>
+
+      <div class="mono-card">
+        <div class="mono-tier">PHASE 3 · 多元变现</div>
+        <div class="mono-name">企业与出版</div>
+        <div class="mono-price">定制化</div>
+        <p class="mono-desc">随着品牌建立，向B端和出版市场扩展，形成多元收入矩阵。</p>
+        <ul class="mono-features">
+          <li>企业定制原则工作坊</li>
+          <li>实体书出版合作</li>
+          <li>IP授权与联名</li>
+          <li>演讲与咨询</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— FOOTER ——— -->
+<footer>
+  <div class="footer-brand">186 Principles</div>
+  <p class="footer-mission">「不是让你崇拜他们，而是让你站在他们的肩膀上。全球186位顶尖心智，为中文世界的终身学习者而整理。」</p>
+  <div class="footer-socials">
+    <a href="#">微信公众号</a>
+    <a href="#">小红书</a>
+    <a href="#">播客平台</a>
+    <a href="#">知识星球</a>
+  </div>
+</footer>
+
+</body>
+</html>
