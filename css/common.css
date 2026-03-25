@@ -1,11 +1,11 @@
 /**
- * COLIN Blog - Common CSS
- * Shared styles across all pages
+ * COLIN Blog - Performance Optimized Common CSS
+ * Shared styles across all pages - Minified and Optimized
  */
 
-/* ===== CSS 变量 ===== */
+/* ===== CSS Variables ===== */
 :root {
-    /* 浅色模式 */
+    /* Light mode */
     --bg-primary: #ffffff;
     --bg-secondary: #f5f5f5;
     --bg-card: #ffffff;
@@ -22,7 +22,7 @@
     --info: #3498db;
 }
 
-/* 深色模式 */
+/* Dark mode */
 [data-theme="dark"] {
     --bg-primary: #0a0a0a;
     --bg-secondary: #141414;
@@ -36,8 +36,8 @@
     --button-text-dark: #000000;
 }
 
-/* ===== 全局重置 ===== */
-* {
+/* ===== Global Reset ===== */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -45,6 +45,9 @@
 
 html {
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -53,9 +56,10 @@ body {
     background: var(--bg-primary);
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
 }
 
-/* ===== 导航栏样式 ===== */
+/* ===== Navigation ===== */
 .nav-header {
     background: rgba(255, 255, 255, 0.98);
     padding: 1rem 2rem;
@@ -82,17 +86,15 @@ body {
 }
 
 .nav-logo {
-    color: #000000;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
     font-family: Georgia, serif;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
-[data-theme="dark"] .nav-logo {
-    color: #ffffff;
-}
+.nav-logo:hover { opacity: 0.8; }
 
 .nav-links {
     display: flex;
@@ -101,20 +103,14 @@ body {
 }
 
 .nav-link {
-    color: #000000;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s ease;
     position: relative;
 }
 
-[data-theme="dark"] .nav-link {
-    color: #ffffff;
-}
-
-.nav-link:hover {
-    color: var(--text-secondary);
-}
+.nav-link:hover { color: var(--text-secondary); }
 
 .nav-link::after {
     content: '';
@@ -127,11 +123,9 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+.nav-link:hover::after { width: 100%; }
 
-/* ===== 主题切换按钮 ===== */
+/* ===== Theme Switcher ===== */
 .theme-switcher {
     width: 45px;
     height: 45px;
@@ -158,7 +152,7 @@ body {
     outline-offset: 2px;
 }
 
-/* ===== 语言切换按钮 ===== */
+/* ===== Language Switcher ===== */
 .lang-switcher {
     display: flex;
     gap: 0.5rem;
@@ -187,12 +181,7 @@ body {
     border-color: var(--accent);
 }
 
-.lang-btn:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* ===== 返回顶部按钮 ===== */
+/* ===== Back to Top ===== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -232,12 +221,7 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.back-to-top:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* ===== 可访问性辅助类 ===== */
+/* ===== Accessibility ===== */
 .visually-hidden {
     position: absolute !important;
     width: 1px !important;
@@ -250,13 +234,11 @@ body {
     border-width: 0 !important;
 }
 
-/* ===== 焦点可见性 ===== */
 *:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
 
-/* ===== 跳过导航链接 ===== */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -270,11 +252,9 @@ body {
     font-weight: 600;
 }
 
-.skip-link:focus {
-    top: 0;
-}
+.skip-link:focus { top: 0; }
 
-/* ===== 按钮通用样式 ===== */
+/* ===== Buttons ===== */
 button {
     font-family: inherit;
     cursor: pointer;
@@ -286,9 +266,7 @@ button:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-button:active {
-    transform: translateY(0);
-}
+button:active { transform: translateY(0); }
 
 button:disabled {
     opacity: 0.6;
@@ -296,7 +274,7 @@ button:disabled {
     transform: none;
 }
 
-/* ===== 链接通用样式 ===== */
+/* ===== Links ===== */
 a {
     color: inherit;
     text-decoration: none;
@@ -308,27 +286,39 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-/* ===== 响应式设计 ===== */
-@media (max-width: 768px) {
-    .nav-header {
-        padding: 1rem;
-    }
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .nav-header { padding: 1rem; }
     .nav-content {
         flex-direction: row;
         gap: 1rem;
     }
-
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
     }
-
-    .nav-link {
-        font-size: 0.85rem;
-    }
-
+    .nav-link { font-size: 0.85rem; }
     .back-to-top {
         width: 40px;
         height: 40px;
@@ -336,12 +326,10 @@ a:focus-visible {
         bottom: 20px;
         right: 20px;
     }
-
     .lang-btn {
         padding: 0.3rem 0.6rem;
         font-size: 0.75rem;
     }
-
     .theme-switcher {
         width: 40px;
         height: 40px;
@@ -349,48 +337,12 @@ a:focus-visible {
     }
 }
 
-/* ===== 动画效果 ===== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* ===== 打印样式 ===== */
+/* ===== Print ===== */
 @media print {
     .back-to-top,
     .theme-switcher,
     .lang-switcher,
-    .skip-link {
-        display: none !important;
-    }
+    .skip-link { display: none !important; }
 
     body {
         background: white;
@@ -398,11 +350,6 @@ a:focus-visible {
     }
 }
 
-/* ===== 深色模式适配 ===== */
-[data-theme="dark"] a:hover {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-[data-theme="dark"] .nav-link::after {
-    background: var(--text-primary);
-}
+/* ===== Dark Mode Overrides ===== */
+[data-theme="dark"] a:hover { color: rgba(255, 255, 255, 0.7); }
+[data-theme="dark"] .nav-link::after { background: var(--text-primary); }

@@ -7,7 +7,7 @@
     <meta name="keywords" content="深度思考,终身学习,个人成长,认知科学,思维模型">
     <meta name="author" content="Colin">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -25,20 +25,7 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
-
-    <!-- Google Fonts — 品牌字体升级 -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
-    <!-- Common CSS and JS -->
-    <link rel="canonical" href="https://thecolin.vip/">
-    <link rel="stylesheet" href="/css/common.css">
-    <script src="/js/common.js" defer></script>
-
+    
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
 
@@ -76,7 +63,92 @@
     </script>
 
     <title>COLIN - Explore Deep Thoughts</title>
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/common.css" as="style">
+    <link rel="preload" href="/css/home.css" as="style">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical CSS inline -->
     <style>
+/* Critical: CSS Variables & Reset */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-card: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --accent: #000000;
+    --accent-hover: #333333;
+    --border: #e5e5e5;
+    --button-bg-dark: #000000;
+    --button-text-dark: #ffffff;
+}
+[data-theme="dark"] {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-card: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #ffffff;
+    --accent-hover: #e0e0e0;
+    --border: #2a2a2a;
+    --button-bg-dark: #ffffff;
+    --button-text-dark: #000000;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.6;background:var(--bg-primary);color:var(--text-primary);transition:background-color .3s,color .3s;min-height:100vh}
+
+/* Critical: Navigation */
+.nav-header{background:rgba(255,255,255,.98);padding:1rem 2rem;position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+[data-theme="dark"] .nav-header{background:rgba(10,10,10,.98)}
+.nav-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{color:var(--text-primary);text-decoration:none;font-size:1.5rem;font-weight:bold;font-family:Georgia,serif}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-link{color:var(--text-primary);text-decoration:none;font-size:.95rem;transition:color .3s}
+
+/* Critical: Hero */
+.hero{margin-top:80px;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem}
+.hero-content{max-width:900px;z-index:1;animation:fadeInUp 1s ease-out}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-name{font-size:5rem;font-weight:900;margin-bottom:2rem;letter-spacing:8px;background:linear-gradient(135deg,#000,#666,#000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase}
+[data-theme="dark"] .hero-name{background:linear-gradient(135deg,#fff,#ccc,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1{font-size:4rem;font-weight:800;margin-bottom:1.5rem;line-height:1.2;letter-spacing:-2px}
+.hero .tagline{font-size:1.5rem;color:var(--text-secondary);margin-bottom:2rem;font-weight:300}
+
+/* Critical: Loading */
+.loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s,visibility .5s}
+.loading-screen.hidden{opacity:0;visibility:hidden}
+.loader{width:50px;height:50px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Critical: Responsive */
+@media(max-width:768px){
+    .hero-name{font-size:3rem;letter-spacing:4px}
+    .hero h1{font-size:2.5rem}
+    .hero .tagline{font-size:1.2rem}
+    .nav-links{gap:1rem}
+    .nav-header{padding:1rem}
+}
+
+    </style>
+
+    <!-- Async load non-critical CSS -->
+    <link rel="stylesheet" href="/css/common.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/home.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/common.css">
+        <link rel="stylesheet" href="/css/home.css">
+    </noscript>
+
+    <!-- Deferred styles original -->
         * {
             margin: 0;
             padding: 0;
@@ -323,18 +395,16 @@
             top: 100%;
             left: 0;
             background: var(--bg-card);
-            min-width: 200px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            min-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             border: 1px solid var(--border);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
-            transition: all 0.2s ease;
-            padding: 8px 0;
-            z-index: 99999;
-            list-style: none;
-            margin: 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1000;
         }
 
         .nav-dropdown:hover .dropdown-menu {
@@ -350,12 +420,10 @@
         .dropdown-section > a {
             font-weight: 600;
             color: var(--text-primary);
-            padding: 10px 16px;
+            padding: 0.7rem 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
-            border-radius: 8px;
-            margin: 0 8px;
+            gap: 0.5rem;
         }
 
         .dropdown-submenu {
@@ -363,18 +431,16 @@
             left: 100%;
             top: 0;
             background: var(--bg-card);
-            min-width: 180px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             border: 1px solid var(--border);
             opacity: 0;
             visibility: hidden;
             transform: translateX(-10px);
-            transition: all 0.2s ease;
-            padding: 8px 0;
-            z-index: 100000;
-            list-style: none;
-            margin: 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1001;
         }
 
         .dropdown-section:hover .dropdown-submenu {
@@ -385,30 +451,24 @@
 
         .dropdown-submenu a {
             display: block;
-            padding: 8px 16px;
+            padding: 0.5rem 1rem;
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.2s;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            margin: 0 8px;
+            font-size: 0.85rem;
         }
 
         .dropdown-menu li {
-            list-style: none !important;
-            margin: 0;
-            padding: 0;
+            list-style: none;
         }
 
         .dropdown-menu > li > a:not(.dropdown-submenu a) {
             display: block;
-            padding: 10px 16px;
+            padding: 0.6rem 1rem;
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.2s;
             font-size: 0.9rem;
-            border-radius: 8px;
-            margin: 0 8px;
         }
 
         .dropdown-menu a:hover {
@@ -2017,22 +2077,6 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border);
             animation: modalSlideIn 0.3s ease;
-            z-index: 10001;
-        }
-        
-        /* 确保按钮可点击 */
-        .coffee-modal .currency-btn,
-        .coffee-modal .amount-btn,
-        .coffee-modal .payment-btn {
-            cursor: pointer;
-            pointer-events: auto;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-        
-        .coffee-modal .amount-btn:active,
-        .coffee-modal .payment-btn:active {
-            transform: scale(0.98);
         }
 
         @keyframes modalSlideIn {
@@ -2492,236 +2536,19 @@
         .load-more-btn.loading::after {
             content: '...';
         }
-    
-        /* ===== 视觉升级 — 品牌字体 & 细节优化 ===== */
-
-        /* 品牌 Logo 字体 */
-        .logo, .nav-logo {
-            font-family: 'Playfair Display', Georgia, serif !important;
-            letter-spacing: -0.5px;
-        }
-
-        /* Hero 标题字体升级 */
-        .hero h1 {
-            font-family: 'Playfair Display', Georgia, serif !important;
-            font-weight: 900 !important;
-            letter-spacing: -1px;
-            line-height: 1.1 !important;
-        }
-
-        .hero-name {
-            font-family: 'Playfair Display', Georgia, serif !important;
-            letter-spacing: 4px;
-        }
-
-        /* 文章标题字体升级 */
-        .article-title {
-            font-family: 'Noto Serif SC', 'PingFang SC', serif !important;
-            font-weight: 700 !important;
-            line-height: 1.5 !important;
-        }
-
-        /* 章节标题 */
-        .section-title, .blog-title {
-            font-family: 'Playfair Display', Georgia, serif !important;
-        }
-
-        /* 文章卡片升级 */
-        .article-card {
-            border-radius: 0 !important;
-            border: 1px solid var(--border) !important;
-            border-top: 3px solid transparent !important;
-            transition: border-top-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-
-        .article-card:hover {
-            border-top-color: var(--accent) !important;
-            transform: translateY(-4px) !important;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
-        }
-
-        [data-theme="dark"] .article-card:hover {
-            box-shadow: 0 12px 32px rgba(0,0,0,0.4) !important;
-        }
-
-        /* 文章分类标签升级 */
-        .article-category {
-            font-family: 'Space Mono', monospace !important;
-            font-size: 0.7rem !important;
-            letter-spacing: 2px !important;
-            text-transform: uppercase !important;
-            padding: 3px 10px !important;
-            background: var(--bg-secondary) !important;
-            border-radius: 0 !important;
-        }
-
-        /* 阅读全文按钮升级 */
-        .read-more {
-            font-family: 'Space Mono', monospace !important;
-            font-size: 0.8rem !important;
-            letter-spacing: 1px !important;
-            border-bottom: 1px solid var(--accent) !important;
-            padding-bottom: 1px !important;
-            text-decoration: none !important;
-            transition: letter-spacing 0.3s ease !important;
-        }
-
-        .read-more:hover {
-            letter-spacing: 3px !important;
-        }
-
-        /* 资源卡片升级 */
-        .resource-card {
-            border-radius: 0 !important;
-            border-left: 3px solid transparent !important;
-            transition: border-left-color 0.3s, transform 0.3s !important;
-        }
-
-        .resource-card:hover {
-            border-left-color: var(--accent) !important;
-            transform: translateX(4px) !important;
-        }
-
-        /* 导航字体升级 */
-        .nav-links a {
-            font-size: 0.9rem !important;
-            letter-spacing: 0.3px !important;
-        }
-
-        /* Hero tagline */
-        .hero .tagline {
-            font-family: 'Space Mono', monospace !important;
-            font-size: 0.85rem !important;
-            letter-spacing: 3px !important;
-            opacity: 0.7;
-        }
-
-        /* 筛选按钮升级 */
-        .filter-btn {
-            border-radius: 0 !important;
-            font-family: 'Space Mono', monospace !important;
-            font-size: 0.75rem !important;
-            letter-spacing: 1px !important;
-        }
-
-        /* About 区域标题 */
-        .about-content h2 {
-            font-family: 'Playfair Display', Georgia, serif !important;
-            font-size: 2.2rem !important;
-        }
-
-        /* Footer 升级 */
-        footer {
-            border-top: 3px solid var(--border) !important;
-        }
-
-        /* 搜索结果数量提示 */
-        #searchResults {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            padding: 8px 0;
-            color: var(--text-secondary);
-        }
-
-        
-        /* ===== Mobile Hamburger Nav ===== */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            border: none;
-            background: transparent;
-            z-index: 1100;
-            flex-shrink: 0;
-        }
-        .hamburger span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        @media (max-width: 900px) {
-            .hamburger { display: flex !important; }
-
-            .nav-right ul.nav-links {
-                display: none !important;
-                position: fixed;
-                top: 64px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: var(--bg-primary);
-                border-top: 1px solid var(--border);
-                flex-direction: column !important;
-                gap: 0 !important;
-                padding: 0.5rem 0 2rem;
-                z-index: 998;
-                overflow-y: auto;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-            }
-            .nav-right ul.nav-links.mobile-open {
-                display: flex !important;
-            }
-            .nav-right ul.nav-links > li {
-                width: 100%;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-right ul.nav-links > li > a {
-                display: block !important;
-                padding: 1rem 2rem !important;
-                font-size: 1rem !important;
-            }
-            /* Dropdown stays open on mobile */
-            .nav-right ul.nav-links .dropdown-menu {
-                position: static !important;
-                box-shadow: none !important;
-                border: none !important;
-                background: var(--bg-secondary);
-                opacity: 1 !important;
-                visibility: visible !important;
-                transform: none !important;
-                display: block !important;
-                pointer-events: auto !important;
-            }
-            .nav-right ul.nav-links .dropdown-menu li a {
-                padding: 0.75rem 3rem !important;
-                font-size: 0.9rem !important;
-                color: var(--text-secondary) !important;
-            }
-            .dropdown-arrow { display: none !important; }
-
-            /* Hide lang switcher on mobile to save space */
-            .lang-switcher { display: none !important; }
-
-            /* Hero mobile */
-            .hero-content { padding: 80px 20px 40px !important; }
-            .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
-        }
-
-        </style>
+    </style>
 </head>
-<a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
-    <!-- 加载屏幕已禁用（调试） -->
-    <!-- <div class="loading-screen">
+    <!-- 加载屏幕 -->
+    <div class="loading-screen">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- 阅读进度条 -->
     <div class="reading-progress"></div>
 
     <!-- 返回顶部按钮 -->
-    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <!-- Toast通知 -->
     <div class="toast"></div>
@@ -2729,7 +2556,7 @@
     <!-- 搜索模态框 -->
     <div class="search-modal">
         <div class="search-box">
-            <button type="button" class="close-search">×</button>
+            <button class="close-search">×</button>
             <input type="text" class="search-input" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles...">
             <div class="search-results"></div>
         </div>
@@ -2738,7 +2565,7 @@
     <!-- 公众号二维码弹窗 -->
     <div class="wechat-qr-modal" id="wechatQrModal">
         <div class="wechat-qr-content">
-            <button type="button" class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
+            <button class="coffee-modal-close" onclick="closeWechatQrModal()">×</button>
             <h3>💚 关注公众号</h3>
             <p data-zh="扫描二维码关注「小Lin思考」" data-en="Scan QR code to follow \"小Lin思考\"">扫描二维码关注「小Lin思考」</p>
             <div class="wechat-qr-image" id="wechatQrImage">
@@ -2753,17 +2580,17 @@
     <!-- 打赏弹窗 -->
     <div class="coffee-modal" id="coffeeModal">
         <div class="coffee-modal-content">
-            <button type="button" class="coffee-modal-close" onclick="closeCoffeeModal()">×</button>
+            <button class="coffee-modal-close" onclick="closeCoffeeModal()">×</button>
             <h2 class="coffee-modal-title">
                 <span data-zh="☕ 请我喝杯美式" data-en="☕ Buy Me a Coffee">☕ 请我喝杯美式</span>
             </h2>
             <p class="coffee-modal-subtitle" data-zh="如果内容对你有帮助，支持一杯咖啡让我继续创作 😊" data-en="If you found this helpful, support me with a coffee 😊">如果内容对你有帮助，支持一杯咖啡让我继续创作 😊</p>
             
             <div class="currency-switcher">
-                <button type="button" class="currency-btn active" onclick="switchCurrency('CNY', event)">
+                <button class="currency-btn active" onclick="switchCurrency('CNY')">
                     <span data-zh="¥ 人民币" data-en="¥ CNY">¥ 人民币</span>
                 </button>
-                <button type="button" class="currency-btn" onclick="switchCurrency('USD', event)">
+                <button class="currency-btn" onclick="switchCurrency('USD')">
                     <span data-zh="$ 美元" data-en="$ USD">$ 美元</span>
                 </button>
             </div>
@@ -2825,12 +2652,12 @@
     </div>
 
     <!-- 导航栏 -->
-    <nav role="navigation">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo nav-logo">COLIN</a>
+            <a href="#" onclick="showHome(event)" class="logo">COLIN</a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+                    <li><a href="#" onclick="showHome(event)" data-zh="首页" data-en="Home">首页</a></li>
                     <li class="nav-dropdown">
                         <a href="#articles" data-zh="文章" data-en="Articles">
                             <span data-zh="文章" data-en="Articles">文章</span>
@@ -2845,40 +2672,72 @@
                         </ul>
                     </li>
                     <li class="nav-dropdown">
-                        <a href="products.html" data-zh="精选资源" data-en="Resources">
+                        <a href="#resources" data-zh="精选资源" data-en="Resources">
                             <span data-zh="精选资源" data-en="Resources">精选资源</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide">✍️ 写作指南</a></li>
-                            <li><a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning">🎯 目标规划</a></li>
-                            <li><a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models">🧠 思维模型</a></li>
-                            <li><a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods">📚 学习方法</a></li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=writing" data-zh="✍️ 写作指南" data-en="✍️ Writing Guide" style="font-weight: bold; color: var(--accent);">✍️ 写作指南</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📝 写作模板大全（¥49）" data-en="📝 Writing Templates (¥49)">📝 写作模板大全（¥49）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎯 爆款标题库（¥39）" data-en="🎯 Viral Title Library (¥39)">🎯 爆款标题库（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="📬 Newsletter指南（¥39）" data-en="📬 Newsletter Guide (¥39)">📬 Newsletter指南（¥39）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing-single" data-zh="🎨 Notion模板（¥29）" data-en="🎨 Notion Templates (¥29)">🎨 Notion模板（¥29）</a></li>
+                                    <li><a href="products.html?category=writing#payment-writing" data-zh="🔥 写作套装（¥99）" data-en="🔥 Writing Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 写作套装（¥99）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=goals" data-zh="🎯 目标规划" data-en="🎯 Goal Planning" style="font-weight: bold; color: var(--accent);">🎯 目标规划</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="🎯 Notion目标系统（¥49）" data-en="🎯 Notion Goal System (¥49)">🎯 Notion目标系统（¥49）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📊 年度规划模板（¥29）" data-en="📊 Annual Planning Template (¥29)">📊 年度规划模板（¥29）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals-single" data-zh="📈 Excel追踪表（¥19）" data-en="📈 Excel Tracker (¥19)">📈 Excel追踪表（¥19）</a></li>
+                                    <li><a href="products.html?category=goals#payment-goals" data-zh="🔥 目标套装（¥79）" data-en="🔥 Goal Bundle (¥79)" style="font-weight: bold; color: var(--accent);">🔥 目标套装（¥79）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=thinking" data-zh="🧠 思维模型" data-en="🧠 Mental Models" style="font-weight: bold; color: var(--accent);">🧠 思维模型</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🧠 第一性原理（¥39）" data-en="🧠 First Principles (¥39)">🧠 第一性原理（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🔄 逆向思维（¥39）" data-en="🔄 Inverse Thinking (¥39)">🔄 逆向思维（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="🌐 系统思考（¥49）" data-en="🌐 Systems Thinking (¥49)">🌐 系统思考（¥49）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking-single" data-zh="⚖️ 概率思维（¥39）" data-en="⚖️ Probabilistic Thinking (¥39)">⚖️ 概率思维（¥39）</a></li>
+                                    <li><a href="products.html?category=thinking#payment-thinking" data-zh="🔥 思维套装（¥89）" data-en="🔥 Thinking Bundle (¥89)" style="font-weight: bold; color: var(--accent);">🔥 思维套装（¥89）</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="products.html?category=learning" data-zh="📚 学习方法" data-en="📚 Learning Methods" style="font-weight: bold; color: var(--accent);">📚 学习方法</a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎓 费曼学习法（¥39）" data-en="🎓 Feynman Technique (¥39)">🎓 费曼学习法（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📅 间隔重复（¥39）" data-en="📅 Spaced Repetition (¥39)">📅 间隔重复（¥39）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="📖 深度阅读（¥49）" data-en="📖 Deep Reading (¥49)">📖 深度阅读（¥49）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning-single" data-zh="🎯 知识管理（¥49）" data-en="🎯 Knowledge Management (¥49)">🎯 知识管理（¥49）</a></li>
+                                    <li><a href="products.html?category=learning#payment-learning" data-zh="🔥 学习套装（¥99）" data-en="🔥 Learning Bundle (¥99)" style="font-weight: bold; color: var(--accent);">🔥 学习套装（¥99）</a></li>
+                                </ul>
+                            </li>
                             <li style="border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;">
                                 <a href="products.html#payment-complete" data-zh="🎉 完整套装（¥159）" data-en="🎉 Complete Bundle (¥159)" style="font-weight: bold; color: #ff6b6b;">🎉 完整套装（¥159）</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="wisdom.html" style="color:#C9A84C!important;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
                     <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
-                    <button type="button" class="search-btn">
+                    <button class="search-btn">
                         <span data-zh="🔍 搜索" data-en="🔍 Search">🔍 搜索</span>
                     </button>
                 </div>
                 <div class="lang-switcher">
-                    <button type="button" class="lang-btn active" data-lang="zh">中文</button>
-                    <button type="button" class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
-                <button type="button" class="theme-switcher" aria-label="Toggle theme">
+                <button class="theme-switcher" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
             </div>
         </div>
     </nav>
-
-    <main id="mainContent" role="main">
 
     <!-- 主页内容 -->
     <div class="home-page">
@@ -2886,7 +2745,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-name">COLIN</div>
-            <h1 style="white-space: pre-line;" data-zh="探索深邃思想&#10;创造有意义的人生" data-en="Explore Deep Thoughts&#10;Create A Meaningful Life">探索深邃思想<br>创造有意义的人生</h1>
+            <h1 data-zh="探索深邃思想<br>创造有意义的人生" data-en="Explore Deep Thoughts<br>Create A Meaningful Life">探索深邃思想<br>创造有意义的人生</h1>
             <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
             
             <!-- CTA按钮组 -->
@@ -2899,9 +2758,14 @@
                 </a>
             </div>
             
-            <!-- RSS订阅 -->
-            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem; opacity: 0.6; font-size: 0.85rem;">
+            <!-- RSS订阅 - 改为复制链接 -->
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
+            </div>
+            <!-- 邮箱订阅 -->
+            <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                <input type="email" id="subscribeEmail" placeholder="your@email.com" style="padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
+                <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 2rem; background: var(--accent); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap;" data-zh="订阅更新" data-en="Subscribe">订阅更新</button>
             </div>
         </div>
     </section>
@@ -2920,27 +2784,27 @@
             <!-- 搜索框 -->
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="搜索文章..." data-zh-placeholder="搜索文章..." data-en-placeholder="Search articles..." oninput="filterArticles()">
-                <button type="button" class="search-btn">🔍</button>
+                <button class="search-btn">🔍</button>
             </div>
 
             <!-- 分类筛选 -->
             <div class="category-filters">
-                <button type="button" class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
                     <span data-zh="全部" data-en="All">全部</span>
                 </button>
-                <button type="button" class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
+                <button class="filter-btn" data-category="thinking" onclick="filterByCategory('thinking')">
                     <span data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
                 </button>
-                <button type="button" class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
+                <button class="filter-btn" data-category="learning" onclick="filterByCategory('learning')">
                     <span data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
                 </button>
-                <button type="button" class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
+                <button class="filter-btn" data-category="writing" onclick="filterByCategory('writing')">
                     <span data-zh="写作技巧" data-en="Writing Skills">写作技巧</span>
                 </button>
-                <button type="button" class="filter-btn" data-category="life" onclick="filterByCategory('life')">
+                <button class="filter-btn" data-category="life" onclick="filterByCategory('life')">
                     <span data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
                 </button>
-                <button type="button" class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
+                <button class="filter-btn" data-category="productivity" onclick="filterByCategory('productivity')">
                     <span data-zh="效率提升" data-en="Productivity">效率提升</span>
                 </button>
             </div>
@@ -2952,128 +2816,124 @@
         </div>
 
         <div class="articles-grid" id="articlesGrid">
-            <!-- 文章将在此显示 -->
-        </div>
-        <!-- 空状态提示 -->
-        <div id="emptyState" style="text-align:center;padding:80px 20px;color:var(--text-secondary);">
-            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;opacity:0.5;">COMING SOON</p>
-            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;color:var(--text-primary);margin-bottom:1rem;">文章持续更新中</p>
-            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">订阅「小Lin思考」，第一时间收到新文章通知</p>
-            <a href="subscribe.html" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">免费订阅 →</a>
+            <article class="article-card" data-category="thinking" data-article-id="deep-thinking-information-age">
+                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                <div class="article-date" data-zh="2026年1月10日" data-en="January 10, 2026">2026年1月10日</div>
+                <h3 class="article-title" data-zh="如何在信息爆炸时代保持深度思考" data-en="How to Maintain Deep Thinking in the Information Age">如何在信息爆炸时代保持深度思考</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 5分钟阅读" data-en="📖 5 min read">📖 5分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？" data-en="In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?">在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="learning" data-article-id="lifelong-learning-cultivation">
+                <span class="article-category" data-zh="终身学习" data-en="Lifelong Learning">终身学习</span>
+                <div class="article-date" data-zh="2026年1月5日" data-en="January 5, 2026">2026年1月5日</div>
+                <h3 class="article-title" data-zh="终身学习者的自我修养" data-en="The Self-Cultivation of Lifelong Learners">终身学习者的自我修养</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 7分钟阅读" data-en="📖 7 min read">📖 7分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。" data-en="Learning isn't for exams—it's about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.">学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="productivity">
+                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
+                <div class="article-date" data-zh="2025年12月28日" data-en="December 28, 2025">2025年12月28日</div>
+                <h3 class="article-title" data-zh="注意力：21世纪最宝贵的资源" data-en="Attention: The Most Valuable Resource of the 21st Century">注意力：21世纪最宝贵的资源</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。" data-en="In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.">在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="life" data-article-id="anxiety-to-action">
+                <span class="article-category" data-zh="人生哲学" data-en="Life Philosophy">人生哲学</span>
+                <div class="article-date" data-zh="2025年12月20日" data-en="December 20, 2025">2025年12月20日</div>
+                <h3 class="article-title" data-zh="从焦虑到行动：目标设定的艺术" data-en="From Anxiety to Action: The Art of Goal Setting">从焦虑到行动：目标设定的艺术</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 8分钟阅读" data-en="📖 8 min read">📖 8分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。" data-en="Anxiety often stems from unclear or missing goals. Learn to set goals scientifically and transform anxiety into momentum for action.">焦虑往往源于目标的缺失或模糊。学会科学地设定目标，将焦虑转化为行动的动力。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="thinking">
+                <span class="article-category" data-zh="深度思考" data-en="Deep Thinking">深度思考</span>
+                <div class="article-date" data-zh="2025年12月15日" data-en="December 15, 2025">2025年12月15日</div>
+                <h3 class="article-title" data-zh="写作即思考：用文字塑造思想" data-en="Writing is Thinking: Shaping Thoughts with Words">写作即思考：用文字塑造思想</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 6分钟阅读" data-en="📖 6 min read">📖 6分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。" data-en="Writing is not just expression—it's a tool for thinking. Through writing, we clarify thoughts, discover blind spots, and deepen understanding.">写作不仅是表达，更是思考的工具。通过写作，我们得以理清思路，发现盲点，深化认知。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="productivity" data-article-id="digital-minimalism">
+                <span class="article-category" data-zh="效率提升" data-en="Productivity">效率提升</span>
+                <div class="article-date" data-zh="2025年12月8日" data-en="December 8, 2025">2025年12月8日</div>
+                <h3 class="article-title" data-zh="数字极简主义：在互联网时代找回自我" data-en="Digital Minimalism: Finding Yourself in the Internet Age">数字极简主义：在互联网时代找回自我</h3>
+                <div class="article-meta">
+                    <span class="read-time" data-zh="📖 9分钟阅读" data-en="📖 9 min read">📖 9分钟阅读</span>
+                    <span class="article-author">Colin</span>
+                </div>
+                <p class="article-excerpt" data-zh="我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。" data-en="We don't need to abandon technology—we need to use it more wisely. Digital minimalism helps you redefine your relationship with tech.">我们不需要抛弃科技，而是需要更聪明地使用它。数字极简主义帮助你重新定义与科技的关系。</p>
+                <a href="#" class="read-more" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                </div>
+            </article>
         </div>
 
         <!-- Load More Button -->
-        <div class="load-more-container" style="display:none;">
-            <button type="button" class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreArticles()">
                 <span data-zh="更多美文" data-en="Load More">更多美文</span>
             </button>
         </div>
     </section>
 
     <!-- 特色资源 -->
-
-    <!-- ===== 心智折叠 IP 入口 ===== -->
-    <section class="content-section" id="wisdom-banner" style="padding:0;margin:0;">
-        <div style="
-            background: linear-gradient(135deg, #0D0D0D 0%, #1a1408 40%, #0D0D0D 100%);
-            border-top: 1px solid rgba(201,168,76,0.15);
-            border-bottom: 1px solid rgba(201,168,76,0.15);
-            padding: 80px 60px;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Playfair Display', Georgia, serif;
-        ">
-            <!-- 装饰大字 -->
-            <div style="
-                position:absolute; top:-20px; right:40px;
-                font-size:180px; font-weight:900;
-                color:transparent;
-                -webkit-text-stroke: 1px rgba(201,168,76,0.08);
-                line-height:1; pointer-events:none;
-                font-family:Georgia,serif; letter-spacing:-8px;
-            " aria-hidden="true">186</div>
-
-            <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
-                <!-- 左侧文案 -->
-                <div>
-                    <div style="
-                        font-size:10px; letter-spacing:4px; text-transform:uppercase;
-                        color:#C9A84C; margin-bottom:20px;
-                        font-family:monospace;
-                        display:flex;align-items:center;gap:10px;
-                    ">
-                        <span style="width:20px;height:1px;background:#C9A84C;display:inline-block;"></span>
-                        小Lin思考 · 旗下IP
-                    </div>
-                    <h2 style="
-                        font-size:52px; font-weight:900; line-height:1.0;
-                        color:#F5F0E8; margin-bottom:12px;
-                    ">
-                        <span style="color:#C9A84C;font-style:italic;">心智</span>折叠
-                    </h2>
-                    <p style="font-size:14px;color:rgba(245,240,232,0.4);letter-spacing:4px;margin-bottom:28px;font-family:monospace;">
-                        MIND FOLDING · 186 PRINCIPLES
-                    </p>
-                    <p style="font-size:15px;line-height:2.0;color:rgba(245,240,232,0.6);max-width:420px;margin-bottom:36px;">
-                        系统整理全球 <strong style="color:#C9A84C;">186 位</strong> 最具影响力的商业领袖、学者与实践家的第一手原则——不是成功学，而是<strong style="color:#F5F0E8;">真正指导他们决策的底层逻辑</strong>。
-                    </p>
-                    <a href="wisdom.html" style="
-                        background:#C9A84C; color:#0D0D0D;
-                        padding:14px 36px;
-                        font-size:14px; font-weight:700; letter-spacing:2px;
-                        text-decoration:none; display:inline-block;
-                        transition:all 0.3s;
-                        font-family:-apple-system,sans-serif;
-                    " onmouseover="this.style.background='#F5F0E8'" onmouseout="this.style.background='#C9A84C'">
-                        探索全部 186 位人物 →
-                    </a>
-                </div>
-                <!-- 右侧人物卡片预览 -->
-                <div style="display:flex;flex-direction:column;gap:2px;">
-                    <div style="
-                        background:rgba(255,255,255,0.03);
-                        border:1px solid rgba(201,168,76,0.15);
-                        border-left:3px solid #C9A84C;
-                        padding:20px 22px;
-                        transition:background 0.3s;
-                    " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                        <div style="font-size:9px;color:#C9A84C;letter-spacing:2px;font-family:monospace;margin-bottom:8px;">#001 · 投资财富</div>
-                        <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">Charlie Munger</div>
-                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">查理·芒格</div>
-                        <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">把所有重大错误列成清单，然后努力避免它们。逆向思维能帮你躲开最大的坑。</p>
-                    </div>
-                    <div style="
-                        background:rgba(255,255,255,0.03);
-                        border:1px solid rgba(201,168,76,0.1);
-                        border-left:3px solid rgba(201,168,76,0.4);
-                        padding:20px 22px;
-                        transition:background 0.3s;
-                    " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                        <div style="font-size:9px;color:#C9A84C;letter-spacing:2px;font-family:monospace;margin-bottom:8px;">#034 · 长期主义</div>
-                        <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">段永平</div>
-                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">步步高 · OPPO · vivo 创始人</div>
-                        <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">停止做错的事，比开始做对的事更难，也更重要。</p>
-                    </div>
-                    <a href="wisdom.html" style="
-                        background:rgba(201,168,76,0.06);
-                        border:1px solid rgba(201,168,76,0.15);
-                        padding:16px 22px;
-                        text-align:center;
-                        font-size:12px;
-                        color:rgba(245,240,232,0.4);
-                        letter-spacing:2px;
-                        text-decoration:none;
-                        font-family:monospace;
-                        transition:all 0.3s;
-                        display:block;
-                    " onmouseover="this.style.color='#C9A84C';this.style.borderColor='rgba(201,168,76,0.35)'" onmouseout="this.style.color='rgba(245,240,232,0.4)';this.style.borderColor='rgba(201,168,76,0.15)'">
-                        还有 184 位人物等待探索 →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="content-section" id="resources">
         <div class="featured-resources">
             <h2 class="section-title" data-zh="精选资源" data-en="Featured Resources">精选资源</h2>
@@ -3110,21 +2970,10 @@
     </section>
 
     <!-- 关于部分 -->
-    
-    <!-- ===== 邮件订阅 CTA ===== -->
-    <section style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 20px;text-align:center;">
-        <div style="max-width:540px;margin:0 auto;">
-            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周一封" data-en="WEEKLY">每周一封</p>
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="订阅「小Lin思考」" data-en="Subscribe to Thinking">订阅「小Lin思考」</h2>
-            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。" data-en="One deep article per week on thinking, growth, and life. 1,200+ subscribers.">每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。</p>
-            <a href="subscribe.html" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
-        </div>
-    </section>
-
-<section class="content-section" id="about">
+    <section class="content-section" id="about">
         <div class="about-section">
             <div class="about-image has-photo">
-                <img src="thecolin.vip image.jpg" onerror="this.style.display='none'" alt="COLIN" loading="lazy">
+                <img src="thecolin.vip image.jpg" alt="COLIN" loading="lazy">
             </div>
             <div class="about-content">
                 <h2 data-zh="关于我" data-en="About Me">关于我</h2>
@@ -3133,7 +2982,7 @@
                 <p class="about-p3" data-zh="如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。" data-en="If you're interested in deep thinking, lifelong learning, and personal growth, subscribe to my newsletter and explore the depths of thought together.">如果你对深度思考、终身学习和个人成长感兴趣，欢迎订阅我的邮件，一起探索思想的深度。</p>
                 <div class="all-links">
                     <div class="social-links">
-                        <a href="https://x.com/littlelinthinks" target="_blank" rel="noopener noreferrer" class="social-link platform-link x">
+                        <a href="https://x.com/littlelinthinks" target="_blank" class="social-link platform-link x">
                             <img src="images/x平台logo.png" alt="X" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
                         <div class="social-link platform-link wechat" onclick="openWechatQrModal()">
@@ -3141,22 +2990,22 @@
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                             </svg>
                         </div>
-                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" rel="noopener noreferrer" class="social-link platform-link zhihu">
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" class="social-link platform-link zhihu">
                             <img src="images/知乎logo.png" alt="知乎" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" rel="noopener noreferrer" class="social-link platform-link jianshu">
+                        <a href="https://www.jianshu.com/u/a18e6436d62b" target="_blank" class="social-link platform-link jianshu">
                             <img src="images/简书logo.png" alt="简书" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" rel="noopener noreferrer" class="social-link platform-link toutiao">
+                        <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" class="social-link platform-link toutiao">
                             <img src="images/今日头条logo.png" alt="今日头条" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" rel="noopener noreferrer" class="social-link platform-link sspai">
+                        <a href="https://sspai.com/u/4ig9d7yl/updates" target="_blank" class="social-link platform-link sspai">
                             <img src="images/少数派logo.png" alt="少数派" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" rel="noopener noreferrer" class="social-link platform-link substack">
+                        <a href="https://substack.com/@thinkingandwriting?" target="_blank" class="social-link platform-link substack">
                             <img src="images/substack平台logo.png" alt="Substack" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="/cdn-cgi/l/email-protection#64080d10100801080d0a100c0d0a0f17240309050d084a070b09" class="social-link platform-link email">
+                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -3164,7 +3013,7 @@
                         </a>
                     </div>
                 </div>
-                <button type="button" class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
+                <button class="coffee-btn" onclick="openCoffeeModal()" style="margin-top: 1.5rem;">
                     <span>☕</span>
                     <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
                 </button>
@@ -3180,8 +3029,7 @@
             <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
             <span data-zh="（复制链接到RSS阅读器）" data-en="(Copy link to RSS reader)">（复制链接到RSS阅读器）</span>
         </p>
-    </main>
-</footer>
+    </footer>
     </div>
     <!-- 主页内容结束 -->
 
@@ -3214,7 +3062,7 @@
             </article>
 
             <div class="article-actions">
-                <button type="button" class="back-to-articles" onclick="showHome(event)">
+                <button class="back-to-articles" onclick="showHome(event)">
                     ← <span data-zh="返回文章列表" data-en="Back to Articles">返回文章列表</span>
                 </button>
                 <div class="article-tags">
@@ -3227,7 +3075,7 @@
             <div class="coffee-support">
                 <h3 data-zh="☕ 觉得内容有价值？" data-en="☕ Found this valuable?">☕ 觉得内容有价值？</h3>
                 <p data-zh="请我喝杯美式咖啡，让我保持清醒继续创作 😊" data-en="Buy me a coffee to keep me awake and creating 😊">请我喝杯美式咖啡，让我保持清醒继续创作 😊</p>
-                <button type="button" class="coffee-btn" onclick="openCoffeeModal()">
+                <button class="coffee-btn" onclick="openCoffeeModal()">
                     <span>☕</span>
                     <span data-zh="请我喝咖啡" data-en="Buy Me Coffee">请我喝咖啡</span>
                 </button>
@@ -3303,37 +3151,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-        // ===== 汉堡菜单（手机导航）=====
-        (function() {
-            const btn = document.getElementById('hamburgerBtn');
-            const nav = document.getElementById('mainNavLinks');
-            if (!btn || !nav) return;
-            btn.addEventListener('click', function() {
-                const isOpen = nav.classList.toggle('mobile-open');
-                btn.classList.toggle('active', isOpen);
-                btn.setAttribute('aria-expanded', String(isOpen));
-                document.body.style.overflow = isOpen ? 'hidden' : '';
-            });
-            nav.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', function() {
-                    nav.classList.remove('mobile-open');
-                    btn.classList.remove('active');
-                    btn.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-            // Close on resize to desktop
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 900) {
-                    nav.classList.remove('mobile-open');
-                    btn.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        })();
-
-        </script><script>
+    <script>
         // ===== 全局错误处理 =====
         window.onerror = function(message, source, lineno, colno, error) {
             console.error('Global error:', { message, source, lineno, colno, error });
@@ -3995,7 +3813,7 @@
                         <div style="font-size: 3rem; margin-bottom: 1rem;">❌</div>
                         <h3 style="margin-bottom: 1rem;">Failed to load article</h3>
                         <p style="color: var(--text-secondary);">Error: ${error.message}</p>
-                        <button type="button" onclick="showHome(event)" style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer;">
+                        <button onclick="showHome(event)" style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer;">
                             ← Back to Articles
                         </button>
                     </div>
@@ -4019,10 +3837,12 @@
             document.title = 'COLIN - Explore Deep Thoughts';
         }
 
-        // ===== 加载屏幕已禁用（调试用）=====
-        function hideLoadingScreen() {
-            // 已禁用
-        }
+        // ===== 加载屏幕 =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-screen').classList.add('hidden');
+            }, 500);
+        });
 
         // ===== 语言切换功能 =====
         function switchLanguage(lang) {
@@ -4430,12 +4250,12 @@
                     <span class="article-author">Colin</span>
                 </div>
                 <p class="article-excerpt">${currentLang === 'zh' ? article.excerpt : article.excerptEn}</p>
-                <a href="article.html?id=attention-21st-century" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
+                <a href="#" class="read-more" data-article-id="${article.id}">${currentLang === 'zh' ? '阅读全文 →' : 'Read More →'}</a>
                 <div class="share-buttons">
-                    <button type="button" class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
-                    <button type="button" class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
-                    <button type="button" class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
-                    <button type="button" class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
+                    <button class="share-btn" onclick="shareArticle('twitter')" title="分享到Twitter">𝕏</button>
+                    <button class="share-btn" onclick="shareArticle('facebook')" title="分享到Facebook">f</button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')" title="分享到LinkedIn">in</button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">🔗</button>
                 </div>
             `;
 
@@ -4546,7 +4366,55 @@
             }
         }
 
-        
+        // ===== 导航栏分类过滤功能 =====
+        function filterByCategory(category, event) {
+            if (event) event.preventDefault();
+
+            // 显示所有文章
+            const allCards = articlesGrid.querySelectorAll('.article-card');
+
+            // 重置visibleArticles
+            visibleArticles = 0;
+
+            if (category === 'all') {
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                visibleArticles = allCards.length;
+            } else {
+                allCards.forEach(card => {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                        visibleArticles++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // 重新初始化显示
+            if (visibleArticles > articlesPerPage) {
+                for (let i = articlesPerPage; i < allCards.length; i++) {
+                    if (allCards[i].style.display === 'block') {
+                        allCards[i].style.display = 'none';
+                    }
+                }
+                visibleArticles = Math.min(visibleArticles, articlesPerPage);
+                loadMoreBtn.style.display = 'flex';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+
+            // 重新添加动画效果
+            setTimeout(() => {
+                allCards.forEach(card => {
+                    if (card.style.display === 'block') {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }, 50);
+        }
 
         function loadMoreArticles() {
             const allCards = articlesGrid.querySelectorAll('.article-card');
@@ -4674,18 +4542,14 @@
             USD: '$'
         };
 
-        function switchCurrency(currency, event) {
+        function switchCurrency(currency) {
             currentCurrency = currency;
             
             // 更新按钮状态
             document.querySelectorAll('.currency-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            if (event && event.target) {
-                event.target.closest('.currency-btn').classList.add('active');
-            } else {
-                document.querySelector('.currency-btn').classList.add('active');
-            }
+            event.target.closest('.currency-btn').classList.add('active');
             
             // 更新所有金额显示
             const amountBtns = document.querySelectorAll('.amount-btn');
@@ -4781,24 +4645,20 @@
                 }
             });
 
-            // 显示文章数量（始终显示）
+            // 显示搜索结果数量
             const searchResults = document.getElementById('searchResults');
             const resultCount = document.getElementById('resultCount');
-            const totalCards = document.querySelectorAll('.article-card').length;
 
-            const emptyState = document.getElementById('emptyState');
-            if (emptyState) emptyState.style.display = totalCards === 0 ? 'block' : 'none';
-
-            if (searchResults && totalCards > 0) {
+            if (currentSearchTerm !== '' || currentCategory !== 'all') {
                 searchResults.style.display = 'block';
-                if (currentSearchTerm === '' && currentCategory === 'all') {
-                    searchResults.innerHTML = `共 <strong>${totalCards}</strong> 篇文章`;
-                } else if (visibleCount === 0) {
+                resultCount.textContent = visibleCount;
+
+                if (visibleCount === 0) {
                     searchResults.innerHTML = '没有找到匹配的文章';
                 } else {
                     searchResults.innerHTML = `找到 <strong>${visibleCount}</strong> 篇文章`;
                 }
-            } else if (searchResults) {
+            } else {
                 searchResults.style.display = 'none';
             }
         }
@@ -4825,12 +4685,7 @@
         }
 
         function openCoffeeModal() {
-            console.log('☕ Opening coffee modal...');
             const modal = document.getElementById('coffeeModal');
-            if (!modal) {
-                console.error('Coffee modal not found');
-                return;
-            }
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
@@ -4848,7 +4703,7 @@
             document.querySelector('.amount-btn').classList.add('selected');
             
             // 确保显示人民币金额
-            switchCurrency('CNY', null);
+            switchCurrency('CNY');
         }
 
         function closeCoffeeModal() {
@@ -4858,7 +4713,6 @@
         }
 
         function selectAmount(element, amountIndex) {
-            console.log('💰 Selecting amount:', amountIndex);
             document.querySelectorAll('.amount-btn').forEach(btn => {
                 btn.classList.remove('selected');
             });
@@ -4868,7 +4722,6 @@
         }
 
         function selectPayment(element, method) {
-            console.log('💳 Selecting payment:', method);
             document.querySelectorAll('.payment-btn').forEach(btn => {
                 btn.classList.remove('selected');
             });
@@ -4925,7 +4778,48 @@
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
 
-            // 初始化文章计数
-            setTimeout(() => { if(typeof filterArticles === 'function') filterArticles(); }, 50);
+            // 初始化语言
+            initLanguage();
 
- 
+            // 加载文章
+            loadArticles();
+        });
+    </script>
+
+        // ===== Service Worker Registration =====
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('[SW] Registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('[SW] Registration failed:', error);
+                    });
+            });
+        }
+
+        // ===== Performance: Lazy load images =====
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '50px' });
+
+            document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+    </script>
+</body>
+</html>

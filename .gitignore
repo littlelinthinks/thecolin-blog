@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Python
+*.py
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.log
+
+# Optimized images (temporary)
+images/*-optimized.*
+
+# Backup files
+*backup*
