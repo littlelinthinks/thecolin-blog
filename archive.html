@@ -597,7 +597,19 @@
             </button>
             <ul class="nav-links" id="mainNavLinks" style="display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;">
                 <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
-                <li><a href="archive.html" class="nav-link" data-zh="文章" data-en="Articles">文章</a></li>
+                <li class="nav-dropdown">
+                        <a href="archive.html" class="nav-link">
+                            <span>文章</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="archive.html">📚 文章归档</a></li>
+                            <li><a href="archive.html?category=life">小Lin记</a></li>
+                            <li><a href="archive.html?category=thinking">小Lin析</a></li>
+                            <li><a href="archive.html?category=reading">小Lin读</a></li>
+                            <li><a href="archive.html?category=history">小Lin说</a></li>
+                        </ul>
+                    </li>
                 <li class="nav-dropdown">
                     <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">
                         <span data-zh="精选资源" data-en="Resources">精选资源</span>
