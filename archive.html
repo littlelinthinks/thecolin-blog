@@ -664,15 +664,15 @@
 
             <div class="stats">
                 <div class="stat-card">
-                    <div class="number" id="totalArticles">0</div>
+                    <div class="number" id="totalArticles">—</div>
                     <div class="label" data-zh="文章总数" data-en="Total Articles">文章总数</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number" id="totalCategories">0</div>
+                    <div class="number" id="totalCategories">—</div>
                     <div class="label" data-zh="分类数量" data-en="Categories">分类数量</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number" id="totalReadTime">0</div>
+                    <div class="number" id="totalReadTime">—</div>
                     <div class="label" data-zh="总阅读时间" data-en="Total Read Time">总阅读时间</div>
                 </div>
             </div>
@@ -681,14 +681,20 @@
         <div class="archive-section">
             <h2 data-zh="📅 按日期归档" data-en="📅 Archive by Date">📅 按日期归档</h2>
             <div id="dateArchive" class="archive-list">
-                <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
+                <div style="text-align:center;padding:60px 20px;color:var(--text-secondary);">
+                    <p style="font-size:2rem;margin-bottom:1rem;">📝</p>
+                    <p style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;">文章持续更新中</p>
+                    <p style="font-size:0.9rem;">敬请期待，或<a href="subscribe.html" style="color:var(--accent);">订阅邮件</a>第一时间获取通知</p>
+                </div>
             </div>
         </div>
 
         <div class="archive-section">
             <h2 data-zh="🏷️ 按分类归档" data-en="🏷️ Archive by Category">🏷️ 按分类归档</h2>
             <div id="categoryArchive">
-                <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
+                <div style="text-align:center;padding:40px 20px;color:var(--text-secondary);">
+                    <p style="font-size:0.9rem;">分类归档将在文章发布后自动生成</p>
+                </div>
             </div>
         </div>
     </div>
@@ -698,6 +704,7 @@
         async function loadArticles() {
             try {
                 const response = await fetch('articles.json');
+                if (!response.ok) throw new Error('no articles yet');
                 const articles = await response.json();
 
                 if (articles.length === 0) {
@@ -777,10 +784,17 @@
                     </div>
                 `).join('');
             } catch (error) {
-                console.error('加载文章失败:', error);
-                const errorMsg = currentLang === 'zh' ? '加载失败' : 'Failed to load';
-                document.getElementById('dateArchive').innerHTML = `<div class="no-articles" data-zh="加载失败" data-en="Failed to load">${errorMsg}</div>`;
-                document.getElementById('categoryArchive').innerHTML = `<div class="no-articles" data-zh="加载失败" data-en="Failed to load">${errorMsg}</div>`;
+                // 暂无文章时显示友好提示（articles.json 不存在属正常情况）
+                document.getElementById('dateArchive').innerHTML = `
+                    <div style="text-align:center;padding:60px 20px;color:var(--text-secondary);">
+                        <p style="font-size:2rem;margin-bottom:1rem;">📝</p>
+                        <p style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;">文章持续更新中</p>
+                        <p style="font-size:0.9rem;">敬请期待，或<a href="subscribe.html" style="color:var(--accent);">订阅邮件</a>第一时间获取通知</p>
+                    </div>`;
+                document.getElementById('categoryArchive').innerHTML = '';
+                document.getElementById('totalArticles').textContent = '—';
+                document.getElementById('totalCategories').textContent = '—';
+                document.getElementById('totalReadTime').textContent = '—';
             }
         }
 
