@@ -4,10 +4,15 @@
   "installCommand": "echo 'No install needed'",
   "framework": null,
   "outputDirectory": ".",
-  "rewrites": [
+  "headers": [
     {
-      "source": "/:all*",
-      "destination": "/index.html"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'none';"
+        }
+      ]
     }
   ],
   "routes": [
