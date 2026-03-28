@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
-    <meta property="og:title" content="精选资源 | 小Lin思考">
+    <meta property="og:title" content="精选资源 — COLIN">
     <meta property="og:description" content="写作指南、目标规划、思维模型、学习方法。帮助终身学习者实现成长蜕变。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thecolin.vip/products">
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@littlelinthinks">
-    <meta name="twitter:title" content="精选资源 | 小Lin思考">
+    <meta name="twitter:title" content="精选资源 — COLIN">
     <meta name="twitter:description" content="写作指南、目标规划、思维模型、学习方法。帮助终身学习者实现成长蜕变。">
     <meta name="twitter:image" content="https://thecolin.vip/images/og-image.jpg">
     <link rel="canonical" href="https://thecolin.vip/products.html">
@@ -61,7 +61,7 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='72' font-family='Georgia' font-size='52' fill='%23C9A84C' text-anchor='middle'>思</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
 
     <style>
         * {
@@ -1085,92 +1085,76 @@
             padding: 0;
         }
 
-        nav > div > ul > li > a {
-            font-size: 0.95rem;
+        /* ===== 导航下拉菜单 - 修复版 ===== */
+        .nav-header {
+            height: 64px;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
         }
-
-        nav > div > ul > li > .dropdown-arrow {
-            font-size: 0.6rem;
-            margin-left: 0.3rem;
-            transition: transform 0.3s;
+        .nav-logo-main {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+        .dropdown-arrow {
+            font-size: 0.55rem;
+            margin-left: 4px;
+            opacity: 0.5;
             display: inline-block;
         }
-
-        nav > div > ul > li:hover > .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        nav .nav-dropdown > ul,
-        nav ul li > ul {
+        .dropdown-menu {
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: calc(100% + 8px);
+            left: -12px;
             background: var(--bg-card);
-            min-width: 200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 190px;
+            list-style: none;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            z-index: 1000;
-            list-style: none;
+            transform: translateY(4px);
+            transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            z-index: 200;
             margin: 0;
         }
-
-        nav .nav-dropdown:hover > ul,
-        nav ul li:hover > ul {
+        [data-theme="dark"] .dropdown-menu {
+            background: #1a1a1a;
+            border-color: #2a2a2a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown:hover > .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-
-        nav .nav-dropdown > ul > li,
-        nav ul li > ul > li {
-            position: relative;
-        }
-
-        nav .nav-dropdown > ul > li > a,
-        nav ul li > ul > li > a {
+        .dropdown-menu > li > a {
             display: block;
-            padding: 0.6rem 1rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-
-        nav .nav-dropdown > ul > li > a:hover,
-        nav ul li > ul > li > a:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding-left: 1.3rem;
-        }
-
-        /* 二级子菜单 */
-        nav .nav-dropdown > ul > li > ul,
-        nav ul li > ul > li > ul {
-            position: absolute;
-            left: 100%;
-            top: 0;
-            min-width: 200px;
-            transform: translateX(-10px);
-            z-index: 1001;
-            padding: 0;
-        }
-
-        nav .nav-dropdown > ul > li:hover > ul,
-        nav ul li > ul > li:hover > ul {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        nav .nav-dropdown > ul > li > ul > li > a,
-        nav ul li > ul > li > ul > li > a {
+            padding: 9px 20px;
             font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+        .dropdown-menu > li > a:hover {
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+        [data-theme="dark"] .dropdown-menu > li > a {
+            color: #a0a0a0;
+        }
+        [data-theme="dark"] .dropdown-menu > li > a:hover {
+            color: #fff;
+            background: #222;
         }
 
         /* 深色模式适配 */
@@ -1524,8 +1508,8 @@
     <!-- 导航栏 -->
     <nav class="nav-header" role="navigation" aria-label="主导航">
     <div class="nav-content">
-        <a href="index.html" class="nav-logo-wrap" style="text-decoration:none;display:flex;flex-direction:column;line-height:1.25;gap:1px;">
-            <span class="nav-logo-main" style="font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);letter-spacing:1px;">小Lin思考</span>
+        <a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;line-height:1.25;gap:1px;">
+            <span class="nav-logo-main">小Lin思考</span>
             <span style="font-size:0.62rem;color:#C9A84C;letter-spacing:3px;font-family:'Noto Serif SC',Georgia,serif;">道 · 术 · 器 认知体系</span>
         </a>
         <div class="nav-right" style="display:flex;align-items:center;gap:1.5rem;">
@@ -1555,8 +1539,8 @@
                 <li><a href="index.html#about" class="nav-link" data-zh="关于小Lin" data-en="About">关于小Lin</a></li>
             </ul>
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
-                <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
             <button class="theme-switcher" aria-label="切换主题">
                 <span class="theme-icon">🌙</span>
