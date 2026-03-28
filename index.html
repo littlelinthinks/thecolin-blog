@@ -590,7 +590,7 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: var(--bg-secondary);
+            background: #000;
             border: 3px solid var(--gold);
             display: flex;
             align-items: center;
@@ -750,22 +750,9 @@
             <ul class="nav-links" id="mainNavLinks">
                 <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
                 <li><a href="archive.html" class="nav-link" data-zh="思维库" data-en="Library">思维库</a></li>
-                <li class="nav-dropdown">
-                    <a href="products.html" class="nav-link" data-zh="精选资源" data-en="Resources">
-                        <span>精选资源</span><span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="products.html?category=writing">✍️ 写作指南</a></li>
-                        <li><a href="products.html?category=goals">🎯 目标规划</a></li>
-                        <li><a href="products.html?category=thinking">🧠 思维模型</a></li>
-                        <li><a href="products.html?category=learning">📚 学习方法</a></li>
-                        <li style="border-top:1px solid var(--border);margin-top:6px;padding-top:6px;">
-                            <a href="products.html#payment-complete" style="color:#ff6b6b;font-weight:bold;">🎉 完整套装（¥159）</a>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="products.html" class="nav-link" data-zh="知识产品" data-en="Products">知识产品</a></li>
                 <li><a href="wisdom.html" class="nav-link gold" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
-                <li><a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a></li>
+                <li><a href="subscribe.html" class="nav-link" data-zh="关注公众号" data-en="Follow">关注公众号</a></li>
                 <li><a href="#about" class="nav-link" data-zh="关于小Lin" data-en="About">关于小Lin</a></li>
             </ul>
             <div class="lang-switcher">
@@ -957,7 +944,7 @@
         <div class="blog-placeholder-icon">✍️</div>
         <h3 data-zh="文章持续更新中" data-en="Articles Coming Soon">文章持续更新中</h3>
         <p data-zh="关注「小Lin思考」公众号，第一时间收到新文章通知。" data-en="Follow 小Lin思考 on WeChat for updates.">关注「小Lin思考」公众号，第一时间收到新文章通知。</p>
-        <a href="subscribe.html" class="btn-primary" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
+        <a href="subscribe.html" class="btn-primary" data-zh="关注公众号 →" data-en="Follow WeChat →">关注公众号 →</a>
     </div>
 </section>
 
@@ -970,12 +957,12 @@
     <div class="about-inner">
         <div>
             <div class="about-avatar">
-                <img src="images/avatar.jpg" alt="小Lin" onerror="this.style.display='none';this.parentElement.innerHTML='🧠';">
+                <img src="images/avatar.jpg" alt="小Lin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentElement.style.background='#000';">
             </div>
         </div>
         <div>
             <div class="about-name" data-zh="小Lin" data-en="Little Lin">小Lin</div>
-            <div class="about-role">外贸业务员 · 备孕准爸爸 · 终身学习者</div>
+            <div class="about-role" data-zh="外贸业务员 · 备孕准爸爸 · 终身学习者" data-en="Foreign Trade · Expectant Father · Lifelong Learner">外贸业务员 · 备孕准爸爸 · 终身学习者</div>
             <p class="about-text" data-zh="我是一个普通的外贸打工人，喜欢读书，喜欢写作，正在备孕，正在构建自己的人生系统。&#10;&#10;我用道·术·器框架，把东西方顶级智慧重新激活——天道人性、资治通鉴、西方经典、精英教育——帮更多普通人从「努力却困惑」走向「清醒且笃定」。&#10;&#10;这是小Lin思考的官方网站，也是心智折叠186位顶尖人物原则库的所在地。" data-en="I am an ordinary foreign trade worker who loves reading and writing. I use the Dao-Shu-Qi framework to reactivate the wisdom of the East and West, helping ordinary people move from 'working hard but confused' to 'clear and determined'.">
                 我是一个普通的外贸打工人，喜欢读书，喜欢写作，正在备孕，正在构建自己的人生系统。<br><br>
                 我用道·术·器框架，把东西方顶级智慧重新激活，帮更多普通人从「努力却困惑」走向「清醒且笃定」。
@@ -995,7 +982,7 @@
     <div class="subscribe-inner">
         <h2 data-zh="订阅「小Lin思考」" data-en="Subscribe to 小Lin思考">订阅「小Lin思考」</h2>
         <p data-zh="每月四篇深度文章，关于天道·历史·西方经典·元认知。已有 1,200+ 读者订阅。" data-en="4 articles per month on Dao, History, Western Classics, and Metacognition. 1,200+ subscribers.">每月四篇深度文章，关于天道·历史·西方经典·元认知。已有 1,200+ 读者订阅。</p>
-        <a href="subscribe.html" class="btn-primary" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
+        <a href="subscribe.html" class="btn-primary" data-zh="关注公众号 →" data-en="Follow WeChat →">关注公众号 →</a>
     </div>
 </section>
 
@@ -1011,7 +998,7 @@
         <div class="footer-links">
             <a href="archive.html" data-zh="思维库" data-en="Library">思维库</a>
             <a href="wisdom.html" data-zh="心智折叠" data-en="Mind Folding">心智折叠</a>
-            <a href="products.html" data-zh="精选资源" data-en="Resources">精选资源</a>
+            <a href="products.html" data-zh="知识产品" data-en="Products">知识产品</a>
             <a href="subscribe.html" data-zh="订阅" data-en="Subscribe">订阅</a>
             <a href="#about" data-zh="关于小Lin" data-en="About">关于小Lin</a>
         </div>
