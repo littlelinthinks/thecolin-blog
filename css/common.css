@@ -1,0 +1,6 @@
+/* 小Lin思考 · 通用CSS */
+:root{--bg-primary:#fff;--bg-secondary:#f5f5f5;--bg-card:#fff;--text-primary:#000;--text-secondary:#666;--text-muted:#999;--border:#e5e5e5;--gold:#C9A84C;--button-bg-dark:#000;--button-text-dark:#fff;--accent:#000;--accent-hover:#333;}
+[data-theme="dark"]{--bg-primary:#0a0a0a;--bg-secondary:#141414;--bg-card:#1a1a1a;--text-primary:#fff;--text-secondary:#a0a0a0;--text-muted:#555;--border:#2a2a2a;--button-bg-dark:#fff;--button-text-dark:#000;--accent:#fff;--accent-hover:#e0e0e0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;}
