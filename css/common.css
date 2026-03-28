@@ -4,3 +4,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;}
+
+/* ===== 双语切换核心CSS ===== */
+[data-lang="zh"] .en { display: none !important; }
+[data-lang="en"] .zh { display: none !important; }
