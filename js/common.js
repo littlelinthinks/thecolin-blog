@@ -1,48 +1,42 @@
 (function(){
   var theme = localStorage.getItem('preferred-theme') || 'light';
   var lang = localStorage.getItem('preferred-lang') || 'zh';
+  
+  // 立即设置属性，CSS会根据这个属性显示正确语言
   document.documentElement.setAttribute('data-theme', theme);
   document.documentElement.setAttribute('data-lang', lang);
-  if(lang === 'en') document.documentElement.lang = 'en';
   
-  window._applyLang = function(l){
-    document.querySelectorAll('[data-zh][data-en]').forEach(function(el){
-      var txt = el.getAttribute('data-' + l);
-      if(!txt) return;
-      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){
-        var ph = el.getAttribute('data-' + l + '-placeholder');
-        if(ph) el.placeholder = ph;
-      } else {
-        el.textContent = txt;
-      }
-    });
-    document.documentElement.lang = l==='zh' ? 'zh-CN' : 'en';
-    localStorage.setItem('preferred-lang', l);
-  };
-  
-  window._initUI = function(theme, lang){
+  document.addEventListener('DOMContentLoaded', function(){
+    // 主题图标
     var icon = document.querySelector('.theme-icon');
-    if(icon) icon.textContent = theme==='dark' ? '🌙' : '☀️';
+    if(icon) icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    
+    // 语言按钮状态
     document.querySelectorAll('.lang-btn').forEach(function(btn){
       btn.classList.toggle('active', btn.dataset.lang === lang);
       btn.addEventListener('click', function(){
         lang = this.dataset.lang;
-        window._applyLang(lang);
+        localStorage.setItem('preferred-lang', lang);
+        document.documentElement.setAttribute('data-lang', lang);
         document.querySelectorAll('.lang-btn').forEach(function(b){
           b.classList.toggle('active', b.dataset.lang === lang);
         });
       });
     });
+    
+    // 主题按钮
     var tsBtn = document.getElementById('themeSwitcherBtn') || document.querySelector('.theme-switcher');
     if(tsBtn){
       tsBtn.addEventListener('click', function(){
-        theme = theme==='dark' ? 'light' : 'dark';
+        theme = theme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', theme);
         var ic = document.querySelector('.theme-icon');
-        if(ic) ic.textContent = theme==='dark' ? '🌙' : '☀️';
+        if(ic) ic.textContent = theme === 'dark' ? '🌙' : '☀️';
         localStorage.setItem('preferred-theme', theme);
       });
     }
+    
+    // 汉堡菜单
     var hBtn = document.getElementById('hamburgerBtn');
     var nav = document.getElementById('mainNavLinks');
     if(hBtn && nav){
@@ -58,6 +52,8 @@
         }
       });
     }
+    
+    // 返回顶部
     var btt = document.getElementById('backToTop');
     if(btt){
       window.addEventListener('scroll', function(){
@@ -67,15 +63,5 @@
         window.scrollTo({top:0, behavior:'smooth'});
       });
     }
-  };
-  
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', function(){
-      window._applyLang(lang);
-      window._initUI(theme, lang);
-    });
-  } else {
-    window._applyLang(lang);
-    window._initUI(theme, lang);
-  }
+  });
 })();
