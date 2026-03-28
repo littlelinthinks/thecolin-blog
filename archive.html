@@ -387,6 +387,94 @@ if(_hb&&_nl){_hb.addEventListener('click',function(){var o=_nl.classList.toggle(
 var _bt=document.getElementById('backToTop');
 if(_bt){window.addEventListener('scroll',function(){_bt.classList.toggle('visible',window.scrollY>400);},{passive:true});_bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
 </script>
+
+<script>
+(function(){
+  // 主题持久化
+  var t = localStorage.getItem('preferred-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  
+  // 等DOM ready后执行语言和主题初始化
+  document.addEventListener('DOMContentLoaded', function(){
+    // 主题图标
+    var icon = document.querySelector('.theme-icon');
+    if(icon) icon.textContent = t === 'dark' ? '🌙' : '☀️';
+    
+    // 主题按钮
+    var tsBtn = document.getElementById('themeSwitcherBtn') || document.querySelector('.theme-switcher');
+    if(tsBtn) {
+      tsBtn.addEventListener('click', function(){
+        t = t === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+        var ic = document.querySelector('.theme-icon');
+        if(ic) ic.textContent = t === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('preferred-theme', t);
+      });
+    }
+    
+    // 语言持久化
+    var lang = localStorage.getItem('preferred-lang') || 'zh';
+    applyLang(lang);
+    
+    // 语言按钮
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+      btn.addEventListener('click', function(){
+        lang = this.dataset.lang;
+        localStorage.setItem('preferred-lang', lang);
+        applyLang(lang);
+        document.querySelectorAll('.lang-btn').forEach(function(b){
+          b.classList.toggle('active', b.dataset.lang === lang);
+        });
+      });
+    });
+    
+    // 汉堡菜单
+    var hBtn = document.getElementById('hamburgerBtn');
+    var nav = document.getElementById('mainNavLinks');
+    if(hBtn && nav){
+      hBtn.addEventListener('click', function(){
+        var o = nav.classList.toggle('mobile-open');
+        hBtn.classList.toggle('active', o);
+        hBtn.setAttribute('aria-expanded', o);
+      });
+      document.addEventListener('click', function(e){
+        if(hBtn && nav && !hBtn.contains(e.target) && !nav.contains(e.target)){
+          nav.classList.remove('mobile-open');
+          hBtn.classList.remove('active');
+        }
+      });
+    }
+    
+    // 返回顶部
+    var btt = document.getElementById('backToTop');
+    if(btt){
+      window.addEventListener('scroll', function(){
+        btt.classList.toggle('visible', window.scrollY > 400);
+      }, {passive:true});
+      btt.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    }
+  });
+  
+  function applyLang(lang){
+    document.querySelectorAll('[data-zh][data-en]').forEach(function(el){
+      var txt = el.dataset[lang];
+      if(!txt) return;
+      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
+        el.placeholder = el.dataset[lang+'Placeholder'] || txt;
+      } else {
+        el.textContent = txt;
+      }
+    });
+    document.querySelectorAll('[data-zh-placeholder][data-en-placeholder]').forEach(function(el){
+      el.placeholder = lang === 'zh' ? el.dataset.zhPlaceholder : el.dataset.enPlaceholder;
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+})();
+</script>
 </body>
 </html>
 
