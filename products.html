@@ -6,7 +6,7 @@
     <title>精选资源 | 小Lin思考 · 道·术·器认知体系</title>
     <meta name="description" content="小Lin思考知识付费产品。认知升级套装·元认知工具包·给孩子的礼物·年度智识手册。每个产品都是道·术·器框架的延伸。">
     <meta name="keywords" content="小Lin思考,认知升级,元认知,道术器,心智折叠,精英教育,知识付费">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MPQTS8G2HD');</script>
@@ -19,7 +19,6 @@
 
     <meta property="og:title" content="精选资源 | 小Lin思考">
     <meta property="og:description" content="每个产品都是道·术·器框架的延伸，不是通用工具。">
-    <meta property="og:type" content="website">
     <meta property="og:url" content="https://thecolin.vip/products.html">
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
     <meta name="twitter:card" content="summary_large_image">
@@ -29,217 +28,194 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         :root{
-            --bg-primary:#fff;--bg-secondary:#f5f5f5;--bg-card:#fff;
-            --text-primary:#000;--text-secondary:#666;--text-muted:#999;
-            --border:#e5e5e5;--gold:#C9A84C;--teal:#5DCAA5;--amber:#EF9F27;
-            --purple:#7F77DD;--coral:#F0997B;--blue:#85B7EB;
-            --button-bg-dark:#000;--button-text-dark:#fff;
+            --bg:#fff;--bg2:#f5f5f5;--bgc:#fff;
+            --t1:#000;--t2:#666;--t3:#999;
+            --bd:#e5e5e5;--gold:#C9A84C;--teal:#5DCAA5;
+            --purple:#7F77DD;--coral:#F0997B;--blue:#85B7EB;--amber:#EF9F27;
+            --btnbg:#000;--btnfg:#fff;
         }
         [data-theme="dark"]{
-            --bg-primary:#0a0a0a;--bg-secondary:#141414;--bg-card:#1a1a1a;
-            --text-primary:#fff;--text-secondary:#a0a0a0;--text-muted:#555;
-            --border:#2a2a2a;--button-bg-dark:#fff;--button-text-dark:#000;
+            --bg:#0a0a0a;--bg2:#141414;--bgc:#1a1a1a;
+            --t1:#fff;--t2:#a0a0a0;--t3:#555;
+            --bd:#2a2a2a;--btnbg:#fff;--btnfg:#000;
         }
-        body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;padding-top:64px;}
+        body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg);color:var(--t1);line-height:1.6;padding-top:64px;}
 
-        /* ===== 导航 ===== */
-        .nav-header{background:rgba(255,255,255,0.97);padding:0 2rem;position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;}
+        /* ===== NAV ===== */
+        .nav-header{background:rgba(255,255,255,0.97);padding:0 2rem;position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);height:64px;display:flex;align-items:center;}
         [data-theme="dark"] .nav-header{background:rgba(10,10,10,0.97);border-bottom-color:#2a2a2a;}
         .nav-content{max-width:1400px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-        .nav-logo-wrap{text-decoration:none;display:flex;flex-direction:column;line-height:1.25;gap:1px;}
-        .nav-logo-main{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
-        .nav-logo-sub{font-size:0.62rem;color:var(--gold);letter-spacing:3px;}
+        .nlw{text-decoration:none;display:flex;flex-direction:column;line-height:1.25;gap:1px;}
+        .nlm{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--t1);letter-spacing:1px;}
+        .nls{font-size:0.62rem;color:var(--gold);letter-spacing:3px;}
         .nav-right{display:flex;align-items:center;gap:1.5rem;}
         .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;}
-        .nav-link{color:var(--text-primary);text-decoration:none;font-size:0.9rem;transition:color 0.2s;white-space:nowrap;}
-        .nav-link:hover{color:var(--text-secondary);}
-        .nav-link.gold-link{color:var(--gold)!important;font-weight:700;}
+        .nav-link{color:var(--t1);text-decoration:none;font-size:0.9rem;transition:color 0.2s;white-space:nowrap;}
+        .nav-link:hover{color:var(--t2);}
+        .nav-link.gld{color:var(--gold)!important;font-weight:700;}
         .nav-dropdown{position:relative;}
-        .dropdown-arrow{font-size:0.55rem;margin-left:3px;opacity:0.5;}
-        .dropdown-menu{position:absolute;top:calc(100% + 8px);left:-12px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:190px;list-style:none;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:200;margin:0;}
+        .dda{font-size:0.55rem;margin-left:3px;opacity:0.5;}
+        .dropdown-menu{position:absolute;top:calc(100% + 8px);left:-12px;background:var(--bgc);border:1px solid var(--bd);border-radius:8px;padding:8px 0;min-width:190px;list-style:none;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;box-shadow:0 8px 24px rgba(0,0,0,0.08);z-index:200;margin:0;}
         [data-theme="dark"] .dropdown-menu{background:#1a1a1a;border-color:#2a2a2a;}
         .nav-dropdown:hover>.dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
-        .dropdown-menu li a{display:block;padding:9px 20px;font-size:0.85rem;color:var(--text-secondary);text-decoration:none;transition:color 0.15s;}
-        .dropdown-menu li a:hover{color:var(--text-primary);background:var(--bg-secondary);}
+        .dropdown-menu li a{display:block;padding:9px 20px;font-size:0.85rem;color:var(--t2);text-decoration:none;transition:color 0.15s;}
+        .dropdown-menu li a:hover{color:var(--t1);background:var(--bg2);}
         .lang-switcher{display:flex;gap:4px;}
-        .lang-btn{padding:4px 10px;border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:0.72rem;border-radius:4px;color:var(--text-secondary);transition:all 0.2s;}
-        .lang-btn.active{background:var(--button-bg-dark);color:var(--button-text-dark);border-color:var(--button-bg-dark);}
-        .theme-switcher{width:38px;height:38px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--border);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;}
+        .lang-btn{padding:4px 10px;border:1px solid var(--bd);background:var(--bgc);cursor:pointer;font-size:0.72rem;border-radius:4px;color:var(--t2);transition:all 0.2s;}
+        .lang-btn.active{background:var(--btnbg);color:var(--btnfg);border-color:var(--btnbg);}
+        .theme-switcher{width:38px;height:38px;border-radius:50%;background:var(--bg2);border:1px solid var(--bd);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;}
         .theme-switcher:hover{transform:rotate(180deg);}
         .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:1100;}
-        .hamburger span{display:block;width:22px;height:2px;background:var(--text-primary);transition:all 0.3s;transform-origin:center;border-radius:2px;}
+        .hamburger span{display:block;width:22px;height:2px;background:var(--t1);transition:all 0.3s;transform-origin:center;border-radius:2px;}
         .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
         .hamburger.active span:nth-child(2){opacity:0;}
         .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
         @media(max-width:900px){
             .hamburger{display:flex!important;}
-            .nav-right ul.nav-links{display:none!important;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg-primary);border-top:1px solid var(--border);flex-direction:column!important;gap:0!important;padding:0.5rem 0 2rem;z-index:998;overflow-y:auto;}
+            .nav-right ul.nav-links{display:none!important;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--bd);flex-direction:column!important;gap:0!important;padding:0.5rem 0 2rem;z-index:998;overflow-y:auto;}
             .nav-right ul.nav-links.mobile-open{display:flex!important;}
-            .nav-right ul.nav-links>li{width:100%;border-bottom:1px solid var(--border);}
+            .nav-right ul.nav-links>li{width:100%;border-bottom:1px solid var(--bd);}
             .nav-right ul.nav-links>li>a{display:block!important;padding:1rem 2rem!important;font-size:1rem!important;}
-            .nav-right ul.nav-links .dropdown-menu{position:static!important;box-shadow:none!important;background:var(--bg-secondary)!important;opacity:1!important;visibility:visible!important;display:block!important;border-radius:0!important;border:none!important;transform:none!important;padding:0!important;}
+            .nav-right ul.nav-links .dropdown-menu{position:static!important;box-shadow:none!important;background:var(--bg2)!important;opacity:1!important;visibility:visible!important;display:block!important;border-radius:0!important;border:none!important;transform:none!important;padding:0!important;}
             .nav-right ul.nav-links .dropdown-menu li a{padding:0.75rem 3rem!important;}
-            .dropdown-arrow{display:none!important;}
+            .dda{display:none!important;}
             .lang-switcher{display:none!important;}
-            .nav-logo-sub{display:none;}
+            .nls{display:none;}
         }
 
-        /* ===== 通用 ===== */
-        .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--button-bg-dark);color:var(--button-text-dark);border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;}
+        .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--btnbg);color:var(--btnfg);border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;}
         .back-to-top.visible{opacity:1;visibility:visible;}
         .back-to-top:hover{transform:translateY(-3px);}
 
-        /* ===== 页头 ===== */
-        .page-hero{padding:72px 5% 56px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
-        [data-theme="dark"] .page-hero{background:#0a0a0a;}
-        .page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,168,76,0.025) 0,rgba(201,168,76,0.025) 1px,transparent 1px,transparent 80px);pointer-events:none;}
-        .page-hero-label{font-size:0.65rem;color:var(--gold);letter-spacing:5px;display:block;margin-bottom:16px;}
-        .page-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,6vw,64px);font-weight:900;margin-bottom:16px;line-height:1.1;}
-        .page-hero-desc{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;max-width:580px;margin:0 auto 32px;}
-        .page-hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-        .hero-tag{font-size:0.72rem;padding:5px 14px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted);}
+        /* ===== HERO ===== */
+        .hero{padding:72px 5% 56px;text-align:center;border-bottom:1px solid var(--bd);position:relative;overflow:hidden;}
+        [data-theme="dark"] .hero{background:#0a0a0a;}
+        .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,168,76,0.025) 0,rgba(201,168,76,0.025) 1px,transparent 1px,transparent 80px);pointer-events:none;}
+        .hero-label{font-size:0.65rem;color:var(--gold);letter-spacing:5px;display:block;margin-bottom:16px;}
+        .hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,6vw,64px);font-weight:900;margin-bottom:16px;line-height:1.1;}
+        .hero-desc{font-size:0.95rem;color:var(--t2);line-height:1.8;max-width:560px;margin:0 auto 32px;}
+        .hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+        .htag{font-size:0.72rem;padding:5px 14px;border:1px solid var(--bd);border-radius:2px;color:var(--t3);}
 
-        /* ===== 定位说明条 ===== */
-        .positioning-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 5%;}
-        [data-theme="dark"] .positioning-bar{background:#0d0d0d;}
-        .positioning-bar-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-        .pos-item{background:var(--bg-card);padding:20px 24px;text-align:center;}
-        [data-theme="dark"] .pos-item{background:#111;}
-        .pos-icon{font-size:1.4rem;margin-bottom:8px;}
-        .pos-title{font-weight:700;font-size:0.88rem;margin-bottom:4px;}
-        .pos-desc{font-size:0.76rem;color:var(--text-secondary);}
-        @media(max-width:640px){.positioning-bar-inner{grid-template-columns:1fr;}}
+        /* ===== COMING SOON BANNER ===== */
+        .cs-banner{background:rgba(201,168,76,0.06);border-bottom:1px solid rgba(201,168,76,0.2);padding:14px 5%;text-align:center;}
+        [data-theme="dark"] .cs-banner{background:rgba(201,168,76,0.04);}
+        .cs-banner p{font-size:0.85rem;color:var(--t2);line-height:1.7;}
+        .cs-banner strong{color:var(--gold);}
 
-        /* ===== 产品区块 ===== */
-        .products-section{padding:72px 5%;}
-        .products-inner{max-width:1000px;margin:0 auto;}
-        .section-header{text-align:center;margin-bottom:52px;}
-        .section-label{font-size:0.65rem;letter-spacing:5px;color:var(--text-muted);display:block;margin-bottom:14px;}
-        .section-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:12px;}
-        .section-desc{font-size:0.88rem;color:var(--text-secondary);line-height:1.7;}
+        /* ===== PRODUCTS ===== */
+        .products-wrap{padding:64px 5%;max-width:1040px;margin:0 auto;}
+        .sec-head{text-align:center;margin-bottom:48px;}
+        .sec-lbl{font-size:0.65rem;letter-spacing:5px;color:var(--t3);display:block;margin-bottom:14px;}
+        .sec-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:10px;}
+        .sec-desc{font-size:0.88rem;color:var(--t2);line-height:1.7;}
 
         /* 产品卡片 */
-        .product-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;margin-bottom:24px;overflow:hidden;transition:box-shadow 0.2s;}
-        .product-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.06);}
-        [data-theme="dark"] .product-card{background:#111;border-color:#2a2a2a;}
-        [data-theme="dark"] .product-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.3);}
-        .product-card.featured{border-color:var(--gold);border-width:2px;}
-        .product-card.presale{border-style:dashed;}
+        .pc{background:var(--bgc);border:1px solid var(--bd);border-radius:4px;margin-bottom:20px;overflow:hidden;transition:box-shadow 0.2s;}
+        .pc:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06);}
+        [data-theme="dark"] .pc{background:#111;border-color:#2a2a2a;}
+        [data-theme="dark"] .pc:hover{box-shadow:0 4px 20px rgba(0,0,0,0.3);}
+        .pc.featured{border-color:var(--gold);border-width:2px;}
+        .pc.presale{border-style:dashed;border-color:var(--bd);}
 
-        .product-card-header{padding:32px 36px 24px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--border);}
-        [data-theme="dark"] .product-card-header{border-bottom-color:#2a2a2a;}
-        .product-card-left{flex:1;}
-        .product-tag{font-size:0.65rem;letter-spacing:3px;padding:3px 12px;border-radius:2px;display:inline-block;margin-bottom:12px;}
-        .tag-dao{background:rgba(55,138,221,0.1);color:#185FA5;}
-        [data-theme="dark"] .tag-dao{background:rgba(55,138,221,0.15);color:#85B7EB;}
-        .tag-shu{background:rgba(127,119,221,0.1);color:#534AB7;}
-        [data-theme="dark"] .tag-shu{background:rgba(127,119,221,0.15);color:#AFA9EC;}
-        .tag-edu{background:rgba(240,153,123,0.1);color:#993C1D;}
-        [data-theme="dark"] .tag-edu{background:rgba(240,153,123,0.15);color:#F0997B;}
-        .tag-gold{background:rgba(201,168,76,0.12);color:#854F0B;}
-        [data-theme="dark"] .tag-gold{background:rgba(201,168,76,0.12);color:#C9A84C;}
-        .product-name{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:700;margin-bottom:10px;line-height:1.2;}
-        .product-subtitle{font-size:0.85rem;color:var(--text-secondary);line-height:1.7;}
-        .product-card-right{text-align:right;flex-shrink:0;}
-        .product-price-main{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:700;color:var(--text-primary);line-height:1;}
-        .product-price-orig{font-size:0.8rem;color:var(--text-muted);text-decoration:line-through;margin-top:4px;}
-        .product-price-note{font-size:0.72rem;color:var(--text-muted);margin-top:4px;}
-        .btn-buy{display:inline-block;margin-top:14px;padding:11px 28px;background:var(--button-bg-dark);color:var(--button-text-dark);border:none;border-radius:3px;font-size:0.85rem;letter-spacing:1px;cursor:pointer;transition:opacity 0.2s;font-family:'Noto Serif SC',Georgia,serif;white-space:nowrap;}
-        .btn-buy:hover{opacity:0.82;}
-        .btn-buy.gold{background:var(--gold);color:#000;}
-        .btn-buy.presale{background:transparent;color:var(--gold);border:1px solid var(--gold);}
-        .btn-buy.presale:hover{background:rgba(201,168,76,0.08);}
+        /* 卡片头部 */
+        .pc-head{padding:28px 32px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--bd);}
+        [data-theme="dark"] .pc-head{border-bottom-color:#2a2a2a;}
+        .pc-left{flex:1;}
+        .pc-tag{font-size:0.65rem;letter-spacing:3px;padding:3px 12px;border-radius:2px;display:inline-block;margin-bottom:12px;font-weight:400;}
+        .t-dao{background:rgba(55,138,221,0.1);color:#185FA5;}
+        [data-theme="dark"] .t-dao{background:rgba(55,138,221,0.12);color:#85B7EB;}
+        .t-shu{background:rgba(127,119,221,0.1);color:#534AB7;}
+        [data-theme="dark"] .t-shu{background:rgba(127,119,221,0.12);color:#AFA9EC;}
+        .t-edu{background:rgba(240,153,123,0.1);color:#993C1D;}
+        [data-theme="dark"] .t-edu{background:rgba(240,153,123,0.12);color:#F0997B;}
+        .t-gld{background:rgba(201,168,76,0.1);color:#854F0B;}
+        [data-theme="dark"] .t-gld{background:rgba(201,168,76,0.1);color:#C9A84C;}
+        .pc-name{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;line-height:1.2;}
+        .pc-sub{font-size:0.83rem;color:var(--t2);line-height:1.7;}
+        .pc-right{text-align:right;flex-shrink:0;min-width:120px;}
+        .pc-price{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:700;line-height:1;}
+        .pc-price-orig{font-size:0.78rem;color:var(--t3);text-decoration:line-through;margin-top:3px;}
+        .pc-price-note{font-size:0.7rem;color:var(--t3);margin-top:3px;}
+        .btn-interest{display:inline-block;margin-top:14px;padding:10px 22px;border:1px solid var(--bd);border-radius:3px;font-size:0.82rem;color:var(--t2);cursor:pointer;transition:all 0.2s;font-family:'Noto Serif SC',Georgia,serif;background:transparent;white-space:nowrap;text-decoration:none;}
+        .btn-interest:hover{border-color:var(--t1);color:var(--t1);}
+        .btn-interest.gold{border-color:var(--gold);color:var(--gold);}
+        .btn-interest.gold:hover{background:rgba(201,168,76,0.08);}
+        .btn-subscribe{display:inline-block;margin-top:14px;padding:10px 22px;background:var(--gold);color:#000;border:none;border-radius:3px;font-size:0.82rem;cursor:pointer;transition:opacity 0.2s;font-family:'Noto Serif SC',Georgia,serif;white-space:nowrap;text-decoration:none;}
+        .btn-subscribe:hover{opacity:0.85;}
 
-        .product-card-body{padding:28px 36px;}
-        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px;}
-        @media(max-width:700px){.features-grid{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:480px){.features-grid{grid-template-columns:1fr;}}
-        .feature-item{background:var(--bg-secondary);padding:12px 14px;border-radius:3px;}
-        [data-theme="dark"] .feature-item{background:#1a1a1a;}
-        .feature-title{font-size:0.82rem;font-weight:700;margin-bottom:3px;}
-        .feature-desc{font-size:0.75rem;color:var(--text-secondary);line-height:1.5;}
+        /* 卡片内容 */
+        .pc-body{padding:24px 32px;}
+        .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;}
+        @media(max-width:680px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:440px){.feat-grid{grid-template-columns:1fr;}}
+        .fi{background:var(--bg2);padding:11px 14px;border-radius:3px;}
+        [data-theme="dark"] .fi{background:#1a1a1a;}
+        .fi-t{font-size:0.82rem;font-weight:700;margin-bottom:3px;}
+        .fi-d{font-size:0.74rem;color:var(--t2);line-height:1.5;}
 
-        .product-card-dao{padding:20px 36px;background:rgba(201,168,76,0.03);border-top:1px solid rgba(201,168,76,0.15);}
-        [data-theme="dark"] .product-card-dao{background:rgba(201,168,76,0.04);}
-        .dao-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-        @media(max-width:560px){.dao-trio{grid-template-columns:1fr;}}
-        .dao-item{padding:12px 16px;text-align:center;}
-        .dao-char{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:4px;}
-        .dao-q{font-size:0.72rem;color:var(--text-secondary);line-height:1.5;}
+        /* 道术器框 */
+        .pc-dao{padding:18px 32px;background:rgba(201,168,76,0.025);border-top:1px solid rgba(201,168,76,0.12);}
+        [data-theme="dark"] .pc-dao{background:rgba(201,168,76,0.03);}
+        .dao3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+        @media(max-width:500px){.dao3{grid-template-columns:1fr;}}
+        .di{padding:12px;text-align:center;}
+        .di-c{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:4px;}
+        .di-q{font-size:0.72rem;color:var(--t2);line-height:1.5;}
 
-        .presale-notice{padding:16px 36px;background:rgba(201,168,76,0.05);border-top:1px dashed rgba(201,168,76,0.3);}
-        .presale-notice p{font-size:0.82rem;color:var(--text-secondary);line-height:1.7;}
-        .presale-notice strong{color:var(--gold);}
+        /* 预售提示 */
+        .presale-bar{padding:14px 32px;background:rgba(201,168,76,0.04);border-top:1px dashed rgba(201,168,76,0.25);}
+        .presale-bar p{font-size:0.8rem;color:var(--t2);line-height:1.7;}
+        .presale-bar strong{color:var(--gold);}
 
-        /* 套装特惠区 */
-        .bundle-section{padding:0 5% 72px;}
-        .bundle-card{max-width:1000px;margin:0 auto;background:var(--bg-secondary);border:2px solid var(--gold);border-radius:4px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+        /* ===== 套装 ===== */
+        .bundle-wrap{padding:0 5% 64px;max-width:1040px;margin:0 auto;}
+        .bundle-card{background:var(--bg2);border:2px solid var(--gold);border-radius:4px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
         [data-theme="dark"] .bundle-card{background:#111;}
-        .bundle-left h2{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;}
-        .bundle-left p{font-size:0.85rem;color:var(--text-secondary);line-height:1.7;}
-        .bundle-includes{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
-        .bundle-tag{font-size:0.72rem;padding:3px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted);}
-        .bundle-right{text-align:center;flex-shrink:0;}
-        .bundle-price-orig{font-size:0.85rem;color:var(--text-muted);text-decoration:line-through;margin-bottom:4px;}
-        .bundle-price{font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
-        .bundle-save{font-size:0.75rem;color:var(--text-muted);margin-top:4px;margin-bottom:14px;}
+        .bl h2{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:700;margin-bottom:8px;}
+        .bl p{font-size:0.83rem;color:var(--t2);line-height:1.7;}
+        .bl-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+        .bl-tag{font-size:0.7rem;padding:3px 10px;border:1px solid var(--bd);border-radius:2px;color:var(--t3);}
+        .br{text-align:center;flex-shrink:0;}
+        .bp-orig{font-size:0.83rem;color:var(--t3);text-decoration:line-through;margin-bottom:4px;}
+        .bp{font-family:'Playfair Display',Georgia,serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;}
+        .bp-save{font-size:0.72rem;color:var(--t3);margin-top:4px;margin-bottom:14px;}
 
-        /* 支付说明 */
-        .payment-info{padding:0 5% 72px;}
-        .payment-inner{max-width:1000px;margin:0 auto;}
-        .payment-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-        @media(max-width:600px){.payment-steps{grid-template-columns:1fr;}}
-        .step-card{background:var(--bg-secondary);padding:24px;text-align:center;}
-        [data-theme="dark"] .step-card{background:#111;}
-        .step-num{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:8px;opacity:0.7;}
-        .step-title{font-weight:700;font-size:0.9rem;margin-bottom:6px;}
-        .step-desc{font-size:0.78rem;color:var(--text-secondary);line-height:1.6;}
+        /* ===== 发布说明 ===== */
+        .notice-wrap{padding:0 5% 64px;max-width:1040px;margin:0 auto;}
+        .notice-card{background:var(--bg2);border-radius:4px;padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+        [data-theme="dark"] .notice-card{background:#111;}
+        @media(max-width:640px){.notice-card{grid-template-columns:1fr;}}
+        .notice-left h3{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;margin-bottom:12px;}
+        .notice-left p{font-size:0.85rem;color:var(--t2);line-height:1.8;margin-bottom:14px;}
+        .notice-steps{display:flex;flex-direction:column;gap:12px;}
+        .ns{display:flex;gap:12px;align-items:flex-start;}
+        .ns-n{font-family:'Playfair Display',Georgia,serif;font-weight:700;color:var(--gold);font-size:1rem;min-width:18px;}
+        .ns-t{font-size:0.82rem;color:var(--t2);line-height:1.6;}
+        .notice-right{text-align:center;}
+        .notice-right h3{font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;margin-bottom:8px;}
+        .notice-right p{font-size:0.8rem;color:var(--t2);margin-bottom:20px;line-height:1.6;}
+        .qr-box{width:140px;height:140px;border:1px solid var(--bd);border-radius:4px;margin:0 auto 12px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--t3);}
+        .qr-box img{width:100%;height:100%;object-fit:cover;border-radius:3px;}
 
-        /* 支付弹窗 */
-        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;}
-        .modal-overlay.active{display:flex;}
-        .modal-box{background:var(--bg-card);border-radius:8px;padding:0;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;}
-        [data-theme="dark"] .modal-box{background:#1a1a1a;}
-        .modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text-secondary);padding:4px 8px;transition:color 0.2s;z-index:1;}
-        .modal-close:hover{color:var(--text-primary);}
-        .modal-header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
-        [data-theme="dark"] .modal-header{border-bottom-color:#2a2a2a;}
-        .modal-product-name{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
-        .modal-price{font-size:1.6rem;font-weight:700;color:var(--gold);}
-        .modal-body{padding:24px 32px;}
-        .pay-tabs{display:flex;gap:8px;margin-bottom:20px;}
-        .pay-tab{flex:1;padding:10px;border:1px solid var(--border);border-radius:3px;background:transparent;cursor:pointer;font-size:0.85rem;transition:all 0.2s;font-family:'Noto Serif SC',Georgia,serif;}
-        .pay-tab.active{border-color:var(--text-primary);background:var(--text-primary);color:var(--bg-primary);}
-        .qr-panel{display:none;}
-        .qr-panel.active{display:block;}
-        .qr-wrap{text-align:center;padding:16px;}
-        .qr-wrap img{width:200px;height:200px;object-fit:contain;border:1px solid var(--border);border-radius:4px;}
-        .qr-hint{font-size:0.8rem;color:var(--text-secondary);margin-top:12px;line-height:1.6;}
-        .modal-steps{margin-top:20px;border-top:1px solid var(--border);padding-top:20px;}
-        [data-theme="dark"] .modal-steps{border-top-color:#2a2a2a;}
-        .modal-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
-        .modal-step-num{font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;color:var(--gold);min-width:20px;}
-        .modal-step-text{font-size:0.82rem;color:var(--text-secondary);line-height:1.6;}
-
-        /* 页脚 */
-        .footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:40px 5%;}
+        /* ===== FOOTER ===== */
+        .footer{background:var(--bg);border-top:1px solid var(--bd);padding:40px 5%;}
         .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
-        .footer-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;}
-        .footer-brand span{color:var(--gold);font-size:0.68rem;letter-spacing:2px;display:block;margin-top:3px;}
-        .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
-        .footer-links a{font-size:0.78rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
-        .footer-links a:hover{color:var(--text-primary);}
-        .footer-copy{font-size:0.72rem;color:var(--text-muted);}
+        .fb{font-family:'Playfair Display',Georgia,serif;font-weight:700;}
+        .fb span{color:var(--gold);font-size:0.68rem;letter-spacing:2px;display:block;margin-top:3px;}
+        .fl{display:flex;gap:20px;flex-wrap:wrap;}
+        .fl a{font-size:0.78rem;color:var(--t3);text-decoration:none;transition:color 0.2s;}
+        .fl a:hover{color:var(--t1);}
+        .fc{font-size:0.72rem;color:var(--t3);}
     </style>
 </head>
 <body>
 
-<!-- 导航 -->
 <nav class="nav-header" role="navigation" aria-label="主导航">
     <div class="nav-content">
-        <a href="index.html" class="nav-logo-wrap">
-            <span class="nav-logo-main">小Lin思考</span>
-            <span class="nav-logo-sub">道 · 术 · 器 认知体系</span>
+        <a href="index.html" class="nlw">
+            <span class="nlm">小Lin思考</span>
+            <span class="nls">道 · 术 · 器 认知体系</span>
         </a>
         <div class="nav-right">
             <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
@@ -250,19 +226,19 @@
                 <li><a href="archive.html" class="nav-link">思维库</a></li>
                 <li class="nav-dropdown">
                     <a href="products.html" class="nav-link" style="font-weight:700;">
-                        <span>精选资源</span><span class="dropdown-arrow">▼</span>
+                        <span>精选资源</span><span class="dda">▼</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="products.html#product-01">认知升级套装 ¥99</a></li>
-                        <li><a href="products.html#product-02">元认知工具包 ¥69</a></li>
-                        <li><a href="products.html#product-03">给孩子的礼物 ¥129</a></li>
-                        <li><a href="products.html#product-04">年度智识手册 预售</a></li>
-                        <li style="border-top:1px solid var(--border);margin-top:6px;padding-top:6px;">
+                        <li><a href="products.html#p01">认知升级套装 ¥99</a></li>
+                        <li><a href="products.html#p02">元认知工具包 ¥69</a></li>
+                        <li><a href="products.html#p03">给孩子的礼物 ¥129</a></li>
+                        <li><a href="products.html#p04">年度智识手册 预售</a></li>
+                        <li style="border-top:1px solid var(--bd);margin-top:6px;padding-top:6px;">
                             <a href="products.html#bundle" style="color:var(--gold);font-weight:bold;">🎁 三件套 ¥239</a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="wisdom.html" class="nav-link gold-link">✦ 心智折叠</a></li>
+                <li><a href="wisdom.html" class="nav-link gld">✦ 心智折叠</a></li>
                 <li><a href="subscribe.html" class="nav-link">关注公众号</a></li>
                 <li><a href="index.html#about" class="nav-link">关于小Lin</a></li>
             </ul>
@@ -270,472 +246,247 @@
                 <button class="lang-btn active" data-lang="zh">中文</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
-            <button class="theme-switcher" id="themeSwitcherBtn" aria-label="切换主题">
+            <button class="theme-switcher" id="tsBtn" aria-label="切换主题">
                 <span class="theme-icon">🌙</span>
             </button>
         </div>
     </div>
 </nav>
 
-<button class="back-to-top" id="backToTop">↑</button>
+<button class="back-to-top" id="btt">↑</button>
 
 <main role="main">
 
-<!-- 页头 -->
-<section class="page-hero">
-    <span class="page-hero-label">小Lin思考 · 知识付费产品</span>
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-label">小Lin思考 · 知识付费</span>
     <h1>精选资源</h1>
-    <p class="page-hero-desc">每一个产品，都是道·术·器框架的延伸。<br>不是通用工具，而是和这个IP一起成长的认知体系。</p>
-    <div class="page-hero-tags">
-        <span class="hero-tag">道层 · 认知重建</span>
-        <span class="hero-tag">术层 · 方法论</span>
-        <span class="hero-tag">器层 · 实操工具</span>
-        <span class="hero-tag">精英教育</span>
-        <span class="hero-tag">心智折叠</span>
+    <p class="hero-desc">每一个产品都是道·术·器框架的延伸。<br>不是通用工具，而是和这个IP一起成长的认知体系。</p>
+    <div class="hero-tags">
+        <span class="htag">道层 · 认知重建</span>
+        <span class="htag">术层 · 方法论</span>
+        <span class="htag">器层 · 实操工具</span>
+        <span class="htag">精英教育</span>
+        <span class="htag">心智折叠</span>
     </div>
 </section>
 
-<!-- 定位说明 -->
-<section class="positioning-bar">
-    <div class="positioning-bar-inner">
-        <div class="pos-item">
-            <div class="pos-icon">📖</div>
-            <div class="pos-title">内容来自IP积累</div>
-            <div class="pos-desc">每个产品都是公众号文章和研究的延伸，不是为卖而造</div>
-        </div>
-        <div class="pos-item">
-            <div class="pos-icon">🎯</div>
-            <div class="pos-title">道·术·器三层解读</div>
-            <div class="pos-desc">不只是工具，每个产品都有底层逻辑支撑</div>
-        </div>
-        <div class="pos-item">
-            <div class="pos-icon">🤝</div>
-            <div class="pos-title">购买后手动发货</div>
-            <div class="pos-desc">付款截图发公众号「小Lin思考」，24小时内收到内容</div>
-        </div>
-    </div>
-</section>
+<!-- 即将上线提示 -->
+<div class="cs-banner">
+    <p>📌 产品正在准备中，预计近期陆续上线。<strong>关注「小Lin思考」公众号</strong>，第一时间收到上线通知 · 早鸟用户享受专属折扣</p>
+</div>
 
 <!-- 产品列表 -->
-<section class="products-section">
-    <div class="products-inner">
-        <div class="section-header">
-            <span class="section-label">四个产品</span>
-            <h2 class="section-title">选择适合你的认知升级路径</h2>
-            <p class="section-desc">从道层认知重建，到术层方法论，再到器层实操工具</p>
-        </div>
+<div class="products-wrap">
+    <div class="sec-head">
+        <span class="sec-lbl">四个产品方向</span>
+        <h2 class="sec-title">选择适合你的认知升级路径</h2>
+        <p class="sec-desc">从道层认知重建，到术层方法论，再到器层实操工具</p>
+    </div>
 
-        <!-- 产品01：认知升级套装 -->
-        <div class="product-card featured" id="product-01">
-            <div class="product-card-header">
-                <div class="product-card-left">
-                    <span class="product-tag tag-dao">01 · 道层</span>
-                    <div class="product-name">认知升级套装</div>
-                    <div class="product-subtitle">天道·历史·西方经典三大方向精华内容包<br>帮你在认知层面完成重建——不只是知识，而是看世界的方式</div>
-                </div>
-                <div class="product-card-right">
-                    <div class="product-price-main">¥99</div>
-                    <div class="product-price-note">一次买断 · 永久使用</div>
-                    <button class="btn-buy gold" onclick="openPayModal('认知升级套装', '99')">立即购买</button>
-                </div>
+    <!-- P01 认知升级套装 -->
+    <div class="pc featured" id="p01">
+        <div class="pc-head">
+            <div class="pc-left">
+                <span class="pc-tag t-dao">01 · 道层</span>
+                <div class="pc-name">认知升级套装</div>
+                <div class="pc-sub">天道·历史·西方经典三大方向精华内容包<br>帮你在认知层面完成重建——不只是知识，而是看世界的方式</div>
             </div>
-            <div class="product-card-body">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">道·术·器完整框架手册</div>
-                        <div class="feature-desc">20页·系统梳理整个认知体系，可打印</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">达利欧大周期深度解读</div>
-                        <div class="feature-desc">六阶段图解+普通人应对策略</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">史外无学·历史决策框架</div>
-                        <div class="feature-desc">资治通鉴六维度应用指南</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">强势文化·人性解码手册</div>
-                        <div class="feature-desc">丁元英思想精华·道的底层</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">认知升级书单18本精讲</div>
-                        <div class="feature-desc">道术器分类·每本核心洞见</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">思维模型速查卡片×12张</div>
-                        <div class="feature-desc">逆向思维·第一性原理等12个模型</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-dao">
-                <div class="dao-trio">
-                    <div class="dao-item">
-                        <div class="dao-char" style="color:var(--gold);">道</div>
-                        <div class="dao-q">重建世界观<br>底层规律认知</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--purple);">术</div>
-                        <div class="dao-q">历史决策框架<br>思维模型体系</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--teal);">器</div>
-                        <div class="dao-q">速查卡片<br>可打印手册</div>
-                    </div>
-                </div>
+            <div class="pc-right">
+                <div class="pc-price">¥99</div>
+                <div class="pc-price-note">一次买断 · 永久使用</div>
+                <a href="subscribe.html" class="btn-subscribe">感兴趣 · 关注公众号</a>
             </div>
         </div>
-
-        <!-- 产品02：元认知实操工具包 -->
-        <div class="product-card" id="product-02">
-            <div class="product-card-header">
-                <div class="product-card-left">
-                    <span class="product-tag tag-shu">02 · 术+器层</span>
-                    <div class="product-name">元认知实操工具包</div>
-                    <div class="product-subtitle">把元认知从概念变成日常习惯<br>七个立即可用的工具，每天5分钟，30天思维密度质变</div>
-                </div>
-                <div class="product-card-right">
-                    <div class="product-price-main">¥69</div>
-                    <div class="product-price-note">一次买断 · 永久使用</div>
-                    <button class="btn-buy" onclick="openPayModal('元认知实操工具包', '69')">立即购买</button>
-                </div>
-            </div>
-            <div class="product-card-body">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">每日三问·30天练习日历</div>
-                        <div class="feature-desc">可打印·配使用说明·建立元认知习惯</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">SCQA写作框架模板</div>
-                        <div class="feature-desc">Notion版本·可直接套用写文章</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">苏格拉底六问·决策清单</div>
-                        <div class="feature-desc">重大决策前的深度思考工具</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">道·术·器定位自检工具</div>
-                        <div class="feature-desc">识别自己在哪一层打转·快速升维</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">金字塔原理写作速查表</div>
-                        <div class="feature-desc">结构化表达·可打印A4卡片</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">七天元认知实践计划</div>
-                        <div class="feature-desc">每天一个工具·循序渐进建立系统</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-dao">
-                <div class="dao-trio">
-                    <div class="dao-item">
-                        <div class="dao-char" style="color:var(--gold);">道</div>
-                        <div class="dao-q">元认知底层原理<br>为什么它有效</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--purple);">术</div>
-                        <div class="dao-q">七个思维框架<br>系统化应用方法</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--teal);">器</div>
-                        <div class="dao-q">Notion模板<br>可打印工具卡片</div>
-                    </div>
-                </div>
+        <div class="pc-body">
+            <div class="feat-grid">
+                <div class="fi"><div class="fi-t">道·术·器完整框架手册</div><div class="fi-d">20页精华·系统梳理认知体系·可打印</div></div>
+                <div class="fi"><div class="fi-t">达利欧大周期深度解读</div><div class="fi-d">六阶段图解+普通人应对策略清单</div></div>
+                <div class="fi"><div class="fi-t">史外无学·历史决策框架</div><div class="fi-d">资治通鉴六维度应用指南</div></div>
+                <div class="fi"><div class="fi-t">强势文化·人性解码手册</div><div class="fi-d">丁元英思想精华·道的底层逻辑</div></div>
+                <div class="fi"><div class="fi-t">认知升级书单18本精讲</div><div class="fi-d">道术器分类·每本核心洞见速查</div></div>
+                <div class="fi"><div class="fi-t">思维模型速查卡片×12张</div><div class="fi-d">逆向思维·第一性原理等12个模型</div></div>
             </div>
         </div>
-
-        <!-- 产品03：给孩子的礼物 -->
-        <div class="product-card" id="product-03">
-            <div class="product-card-header">
-                <div class="product-card-left">
-                    <span class="product-tag tag-edu">03 · 精英教育</span>
-                    <div class="product-name">给孩子的礼物 · 实操手册</div>
-                    <div class="product-subtitle">备孕·新手·成长期父母的精英教育启动包<br>不只是理念，而是可以立即用上的育儿认知体系</div>
-                </div>
-                <div class="product-card-right">
-                    <div class="product-price-main">¥129</div>
-                    <div class="product-price-note">一次买断 · 永久使用</div>
-                    <button class="btn-buy" onclick="openPayModal('给孩子的礼物·实操手册', '129')">立即购买</button>
-                </div>
-            </div>
-            <div class="product-card-body">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">十大精英能力·成长路线图</div>
-                        <div class="feature-desc">认知·情商·财商等十大能力·0-18岁分阶段</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">20本精英教育书单精讲</div>
-                        <div class="feature-desc">每本核心洞见+阅读顺序建议</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">园丁vs木匠·教育观重建</div>
-                        <div class="feature-desc">重建父母角色认知·高普尼克框架</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">0-6岁关键期行动手册</div>
-                        <div class="feature-desc">每个阶段的具体行动清单·可打印</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">亲子沟通·情绪急救卡片</div>
-                        <div class="feature-desc">孩子情绪崩溃时的标准应对流程</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">财商启蒙·每周家庭练习</div>
-                        <div class="feature-desc">零花钱三罐法+每周讨论主题</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-dao">
-                <div class="dao-trio">
-                    <div class="dao-item">
-                        <div class="dao-char" style="color:var(--gold);">道</div>
-                        <div class="dao-q">精英教育本质<br>父母角色重建</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--purple);">术</div>
-                        <div class="dao-q">十大能力培养<br>分阶段方法论</div>
-                    </div>
-                    <div class="dao-item" style="border-left:1px solid var(--border);">
-                        <div class="dao-char" style="color:var(--teal);">器</div>
-                        <div class="dao-q">行动手册<br>可打印卡片工具</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 产品04：年度智识手册（预售） -->
-        <div class="product-card presale" id="product-04">
-            <div class="product-card-header">
-                <div class="product-card-left">
-                    <span class="product-tag tag-gold">04 · 心智折叠 · 预售中</span>
-                    <div class="product-name">年度智识手册</div>
-                    <div class="product-subtitle">每年精选30位顶尖人物·100条核心原则<br>每条原则都经过道·术·器三层解读，IP旗舰级产品</div>
-                </div>
-                <div class="product-card-right">
-                    <div class="product-price-main" style="color:var(--gold);">¥149</div>
-                    <div class="product-price-orig">正式发售 ¥199/年</div>
-                    <div class="product-price-note">早鸟价 · 限时锁定</div>
-                    <button class="btn-buy presale" onclick="openPayModal('年度智识手册（早鸟预售）', '149')">预售锁定 ¥149</button>
-                </div>
-            </div>
-            <div class="product-card-body">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">30位人物完整道·术·器解读</div>
-                        <div class="feature-desc">芒格·达利欧·段永平·任正非等</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">100条原则+实操框架</div>
-                        <div class="feature-desc">每条原则配三层解读·可直接应用</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">精装电子书·可打印版本</div>
-                        <div class="feature-desc">PDF格式·排版精良·可存档收藏</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">东西方人物对比专题</div>
-                        <div class="feature-desc">王阳明vs纳瓦尔·曾国藩vs芒格</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">元认知实践·年度复盘模板</div>
-                        <div class="feature-desc">配套年度反思框架·Notion版本</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">每年更新·终身订阅可选</div>
-                        <div class="feature-desc">早鸟用户享受续订85折优惠</div>
-                    </div>
-                </div>
-            </div>
-            <div class="presale-notice">
-                <p>📌 <strong>预售说明：</strong>现在付款锁定早鸟价 ¥149（正式发售后 ¥199）。公众号粉丝达到 <strong>5000+</strong> 后正式发售，预计2026年内完成。付款后小Lin将发送确认，正式发售时第一时间收到手册。</p>
+        <div class="pc-dao">
+            <div class="dao3">
+                <div class="di"><div class="di-c" style="color:var(--gold);">道</div><div class="di-q">重建世界观<br>底层规律认知</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--purple);">术</div><div class="di-q">历史决策框架<br>思维模型体系</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--teal);">器</div><div class="di-q">速查卡片<br>可打印手册</div></div>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- P02 元认知工具包 -->
+    <div class="pc" id="p02">
+        <div class="pc-head">
+            <div class="pc-left">
+                <span class="pc-tag t-shu">02 · 术+器层</span>
+                <div class="pc-name">元认知实操工具包</div>
+                <div class="pc-sub">把元认知从概念变成日常习惯<br>七个立即可用的工具，每天5分钟，30天思维密度质变</div>
+            </div>
+            <div class="pc-right">
+                <div class="pc-price">¥69</div>
+                <div class="pc-price-note">一次买断 · 永久使用</div>
+                <a href="subscribe.html" class="btn-interest">感兴趣 · 关注公众号</a>
+            </div>
+        </div>
+        <div class="pc-body">
+            <div class="feat-grid">
+                <div class="fi"><div class="fi-t">每日三问·30天练习日历</div><div class="fi-d">可打印·配使用说明·建立元认知习惯</div></div>
+                <div class="fi"><div class="fi-t">SCQA写作框架模板</div><div class="fi-d">Notion版本·直接套用写文章</div></div>
+                <div class="fi"><div class="fi-t">苏格拉底六问·决策清单</div><div class="fi-d">重大决策前的深度思考工具</div></div>
+                <div class="fi"><div class="fi-t">道·术·器定位自检工具</div><div class="fi-d">识别自己在哪层打转·快速升维</div></div>
+                <div class="fi"><div class="fi-t">金字塔原理写作速查表</div><div class="fi-d">结构化表达·可打印A4卡片</div></div>
+                <div class="fi"><div class="fi-t">七天元认知实践计划</div><div class="fi-d">每天一个工具·循序渐进建立系统</div></div>
+            </div>
+        </div>
+        <div class="pc-dao">
+            <div class="dao3">
+                <div class="di"><div class="di-c" style="color:var(--gold);">道</div><div class="di-q">元认知底层原理<br>为什么它有效</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--purple);">术</div><div class="di-q">七个思维框架<br>系统化应用方法</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--teal);">器</div><div class="di-q">Notion模板<br>可打印工具卡片</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- P03 给孩子的礼物 -->
+    <div class="pc" id="p03">
+        <div class="pc-head">
+            <div class="pc-left">
+                <span class="pc-tag t-edu">03 · 精英教育</span>
+                <div class="pc-name">给孩子的礼物 · 实操手册</div>
+                <div class="pc-sub">备孕·新手·成长期父母的精英教育启动包<br>不只是理念，而是可以立即用上的育儿认知体系</div>
+            </div>
+            <div class="pc-right">
+                <div class="pc-price">¥129</div>
+                <div class="pc-price-note">一次买断 · 永久使用</div>
+                <a href="subscribe.html" class="btn-interest">感兴趣 · 关注公众号</a>
+            </div>
+        </div>
+        <div class="pc-body">
+            <div class="feat-grid">
+                <div class="fi"><div class="fi-t">十大精英能力·成长路线图</div><div class="fi-d">认知·情商·财商等·0-18岁分阶段规划</div></div>
+                <div class="fi"><div class="fi-t">20本精英教育书单精讲</div><div class="fi-d">每本核心洞见+阅读顺序建议</div></div>
+                <div class="fi"><div class="fi-t">园丁vs木匠·教育观重建</div><div class="fi-d">重建父母角色认知·高普尼克框架</div></div>
+                <div class="fi"><div class="fi-t">0-6岁关键期行动手册</div><div class="fi-d">每个阶段的具体行动清单·可打印</div></div>
+                <div class="fi"><div class="fi-t">亲子沟通·情绪急救卡片</div><div class="fi-d">孩子情绪崩溃时的标准应对流程</div></div>
+                <div class="fi"><div class="fi-t">财商启蒙·每周家庭练习</div><div class="fi-d">零花钱三罐法+每周讨论主题</div></div>
+            </div>
+        </div>
+        <div class="pc-dao">
+            <div class="dao3">
+                <div class="di"><div class="di-c" style="color:var(--gold);">道</div><div class="di-q">精英教育本质<br>父母角色重建</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--purple);">术</div><div class="di-q">十大能力培养<br>分阶段方法论</div></div>
+                <div class="di" style="border-left:1px solid var(--bd);"><div class="di-c" style="color:var(--teal);">器</div><div class="di-q">行动手册<br>可打印卡片工具</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- P04 年度智识手册（预售） -->
+    <div class="pc presale" id="p04">
+        <div class="pc-head">
+            <div class="pc-left">
+                <span class="pc-tag t-gld">04 · 心智折叠 · 预售</span>
+                <div class="pc-name">年度智识手册</div>
+                <div class="pc-sub">每年精选30位顶尖人物·100条核心原则<br>每条原则都经过道·术·器三层解读，IP旗舰级产品</div>
+            </div>
+            <div class="pc-right">
+                <div class="pc-price" style="color:var(--gold);">¥149</div>
+                <div class="pc-price-orig">正式发售 ¥199/年</div>
+                <div class="pc-price-note">早鸟价 · 锁定优先权</div>
+                <a href="subscribe.html" class="btn-interest gold">预售登记 · 关注公众号</a>
+            </div>
+        </div>
+        <div class="pc-body">
+            <div class="feat-grid">
+                <div class="fi"><div class="fi-t">30位人物完整道·术·器解读</div><div class="fi-d">芒格·达利欧·段永平·任正非等</div></div>
+                <div class="fi"><div class="fi-t">100条原则+实操框架</div><div class="fi-d">每条原则配三层解读·可直接应用</div></div>
+                <div class="fi"><div class="fi-t">精装电子书·可打印版本</div><div class="fi-d">PDF格式·排版精良·存档收藏</div></div>
+                <div class="fi"><div class="fi-t">东西方人物对比专题</div><div class="fi-d">王阳明vs纳瓦尔·曾国藩vs芒格</div></div>
+                <div class="fi"><div class="fi-t">元认知实践·年度复盘模板</div><div class="fi-d">配套年度反思框架·Notion版本</div></div>
+                <div class="fi"><div class="fi-t">早鸟用户·续订85折</div><div class="fi-d">预售登记用户享受专属优惠</div></div>
+            </div>
+        </div>
+        <div class="presale-bar">
+            <p>📌 <strong>预售说明：</strong>公众号粉丝达到 <strong>5000+</strong> 后正式发售。现在关注公众号登记预售，锁定早鸟价 ¥149（正式售价 ¥199/年）。正式发售时第一时间通知。</p>
+        </div>
+    </div>
+</div>
 
 <!-- 三件套特惠 -->
-<section class="bundle-section" id="bundle">
+<div class="bundle-wrap" id="bundle">
     <div class="bundle-card">
-        <div class="bundle-left">
+        <div class="bl">
             <h2>完整三件套</h2>
             <p>01 认知升级套装 + 02 元认知工具包 + 03 给孩子的礼物<br>覆盖道·术·器·精英教育四个维度，一次打通认知体系。</p>
-            <div class="bundle-includes">
-                <span class="bundle-tag">认知升级套装</span>
-                <span class="bundle-tag">元认知工具包</span>
-                <span class="bundle-tag">给孩子的礼物</span>
+            <div class="bl-tags">
+                <span class="bl-tag">认知升级套装 ¥99</span>
+                <span class="bl-tag">元认知工具包 ¥69</span>
+                <span class="bl-tag">给孩子的礼物 ¥129</span>
             </div>
         </div>
-        <div class="bundle-right">
-            <div class="bundle-price-orig">单买合计 ¥297</div>
-            <div class="bundle-price">¥239</div>
-            <div class="bundle-save">节省 ¥58 · 约8折</div>
-            <button class="btn-buy gold" onclick="openPayModal('完整三件套（01+02+03）', '239')">购买三件套 ¥239</button>
+        <div class="br">
+            <div class="bp-orig">单买合计 ¥297</div>
+            <div class="bp">¥239</div>
+            <div class="bp-save">节省 ¥58 · 约8折</div>
+            <a href="subscribe.html" class="btn-subscribe">套装感兴趣 · 关注公众号</a>
         </div>
     </div>
-</section>
+</div>
 
-<!-- 购买说明 -->
-<section class="payment-info">
-    <div class="payment-inner">
-        <div class="section-header">
-            <span class="section-label">购买流程</span>
-            <h2 class="section-title">三步即可完成</h2>
+<!-- 发布说明 -->
+<div class="notice-wrap">
+    <div class="notice-card">
+        <div class="notice-left">
+            <h3>产品即将上线</h3>
+            <p>所有产品正在认真准备内容中。<br>关注公众号，成为第一批用户。</p>
+            <div class="notice-steps">
+                <div class="ns"><div class="ns-n">1</div><div class="ns-t">关注「小Lin思考」公众号</div></div>
+                <div class="ns"><div class="ns-n">2</div><div class="ns-t">回复【资源】告诉我你感兴趣的产品</div></div>
+                <div class="ns"><div class="ns-n">3</div><div class="ns-t">产品上线时第一时间收到通知·享早鸟价</div></div>
+            </div>
         </div>
-        <div class="payment-steps">
-            <div class="step-card">
-                <div class="step-num">01</div>
-                <div class="step-title">选择产品·扫码付款</div>
-                <div class="step-desc">点击购买按钮，选择微信或支付宝付款。截图保存支付凭证。</div>
+        <div class="notice-right">
+            <h3>扫码关注</h3>
+            <p>微信搜索「小Lin思考」<br>或扫描右侧二维码</p>
+            <div class="qr-box">
+                <img src="images/wechat-qr.jpg" alt="小Lin思考公众号二维码" onerror="this.style.display='none';this.parentElement.innerHTML='📱<br>二维码<br>加载中';">
             </div>
-            <div class="step-card">
-                <div class="step-num">02</div>
-                <div class="step-title">发送截图到公众号</div>
-                <div class="step-desc">在「小Lin思考」公众号发送付款截图 + 你购买的产品名称。</div>
-            </div>
-            <div class="step-card">
-                <div class="step-num">03</div>
-                <div class="step-title">24小时内收到内容</div>
-                <div class="step-desc">小Lin确认后，通过公众号发送下载链接或内容文件。</div>
-            </div>
+            <p style="font-size:0.75rem;color:var(--t3);">公众号：小Lin思考</p>
         </div>
     </div>
-</section>
+</div>
 
 </main>
 
-<!-- 页脚 -->
 <footer class="footer">
     <div class="footer-inner">
-        <div class="footer-brand">小Lin思考<span>精选资源 · thecolin.vip</span></div>
-        <div class="footer-links">
+        <div class="fb">小Lin思考<span>精选资源 · thecolin.vip</span></div>
+        <div class="fl">
             <a href="index.html">首页</a>
             <a href="archive.html">思维库</a>
             <a href="wisdom.html">心智折叠</a>
             <a href="subscribe.html">关注公众号</a>
             <a href="index.html#about">关于小Lin</a>
         </div>
-        <div class="footer-copy">© 2026 小Lin思考 · 用心思考 · 持续创作</div>
+        <div class="fc">© 2026 小Lin思考 · 用心思考 · 持续创作</div>
     </div>
 </footer>
 
-<!-- 支付弹窗 -->
-<div class="modal-overlay" id="payModal" onclick="closePayModalOnOverlay(event)">
-    <div class="modal-box">
-        <button class="modal-close" onclick="closePayModal()">×</button>
-        <div class="modal-header">
-            <div class="modal-product-name" id="modalProductName">产品名称</div>
-            <div class="modal-price" id="modalPrice">¥0</div>
-        </div>
-        <div class="modal-body">
-            <div class="pay-tabs">
-                <button class="pay-tab active" onclick="switchTab('wechat', this)">💚 微信支付</button>
-                <button class="pay-tab" onclick="switchTab('alipay', this)">💙 支付宝</button>
-            </div>
-            <div class="qr-panel active" id="panel-wechat">
-                <div class="qr-wrap">
-                    <img src="images/WECHATPAY.JPG" alt="微信支付收款码">
-                    <p class="qr-hint">打开微信 → 扫一扫 → 扫描上方二维码付款</p>
-                </div>
-            </div>
-            <div class="qr-panel" id="panel-alipay">
-                <div class="qr-wrap">
-                    <img src="images/ALIPAY.JPG" alt="支付宝收款码">
-                    <p class="qr-hint">打开支付宝 → 扫一扫 → 扫描上方二维码付款</p>
-                </div>
-            </div>
-            <div class="modal-steps">
-                <div class="modal-step">
-                    <div class="modal-step-num">1</div>
-                    <div class="modal-step-text">扫码付款后，截图保存支付凭证</div>
-                </div>
-                <div class="modal-step">
-                    <div class="modal-step-num">2</div>
-                    <div class="modal-step-text">在「<strong>小Lin思考</strong>」公众号发送付款截图 + 产品名称「<span id="modalProductName2"></span>」</div>
-                </div>
-                <div class="modal-step">
-                    <div class="modal-step-num">3</div>
-                    <div class="modal-step-text">小Lin确认后 24 小时内发送内容链接给你</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
-// 主题
 var _t=localStorage.getItem('preferred-theme')||'light';
 document.documentElement.setAttribute('data-theme',_t);
-var _tb=document.getElementById('themeSwitcherBtn');
-var _ic=_tb?_tb.querySelector('.theme-icon'):null;
+var _tb=document.getElementById('tsBtn'),_ic=_tb?_tb.querySelector('.theme-icon'):null;
 if(_ic)_ic.textContent=_t==='dark'?'🌙':'☀️';
 if(_tb){_tb.addEventListener('click',function(){_t=_t==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',_t);if(_ic)_ic.textContent=_t==='dark'?'🌙':'☀️';localStorage.setItem('preferred-theme',_t);});}
-
-// 汉堡菜单
-var _hb=document.getElementById('hamburgerBtn');
-var _nl=document.getElementById('mainNavLinks');
-if(_hb&&_nl){
-    _hb.addEventListener('click',function(){
-        var o=_nl.classList.toggle('mobile-open');
-        _hb.classList.toggle('active',o);
-        _hb.setAttribute('aria-expanded',o);
-    });
-    document.addEventListener('click',function(e){
-        if(!_hb.contains(e.target)&&!_nl.contains(e.target)){
-            _nl.classList.remove('mobile-open');
-            _hb.classList.remove('active');
-        }
-    });
-}
-
-// 返回顶部
-var _bt=document.getElementById('backToTop');
-if(_bt){
-    window.addEventListener('scroll',function(){_bt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    _bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-}
-
-// 支付弹窗
-function openPayModal(productName, price){
-    document.getElementById('modalProductName').textContent = productName;
-    document.getElementById('modalProductName2').textContent = productName;
-    document.getElementById('modalPrice').textContent = '¥' + price;
-    document.getElementById('payModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    // 重置到微信标签
-    switchTab('wechat', document.querySelector('.pay-tab'));
-    // GA追踪
-    if(typeof gtag !== 'undefined'){
-        gtag('event','begin_checkout',{'currency':'CNY','value':parseFloat(price),'items':[{'item_name':productName}]});
-    }
-}
-function closePayModal(){
-    document.getElementById('payModal').classList.remove('active');
-    document.body.style.overflow = '';
-}
-function closePayModalOnOverlay(e){
-    if(e.target === document.getElementById('payModal')) closePayModal();
-}
-function switchTab(tab, btn){
-    document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
-    document.querySelectorAll('.qr-panel').forEach(function(p){p.classList.remove('active');});
-    if(btn) btn.classList.add('active');
-    var panel = document.getElementById('panel-' + tab);
-    if(panel) panel.classList.add('active');
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape') closePayModal();});
-
-// 语言切换
-var _lang=localStorage.getItem('preferred-lang')||'zh';
-document.querySelectorAll('.lang-btn').forEach(function(b){
-    b.classList.toggle('active', b.dataset.lang===_lang);
-    b.addEventListener('click',function(){
-        _lang=this.dataset.lang;
-        document.querySelectorAll('.lang-btn').forEach(function(x){x.classList.toggle('active',x.dataset.lang===_lang);});
-        localStorage.setItem('preferred-lang',_lang);
-    });
-});
+var _hb=document.getElementById('hamburgerBtn'),_nl=document.getElementById('mainNavLinks');
+if(_hb&&_nl){_hb.addEventListener('click',function(){var o=_nl.classList.toggle('mobile-open');_hb.classList.toggle('active',o);_hb.setAttribute('aria-expanded',o);});document.addEventListener('click',function(e){if(!_hb.contains(e.target)&&!_nl.contains(e.target)){_nl.classList.remove('mobile-open');_hb.classList.remove('active');}});}
+var _bt=document.getElementById('btt');
+if(_bt){window.addEventListener('scroll',function(){_bt.classList.toggle('visible',window.scrollY>400);},{passive:true});_bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.lang-btn').forEach(function(x){x.classList.remove('active');});this.classList.add('active');localStorage.setItem('preferred-lang',this.dataset.lang);});});
+var sl=localStorage.getItem('preferred-lang')||'zh';
+document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===sl);});
 </script>
 </body>
 </html>
