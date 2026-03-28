@@ -1,11 +1,11 @@
 {
-    "name": "COLIN - 探索深邃思想",
-    "short_name": "COLIN",
-    "description": "专注于深度思考、终身学习和个人成长的思想分享平台",
+    "name": "小Lin思考 · 道·术·器认知体系",
+    "short_name": "小Lin思考",
+    "description": "用东西方顶级智慧构建完整人生系统。天道人性·资治通鉴·西方经典·精英教育·元认知·心智折叠。",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "theme_color": "#C9A84C",
     "orientation": "portrait-primary",
     "scope": "/",
     "lang": "zh-CN",
@@ -28,7 +28,11 @@
             "purpose": "any maskable"
         }
     ],
-    "categories": ["blog", "education", "personal"],
+    "categories": [
+        "blog",
+        "education",
+        "personal"
+    ],
     "screenshots": [
         {
             "src": "/images/screenshot-wide.png",

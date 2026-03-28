@@ -1,10 +1,10 @@
 /**
- * COLIN Blog - Service Worker
+ * 小Lin思考 - Service Worker
  * Enables offline access and faster loading through caching
  * @version 2.0
  */
 
-const CACHE_NAME = 'colin-blog-v2';
+const CACHE_NAME = 'xiaolin-thinks-v1';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
