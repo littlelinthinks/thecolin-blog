@@ -733,6 +733,7 @@
             .subscribe-form { flex-direction: column; }
         }
     </style>
+<script>var _t=localStorage.getItem("preferred-theme")||"light";document.documentElement.setAttribute("data-theme",_t);</script>
 </head>
 <body>
 
@@ -750,7 +751,7 @@
             <ul class="nav-links" id="mainNavLinks">
                 <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
                 <li><a href="archive.html" class="nav-link" data-zh="思维库" data-en="Library">思维库</a></li>
-                <li><a href="products.html" class="nav-link" data-zh="知识产品" data-en="Products">知识产品</a></li>
+                <li><a href="products.html" class="nav-link" data-zh="知识产品" data-en="Products" data-zh="知识产品" data-en="Products">知识产品</a></li>
                 <li><a href="wisdom.html" class="nav-link gold" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
                 <li><a href="subscribe.html" class="nav-link" data-zh="关注公众号" data-en="Follow">关注公众号</a></li>
                 <li><a href="#about" class="nav-link" data-zh="关于小Lin" data-en="About">关于小Lin</a></li>
@@ -998,7 +999,7 @@
         <div class="footer-links">
             <a href="archive.html" data-zh="思维库" data-en="Library">思维库</a>
             <a href="wisdom.html" data-zh="心智折叠" data-en="Mind Folding">心智折叠</a>
-            <a href="products.html" data-zh="知识产品" data-en="Products">知识产品</a>
+            <a href="products.html" data-zh="知识产品" data-en="Products" data-zh="知识产品" data-en="Products">知识产品</a>
             <a href="subscribe.html" data-zh="订阅" data-en="Subscribe">订阅</a>
             <a href="#about" data-zh="关于小Lin" data-en="About">关于小Lin</a>
         </div>
@@ -1006,159 +1007,10 @@
     </div>
 </footer>
 
-<script>
-// 主题切换
-const html = document.documentElement;
-const themeBtn = document.getElementById('themeSwitcher');
-const savedTheme = localStorage.getItem('theme') || 'light';
-if (savedTheme === 'dark') {
-    html.setAttribute('data-theme', 'dark');
-    themeBtn.querySelector('.theme-icon').textContent = '☀️';
-}
-themeBtn.addEventListener('click', function() {
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    this.querySelector('.theme-icon').textContent = isDark ? '🌙' : '☀️';
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-});
-
-// 汉堡菜单
-const hamburger = document.getElementById('hamburgerBtn');
-const navLinks = document.getElementById('mainNavLinks');
-hamburger.addEventListener('click', function() {
-    navLinks.classList.toggle('mobile-open');
-    this.setAttribute('aria-expanded', navLinks.classList.contains('mobile-open'));
-});
-
-// 返回顶部
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', function() {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-});
-backToTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// 语言切换
-const langBtns = document.querySelectorAll('.lang-btn');
-langBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const lang = this.dataset.lang;
-        langBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        document.querySelectorAll('[data-zh]').forEach(el => {
-            if (lang === 'zh' && el.dataset.zh) el.textContent = el.dataset.zh;
-            if (lang === 'en' && el.dataset.en) el.textContent = el.dataset.en;
-        });
-        document.querySelectorAll('[data-zh-placeholder]').forEach(el => {
-            if (lang === 'zh' && el.dataset.zhPlaceholder) el.placeholder = el.dataset.zhPlaceholder;
-            if (lang === 'en' && el.dataset.enPlaceholder) el.placeholder = el.dataset.enPlaceholder;
-        });
-    });
-});
-
-// 平滑滚动
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (navLinks.classList.contains('mobile-open')) {
-                navLinks.classList.remove('mobile-open');
-            }
-        }
-    });
-});
-</script>
 
 
-<script>
-(function(){
-  // 主题持久化
-  var t = localStorage.getItem('preferred-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', t);
-  
-  // 等DOM ready后执行语言和主题初始化
-  document.addEventListener('DOMContentLoaded', function(){
-    // 主题图标
-    var icon = document.querySelector('.theme-icon');
-    if(icon) icon.textContent = t === 'dark' ? '🌙' : '☀️';
-    
-    // 主题按钮
-    var tsBtn = document.getElementById('themeSwitcherBtn') || document.querySelector('.theme-switcher');
-    if(tsBtn) {
-      tsBtn.addEventListener('click', function(){
-        t = t === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', t);
-        var ic = document.querySelector('.theme-icon');
-        if(ic) ic.textContent = t === 'dark' ? '🌙' : '☀️';
-        localStorage.setItem('preferred-theme', t);
-      });
-    }
-    
-    // 语言持久化
-    var lang = localStorage.getItem('preferred-lang') || 'zh';
-    applyLang(lang);
-    
-    // 语言按钮
-    document.querySelectorAll('.lang-btn').forEach(function(btn){
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-      btn.addEventListener('click', function(){
-        lang = this.dataset.lang;
-        localStorage.setItem('preferred-lang', lang);
-        applyLang(lang);
-        document.querySelectorAll('.lang-btn').forEach(function(b){
-          b.classList.toggle('active', b.dataset.lang === lang);
-        });
-      });
-    });
-    
-    // 汉堡菜单
-    var hBtn = document.getElementById('hamburgerBtn');
-    var nav = document.getElementById('mainNavLinks');
-    if(hBtn && nav){
-      hBtn.addEventListener('click', function(){
-        var o = nav.classList.toggle('mobile-open');
-        hBtn.classList.toggle('active', o);
-        hBtn.setAttribute('aria-expanded', o);
-      });
-      document.addEventListener('click', function(e){
-        if(hBtn && nav && !hBtn.contains(e.target) && !nav.contains(e.target)){
-          nav.classList.remove('mobile-open');
-          hBtn.classList.remove('active');
-        }
-      });
-    }
-    
-    // 返回顶部
-    var btt = document.getElementById('backToTop');
-    if(btt){
-      window.addEventListener('scroll', function(){
-        btt.classList.toggle('visible', window.scrollY > 400);
-      }, {passive:true});
-      btt.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    }
-  });
-  
-  function applyLang(lang){
-    document.querySelectorAll('[data-zh][data-en]').forEach(function(el){
-      var txt = el.dataset[lang];
-      if(!txt) return;
-      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
-        el.placeholder = el.dataset[lang+'Placeholder'] || txt;
-      } else {
-        el.textContent = txt;
-      }
-    });
-    document.querySelectorAll('[data-zh-placeholder][data-en-placeholder]').forEach(function(el){
-      el.placeholder = lang === 'zh' ? el.dataset.zhPlaceholder : el.dataset.enPlaceholder;
-    });
-    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-  }
-})();
-</script>
+
+
+<script src="/js/common.js"></script>
 </body>
 </html>
