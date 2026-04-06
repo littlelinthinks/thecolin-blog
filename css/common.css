@@ -8,3 +8,4 @@ body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg-primary);colo
 /* ===== 双语切换核心CSS ===== */
 [data-lang="zh"] .en { display: none !important; }
 [data-lang="en"] .zh { display: none !important; }
+/* cache bust Mon Apr  6 14:20:38 UTC 2026 */
