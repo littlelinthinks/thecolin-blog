@@ -115,7 +115,7 @@ window.COLIN_DATA = {
       title: { zh: '为什么越努力越焦虑？因为你正站在历史的"折叠点"上', en: 'Why the Harder You Work, the More Anxious You Feel' },
       excerpt: { zh: '读瑞·达利欧万字长文，我有三个脊背发凉的顿悟。我们正处于大周期第六阶段，历史的剧本早就写好了。', en: 'Three spine-chilling realizations from reading Ray Dalio\'s essay. We are in the sixth phase of the big cycle.' },
       collection: 'western',
-      figures: ['ray-dalio', 'duan-yongping'],
+      figures: ['ray-dalio'],
       concepts: ['big-cycle', 'history-cycle', 'first-principles', 'path-dependence', 'dao-shu-qi'],
       url: 'articles/2026-04-dalio-history-fold.html',
       wechat_url: '', // 公众号链接，发布后填入
