@@ -1,264 +1,702 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>!function(){var t=localStorage.getItem("preferred-theme")||"light",l=localStorage.getItem("preferred-lang")||"zh";document.documentElement.setAttribute("data-theme",t);document.documentElement.setAttribute("data-lang",l)}();</script>
     <meta charset="UTF-8">
-    <!-- ★ 防闪烁 -->
-    <script>(function(){var t=localStorage.getItem('preferred-theme')||'light';document.documentElement.setAttribute('data-theme',t);})()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title ><span class="zh">关注「小Lin思考」公众号 | 道·术·器认知体系</span><span class="en">Follow 小Lin思考 | Dao-Shu-Qi Framework</span></title>
-    <meta name="description" content="关注小Lin思考公众号，每月四篇深度文章，天道人性·资治通鉴·西方经典·精英教育。关注后回复「思维」获取认知升级书单。">
-    <meta property="og:title" content="关注「小Lin思考」公众号 | 小Lin思考">
-    <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
-    <meta name="twitter:site" content="@littlelinthinks">
-    <link rel="canonical" href="https://thecolin.vip/subscribe.html">
+    <title data-zh="订阅获取免费资源 - COLIN" data-en="Subscribe for Free Resources - COLIN">订阅获取免费资源 - COLIN</title>
+    <meta name="description" data-zh-content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。" data-en-content="Subscribe to COLIN blog for weekly writing tips, goal management methods, mental models, and learning resources." content="订阅COLIN博客，获取每周精选写作技巧、目标管理方法、思维模型解析和学习方法更新。">
+    <meta name="keywords" content="订阅,newsletter,写作技巧,目标管理,思维模型,学习方法,个人成长">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://vip.us8.list-manage.com;">
+
+    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MPQTS8G2HD');</script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='72' font-family='Georgia' font-size='52' fill='%23C9A84C' text-anchor='middle'>关</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MPQTS8G2HD');
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
+
+    <!-- Common CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
+    <meta property="og:title" content="订阅「小Lin思考」— COLIN">
+    <meta property="og:description" content="每周一封深度文章，关于思维、成长与人生。免费订阅，随时退订。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thecolin.vip/subscribe.html">
+    <meta property="og:image" content="https://www.thecolin.vip/images/og-image.jpg">
+    <meta property="og:site_name" content="COLIN — 探索深邃思想">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@littlelinthinks">
+    <meta name="twitter:title" content="订阅「小Lin思考」— COLIN">
+    <meta name="twitter:description" content="每周一封深度文章，关于思维、成长与人生。免费订阅，随时退订。">
+    <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
+    <link rel="canonical" href="https://www.thecolin.vip/subscribe.html">
+    <link rel="stylesheet" href="/css/common.css">
+
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        :root{--bg:#fff;--bg2:#f5f5f5;--bgc:#fff;--t1:#000;--t2:#666;--t3:#999;--bd:#e5e5e5;--gold:#C9A84C;--teal:#5DCAA5;--purple:#7F77DD;--coral:#F0997B;--amber:#EF9F27;--blue:#85B7EB;--btnbg:#000;--btnfg:#fff;}
-        [data-theme="dark"]{--bg:#0a0a0a;--bg2:#141414;--bgc:#1a1a1a;--t1:#fff;--t2:#a0a0a0;--t3:#555;--bd:#2a2a2a;--btnbg:#fff;--btnfg:#000;}
-        body{font-family:'Noto Serif SC',Georgia,serif;background:var(--bg);color:var(--t1);line-height:1.6;padding-top:64px;}
-        .nav-header{background:rgba(255,255,255,0.97);padding:0 2rem;position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);height:64px;display:flex;align-items:center;}
-        [data-theme="dark"] .nav-header{background:rgba(10,10,10,0.97);border-bottom-color:#2a2a2a;}
-        .nav-content{max-width:1400px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-        .nlw{text-decoration:none;display:flex;flex-direction:column;line-height:1.25;gap:1px;}
-        .nlm{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--t1);letter-spacing:1px;}
-        .nls{font-size:0.62rem;color:var(--gold);letter-spacing:3px;}
-        .nav-right{display:flex;align-items:center;gap:1.5rem;}
-        .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;}
-        .nav-link{color:var(--t1);text-decoration:none;font-size:0.9rem;transition:color 0.2s;white-space:nowrap;}
-        .nav-link:hover{color:var(--t2);}
-        .nav-link.gld{color:var(--gold)!important;font-weight:700;}
-        .lang-switcher{display:flex;gap:4px;}
-        .lang-btn{padding:4px 10px;border:1px solid var(--bd);background:var(--bgc);cursor:pointer;font-size:0.72rem;border-radius:4px;color:var(--t2);transition:all 0.2s;}
-        .lang-btn.active{background:var(--btnbg);color:var(--btnfg);border-color:var(--btnbg);}
-        .theme-switcher{width:38px;height:38px;border-radius:50%;background:var(--bg2);border:1px solid var(--bd);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;}
-        .theme-switcher:hover{transform:rotate(180deg);}
-        .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:1100;}
-        .hamburger span{display:block;width:22px;height:2px;background:var(--t1);transition:all 0.3s;transform-origin:center;border-radius:2px;}
-        .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-        .hamburger.active span:nth-child(2){opacity:0;}
-        .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-        @media(max-width:900px){
-            .hamburger{display:flex!important;}
-            .nav-right ul.nav-links{display:none!important;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--bd);flex-direction:column!important;gap:0!important;padding:0.5rem 0 4rem;z-index:1050;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-            .nav-right ul.nav-links.mobile-open{display:flex!important;}
-            .nav-right ul.nav-links>li{width:100%;border-bottom:1px solid var(--bd);}
-            .nav-right ul.nav-links>li>a{display:block!important;padding:1rem 2rem!important;font-size:1rem!important;}
-            .lang-switcher{display:none!important;}
-            .nls{display:none;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--btnbg);color:var(--btnfg);border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;opacity:0;visibility:hidden;transition:all 0.3s;z-index:999;}
-        .back-to-top.visible{opacity:1;visibility:visible;}
 
-        /* 页面样式 */
-        .hero{padding:72px 5% 56px;text-align:center;border-bottom:1px solid var(--bd);position:relative;overflow:hidden;}
-        .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,168,76,0.025) 0,rgba(201,168,76,0.025) 1px,transparent 1px,transparent 80px);pointer-events:none;}
-        .hero-label{font-size:0.65rem;color:var(--gold);letter-spacing:5px;display:block;margin-bottom:16px;}
-        .hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(32px,6vw,64px);font-weight:900;margin-bottom:16px;line-height:1.1;}
-        .hero-desc{font-size:0.95rem;color:var(--t2);line-height:1.8;max-width:560px;margin:0 auto 32px;}
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --accent-hover: #333333;
+            --border: #e5e5e5;
+            --button-bg-dark: #000000;
+            --button-text-dark: #ffffff;
+        }
 
-        .section{padding:60px 5%;border-bottom:1px solid var(--bd);}
-        .section.alt{background:var(--bg2);}
-        [data-theme="dark"] .section.alt{background:#0d0d0d;}
-        .section-inner{max-width:900px;margin:0 auto;}
-        .section h2{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;text-align:center;}
-        .section-desc{text-align:center;font-size:0.85rem;color:var(--t2);margin-bottom:40px;}
+        /* 深色模式 */
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #e0e0e0;
+            --border: #2a2a2a;
+            --button-bg-dark: #ffffff;
+            --button-text-dark: #000000;
+        }
 
-        /* 二维码区块 */
-        .qr-wrap{max-width:780px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-        @media(max-width:600px){.qr-wrap{grid-template-columns:1fr;text-align:center;}}
-        .qr-box{background:var(--bg2);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:36px;text-align:center;}
-        [data-theme="dark"] .qr-box{background:#111;}
-        .qr-img{width:180px;height:180px;border:1px solid var(--bd);border-radius:4px;margin:0 auto 14px;object-fit:cover;display:block;}
-        .qr-img-placeholder{width:180px;height:180px;border:2px dashed var(--bd);border-radius:4px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;font-size:0.78rem;color:var(--t3);}
-        .qr-name{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--gold);}
-        .qr-info h3{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:14px;}
-        .qr-info p{font-size:0.85rem;color:var(--t2);line-height:1.8;margin-bottom:14px;}
-        .search-hint{background:var(--bg2);border:1px solid var(--bd);border-radius:4px;padding:10px 16px;display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;}
-        [data-theme="dark"] .search-hint{background:#111;}
-        .search-name{font-weight:700;}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-        /* 关键词礼包 */
-        .keywords-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;}
-        .kw-card{background:var(--bgc);padding:22px;transition:background 0.2s;}
-        [data-theme="dark"] .kw-card{background:#111;}
-        .kw-card:hover{background:var(--bg2);}
-        .kw-trigger{font-size:0.68rem;color:var(--gold);letter-spacing:2px;margin-bottom:8px;display:inline-block;padding:2px 8px;border:1px solid rgba(201,168,76,0.3);border-radius:2px;}
-        .kw-title{font-weight:700;font-size:0.92rem;margin-bottom:4px;}
-        .kw-desc{font-size:0.78rem;color:var(--t2);}
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding-top: 80px;
+        }
 
-        /* 内容预告 */
-        .preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;}
-        .pv-card{background:var(--bg2);padding:22px;border-left:3px solid transparent;}
-        [data-theme="dark"] .pv-card{background:#111;}
-        .pv-week{font-size:0.65rem;letter-spacing:3px;margin-bottom:8px;display:block;}
-        .pv-title{font-weight:700;font-size:0.9rem;margin-bottom:4px;}
-        .pv-desc{font-size:0.78rem;color:var(--t2);}
+        .subscribe-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;
+        }
 
-        .footer{background:var(--bg);border-top:1px solid var(--bd);padding:36px 5%;}
-        .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-        .fb{font-family:'Playfair Display',Georgia,serif;font-weight:700;}
-        .fb span{color:var(--gold);font-size:0.68rem;letter-spacing:2px;display:block;margin-top:3px;}
-        .fl{display:flex;gap:18px;flex-wrap:wrap;}
-        .fl a{font-size:0.78rem;color:var(--t3);text-decoration:none;transition:color 0.2s;}
-        .fl a:hover{color:var(--t1);}
-        .fc{font-size:0.72rem;color:var(--t3);}
+        /* 主题切换按钮 */
+        .theme-switcher {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-switcher:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .benefits {
+            text-align: left;
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .benefits h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-icon {
+            color: #000000;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            background: var(--accent-hover);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: var(--button-text-dark);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .success-message h2 {
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #667eea;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.3s;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .subscribe-card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 深色模式适配 */
+        [data-theme="dark"] h1 {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .subtitle {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .benefits {
+            background: var(--bg-secondary);
+        }
+
+        [data-theme="dark"] .benefits h3 {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .benefit-item {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .form-group input {
+            background: var(--bg-card);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .form-group input:focus {
+            border-color: var(--accent);
+        }
+
+        [data-theme="dark"] .form-group input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        [data-theme="dark"] nav a {
+            color: rgba(255,255,255,0.8);
+        }
+
+        [data-theme="dark"] nav a:hover {
+            color: #ffffff;
+        }
     
+        .nav-logo, .logo { font-family: "Playfair Display", Georgia, serif !important; }
+        h1 { font-family: "Playfair Display", Georgia, serif !important; }
 
+        /* ===== Mobile Hamburger Nav ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            background: transparent;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        @media (max-width: 900px) {
+            .hamburger { display: flex !important; }
+            .nav-right ul.nav-links {
+                display: none !important;
+                position: fixed;
+                top: 64px; left: 0; right: 0; bottom: 0;
+                background: var(--bg-primary);
+                border-top: 1px solid var(--border);
+                flex-direction: column !important;
+                gap: 0 !important;
+                padding: 0.5rem 0 2rem;
+                z-index: 998;
+                overflow-y: auto;
+            }
+            .nav-right ul.nav-links.mobile-open { display: flex !important; }
+            .nav-right ul.nav-links > li { width: 100%; border-bottom: 1px solid var(--border); }
+            .nav-right ul.nav-links > li > a { display: block !important; padding: 1rem 2rem !important; font-size: 1rem !important; }
+            .nav-right ul.nav-links .dropdown-menu { position: static !important; box-shadow: none !important; background: var(--bg-secondary); opacity: 1 !important; visibility: visible !important; display: block !important; }
+            .nav-right ul.nav-links .dropdown-menu li a { padding: 0.75rem 3rem !important; font-size: 0.9rem !important; }
+            .dropdown-arrow { display: none !important; }
+            .lang-switcher { display: none !important; }
+        }
 
-[data-lang="zh"] span.en{display:none!important}[data-lang="en"] span.zh{display:none!important}
-</style>
+        </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"订阅 — COLIN","url":"https://www.thecolin.vip/subscribe.html"}</script>
 </head>
 <body>
-<nav class="nav-header" role="navigation" aria-label="主导航">
+    <!-- 导航栏 -->
+    <nav class="nav-header" role="navigation" aria-label="主导航">
     <div class="nav-content">
-        <a href="index.html" class="nlw">
-            <span class="nlm" data-zh="小Lin思考" data-en="小Lin思考"><span class="zh">小Lin思考</span><span class="en">小Lin思考</span></span>
-            <span class="nls" data-zh="道 · 术 · 器 认知体系" data-en="Dao · Shu · Qi Framework"><span class="zh">道 · 术 · 器 认知体系</span><span class="en">Dao · Shu · Qi Framework</span></span>
-        </a>
-        <div class="nav-right">
-            <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
+        <a href="index.html" class="nav-logo logo">COLIN</a>
+        <div class="nav-right" style="display:flex;align-items:center;gap:1.5rem;">
+            <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mainNavLinks">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="nav-links" id="mainNavLinks">
-                <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home"><span class="zh">首页</span><span class="en">Home</span></a></li>
-                <li><a href="archive.html" class="nav-link" data-zh="思维库" data-en="Library"><span class="zh">思维库</span><span class="en">Library</span></a></li>
-                <li><a href="products.html" class="nav-link" data-zh="知识产品" data-en="Products" data-zh="知识产品" data-en="Products"><span class="zh">知识产品</span><span class="en">Products</span></a></li>
-                <li><a href="wisdom.html" class="nav-link gld" data-zh="✦ 心智折叠" data-en="✦ Mind Folding"><span class="zh">✦ 心智折叠</span><span class="en">✦ Mind Folding</span></a></li>
-                <li><a href="subscribe.html" class="nav-link" style="font-weight:700;" data-zh="关注公众号" data-en="Follow WeChat"><span class="zh">关注公众号</span><span class="en">Follow WeChat</span></a></li>
-                <li><a href="index.html#about" class="nav-link" data-zh="关于小Lin" data-en="About"><span class="zh">关于小Lin</span><span class="en">About</span></a></li>
+                            <ul class="nav-links" id="mainNavLinks" style="display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0;">
+                    <li><a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
+                    <li class="nav-dropdown">
+                        <a href="archive.html" class="nav-link">
+                            <span data-zh="文章" data-en="Articles">文章</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="archive.html">📚 文章归档</a></li>
+                            <li><a href="archive.html?category=life">小Lin记</a></li>
+                            <li><a href="archive.html?category=thinking">小Lin析</a></li>
+                            <li><a href="archive.html?category=reading">小Lin读</a></li>
+                            <li><a href="archive.html?category=history">小Lin说</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="products.html" class="nav-link">
+                            <span data-zh="精选资源" data-en="Resources">精选资源</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products.html?category=writing">✍️ 写作指南</a></li>
+                            <li><a href="products.html?category=goals">🎯 目标规划</a></li>
+                            <li><a href="products.html?category=thinking">🧠 思维模型</a></li>
+                            <li><a href="products.html?category=learning">📚 学习方法</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="wisdom.html" class="nav-link" style="color:#C9A84C!important;font-weight:700;">✦ 心智折叠</a></li>
+                    <li><a href="subscribe.html" class="nav-link">订阅</a></li>
+                    <li><a href="index.html#about" class="nav-link">关于</a></li>
+                </ul>
+                </li>
+                <li><a href="wisdom.html" class="nav-link" style="color:#C9A84C;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
+                <li><a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a></li>
+                <li><a href="index.html#about" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
             </ul>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="zh">中文</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
-            <button class="theme-switcher" id="themeSwitcherBtn" aria-label="切换主题">
+            <button class="theme-switcher" aria-label="切换主题">
                 <span class="theme-icon">🌙</span>
             </button>
         </div>
     </div>
 </nav>
-<button class="back-to-top" id="backToTop">↑</button>
-<main role="main">
 
-<section class="hero">
-    <span class="hero-label" data-zh="关注 · 不错过更新" data-en="Follow · Stay Updated"><span class="zh">关注 · 不错过更新</span><span class="en">Follow · Stay Updated</span></span>
-    <h1 data-zh="关注「小Lin思考」" data-en="Follow 小Lin思考"><span class="zh">关注「小Lin思考」</span><span class="en">Follow 小Lin思考</span></h1>
-    <p class="hero-desc" data-zh="每月四篇深度文章，关于天道人性·资治通鉴·西方经典·精英教育。帮你从「努力却困惑」走向「清醒且笃定」。" data-en="4 deep articles per month on Human Nature, History, Western Classics & Elite Education. From confused effort to clear direction."><span class="zh">每月四篇深度文章，关于天道人性·资治通鉴·西方经典·精英教育。帮你从「努力却困惑」走向「清醒且笃定」。</span><span class="en">4 deep articles per month on Human Nature, History, Western Classics & Elite Education. From confused effort to clear direction.</span></p>
-</section>
+    <main role="main">
+    <div class="container">
+        <div class="subscribe-card">
+            <div class="icon">📬</div>
+            <h1 data-zh="订阅获取免费资源" data-en="Subscribe for Free Resources">订阅获取免费资源</h1>
+            <p class="subtitle" data-zh="加入我们的邮件列表，第一时间获取最新资源和干货" data-en="Join our newsletter to get latest resources and insights">加入我们的邮件列表，第一时间获取最新资源和干货</p>
 
-<section class="section">
-    <div class="section-inner">
-        <div class="qr-wrap">
-            <div class="qr-box">
-                <img src="/images/wechat-qr.jpg" alt="小Lin思考公众号二维码" class="qr-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                <div class="qr-img-placeholder" style="display:none;">📱<span data-zh="二维码加载中" data-en="Loading QR"><span class="zh">二维码加载中</span><span class="en">Loading QR</span></span></div>
-                <div style="font-size:0.78rem;color:var(--t3);margin-bottom:8px;" data-zh="微信扫码关注" data-en="Scan with WeChat"><span class="zh">微信扫码关注</span><span class="en">Scan with WeChat</span></div>
-                <div class="qr-name">小Lin思考</div>
-            </div>
-            <div class="qr-info">
-                <h3 data-zh="扫码关注，立即获得书单" data-en="Follow & Get Book List Now"><span class="zh">扫码关注，立即获得书单</span><span class="en">Follow & Get Book List Now</span></h3>
-                <p data-zh="关注后回复「思维」，立即获得小Lin思考精选的 18 本认知升级书单，按道·术·器分类整理。" data-en="Reply 'thinking' after following to get 18 curated cognitive upgrade books, organized by the Dao-Shu-Qi framework."><span class="zh">关注后回复「思维」，立即获得小Lin思考精选的 18 本认知升级书单，按道·术·器分类整理。</span><span class="en">Reply 'thinking' after following to get 18 curated cognitive upgrade books, organized by the Dao-Shu-Qi framework.</span></p>
-                <p style="font-size:0.82rem;color:var(--t3);" data-zh="也可以在微信搜一搜：" data-en="Or search on WeChat:"><span class="zh">也可以在微信搜一搜：</span><span class="en">Or search on WeChat:</span></p>
-                <div class="search-hint">
-                    <span style="color:var(--t2);font-size:0.82rem;" data-zh="搜索公众号：" data-en="Search:"><span class="zh">搜索公众号：</span><span class="en">Search:</span></span>
-                    <span class="search-name">小Lin思考</span>
+            <div class="benefits">
+                <h3 data-zh="🎁 订阅后你将获得" data-en="🎁 What you'll get">🎁 订阅后你将获得</h3>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span data-zh="每周精选写作技巧和模板" data-en="Weekly curated writing tips and templates">每周精选写作技巧和模板</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span data-zh="最新目标管理方法分享" data-en="Latest goal management methods">最新目标管理方法分享</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span data-zh="思维模型深度解析" data-en="In-depth mental model analysis">思维模型深度解析</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span data-zh="高效学习方法更新" data-en="Efficient learning method updates">高效学习方法更新</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span data-zh="订阅用户专属优惠和活动" data-en="Exclusive subscriber discounts and events">订阅用户专属优惠和活动</span>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<section class="section alt">
-    <div class="section-inner">
-        <h2 data-zh="关注后回复关键词获取" data-en="Reply Keywords After Following"><span class="zh">关注后回复关键词获取</span><span class="en">Reply Keywords After Following</span></h2>
-        <p class="section-desc" data-zh="每个关键词对应一份精心准备的内容礼包" data-en="Each keyword unlocks a curated content package"><span class="zh">每个关键词对应一份精心准备的内容礼包</span><span class="en">Each keyword unlocks a curated content package</span></p>
-        <div class="keywords-grid">
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【思维】" data-en="Reply [thinking]"><span class="zh">回复【思维】</span><span class="en">Reply [thinking]</span></span>
-                <div class="kw-title" data-zh="认知升级书单" data-en="Cognitive Upgrade Book List"><span class="zh">认知升级书单</span><span class="en">Cognitive Upgrade Book List</span></div>
-                <p class="kw-desc" data-zh="18本精选书·道·术·器三层分类" data-en="18 curated books organized by Dao-Shu-Qi"><span class="zh">18本精选书·道·术·器三层分类</span><span class="en">18 curated books organized by Dao-Shu-Qi</span></p>
-            </div>
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【教育】" data-en="Reply [education]"><span class="zh">回复【教育】</span><span class="en">Reply [education]</span></span>
-                <div class="kw-title" data-zh="精英教育书单" data-en="Elite Education Book List"><span class="zh">精英教育书单</span><span class="en">Elite Education Book List</span></div>
-                <p class="kw-desc" data-zh="20本精英教育核心书目" data-en="20 essential elite education books"><span class="zh">20本精英教育核心书目</span><span class="en">20 essential elite education books</span></p>
-            </div>
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【模型】" data-en="Reply [model]"><span class="zh">回复【模型】</span><span class="en">Reply [model]</span></span>
-                <div class="kw-title" data-zh="元认知工具包" data-en="Metacognition Toolkit"><span class="zh">元认知工具包</span><span class="en">Metacognition Toolkit</span></div>
-                <p class="kw-desc" data-zh="7个立即可用的思维工具" data-en="7 immediately usable thinking tools"><span class="zh">7个立即可用的思维工具</span><span class="en">7 immediately usable thinking tools</span></p>
-            </div>
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【折叠】" data-en="Reply [fold]"><span class="zh">回复【折叠】</span><span class="en">Reply [fold]</span></span>
-                <div class="kw-title" data-zh="心智折叠介绍" data-en="Mind Folding Introduction"><span class="zh">心智折叠介绍</span><span class="en">Mind Folding Introduction</span></div>
-                <p class="kw-desc" data-zh="186位顶尖人物原则库说明" data-en="186 elite figures principles library"><span class="zh">186位顶尖人物原则库说明</span><span class="en">186 elite figures principles library</span></p>
-            </div>
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【天道】" data-en="Reply [tiandao]"><span class="zh">回复【天道】</span><span class="en">Reply [tiandao]</span></span>
-                <div class="kw-title" data-zh="天道系列文章" data-en="Tiandao Series"><span class="zh">天道系列文章</span><span class="en">Tiandao Series</span></div>
-                <p class="kw-desc" data-zh="天道人性合集精选内容" data-en="Curated Tiandao & Human Nature content"><span class="zh">天道人性合集精选内容</span><span class="en">Curated Tiandao & Human Nature content</span></p>
-            </div>
-            <div class="kw-card">
-                <span class="kw-trigger" data-zh="回复【合作】" data-en="Reply [partner]"><span class="zh">回复【合作】</span><span class="en">Reply [partner]</span></span>
-                <div class="kw-title" data-zh="商务合作" data-en="Business Cooperation"><span class="zh">商务合作</span><span class="en">Business Cooperation</span></div>
-                <p class="kw-desc" data-zh="合作方向与联系方式" data-en="Cooperation directions & contact"><span class="zh">合作方向与联系方式</span><span class="en">Cooperation directions & contact</span></p>
-            </div>
-        </div>
-    </div>
-</section>
+            <form id="subscribeForm" action="https://vip.us8.list-manage.com/subscribe/post?u=dc3fe2fadfe5ada55293ded56&id=3542a113b8" method="post" target="_blank" rel="noopener noreferrer" aria-label="订阅表单" novalidate>
+                <div class="form-group">
+                    <label for="name" class="visually-hidden">你的名字</label>
+                    <input type="text" id="name" name="FNAME" data-zh-placeholder="你的名字（可选）" data-en-placeholder="Your name (optional)" placeholder="你的名字（可选）" aria-invalid="false" aria-describedby="nameHint" />
+                    <span id="nameHint" class="visually-hidden">可选字段</span>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="visually-hidden">邮箱地址</label>
+                    <input type="email" id="email" name="EMAIL" data-zh-placeholder="你的邮箱地址" data-en-placeholder="Your email address" placeholder="你的邮箱地址" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" data-zh-title="请输入有效的邮箱地址" data-en-title="Please enter a valid email address" title="请输入有效的邮箱地址" aria-invalid="false" aria-required="true" aria-describedby="emailError emailHint" />
+                    <span id="emailHint" class="visually-hidden">请输入有效的邮箱地址</span>
+                    <div id="emailError" data-zh="请输入有效的邮箱地址" data-en="Please enter a valid email address" role="alert" aria-live="assertive" aria-atomic="true" style="color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none;">请输入有效的邮箱地址</div>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn" data-zh="立即订阅 →" data-en="Subscribe Now →">立即订阅 →</button>
+            </form>
 
-<section class="section">
-    <div class="section-inner">
-        <h2 data-zh="你将持续收到" data-en="What You'll Receive"><span class="zh">你将持续收到</span><span class="en">What You'll Receive</span></h2>
-        <p class="section-desc" data-zh="每月四篇深度文章，一篇对应一个方向" data-en="4 deep articles per month, one per direction"><span class="zh">每月四篇深度文章，一篇对应一个方向</span><span class="en">4 deep articles per month, one per direction</span></p>
-        <div class="preview-grid">
-            <div class="pv-card" style="border-left-color:var(--teal);">
-                <span class="pv-week" style="color:var(--teal);" data-zh="每月第一周" data-en="Week 1"><span class="zh">每月第一周</span><span class="en">Week 1</span></span>
-                <div class="pv-title" data-zh="天道 · 人性" data-en="Tiandao · Human Nature"><span class="zh">天道 · 人性</span><span class="en">Tiandao · Human Nature</span></div>
-                <p class="pv-desc" data-zh="用天道智慧解码人性规律" data-en="Decode human nature with Tiandao wisdom"><span class="zh">用天道智慧解码人性规律</span><span class="en">Decode human nature with Tiandao wisdom</span></p>
-            </div>
-            <div class="pv-card" style="border-left-color:var(--amber);">
-                <span class="pv-week" style="color:var(--amber);" data-zh="每月第二周" data-en="Week 2"><span class="zh">每月第二周</span><span class="en">Week 2</span></span>
-                <div class="pv-title" data-zh="资治通鉴 · 历史" data-en="Zizhi Tongjian · History"><span class="zh">资治通鉴 · 历史</span><span class="en">Zizhi Tongjian · History</span></div>
-                <p class="pv-desc" data-zh="1000年前的答案今天依然有效" data-en="Answers from 1000 years ago still work today"><span class="zh">1000年前的答案今天依然有效</span><span class="en">Answers from 1000 years ago still work today</span></p>
-            </div>
-            <div class="pv-card" style="border-left-color:var(--purple);">
-                <span class="pv-week" style="color:var(--purple);" data-zh="每月第三周" data-en="Week 3"><span class="zh">每月第三周</span><span class="en">Week 3</span></span>
-                <div class="pv-title" data-zh="西方经典 · 思维" data-en="Western Classics · Thinking"><span class="zh">西方经典 · 思维</span><span class="en">Western Classics · Thinking</span></div>
-                <p class="pv-desc" data-zh="达利欧·芒格·顶级认知框架" data-en="Dalio · Munger · Top cognitive frameworks"><span class="zh">达利欧·芒格·顶级认知框架</span><span class="en">Dalio · Munger · Top cognitive frameworks</span></p>
-            </div>
-            <div class="pv-card" style="border-left-color:var(--coral);">
-                <span class="pv-week" style="color:var(--coral);" data-zh="每月第四周" data-en="Week 4"><span class="zh">每月第四周</span><span class="en">Week 4</span></span>
-                <div class="pv-title" data-zh="精英教育 · 元认知" data-en="Elite Education · Metacognition"><span class="zh">精英教育 · 元认知</span><span class="en">Elite Education · Metacognition</span></div>
-                <p class="pv-desc" data-zh="给孩子的礼物·给自己的工具" data-en="Gift for children · Tools for yourself"><span class="zh">给孩子的礼物·给自己的工具</span><span class="en">Gift for children · Tools for yourself</span></p>
-            </div>
+            <a href="index.html" class="back-link" data-zh="← 返回首页" data-en="← Back to Home">← 返回首页</a>
         </div>
     </div>
-</section>
 
-</main>
-<footer class="footer">
-    <div class="footer-inner">
-        <div class="fb">小Lin思考<span data-zh="道 · 术 · 器 · thecolin.vip" data-en="Dao · Shu · Qi · thecolin.vip"><span class="zh">道 · 术 · 器 · thecolin.vip</span><span class="en">Dao · Shu · Qi · thecolin.vip</span></span></div>
-        <div class="fl">
-            <a href="index.html" data-zh="首页" data-en="Home"><span class="zh">首页</span><span class="en">Home</span></a>
-            <a href="archive.html" data-zh="思维库" data-en="Library"><span class="zh">思维库</span><span class="en">Library</span></a>
-            <a href="wisdom.html" data-zh="心智折叠" data-en="Mind Folding"><span class="zh">心智折叠</span><span class="en">Mind Folding</span></a>
-            <a href="products.html" data-zh="知识产品" data-en="Products" data-zh="知识产品" data-en="Products"><span class="zh">知识产品</span><span class="en">Products</span></a>
-            <a href="index.html#about" data-zh="关于小Lin" data-en="About"><span class="zh">关于小Lin</span><span class="en">About</span></a>
-        </div>
-        <div class="fc" data-zh="© 2026 小Lin思考 · 用心思考 · 持续创作" data-en="© 2026 小Lin思考 · Think Deep · Create Continuously"><span class="zh">© 2026 小Lin思考 · 用心思考 · 持续创作</span><span class="en">© 2026 小Lin思考 · Think Deep · Create Continuously</span></div>
-    </div>
-</footer>
-<script src="/js/common.js"></script>
+    <!-- Common JS -->
+    <script src="/js/common.js" defer></script>
+
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            const email = document.getElementById('email').value;
+            const emailError = document.getElementById('emailError');
+
+            // 验证邮箱格式
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                e.preventDefault();
+                emailError.style.display = 'block';
+                document.getElementById('email').focus();
+                return;
+            }
+
+            // 清除错误信息
+            emailError.style.display = 'none';
+
+            // 追踪订阅事件
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'subscribe', {
+                    'event_category': 'engagement',
+                    'event_label': 'newsletter'
+                });
+            }
+
+            // 显示加载中状态
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = btn.dataset[currentLang] || (currentLang === 'zh' ? '正在提交...' : 'Submitting...');
+            btn.disabled = true;
+        });
+
+        // 实时验证邮箱
+        document.getElementById('email').addEventListener('input', function() {
+            const email = this.value;
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (email && !emailPattern.test(email)) {
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
+            }
+        });
+
+        // 返回顶部按钮
+        const backToTopBtn = document.createElement('button');
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.innerHTML = '↑';
+        backToTopBtn.setAttribute('data-zh-title', '返回顶部');
+        backToTopBtn.setAttribute('data-en-title', 'Back to top');
+        backToTopBtn.setAttribute('title', '返回顶部');
+        document.body.appendChild(backToTopBtn);
+
+        // 初始隐藏
+        backToTopBtn.classList.add('hidden');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== 语言切换功能 =====
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // 更新按钮状态和 ARIA 属性
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-card)';
+                btn.style.color = 'var(--text-secondary)';
+                btn.setAttribute('aria-pressed', 'false');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.background = 'var(--accent)';
+                    btn.style.color = 'var(--button-text-dark)';
+                    btn.setAttribute('aria-pressed', 'true');
+                }
+            });
+
+            // 更新所有带语言数据的元素
+            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                const textContent = el.dataset[lang];
+                if (!textContent) return;
+
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang + 'Placeholder'] || textContent;
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
+                    el.textContent = textContent;
+                } else {
+                    el.innerHTML = textContent;
+                }
+            });
+
+            // 更新title属性
+            document.querySelectorAll('[data-zh-title][data-en-title]').forEach(el => {
+                el.setAttribute('title', el.dataset[lang + 'Title']);
+            });
+
+            // 更新meta标签
+            const titleEl = document.querySelector('title');
+            if (titleEl) {
+                titleEl.textContent = titleEl.dataset[lang];
+            }
+
+            const descEl = document.querySelector('meta[name="description"]');
+            if (descEl && descEl.dataset[lang + 'Content']) {
+                descEl.setAttribute('content', descEl.dataset[lang + 'Content']);
+            }
+
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+            currentLang = savedLang;
+            switchLanguage(savedLang);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
+        // ===== 主题切换功能 =====
+        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeSwitcher = document.querySelector('.theme-switcher');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeSwitcher) {
+                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
+            }
+
+            localStorage.setItem('preferred-theme', currentTheme);
+        }
+
+        // 页面加载完成后初始化主题和语言
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+            }
+
+            // 初始化语言
+            initLanguage();
+        });
+
+        const themeSwitcher = document.querySelector('.theme-switcher');
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', toggleTheme);
+        }
+    </script>
+    </main>
 </body>
 </html>
-
-<!-- cache-bust -->

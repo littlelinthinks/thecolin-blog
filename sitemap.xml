@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 主页 -->
+
     <url>
-        <loc>https://thecolin.vip/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://www.thecolin.vip/</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- 产品页 -->
     <url>
-        <loc>https://thecolin.vip/products.html</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://www.thecolin.vip/products.html</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- 订阅页 -->
     <url>
-        <loc>https://thecolin.vip/subscribe.html</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://www.thecolin.vip/wisdom.html</loc>
+        <lastmod>2026-08-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://www.thecolin.vip/archive.html</loc>
+        <lastmod>2026-08-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.thecolin.vip/subscribe.html</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- 归档页 -->
     <url>
-        <loc>https://thecolin.vip/archive.html</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://www.thecolin.vip/article.html</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
 
-    <!-- 文章页 (动态生成，这里提供示例) -->
     <url>
-        <loc>https://thecolin.vip/article.html</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://www.thecolin.vip/articles/2026-04-dalio-history-fold.html</loc>
+        <lastmod>2026-08-28</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.6</priority>
     </url>
 
-    <!-- 心智折叠 -->
-    <url>
-        <loc>https://thecolin.vip/wisdom</loc>
-        <lastmod>2026-03-09</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
 </urlset>
