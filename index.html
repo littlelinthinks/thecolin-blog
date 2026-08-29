@@ -7,7 +7,7 @@
     <meta name="keywords" content="深度思考,终身学习,个人成长,认知科学,思维模型">
     <meta name="author" content="Colin">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com;">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -1307,6 +1307,14 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+        }
+
+        /* 终极保险：纯 CSS 自动消失（不依赖任何 JS，3.2 秒后无论如何淡出） */
+        .loading-screen {
+            animation: loading-auto-hide 0.6s ease 3.2s forwards;
+        }
+        @keyframes loading-auto-hide {
+            to { opacity: 0; visibility: hidden; pointer-events: none; }
         }
 
         .loader {
@@ -2684,6 +2692,7 @@
 
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
+    <noscript><style>.loading-screen{display:none!important}</style></noscript>
 </head>
 <a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
@@ -2804,6 +2813,9 @@
         <div class="nav-container">
             <a href="index.html" class="logo nav-logo">COLIN</a>
             <div class="nav-right">
+                <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
                 <ul class="nav-links">
                     <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
                     <li class="nav-dropdown">
@@ -3129,7 +3141,7 @@
                         <a href="https://substack.com/@thinkingandwriting?" target="_blank" rel="noopener noreferrer" class="social-link platform-link substack">
                             <img src="images/substack平台logo.png" alt="Substack" style="width: 24px; height: 24px;" loading="lazy">
                         </a>
-                        <a href="/cdn-cgi/l/email-protection#64080d10100801080d0a100c0d0a0f17240309050d084a070b09" class="social-link platform-link email">
+                        <a href="mailto:littlelinthinks@gmail.com" class="social-link platform-link email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -3276,11 +3288,11 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    <script>
         // ===== 汉堡菜单（手机导航）=====
         (function() {
             const btn = document.getElementById('hamburgerBtn');
-            const nav = document.getElementById('mainNavLinks');
+            const nav = document.querySelector('.nav-right ul.nav-links');
             if (!btn || !nav) return;
             btn.addEventListener('click', function() {
                 const isOpen = nav.classList.toggle('mobile-open');
@@ -3341,8 +3353,10 @@
         });
 
         // ===== 全局变量 =====
-        let currentLang = 'zh';
-        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        // （修复：common.js 也声明了 let currentLang，此处若再用 let 会因
+        //   "Identifier already declared" 导致整个 common.js 脚本块报废）
+        window.currentLang = 'zh';
+        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
         let currentArticleId = null;
         
         // ===== 常量定义 =====
@@ -4896,5 +4910,20 @@
 
             // 初始化文章计数
             setTimeout(() => { if(typeof filterArticles === 'function') filterArticles(); }, 50);
+        }); // （修复：闭合历史遗留的未闭合回调）
 
- 
+        // ===== Service Worker 注册（v4 加固版，会自动替换并清理 v1/v2/v3 旧缓存）=====
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then((reg) => {
+                    console.log('[SW] Registered, scope:', reg.scope);
+                    // 确保浏览器立即检查新版 SW（默认每次导航也会检查）
+                    reg.update().catch(() => {});
+                }).catch((err) => {
+                    console.log('[SW] Register failed:', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
