@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v4';
+const CACHE_NAME = 'colin-blog-v5';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
