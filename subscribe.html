@@ -425,12 +425,25 @@
                             <span data-zh="文章" data-en="Articles">文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="archive.html">📚 文章归档</a></li>
-                            <li><a href="archive.html?category=life">小Lin记</a></li>
-                            <li><a href="archive.html?category=thinking">小Lin析</a></li>
-                            <li><a href="archive.html?category=reading">小Lin读</a></li>
-                            <li><a href="archive.html?category=history">小Lin说</a></li>
+                        <ul class="dropdown-menu series-menu">
+                            <li class="series-all"><a href="archive.html">📚 全部文章</a></li>
+                            <li class="series-group-label">西方经典</li>
+                            <li><a href="archive.html?series=western-classics"><span class="series-ico">🏛️</span>西方经典·思维模型</a></li>
+                            <li class="series-group-label">心智折叠</li>
+                            <li><a href="wisdom.html"><span class="series-ico">✦</span>心智折叠（186 则原则）</a></li>
+                            <li class="series-group-label">元认知·底层内核</li>
+                            <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span>元认知·底层内核</a></li>
+                            <li class="series-group-label">小Lin的笔</li>
+                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span>小Lin记 · 生活随笔</a></li>
+                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span>小Lin析 · 思维心理</a></li>
+                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span>小Lin读 · 解读经典</a></li>
+                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span>小Lin说 · 历史借鉴</a></li>
+                            <li class="series-group-label">给未来孩子</li>
+                            <li><a href="archive.html?series=future-children"><span class="series-ico">🎁</span>给未来孩子的礼物</a></li>
+                            <li class="series-group-label">资治通鉴·历史</li>
+                            <li><a href="archive.html?series=zizhi-tongjian"><span class="series-ico">📜</span>资治通鉴·历史</a></li>
+                            <li class="series-group-label">天道·人性</li>
+                            <li><a href="archive.html?series=tiandao-humanity"><span class="series-ico">☯️</span>天道·人性</a></li>
                         </ul>
                     </li>
                     <li><a href="products.html" class="nav-link"><span data-zh="心智工具" data-en="Thinking Tools">心智工具</span></a></li>
@@ -581,7 +594,10 @@
         });
 
         // ===== 语言切换功能 =====
-        let currentLang = 'zh';
+        // （修复：common.js 也声明了 let currentLang/currentTheme，此处若再用 let 会因
+        //   "Identifier already declared" 导致整个 common.js 脚本块报废——
+        //   返回顶部按钮、语言/主题切换等共用功能全部失效。改用 window 属性共存。）
+        window.currentLang = 'zh';
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -651,7 +667,7 @@
         });
 
         // ===== 主题切换功能 =====
-        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';

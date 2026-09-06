@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v5';
+const CACHE_NAME = 'colin-blog-v6'; // v6: 系列联动修复（currentLang 冲突 / Gitalk 防御 / 语言切换钩子）
 const STATIC_ASSETS = [
     '/',
     '/index.html',

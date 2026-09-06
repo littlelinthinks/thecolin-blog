@@ -405,6 +405,54 @@
             padding-left: 1.3rem;
         }
 
+        /* 系列分组菜单覆盖（公众号系列镜像） */
+        .dropdown-menu.series-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-width: 400px;
+            max-height: 72vh;
+            overflow-y: auto;
+            padding: 0.35rem;
+        }
+        .dropdown-menu.series-menu > li > a:not(.dropdown-submenu a) {
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+        }
+        .dropdown-menu.series-menu a:hover {
+            padding-left: 0.8rem;
+        }
+        .series-menu .series-group-label {
+            grid-column: 1 / -1;
+            padding: 0.5rem 0.75rem 0.12rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            opacity: 0.8;
+            cursor: default;
+            user-select: none;
+            list-style: none;
+        }
+        .series-menu .series-all {
+            grid-column: 1 / -1;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+            margin-bottom: 0.25rem;
+        }
+        .series-menu li a .series-ico {
+            display: inline-block;
+            width: 1.2rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .dropdown-menu.series-menu {
+                grid-template-columns: 1fr;
+                min-width: 0;
+                max-height: none;
+            }
+        }
+
         /* 搜索框 */
         .search-container {
             position: relative;
@@ -709,6 +757,63 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-bottom: 4rem;
+        }
+
+        /* ===== 系列推荐位（公众号合集镜像）===== */
+        .series-strip {
+            margin: 0 auto 2.5rem;
+            max-width: 1200px;
+        }
+        .series-strip-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+            font-family: 'Space Mono', monospace;
+        }
+        .series-strip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 10px;
+        }
+        .series-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .series-chip:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+        }
+        .series-chip-icon {
+            font-size: 1.25rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .series-chip-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .series-chip-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .series-chip-count {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
         }
 
         .article-card {
@@ -2823,12 +2928,25 @@
                             <span data-zh="文章" data-en="Articles">文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="archive.html" data-zh="📚 文章归档" data-en="📚 Archive">📚 文章归档</a></li>
-                            <li><a href="#articles" data-category="life" onclick="filterByCategory('life', event)" data-zh="小Lin记" data-en="Life Notes">小Lin记</a></li>
-                            <li><a href="#articles" data-category="thinking" onclick="filterByCategory('thinking', event)" data-zh="小Lin析" data-en="Thinking">小Lin析</a></li>
-                            <li><a href="#articles" data-category="reading" onclick="filterByCategory('reading', event)" data-zh="小Lin读" data-en="Reading">小Lin读</a></li>
-                            <li><a href="#articles" data-category="history" onclick="filterByCategory('history', event)" data-zh="小Lin说" data-en="History">小Lin说</a></li>
+                        <ul class="dropdown-menu series-menu">
+                            <li class="series-all"><a href="archive.html" data-zh="📚 全部文章" data-en="📚 All Articles">📚 全部文章</a></li>
+                            <li class="series-group-label" data-zh="西方经典" data-en="Western Classics">西方经典</li>
+                            <li><a href="archive.html?series=western-classics"><span class="series-ico">🏛️</span><span data-zh="西方经典·思维模型" data-en="Classics · Models">西方经典·思维模型</span></a></li>
+                            <li class="series-group-label" data-zh="心智折叠" data-en="Mind Folding">心智折叠</li>
+                            <li><a href="wisdom.html"><span class="series-ico">✦</span><span data-zh="心智折叠（186 则原则）" data-en="Mind Folding (186)">心智折叠（186 则原则）</span></a></li>
+                            <li class="series-group-label" data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</li>
+                            <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span><span data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</span></a></li>
+                            <li class="series-group-label" data-zh="小Lin的笔" data-en="Lin's Pen">小Lin的笔</li>
+                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span><span data-zh="小Lin记 · 生活随笔" data-en="Lin Journal">小Lin记 · 生活随笔</span></a></li>
+                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span><span data-zh="小Lin析 · 思维心理" data-en="Lin Analysis">小Lin析 · 思维心理</span></a></li>
+                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span><span data-zh="小Lin读 · 解读经典" data-en="Lin Reads">小Lin读 · 解读经典</span></a></li>
+                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span><span data-zh="小Lin说 · 历史借鉴" data-en="Lin Talks">小Lin说 · 历史借鉴</span></a></li>
+                            <li class="series-group-label" data-zh="给未来孩子" data-en="For Future Kids">给未来孩子</li>
+                            <li><a href="archive.html?series=future-children"><span class="series-ico">🎁</span><span data-zh="给未来孩子的礼物" data-en="Gifts for Future Kids">给未来孩子的礼物</span></a></li>
+                            <li class="series-group-label" data-zh="资治通鉴·历史" data-en="Zizhi Tongjian">资治通鉴·历史</li>
+                            <li><a href="archive.html?series=zizhi-tongjian"><span class="series-ico">📜</span><span data-zh="资治通鉴·历史" data-en="Zizhi Tongjian · History">资治通鉴·历史</span></a></li>
+                            <li class="series-group-label" data-zh="天道·人性" data-en="The Way">天道·人性</li>
+                            <li><a href="archive.html?series=tiandao-humanity"><span class="series-ico">☯️</span><span data-zh="天道·人性" data-en="The Way · Human Nature">天道·人性</span></a></li>
                         </ul>
                     </li>
                     <li><a href="products.html" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
@@ -2887,6 +3005,12 @@
             <h1 class="blog-title" data-zh="博客" data-en="BLOG">博客</h1>
             <p class="blog-subtitle" data-zh="探索你的好奇心" data-en="Explore Your Curiosity">探索你的好奇心</p>
             <p class="blog-quote" data-zh="深入思考是一种稀有的能力，持续成长是一生的旅程。" data-en="Deep thinking is a scarce ability, continuous growth is a lifelong journey.">深入思考是一种稀有的能力，持续成长是一生的旅程。</p>
+        </div>
+
+        <!-- 公众号系列镜像（三资产联动） -->
+        <div class="series-strip" id="seriesStrip">
+            <div class="series-strip-label" data-zh="📂 我的写作系列 · 与公众号「小Lin思考」合集同步" data-en="📂 My Writing Series · Synced with WeChat Collections">📂 我的写作系列 · 与公众号「小Lin思考」合集同步</div>
+            <div class="series-strip-grid" id="seriesStripGrid"></div>
         </div>
 
         <!-- 搜索和筛选区域 -->
@@ -4060,6 +4184,8 @@
                 // 重新初始化显示和事件
                 initArticleCards();
                 attachArticleCardEvents();
+                // 系列推荐位同步切换语言
+                loadSeriesStrip(allArticles);
             }
         }
         
@@ -4070,6 +4196,26 @@
             switchLanguage(savedLang);
         }
         
+        // 系列推荐位渲染后，语言切换时由 common.js 的 onLanguageChanged 钩子触发重渲染
+        // （原因：common.js 的 switchLanguage 在 defer 后执行会覆盖本页版本，
+        //   静态 data-zh/data-en 由 common.js 更新，动态内容走钩子）
+        // （防抖：common.js 初始化会对 savedLang 调用一次 switchLanguage，语言未变时跳过）
+        let _lastLang = localStorage.getItem('preferred-lang') || 'zh';
+        window.onLanguageChanged = function(lang) {
+            if (lang === _lastLang) return;
+            _lastLang = lang;
+            if (allArticles && allArticles.length > 0) {
+                articlesGrid.innerHTML = '';
+                allArticles.forEach((article, index) => {
+                    const card = createArticleCard(article, index);
+                    articlesGrid.appendChild(card);
+                });
+                initArticleCards();
+                attachArticleCardEvents();
+                loadSeriesStrip(allArticles);
+            }
+        };
+
         // 绑定语言切换按钮
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -4366,6 +4512,9 @@
 
                 allArticles = await response.json();
 
+                // 系列推荐位渲染（公众号合集镜像）
+                loadSeriesStrip(allArticles);
+
                 // 清空现有的静态文章卡片
                 articlesGrid.innerHTML = '';
 
@@ -4399,6 +4548,32 @@
                         </div>
                     `;
                 }
+            }
+        }
+
+        // 系列推荐位：渲染公众号系列镜像条
+        async function loadSeriesStrip(articles) {
+            const grid = document.getElementById('seriesStripGrid');
+            if (!grid) return;
+            try {
+                const res = await fetch('series.json');
+                if (!res.ok) throw new Error('series.json 加载失败');
+                const seriesList = await res.json();
+                const counts = {};
+                (articles || []).forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
+                const isZh = typeof currentLang !== 'undefined' ? currentLang === 'zh' : true;
+                grid.innerHTML = seriesList.map(s => `
+                    <a class="series-chip" href="${s.url || 'archive.html?series=' + s.id}">
+                        <span class="series-chip-icon">${s.icon}</span>
+                        <span class="series-chip-text">
+                            <span class="series-chip-name">${isZh ? s.name : s.nameEn}</span>
+                            <span class="series-chip-count">${counts[s.id] > 0 ? (isZh ? counts[s.id] + ' 篇' : counts[s.id] + ' articles') : (isZh ? '公众号连载中' : 'Ongoing')}</span>
+                        </span>
+                    </a>
+                `).join('');
+            } catch (e) {
+                console.error('系列推荐位加载失败:', e);
+                document.getElementById('seriesStrip')?.style.setProperty('display', 'none');
             }
         }
 
@@ -4905,6 +5080,9 @@
             if (themeIcon) {
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
             }
+
+            // 加载文章列表 + 系列推荐位（fetch articles.json → 渲染卡片与系列条）
+            if (typeof loadArticles === 'function') loadArticles();
 
             // 初始化文章计数
             setTimeout(() => { if(typeof filterArticles === 'function') filterArticles(); }, 50);

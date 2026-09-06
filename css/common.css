@@ -353,3 +353,68 @@ a:focus-visible {
 /* ===== Dark Mode Overrides ===== */
 [data-theme="dark"] a:hover { color: rgba(255, 255, 255, 0.7); }
 [data-theme="dark"] .nav-link::after { background: var(--text-primary); }
+
+/* ===== Series Nav Menu（公众号系列分组导航 · 三资产联动）===== */
+.dropdown-menu.series-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 380px;
+    max-height: 72vh;
+    overflow-y: auto;
+    padding: 0.35rem;
+    gap: 1px;
+}
+
+.series-menu .series-all {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
+}
+
+.series-menu .series-group-label {
+    grid-column: 1 / -1;
+    padding: 0.5rem 0.75rem 0.12rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    cursor: default;
+    user-select: none;
+    list-style: none;
+}
+
+.series-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+}
+
+.series-menu li a:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding-left: 0.8rem;
+    text-decoration: none;
+}
+
+.series-menu li a .series-ico {
+    width: 1.2rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu.series-menu {
+        grid-template-columns: 1fr;
+        min-width: 0;
+        max-height: none;
+        overflow-y: visible;
+    }
+}

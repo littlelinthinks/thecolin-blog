@@ -1,0 +1,103 @@
+[
+  {
+    "id": "western-classics",
+    "name": "西方经典·思维模型",
+    "nameEn": "Western Classics · Mental Models",
+    "icon": "🏛️",
+    "group": "西方经典",
+    "groupEn": "Western Classics",
+    "description": "啃西方思想经典，提炼能直接拿来用的思维模型。",
+    "descriptionEn": "Digesting Western classics into mental models you can actually use."
+  },
+  {
+    "id": "mind-folding",
+    "name": "心智折叠",
+    "nameEn": "Mind Folding",
+    "icon": "✦",
+    "group": "心智折叠",
+    "groupEn": "Mind Folding",
+    "description": "把 186 位智者的原则折叠进日常决策，一个原则一张卡。",
+    "descriptionEn": "Folding 186 thinkers' principles into daily decisions, one card at a time.",
+    "url": "wisdom.html"
+  },
+  {
+    "id": "metacognition",
+    "name": "元认知·底层内核",
+    "nameEn": "Metacognition · Core Kernel",
+    "icon": "🧠",
+    "group": "元认知·底层内核",
+    "groupEn": "Metacognition",
+    "description": "审视思考本身的思考——操作系统级的自我升级。",
+    "descriptionEn": "Thinking about thinking — upgrading yourself at the OS level."
+  },
+  {
+    "id": "lin-journal",
+    "name": "小Lin记",
+    "nameEn": "Lin Journal",
+    "icon": "📝",
+    "group": "小Lin的笔",
+    "groupEn": "Lin's Pen",
+    "description": "生活随笔。记录日常里那些值得停一停的瞬间。",
+    "descriptionEn": "Life notes. Moments worth pausing for."
+  },
+  {
+    "id": "lin-analysis",
+    "name": "小Lin析",
+    "nameEn": "Lin Analysis",
+    "icon": "💭",
+    "group": "小Lin的笔",
+    "groupEn": "Lin's Pen",
+    "description": "思维与心理拆解。把情绪和直觉摊开来看清楚。",
+    "descriptionEn": "Thinking & psychology, taken apart and laid bare."
+  },
+  {
+    "id": "lin-reading",
+    "name": "小Lin读",
+    "nameEn": "Lin Reads",
+    "icon": "📖",
+    "group": "小Lin的笔",
+    "groupEn": "Lin's Pen",
+    "description": "解读经典。一本一本书地过，一段一段地想。",
+    "descriptionEn": "Reading the classics, one book and one passage at a time."
+  },
+  {
+    "id": "lin-talks",
+    "name": "小Lin说",
+    "nameEn": "Lin Talks",
+    "icon": "⚔️",
+    "group": "小Lin的笔",
+    "groupEn": "Lin's Pen",
+    "description": "以史为鉴。历史不会重复，但会押韵。",
+    "descriptionEn": "History doesn't repeat, but it rhymes."
+  },
+  {
+    "id": "future-children",
+    "name": "给未来孩子的礼物",
+    "nameEn": "Gifts for Future Children",
+    "icon": "🎁",
+    "group": "给未来孩子",
+    "groupEn": "For Future Kids",
+    "description": "写给未来孩子的话——关于世界、金钱、爱与勇气。",
+    "descriptionEn": "Letters to my future children — about the world, money, love and courage."
+  },
+  {
+    "id": "zizhi-tongjian",
+    "name": "资治通鉴·历史",
+    "nameEn": "Zizhi Tongjian · History",
+    "icon": "📜",
+    "group": "资治通鉴·历史",
+    "groupEn": "Zizhi Tongjian",
+    "description": "《资治通鉴》长线重读计划：一千三百年的人性与权力。",
+    "descriptionEn": "A long-haul read of Zizhi Tongjian: 1,300 years of human nature and power."
+  },
+  {
+    "id": "tiandao-humanity",
+    "name": "天道·人性",
+    "nameEn": "The Way · Human Nature",
+    "icon": "☯️",
+    "group": "天道·人性",
+    "groupEn": "The Way & Human Nature",
+    "description": "规律不因人而改，人性不因时而变。顺天道，察人心。",
+    "descriptionEn": "Laws don't bend to people; human nature doesn't change with time."
+  }
+]

@@ -724,12 +724,25 @@
                             <span data-zh="文章" data-en="Articles">文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="archive.html">📚 文章归档</a></li>
-                            <li><a href="archive.html?category=life">小Lin记</a></li>
-                            <li><a href="archive.html?category=thinking">小Lin析</a></li>
-                            <li><a href="archive.html?category=reading">小Lin读</a></li>
-                            <li><a href="archive.html?category=history">小Lin说</a></li>
+                        <ul class="dropdown-menu series-menu">
+                            <li class="series-all"><a href="archive.html">📚 全部文章</a></li>
+                            <li class="series-group-label">西方经典</li>
+                            <li><a href="archive.html?series=western-classics"><span class="series-ico">🏛️</span>西方经典·思维模型</a></li>
+                            <li class="series-group-label">心智折叠</li>
+                            <li><a href="wisdom.html"><span class="series-ico">✦</span>心智折叠（186 则原则）</a></li>
+                            <li class="series-group-label">元认知·底层内核</li>
+                            <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span>元认知·底层内核</a></li>
+                            <li class="series-group-label">小Lin的笔</li>
+                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span>小Lin记 · 生活随笔</a></li>
+                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span>小Lin析 · 思维心理</a></li>
+                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span>小Lin读 · 解读经典</a></li>
+                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span>小Lin说 · 历史借鉴</a></li>
+                            <li class="series-group-label">给未来孩子</li>
+                            <li><a href="archive.html?series=future-children"><span class="series-ico">🎁</span>给未来孩子的礼物</a></li>
+                            <li class="series-group-label">资治通鉴·历史</li>
+                            <li><a href="archive.html?series=zizhi-tongjian"><span class="series-ico">📜</span>资治通鉴·历史</a></li>
+                            <li class="series-group-label">天道·人性</li>
+                            <li><a href="archive.html?series=tiandao-humanity"><span class="series-ico">☯️</span>天道·人性</a></li>
                         </ul>
                     </li>
                     <li><a href="products.html" class="nav-link"><span data-zh="心智工具" data-en="Thinking Tools">心智工具</span></a></li>
@@ -988,9 +1001,22 @@
             }
         ];
 
-        // 替换 fetch('articles.json') 调用
+        // 文章数据获取：优先 articles.json（含 series 字段），回退内联数据
         function getArticleData(articleId) {
-            return Promise.resolve(ARTICLES_DATA.find(a => a.id === articleId) || null);
+            return fetch('articles.json').then(r => {
+                if (!r.ok) throw new Error('no articles.json');
+                return r.json();
+            }).then(list => {
+                const found = list.find(a => a.id === articleId) || null;
+                // 有独立静态页的文章 → 直接跳转（内容完整）
+                if (found && found.url && !found.content) {
+                    window.location.replace(found.url);
+                    return null;
+                }
+                return found;
+            }).catch(() => {
+                return ARTICLES_DATA.find(a => a.id === articleId) || null;
+            });
         }
 
         if (!articleId) {
@@ -1001,8 +1027,16 @@
                         document.getElementById('articleContainer').innerHTML = '<p style="padding:40px;text-align:center;">未找到文章 — <a href="index.html">返回首页</a></p>';
                         return;
                     }
-                    // 直接使用内联内容
+                    // 存全局引用，供语言切换钩子重渲染系列横幅/相关文章
+                    window.currentArticle = article;
+                    // 直接使用内联内容；articles.json 来源无 content 时用摘要渲染
                     Promise.resolve(article.content || '').then(htmlContent => {
+                            const finalContent = htmlContent || `
+                                <p style="font-size:1.05rem;line-height:1.9;">${currentLang === 'zh' ? (article.excerpt || '') : (article.excerptEn || article.excerpt || '')}</p>
+                                <div style="margin:2rem 0;padding:1.2rem 1.4rem;border:1px dashed var(--border,#ddd);border-radius:10px;text-align:center;">
+                                    <p style="margin:0 0 0.5rem;font-size:0.95rem;">${currentLang === 'zh' ? '📝 完整版正在从公众号「小Lin思考」同步过来' : '📝 Full version is being synced from WeChat'}</p>
+                                    <a href="subscribe.html" style="font-weight:600;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:2px;">${currentLang === 'zh' ? '先去订阅，同步后第一时间收到 →' : 'Subscribe to get notified →'}</a>
+                                </div>`;
                             
                             // 渲染文章
                             document.getElementById('articleContainer').innerHTML = `
@@ -1033,9 +1067,10 @@
                                     </div>
                                 </div>
                                 <div class="article-content">
-                                    ${htmlContent}
+                                    ${finalContent}
                                 </div>
                                 <div class="related-articles" id="relatedArticles">
+                                    <div id="seriesBanner"></div>
                                     <h3 data-zh="📚 相关文章" data-en="📚 Related Articles">📚 相关文章</h3>
                                     <ul class="related-list" id="relatedList">
                                         <li data-zh="加载中..." data-en="Loading...">加载中...</li>
@@ -1058,10 +1093,13 @@
                             updateArticleMeta(article);
 
                             // 初始化功能
-                            loadGitalk();
+                            // （修复：loadGitalk 在 Gitalk CDN 脚本未就绪时会同步抛错，
+                            //   把后面的系列横幅/相关文章/返回顶部全部中断。
+                            //   关键功能前置，评论区失败只降级不影响主体。）
                             loadRelatedArticles(article);
                             initScrollProgress();
                             initBackToTop();
+                            try { loadGitalk(); } catch (e) { console.warn('Gitalk 评论区未就绪：', e); }
 
                             // 初始化分享按钮事件委托
                             const shareButtons = document.getElementById('shareButtons');
@@ -1281,27 +1319,100 @@
             });
         }
 
-        // 加载相关文章
+        // 语言切换钩子：common.js 的 switchLanguage 覆盖本页版本后，
+        // 动态渲染的系列横幅/相关文章由这里重渲染
+        // （防抖：common.js 初始化会对 savedLang 调用一次 switchLanguage，语言未变时跳过）
+        let _lastLang = localStorage.getItem('preferred-lang') || 'zh';
+        window.onLanguageChanged = function(lang) {
+            if (lang === _lastLang) return;
+            _lastLang = lang;
+            if (window.currentArticle) {
+                loadRelatedArticles(window.currentArticle);
+            }
+        };
+
+        // 加载相关文章（系列优先：同系列 > 同分类）
         function loadRelatedArticles(currentArticle) {
-            Promise.resolve(ARTICLES_DATA).then(articles => {
-                    const relatedList = document.getElementById('relatedList');
+            // 优先 fetch 带 series 字段的 articles.json + series.json
+            Promise.all([
+                fetch('articles.json').then(r => r.ok ? r.json() : Promise.reject()),
+                fetch('series.json').then(r => r.ok ? r.json() : Promise.reject())
+            ]).then(([articles, seriesList]) => {
+                // 与内联 ARTICLES_DATA 合并去重（fetch 版优先，补充内联独有文章，
+                // 相关推荐与系列计数的数据更全）
+                const merged = [...articles];
+                if (Array.isArray(ARTICLES_DATA)) {
+                    ARTICLES_DATA.forEach(a => {
+                        if (!merged.some(m => m.id === a.id)) merged.push(a);
+                    });
+                }
+                renderSeriesAware(merged, seriesList, currentArticle);
+            }).catch(() => {
+                // 回退到内联数据（无 series 信息）
+                renderSeriesAware(ARTICLES_DATA, [], currentArticle);
+            });
+        }
 
-                    // 过滤掉当前文章，按分类筛选
-                    const related = articles
-                        .filter(a => a.id !== currentArticle.id)
-                        .filter(a => a.category === currentArticle.category)
-                        .slice(0, 5);
+        function renderSeriesAware(articles, seriesList, currentArticle) {
+            const relatedList = document.getElementById('relatedList');
+            const seriesBanner = document.getElementById('seriesBanner');
+            const isZh = typeof currentLang !== 'undefined' ? currentLang === 'zh' : true;
 
-                    if (related.length === 0) {
-                        relatedList.innerHTML = `<li data-zh="暂无相关文章" data-en="No related articles">暂无相关文章</li>`;
-                        return;
-                    }
+            // 系列信息
+            const curSeriesId = currentArticle.series || null;
+            const curSeries = curSeriesId ? seriesList.find(s => s.id === curSeriesId) : null;
 
-                    relatedList.innerHTML = related.map(a =>
-                        `<li><a href="article.html?id=${a.id}" data-zh="${a.title}" data-en="${a.titleEn || a.title}">${a.title}</a></li>`
-                    ).join('');
-                })
+            // 同系列其他文章（优先）；无系列或系列无其他文章时回退同分类
+            let related = articles
+                .filter(a => a.id !== currentArticle.id)
+                .filter(a => curSeriesId ? a.series === curSeriesId : a.category === currentArticle.category)
+                .slice(0, 5);
+            if (related.length === 0) {
+                related = articles
+                    .filter(a => a.id !== currentArticle.id)
+                    .filter(a => a.category === currentArticle.category)
+                    .slice(0, 5);
+            }
 
+            // 渲染系列横幅
+            if (seriesBanner) {
+                if (curSeries) {
+                    const count = articles.filter(a => a.series === curSeries.id).length;
+                    const others = count - 1; // 除去当前
+                    const seriesUrl = curSeries.url || ('archive.html?series=' + curSeries.id);
+                    const seriesName = isZh ? curSeries.name : curSeries.nameEn;
+                    const seriesDesc = isZh ? curSeries.description : curSeries.descriptionEn;
+                    seriesBanner.innerHTML = `
+                        <a href="${seriesUrl}" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;margin:0 0 1.2rem;border:1px solid var(--border,#ddd);border-radius:10px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--accent,#000)'" onmouseout="this.style.borderColor='var(--border,#ddd)'">
+                            <span style="font-size:1.5rem;line-height:1;">${curSeries.icon}</span>
+                            <span style="display:flex;flex-direction:column;gap:3px;min-width:0;">
+                                <span style="font-size:0.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.6;">${isZh ? '本篇属于系列' : 'IN SERIES'}</span>
+                                <span style="font-weight:700;font-size:1rem;color:var(--text-primary,#000);">${seriesName}</span>
+                                <span style="font-size:0.84rem;opacity:.75;line-height:1.5;">${seriesDesc}</span>
+                                <span style="font-size:0.76rem;opacity:.65;margin-top:2px;">${others > 0 ? (isZh ? `系列共 ${count} 篇 · 查看全部 →` : `${count} in series · View all →`) : (isZh ? '公众号「小Lin思考」连载中 →' : 'Ongoing on WeChat →')}</span>
+                            </span>
+                        </a>`;
+                } else if (seriesList.length > 0) {
+                    // 无系列归属时，展示全部系列入口
+                    seriesBanner.innerHTML = `
+                        <a href="archive.html" style="display:flex;gap:12px;align-items:center;padding:14px 16px;margin:0 0 1.2rem;border:1px dashed var(--border,#ddd);border-radius:10px;text-decoration:none;">
+                            <span style="font-size:1.4rem;">📂</span>
+                            <span style="display:flex;flex-direction:column;gap:2px;">
+                                <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary,#000);">${isZh ? '我的写作系列' : 'My Writing Series'}</span>
+                                <span style="font-size:0.78rem;opacity:.7;">${isZh ? '十个系列与公众号「小Lin思考」合集同步 · 浏览全部 →' : 'Ten series synced with WeChat · Browse all →'}</span>
+                            </span>
+                        </a>`;
+                }
+            }
+
+            if (related.length === 0) {
+                relatedList.innerHTML = `<li data-zh="暂无相关文章" data-en="No related articles">暂无相关文章</li>`;
+                return;
+            }
+
+            relatedList.innerHTML = related.map(a =>
+                `<li><a href="article.html?id=${a.id}" data-zh="${a.title}" data-en="${a.titleEn || a.title}">${a.title}</a></li>`
+            ).join('');
         }
 
         // 阅读进度条
@@ -1421,7 +1532,10 @@
         }
 
         // ===== 语言切换功能 =====
-        let currentLang = 'zh';
+        // （修复：common.js 也声明了 let currentLang/currentTheme，此处若再用 let 会因
+        //   "Identifier already declared" 导致整个 common.js 脚本块报废——
+        //   返回顶部按钮、语言/主题切换等共用功能全部失效。改用 window 属性共存。）
+        window.currentLang = 'zh';
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -1491,7 +1605,7 @@
         });
 
         // ===== 主题切换功能 =====
-        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
 
         function toggleTheme() {

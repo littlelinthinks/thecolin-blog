@@ -371,6 +371,63 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
 
+        /* ===== 系列归档（公众号合集镜像）===== */
+        .series-sub {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin: -12px 0 20px;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .series-card {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 18px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .series-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        .series-card.series-active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+        }
+        .series-card-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .series-card-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.98rem;
+            margin-bottom: 4px;
+        }
+        .series-card-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .series-card-count {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            opacity: 0.85;
+        }
+        [data-theme="dark"] .series-card { background: var(--bg-secondary); }
+        [data-theme="dark"] .series-card.series-active { box-shadow: 0 0 0 2px rgba(255,255,255,0.12); }
+
         .archive-section h2 {
             font-size: 1.8rem;
             margin-bottom: 25px;
@@ -633,20 +690,16 @@
 
         <div class="header">
             <h1 data-zh="📚 文章归档" data-en="📚 Article Archive">📚 文章归档</h1>
-            <p data-zh="按时间和分类浏览所有文章" data-en="Browse all articles by date and category">按时间和分类浏览所有文章</p>
+            <p data-zh="按系列、时间和分类浏览所有文章——与公众号「小Lin思考」合集一一对应" data-en="Browse all articles by series, date and category — mirroring the WeChat collections">按系列、时间和分类浏览所有文章——与公众号「小Lin思考」合集一一对应</p>
 
             <!-- 搜索框 -->
             <div class="search-container">
                 <input type="text" class="search-box" id="searchInput" data-zh-placeholder="🔍 搜索文章标题或内容..." data-en-placeholder="🔍 Search article titles or content..." placeholder="🔍 搜索文章标题或内容..." aria-label="搜索文章">
             </div>
 
-            <!-- 标签筛选 -->
-            <div class="tag-filter" id="tagFilter" role="group" aria-label="按分类筛选">
+            <!-- 系列筛选 -->
+            <div class="tag-filter" id="tagFilter" role="group" aria-label="按系列筛选">
                 <button class="tag-btn active" data-tag="all" data-zh="全部" data-en="All" aria-pressed="true">全部</button>
-                <button class="tag-btn" data-tag="写作" data-zh="写作" data-en="Writing" aria-pressed="false">写作</button>
-                <button class="tag-btn" data-tag="思维" data-zh="思维" data-en="Thinking" aria-pressed="false">思维</button>
-                <button class="tag-btn" data-tag="学习" data-zh="学习" data-en="Learning" aria-pressed="false">学习</button>
-                <button class="tag-btn" data-tag="目标" data-zh="目标" data-en="Goals" aria-pressed="false">目标</button>
             </div>
 
             <div class="stats">
@@ -656,12 +709,20 @@
                 </div>
                 <div class="stat-card">
                     <div class="number" id="totalCategories">0</div>
-                    <div class="label" data-zh="分类数量" data-en="Categories">分类数量</div>
+                    <div class="label" data-zh="系列数量" data-en="Series">系列数量</div>
                 </div>
                 <div class="stat-card">
                     <div class="number" id="totalReadTime">0</div>
                     <div class="label" data-zh="总阅读时间" data-en="Total Read Time">总阅读时间</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="archive-section" id="seriesSection">
+            <h2 data-zh="📂 按系列归档" data-en="📂 Archive by Series">📂 按系列归档</h2>
+            <p class="series-sub" data-zh="十个系列，与公众号合集同步更新。点击进入系列。" data-en="Ten series, synced with the WeChat collections. Click to browse.">十个系列，与公众号合集同步更新。点击进入系列。</p>
+            <div id="seriesArchive" class="series-grid">
+                <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
             </div>
         </div>
 
@@ -681,26 +742,54 @@
     </div>
 
     <script>
-        // 加载文章数据
-        async function loadArticles() {
+        // 当前激活系列（由 URL 参数或点击决定）
+        let activeSeries = 'all';
+
+        // 语言切换钩子：common.js 的 switchLanguage 覆盖本页版本后，
+        // 动态渲染的系列网格/筛选 chips/归档列表由这里重渲染
+        // （防抖：common.js 初始化时会对 savedLang 调用一次 switchLanguage，
+        //   语言没变时跳过，避免重入 loadArticles 覆盖 URL ?series= 激活状态）
+        let _lastLang = localStorage.getItem('preferred-lang') || 'zh';
+        window.onLanguageChanged = function(lang) {
+            if (lang === _lastLang) return;
+            _lastLang = lang;
+            const prevSeries = activeSeries;
+            loadArticles(true).then(() => {
+                // 恢复用户当前的系列筛选状态
+                const chip = document.querySelector(`.tag-btn[data-tag="${prevSeries}"]`);
+                if (chip && prevSeries !== 'all') {
+                    document.querySelectorAll('.tag-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    chip.classList.add('active');
+                    chip.setAttribute('aria-pressed', 'true');
+                    activeSeries = prevSeries;
+                    applySeriesFilter(prevSeries);
+                }
+            });
+        };
+
+        // 加载文章数据 + 系列数据
+        async function loadArticles(skipUrlSeries = false) {
             try {
-                const response = await fetch('articles.json');
-                const articles = await response.json();
+                const [articlesRes, seriesRes] = await Promise.all([
+                    fetch('articles.json'),
+                    fetch('series.json')
+                ]);
+                const articles = await articlesRes.json();
+                const seriesList = await seriesRes.json();
+                window._allArticles = articles;
+                window._seriesList = seriesList;
 
                 if (articles.length === 0) {
                     document.getElementById('dateArchive').innerHTML = `<div class="no-articles" data-zh="暂无文章" data-en="No articles yet">${currentLang === 'zh' ? '暂无文章' : 'No articles yet'}</div>`;
-                    document.getElementById('categoryArchive').innerHTML = `<div class="no-articles" data-zh="暂无文章" data-en="No articles yet">${currentLang === 'zh' ? '暂无文章' : 'No articles yet'}</div>`;
                     document.getElementById('totalArticles').textContent = '0';
                     document.getElementById('totalCategories').textContent = '0';
                     document.getElementById('totalReadTime').textContent = '0';
                     return;
                 }
 
-                // 更新统计数据
+                // 更新统计数据（系列数取代分类数）
                 document.getElementById('totalArticles').textContent = articles.length;
-
-                const categories = [...new Set(articles.map(a => a.category))];
-                document.getElementById('totalCategories').textContent = categories.length;
+                document.getElementById('totalCategories').textContent = seriesList.length;
 
                 // 计算总阅读时间（粗略估计）
                 const totalReadTime = articles.reduce((sum, a) => {
@@ -709,6 +798,24 @@
                     return sum + (match ? parseInt(match[1]) : 0);
                 }, 0);
                 document.getElementById('totalReadTime').textContent = totalReadTime + (currentLang === 'zh' ? ' 分钟' : ' min');
+
+                // ===== 按系列归档（新增：与公众号合集一一对应）=====
+                renderSeriesGrid(seriesList, articles);
+                renderSeriesChips(seriesList);
+
+                // URL ?series= 参数 → 直接进入对应系列（语言切换重渲染时跳过，保留用户当前筛选）
+                const urlSeries = skipUrlSeries ? null : new URLSearchParams(window.location.search).get('series');
+                if (urlSeries) {
+                    const chip = document.querySelector(`.tag-btn[data-tag="${urlSeries}"]`);
+                    if (chip) {
+                        document.querySelectorAll('.tag-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                        chip.classList.add('active');
+                        chip.setAttribute('aria-pressed', 'true');
+                        activeSeries = urlSeries;
+                        document.getElementById('seriesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // 归档条目过滤由函数末尾的 applySeriesFilter(activeSeries) 统一应用
+                    }
+                }
 
                 // 按日期归档
                 const dateArchive = document.getElementById('dateArchive');
@@ -719,13 +826,13 @@
                 });
 
                 dateArchive.innerHTML = sortedByDate.map(article => `
-                    <div class="archive-item">
+                    <div class="archive-item" data-series="${article.series || ''}">
                         <div class="archive-item-info">
                             <div class="archive-item-title">
                                 <a href="${article.url || 'article.html?id=' + article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
                             </div>
                             <div class="archive-item-meta">
-                                <span class="archive-item-category">${currentLang === 'zh' ? article.categoryName : (article.categoryNameEn || article.categoryName)}</span>
+                                <span class="archive-item-category">${currentLang === 'zh' ? (article.seriesName || article.categoryName) : (article.seriesNameEn || article.categoryNameEn || article.categoryName)}</span>
                                 ${currentLang === 'zh' ? article.readTime : article.readTimeEn}
                             </div>
                         </div>
@@ -736,7 +843,7 @@
                 // 按分类归档
                 const categoryArchive = document.getElementById('categoryArchive');
                 const groupedByCategory = articles.reduce((groups, article) => {
-                    const categoryName = currentLang === 'zh' ? article.categoryName : (article.categoryNameEn || article.categoryName);
+                    const categoryName = currentLang === 'zh' ? (article.seriesName || article.categoryName) : (article.seriesNameEn || article.categoryNameEn || article.categoryName);
                     if (!groups[categoryName]) {
                         groups[categoryName] = [];
                     }
@@ -763,11 +870,81 @@
                         </ul>
                     </div>
                 `).join('');
+
+                // 应用初始系列筛选
+                if (activeSeries !== 'all') applySeriesFilter(activeSeries);
             } catch (error) {
                 console.error('加载文章失败:', error);
                 const errorMsg = currentLang === 'zh' ? '加载失败' : 'Failed to load';
                 document.getElementById('dateArchive').innerHTML = `<div class="no-articles" data-zh="加载失败" data-en="Failed to load">${errorMsg}</div>`;
-                document.getElementById('categoryArchive').innerHTML = `<div class="no-articles" data-zh="加载失败" data-en="Failed to load">${errorMsg}</div>`;
+            }
+        }
+
+        // 渲染系列卡片（公众号合集镜像）
+        function renderSeriesGrid(seriesList, articles) {
+            const grid = document.getElementById('seriesArchive');
+            const counts = {};
+            articles.forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
+            grid.innerHTML = seriesList.map(s => `
+                <a class="series-card" href="${s.url || 'archive.html?series=' + s.id}" ${s.url === 'wisdom.html' ? '' : ''}>
+                    <div class="series-card-icon">${s.icon}</div>
+                    <div class="series-card-body">
+                        <div class="series-card-name">${currentLang === 'zh' ? s.name : s.nameEn}</div>
+                        <div class="series-card-desc">${currentLang === 'zh' ? s.description : s.descriptionEn}</div>
+                        <div class="series-card-count">${counts[s.id] > 0 ? (currentLang === 'zh' ? counts[s.id] + ' 篇' : counts[s.id] + (counts[s.id] > 1 ? ' articles' : ' article')) : (currentLang === 'zh' ? '公众号连载中' : 'Ongoing on WeChat')}</div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // 渲染系列筛选 chips
+        function renderSeriesChips(seriesList) {
+            const filter = document.getElementById('tagFilter');
+            filter.querySelectorAll('.tag-btn[data-series-chip]').forEach(b => b.remove());
+            seriesList.forEach(s => {
+                const btn = document.createElement('button');
+                btn.className = 'tag-btn';
+                btn.dataset.tag = s.id;
+                btn.dataset.seriesChip = '1';
+                btn.setAttribute('aria-pressed', 'false');
+                btn.textContent = (currentLang === 'zh' ? s.name : s.nameEn);
+                filter.appendChild(btn);
+            });
+        }
+
+        // 应用系列筛选
+        function applySeriesFilter(seriesId) {
+            activeSeries = seriesId;
+            const items = document.querySelectorAll('#dateArchive .archive-item, #categoryArchive .archive-item');
+            items.forEach(item => {
+                const itemSeries = item.dataset.series || (item.closest('[data-series]')?.dataset.series) || '';
+                if (seriesId === 'all' || itemSeries === seriesId) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            // 系列卡片高亮
+            document.querySelectorAll('.series-card').forEach(card => {
+                card.classList.toggle('series-active', card.getAttribute('href') === 'archive.html?series=' + seriesId);
+            });
+            // 空系列时显示提示
+            const dateSection = document.getElementById('dateArchive');
+            const visible = [...document.querySelectorAll('#dateArchive .archive-item')].filter(i => i.style.display !== 'none');
+            let hint = document.getElementById('seriesEmptyHint');
+            if (seriesId !== 'all' && visible.length === 0) {
+                if (!hint) {
+                    hint = document.createElement('div');
+                    hint.id = 'seriesEmptyHint';
+                    hint.className = 'no-articles';
+                    dateSection.prepend(hint);
+                }
+                const s = window._seriesList.find(x => x.id === seriesId);
+                hint.textContent = currentLang === 'zh'
+                    ? `「${s ? s.name : seriesId}」系列的文章正在从公众号同步过来，先去公众号「小Lin思考」看连载 →`
+                    : `Articles in "${s ? s.nameEn : seriesId}" are being synced from WeChat. Follow 小Lin思考 there first →`;
+            } else if (hint) {
+                hint.remove();
             }
         }
 
@@ -810,7 +987,7 @@
             }
         }
 
-        // 标签筛选 - 使用事件委托
+        // 标签筛选 - 使用事件委托（按系列筛选）
         document.getElementById('tagFilter').addEventListener('click', function(e) {
             const btn = e.target.closest('.tag-btn');
             if (!btn) return;
@@ -826,20 +1003,7 @@
             btn.classList.add('active');
             btn.setAttribute('aria-pressed', 'true');
 
-            const articleItems = document.querySelectorAll('.archive-item, .article-card');
-
-            articleItems.forEach(item => {
-                if (tag === 'all') {
-                    item.style.display = 'flex';
-                } else {
-                    const category = item.querySelector('.archive-item-category')?.textContent || '';
-                    if (category.includes(tag)) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
-            });
+            applySeriesFilter(tag);
         });
 
         // 返回顶部按钮
@@ -870,7 +1034,10 @@
         });
 
         // ===== 语言切换功能 =====
-        let currentLang = 'zh';
+        // （修复：common.js 也声明了 let currentLang/currentTheme，此处若再用 let 会因
+        //   "Identifier already declared" 导致整个 common.js 脚本块报废——
+        //   返回顶部按钮、语言/主题切换等共用功能全部失效。改用 window 属性共存。）
+        window.currentLang = 'zh';
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -931,7 +1098,7 @@
         }
 
         // ===== 主题切换功能 =====
-        let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -956,6 +1123,10 @@
 
             // 初始化语言
             initLanguage();
+
+            // 加载文章 + 系列数据（页面版 switchLanguage 已被 common.js 版覆盖，
+            // 原先依赖其内部的 loadArticles() 调用不再触发，这里显式调用）
+            loadArticles();
 
             // 绑定语言切换按钮
             document.querySelectorAll('.lang-btn').forEach(btn => {

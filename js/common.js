@@ -29,6 +29,12 @@ function switchLanguage(lang) {
 
     // 保存语言偏好
     localStorage.setItem('preferred-lang', lang);
+
+    // 页面级语言切换钩子：动态渲染的内容（系列条、归档列表、系列横幅等）
+    // 由各页面在 window.onLanguageChanged 里自行重渲染
+    if (typeof window.onLanguageChanged === 'function') {
+        try { window.onLanguageChanged(lang); } catch (e) { console.warn('onLanguageChanged error:', e); }
+    }
 }
 
 function updateLanguageButtons() {
