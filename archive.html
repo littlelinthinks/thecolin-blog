@@ -1077,49 +1077,6 @@
             currentLang = savedLang;
             switchLanguage(savedLang);
         }
-
-        // ===== 主题切换功能 =====
-        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
-
-        function toggleTheme() {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-
-            const themeIcon = document.querySelector('.theme-icon');
-            if (themeIcon) {
-                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            }
-
-            localStorage.setItem('preferred-theme', currentTheme);
-        }
-
-        // 页面加载完成后初始化
-        window.addEventListener('DOMContentLoaded', () => {
-            // 初始化主题
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            const themeIcon = document.querySelector('.theme-icon');
-            if (themeIcon) {
-                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            }
-
-            // 初始化语言
-            initLanguage();
-
-            // 加载文章 + 系列数据（页面版 switchLanguage 已被 common.js 版覆盖，
-            // 原先依赖其内部的 loadArticles() 调用不再触发，这里显式调用）
-            loadArticles();
-
-            // 绑定语言切换按钮
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    switchLanguage(btn.dataset.lang);
-                });
-            });
-
-            // 绑定主题切换按钮
-            const themeSwitcher = document.querySelector('.theme-switcher');
-            if (themeSwitcher) {
-                themeSwitcher.addEventListener('click', toggleTheme);
             }
         });
     </script>

@@ -677,43 +677,6 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
-
-        // ===== 主题切换功能 =====
-        window.currentTheme = localStorage.getItem('preferred-theme') || 'light';
-
-        function toggleTheme() {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-
-            const themeIcon = document.querySelector('.theme-icon');
-            const themeSwitcher = document.querySelector('.theme-switcher');
-            if (themeIcon) {
-                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            }
-            if (themeSwitcher) {
-                themeSwitcher.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-                themeSwitcher.setAttribute('aria-label', currentTheme === 'dark' ? '切换到浅色主题' : '切换到深色主题');
-            }
-
-            localStorage.setItem('preferred-theme', currentTheme);
-        }
-
-        // 页面加载完成后初始化主题和语言
-        window.addEventListener('DOMContentLoaded', () => {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-
-            const themeIcon = document.querySelector('.theme-icon');
-            if (themeIcon) {
-                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            }
-
-            // 初始化语言
-            initLanguage();
-        });
-
-        const themeSwitcher = document.querySelector('.theme-switcher');
-        if (themeSwitcher) {
-            themeSwitcher.addEventListener('click', toggleTheme);
         }
     </script>
     </main>

@@ -355,6 +355,38 @@ a:focus-visible {
 [data-theme="dark"] .nav-link::after { background: var(--text-primary); }
 
 /* ===== Series Nav Menu（公众号系列分组导航 · 三资产联动）===== */
+.nav-dropdown { position: relative; }
+.nav-dropdown .dropdown-arrow {
+    font-size: 0.6rem;
+    margin-left: 0.3rem;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+.nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-card, #fff);
+    min-width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border, #e5e5e5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+.nav-dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .dropdown-menu.series-menu {
     display: grid;
     grid-template-columns: 1fr 1fr;

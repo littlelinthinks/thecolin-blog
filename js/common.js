@@ -295,6 +295,33 @@ function initCommonFeatures() {
         });
     });
 
+    // ===== 下拉菜单 click 触发（替代 hover，符合用户要求）=====
+    document.querySelectorAll('.nav-dropdown').forEach(li => {
+        const trigger = li.querySelector(':scope > a');
+        if (!trigger) return;
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // 关闭其他已打开的 dropdown
+            document.querySelectorAll('.nav-dropdown.open').forEach(other => {
+                if (other !== li) other.classList.remove('open');
+            });
+            li.classList.toggle('open');
+        });
+    });
+    // 点击其他区域关闭
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown.open').forEach(li => li.classList.remove('open'));
+        }
+    });
+    // Esc 关闭
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.nav-dropdown.open').forEach(li => li.classList.remove('open'));
+        }
+    });
+
     // 绑定主题切换按钮
     const themeSwitcher = document.querySelector('.theme-switcher');
     if (themeSwitcher) {

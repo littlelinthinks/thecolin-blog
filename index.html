@@ -304,43 +304,8 @@
             width: 100%;
         }
 
-        /* 下拉菜单 */
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown .dropdown-arrow {
-            font-size: 0.6rem;
-            margin-left: 0.3rem;
-            transition: transform 0.3s;
-        }
-
-        .nav-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-card);
-            min-width: 280px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            border: 1px solid var(--border);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            z-index: 1000;
-        }
-
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        /* 下拉菜单（基础规则已合并到 css/common.css，这里仅保留扩展）*/
+        /* 这里的 .dropdown-section 等是嵌套子菜单，index.html 独占 */
 
         .dropdown-section {
             position: relative;
@@ -4227,20 +4192,6 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
-
-        // ===== 主题切换功能 =====
-        function toggleTheme() {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            
-            const themeIcon = document.querySelector('.theme-icon');
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            
-            localStorage.setItem('preferred-theme', currentTheme);
-        }
-
-        document.querySelector('.theme-switcher').addEventListener('click', toggleTheme);
-
         // ===== 阅读进度条 =====
         function updateReadingProgress() {
             const progressBar = document.querySelector('.reading-progress');
