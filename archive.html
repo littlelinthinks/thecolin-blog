@@ -1021,7 +1021,7 @@
         window.currentLang = 'zh';
 
         function switchLanguage(lang) {
-            currentLang = lang;
+            window.currentLang = lang;
 
             // 更新按钮状态
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1070,14 +1070,24 @@
 
             // 重新加载文章以更新语言
             loadArticles();
+
+            // 通知页面特定的语言切换钩子（重渲染动态内容）
+            if (typeof window.onLanguageChanged === 'function') {
+                try { window.onLanguageChanged(lang); } catch (e) { console.warn('onLanguageChanged error:', e); }
+            }
         }
 
         function initLanguage() {
             const savedLang = localStorage.getItem('preferred-lang') || 'zh';
-            currentLang = savedLang;
+            window.currentLang = savedLang;
             switchLanguage(savedLang);
         }
-            }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
         });
     </script>
     <script src="/js/common.js" defer></script>

@@ -612,7 +612,7 @@
         window.currentLang = 'zh';
 
         function switchLanguage(lang) {
-            currentLang = lang;
+            window.currentLang = lang;
 
             // 更新按钮状态和 ARIA 属性
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -663,11 +663,16 @@
 
             // 保存语言偏好
             localStorage.setItem('preferred-lang', lang);
+
+            // 通知页面特定的语言切换钩子（重渲染动态内容）
+            if (typeof window.onLanguageChanged === 'function') {
+                try { window.onLanguageChanged(lang); } catch (e) { console.warn('onLanguageChanged error:', e); }
+            }
         }
 
         function initLanguage() {
             const savedLang = localStorage.getItem('preferred-lang') || 'zh';
-            currentLang = savedLang;
+            window.currentLang = savedLang;
             switchLanguage(savedLang);
         }
 
@@ -677,7 +682,6 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
-        }
     </script>
     </main>
 </body>
