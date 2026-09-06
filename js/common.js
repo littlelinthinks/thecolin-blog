@@ -61,11 +61,13 @@ function updateLanguageContent() {
 
         if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
             el.placeholder = el.dataset[currentLang + 'Placeholder'] || textContent;
-        } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || 
-                   el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || 
-                   el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || 
+        } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' ||
+                   el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' ||
+                   el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' ||
                    el.tagName === 'H5' || el.tagName === 'H6') {
-            el.textContent = textContent;
+            // 用 innerHTML 让 <br> <strong> 等受控标签正常解析
+            // （textContent 会把这些标签当字面字符，导致页面显示 "<br>"）
+            el.innerHTML = textContent;
         } else {
             el.innerHTML = textContent;
         }

@@ -2,12 +2,13 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="pAoH65wg-NAvnM_j7u7RfVEW2PoiSfPsdKsEe_TUe2w" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章详情 - COLIN</title>
+    <title>文章 · 小Lin思考 | COLIN</title>
     <meta name="description" content="阅读COLIN博客的深度文章，关于写作、思维、学习、目标管理等个人成长主题。">
     <meta name="keywords" content="文章,博客,深度思考,终身学习,个人成长,写作技巧">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://api.github.com https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://www.google.com https://api.github.com">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -28,7 +29,7 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@littlelinthinks">
-    <link rel="canonical" href="https://www.thecolin.vip/article.html">
+    <link rel="canonical" href="https://www.thecolin.vip/article">
     <link rel="stylesheet" href="/css/common.css">
 
     <style>
@@ -707,6 +708,10 @@
     <meta property="og:image" content="https://www.thecolin.vip/images/og-image.jpg">
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
+
+    <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/article" />
+    <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/article" />
+    <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/article" />
 </head>
 <body>
     <!-- 简化导航栏 -->
@@ -1082,12 +1087,20 @@
                                 </div>
                                 <div class="comments-section">
                                     <h2 class="comments-title" data-zh="💬 评论区" data-en="💬 Comments">💬 评论区</h2>
+                                    <div style="margin:0 0 1.5rem;padding:1.25rem 1.5rem;background:var(--bg-secondary,#f7f7f5);border:1px solid var(--border,#e8e6e0);border-radius:12px;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                                        <span style="font-size:1.6rem;line-height:1;">💬</span>
+                                        <div style="flex:1;min-width:200px;">
+                                            <p style="margin:0;font-weight:700;" data-zh="留言请到公众号「小Lin思考」" data-en="Leave comments at WeChat Official Account">留言请到公众号「小Lin思考」</p>
+                                            <p style="margin:0.3rem 0 0;font-size:0.85rem;opacity:0.75;" data-zh="在那里我能第一时间回复你，也能看到系列连载的最新动态。" data-en="I reply fastest there, and it's where the series updates land first.">在那里我能第一时间回复你，也能看到系列连载的最新动态。</p>
+                                        </div>
+                                        <a href="subscribe.html" style="padding:0.5rem 1rem;border-radius:8px;background:var(--accent,#1a1a1a);color:#fff;text-decoration:none;font-size:0.85rem;white-space:nowrap;" data-zh="去关注 →" data-en="Follow →">去关注 →</a>
+                                    </div>
                                     <div id="gitalk-container"></div>
                                 </div>
                             `;
 
-                            // 更新页面标题
-                            document.title = article.title + ' - COLIN';
+                            // 更新页面标题（品牌统一：小Lin思考）
+                            document.title = article.title + ' · 小Lin思考';
 
                             // 更新页面meta标签
                             updateArticleMeta(article);
@@ -1238,11 +1251,14 @@
         function loadGitalk() {
             const gitalk = new Gitalk({
                 clientID: 'Ov23lipyoe0GkAf2X42d', // GitHub Client ID
-                clientSecret: '', // GitHub Client Secret (可选,主要用于服务端)
+                clientSecret: 'GITALK_CLIENT_SECRET_PLACEHOLDER', // ← 填入 GitHub OAuth App 的 Client Secret 后评论即可用
                 repo: 'thecolin-blog', // 仓库名称
                 owner: 'littlelinthinks', // GitHub 用户名
                 admin: ['littlelinthinks'], // GitHub 用户名
-                id: window.location.pathname, // 使用页面路径作为评论ID
+                // （修复：原用 pathname 作评论 ID → 全站文章共用一个评论区。
+                //   改用 路径+查询串，每篇文章（?id=xxx）拥有独立评论区。
+                //   注：Gitalk 要求 id ≤ 50 字符。）
+                id: (window.location.pathname + window.location.search).slice(0, 50),
                 distractionFreeMode: false,
                 language: 'zh-CN',
                 perPage: 10
@@ -1481,10 +1497,21 @@
             updateMeta('og:title', article.title, true);
             updateMeta('og:description', article.excerpt, true);
             updateMeta('og:type', 'article', true);
-            updateMeta('og:url', window.location.href, true);
+            // og:url 与 canonical 统一指向规范 URL（无 .html 后缀，与 Vercel cleanUrls 一致）
+            const canonicalUrl = `https://www.thecolin.vip/article?id=${article.id}`;
+            updateMeta('og:url', canonicalUrl, true);
             updateMeta('article:published_time', article.date, true);
             updateMeta('article:author', 'Colin', true);
-            updateMeta('article:section', article.categoryName, true);
+            updateMeta('article:section', article.seriesName || article.categoryName, true);
+
+            // 动态 canonical：每篇文章指向自己的规范 URL，避免被搜索引擎判定为重复页面
+            let canonicalLink = document.querySelector('link[rel="canonical"]');
+            if (!canonicalLink) {
+                canonicalLink = document.createElement('link');
+                canonicalLink.setAttribute('rel', 'canonical');
+                document.head.appendChild(canonicalLink);
+            }
+            canonicalLink.setAttribute('href', canonicalUrl);
 
             // Twitter
             updateMeta('twitter:title', article.title, true);

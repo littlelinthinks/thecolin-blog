@@ -358,28 +358,38 @@ a:focus-visible {
 .dropdown-menu.series-menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-width: 380px;
+    min-width: 460px;
+    max-width: 560px;
     max-height: 72vh;
     overflow-y: auto;
-    padding: 0.35rem;
-    gap: 1px;
+    padding: 0.5rem;
+    gap: 2px;
+    background: var(--bg-primary, #fff);
 }
 
 .series-menu .series-all {
     grid-column: 1 / -1;
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.35rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+.series-menu .series-all a {
+    background: var(--bg-secondary);
 }
 
 .series-menu .series-group-label {
     grid-column: 1 / -1;
-    padding: 0.5rem 0.75rem 0.12rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    padding: 0.55rem 0.75rem 0.15rem;
+    margin-top: 0.15rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--text-secondary);
-    opacity: 0.8;
+    background: var(--bg-secondary);
+    border-radius: 4px;
     cursor: default;
     user-select: none;
     list-style: none;
@@ -389,12 +399,12 @@ a:focus-visible {
     display: flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.7rem;
     font-size: 0.87rem;
     color: var(--text-secondary);
-    border-radius: 6px;
+    border-radius: 4px;
     white-space: nowrap;
-    transition: all 0.15s;
+    transition: background 0.15s, color 0.15s;
 }
 
 .series-menu li a:hover {

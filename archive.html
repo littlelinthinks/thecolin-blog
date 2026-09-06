@@ -2,12 +2,13 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="pAoH65wg-NAvnM_j7u7RfVEW2PoiSfPsdKsEe_TUe2w" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-zh="文章归档 - COLIN" data-en="Archive - COLIN">文章归档 - COLIN</title>
     <meta name="description" data-zh-content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。" data-en-content="Browse all articles from COLIN blog, covering writing, thinking, learning, goal management and personal growth." content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。">
     <meta name="keywords" content="文章归档,博客,写作,思维,学习,目标管理,个人成长">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://www.google.com">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -37,7 +38,7 @@
     <meta name="twitter:title" content="文章归档 — COLIN">
     <meta name="twitter:description" content="浏览 COLIN 博客所有文章，涵盖深度思考、终身学习、写作技巧与人生哲学。">
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
-    <link rel="canonical" href="https://www.thecolin.vip/archive.html">
+    <link rel="canonical" href="https://www.thecolin.vip/archive">
     <link rel="stylesheet" href="/css/common.css">
 
     <style>
@@ -642,6 +643,10 @@
 
         </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"文章归档 — COLIN","url":"https://www.thecolin.vip/archive.html"}</script>
+
+    <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/archive" />
+    <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/archive" />
+    <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/archive" />
 </head>
 <body>
     <!-- 简化导航栏 -->
@@ -659,12 +664,25 @@
                             <span>文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="archive.html">📚 文章归档</a></li>
-                            <li><a href="archive.html?category=life">小Lin记</a></li>
-                            <li><a href="archive.html?category=thinking">小Lin析</a></li>
-                            <li><a href="archive.html?category=reading">小Lin读</a></li>
-                            <li><a href="archive.html?category=history">小Lin说</a></li>
+                        <ul class="dropdown-menu series-menu">
+                            <li class="series-all"><a href="archive.html" data-zh="📚 全部文章" data-en="📚 All Articles">📚 全部文章</a></li>
+                            <li class="series-group-label" data-zh="西方经典" data-en="Western Classics">西方经典</li>
+                            <li><a href="archive.html?series=western-classics"><span class="series-ico">🏛️</span><span data-zh="西方经典·思维模型" data-en="Classics · Models">西方经典·思维模型</span></a></li>
+                            <li class="series-group-label" data-zh="心智折叠" data-en="Mind Folding">心智折叠</li>
+                            <li><a href="wisdom.html"><span class="series-ico">✦</span><span data-zh="心智折叠（186 则原则）" data-en="Mind Folding (186)">心智折叠（186 则原则）</span></a></li>
+                            <li class="series-group-label" data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</li>
+                            <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span><span data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</span></a></li>
+                            <li class="series-group-label" data-zh="小Lin的笔" data-en="Lin's Pen">小Lin的笔</li>
+                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span><span data-zh="小Lin记 · 生活随笔" data-en="Lin Journal">小Lin记 · 生活随笔</span></a></li>
+                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span><span data-zh="小Lin析 · 思维心理" data-en="Lin Analysis">小Lin析 · 思维心理</span></a></li>
+                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span><span data-zh="小Lin读 · 解读经典" data-en="Lin Reading">小Lin读 · 解读经典</span></a></li>
+                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span><span data-zh="小Lin说 · 历史借鉴" data-en="Lin Talks">小Lin说 · 历史借鉴</span></a></li>
+                            <li class="series-group-label" data-zh="给未来孩子" data-en="For Future Children">给未来孩子</li>
+                            <li><a href="archive.html?series=future-children"><span class="series-ico">🌱</span><span data-zh="给未来孩子的礼物" data-en="For Future Children">给未来孩子的礼物</span></a></li>
+                            <li class="series-group-label" data-zh="资治通鉴·历史" data-en="History">资治通鉴·历史</li>
+                            <li><a href="archive.html?series=zizhi-tongjian"><span class="series-ico">📜</span><span data-zh="资治通鉴·历史" data-en="Zizhi Tongjian">资治通鉴·历史</span></a></li>
+                            <li class="series-group-label" data-zh="天道·人性" data-en="Human Nature">天道·人性</li>
+                            <li><a href="archive.html?series=tiandao-humanity"><span class="series-ico">☯️</span><span data-zh="天道·人性" data-en="Heaven · Humanity">天道·人性</span></a></li>
                         </ul>
                     </li>
                 <li><a href="products.html" class="nav-link" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
@@ -690,7 +708,7 @@
 
         <div class="header">
             <h1 data-zh="📚 文章归档" data-en="📚 Article Archive">📚 文章归档</h1>
-            <p data-zh="按系列、时间和分类浏览所有文章——与公众号「小Lin思考」合集一一对应" data-en="Browse all articles by series, date and category — mirroring the WeChat collections">按系列、时间和分类浏览所有文章——与公众号「小Lin思考」合集一一对应</p>
+            <p data-zh="按系列和时间浏览所有文章——与公众号「小Lin思考」合集一一对应" data-en="Browse all articles by series and date — mirroring the WeChat collections">按系列和时间浏览所有文章——与公众号「小Lin思考」合集一一对应</p>
 
             <!-- 搜索框 -->
             <div class="search-container">
@@ -729,13 +747,6 @@
         <div class="archive-section">
             <h2 data-zh="📅 按日期归档" data-en="📅 Archive by Date">📅 按日期归档</h2>
             <div id="dateArchive" class="archive-list">
-                <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
-            </div>
-        </div>
-
-        <div class="archive-section">
-            <h2 data-zh="🏷️ 按分类归档" data-en="🏷️ Archive by Category">🏷️ 按分类归档</h2>
-            <div id="categoryArchive">
                 <div class="loading" data-zh="加载中..." data-en="Loading...">加载中...</div>
             </div>
         </div>
@@ -841,36 +852,6 @@
                 `).join('');
 
                 // 按分类归档
-                const categoryArchive = document.getElementById('categoryArchive');
-                const groupedByCategory = articles.reduce((groups, article) => {
-                    const categoryName = currentLang === 'zh' ? (article.seriesName || article.categoryName) : (article.seriesNameEn || article.categoryNameEn || article.categoryName);
-                    if (!groups[categoryName]) {
-                        groups[categoryName] = [];
-                    }
-                    groups[categoryName].push(article);
-                    return groups;
-                }, {});
-
-                categoryArchive.innerHTML = Object.entries(groupedByCategory).map(([categoryName, categoryArticles]) => `
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-primary);">
-                            ${categoryName} (${categoryArticles.length} ${currentLang === 'zh' ? '篇' : 'articles'})
-                        </h3>
-                        <ul class="archive-list">
-                            ${categoryArticles.map(article => `
-                                <li class="archive-item">
-                                    <div class="archive-item-info">
-                                        <div class="archive-item-title">
-                                            <a href="${article.url || 'article.html?id=' + article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
-                                        </div>
-                                    </div>
-                                    <div class="archive-item-date">${currentLang === 'zh' ? article.date : article.dateEn}</div>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `).join('');
-
                 // 应用初始系列筛选
                 if (activeSeries !== 'all') applySeriesFilter(activeSeries);
             } catch (error) {

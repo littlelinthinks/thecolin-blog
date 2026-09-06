@@ -28,19 +28,9 @@
             "purpose": "any maskable"
         }
     ],
-    "categories": ["blog", "education", "personal"],
-    "screenshots": [
-        {
-            "src": "/images/screenshot-wide.png",
-            "sizes": "1280x720",
-            "type": "image/png",
-            "form_factor": "wide"
-        },
-        {
-            "src": "/images/screenshot-narrow.png",
-            "sizes": "750x1334",
-            "type": "image/png",
-            "form_factor": "narrow"
-        }
+    "categories": [
+        "blog",
+        "education",
+        "personal"
     ]
 }

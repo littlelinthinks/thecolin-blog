@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v6'; // v6: 系列联动修复（currentLang 冲突 / Gitalk 防御 / 语言切换钩子）
+const CACHE_NAME = 'colin-blog-v9'; // v9: 图标修正（DK→C）+ PWA manifest icon 同步
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -12,8 +12,12 @@ const STATIC_ASSETS = [
     '/css/home.css',
     '/js/common.js',
     '/articles.json',
+    '/series.json',
     '/rss.xml',
-    '/favicon.ico'
+    '/favicon.ico',
+    '/images/icon-192x192.png',
+    '/images/icon-512x512.png',
+    '/manifest.json'
 ];
 
 // Install: cache static assets ONE BY ONE so a single failure never breaks activation

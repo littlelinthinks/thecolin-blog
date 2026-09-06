@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+    <meta name="google-site-verification" content="pAoH65wg-NAvnM_j7u7RfVEW2PoiSfPsdKsEe_TUe2w" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>为什么越努力越焦虑？因为你正站在历史的"折叠点"上 | 小Lin思考</title>
 <meta name="description" content="读瑞·达利欧万字长文，关于大周期、破局方法和普通人如何打破循环陷阱的三个顿悟。">
@@ -100,7 +101,33 @@ body{font-family:"Noto Serif SC",Georgia,serif;background:var(--bg);color:var(--
     <meta name="twitter:title" content="为什么越努力越焦虑？因为你正站在历史的「折叠点」上">
     <meta name="twitter:description" content="读瑞·达利欧万字长文的顿悟——历史的剧本，早就写好了。">
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
-    <link rel="canonical" href="https://www.thecolin.vip/articles/2026-04-dalio-history-fold.html">
+    <link rel="canonical" href="https://www.thecolin.vip/articles/2026-04-dalio-history-fold">
+
+    <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/articles/2026-04-dalio-history-fold" />
+    <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/articles/2026-04-dalio-history-fold" />
+    <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/articles/2026-04-dalio-history-fold" />
+
+    <!-- Article 结构化数据（审计补充：利于 Google 富摘要与文章收录） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "为什么越努力越焦虑？因为你正站在历史的\"折叠点\"上",
+      "description": "读瑞·达利欧万字长文，关于大周期、破局方法和普通人如何打破循环陷阱的三个顿悟。",
+      "image": "https://www.thecolin.vip/images/articles/dalio-bigcycle-01.jpg",
+      "author": { "@type": "Person", "name": "小Lin思考" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "小Lin思考",
+        "logo": { "@type": "ImageObject", "url": "https://www.thecolin.vip/favicon.ico" }
+      },
+      "datePublished": "2026-04-30",
+      "dateModified": "2026-09-06",
+      "mainEntityOfPage": "https://www.thecolin.vip/articles/2026-04-dalio-history-fold",
+      "inLanguage": "zh-CN",
+      "isPartOf": { "@type": "BlogSeries", "name": "小Lin说" }
+    }
+    </script>
 </head>
 <body>
 <nav class="nav-header" role="navigation">
@@ -227,39 +254,10 @@ body{font-family:"Noto Serif SC",Georgia,serif;background:var(--bg);color:var(--
 </article>
 </main>
 <script src="/js/common.js"></script>
-<script src="/js/data.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var lang = localStorage.getItem('preferred-lang') || 'zh';
-  var data = window.COLIN_DATA;
-  if (!data) return;
-  var articleId = 'dalio-history-fold-2026';
-  var article = data.articles.find(function(a){ return a.id === articleId; });
-  if (!article) return;
-  var html = '';
-  var figures = data.getFiguresByArticle(articleId);
-  if (figures.length) {
-    html += '<div class="cross-section"><span class="cross-label">' + (lang==='zh'?'本文涉及人物':'FIGURES IN THIS ARTICLE') + '</span><div class="figure-chips">';
-    figures.forEach(function(f) {
-      html += '<a href="/wisdom.html" class="figure-chip"><span class="figure-chip-num">'+f.num+'</span><span><span class="figure-chip-name">'+(lang==='zh'?f.name.zh:f.name.en)+'</span><span class="figure-chip-role">'+(lang==='zh'?f.role.zh:f.role.en)+'</span></span></a>';
-    });
-    html += '</div></div>';
-  }
-  if (article.concepts && article.concepts.length) {
-    html += '<div class="cross-section"><span class="cross-label">'+(lang==='zh'?'核心概念':'KEY CONCEPTS')+'</span><div class="concept-chips">';
-    article.concepts.forEach(function(cid) {
-      var concept = data.getConcept(cid);
-      if (concept) html += '<span class="concept-chip" style="border-color:'+concept.color+';color:'+concept.color+'">'+(lang==='zh'?concept.name.zh:concept.name.en)+'</span>';
-    });
-    html += '</div></div>';
-  }
-  var col = data.collections.find(function(c){ return c.id === article.collection; });
-  if (col) {
-    html += '<div class="cross-section"><span class="cross-label">'+(lang==='zh'?'所属合集':'COLLECTION')+'</span>';
-    html += '<a href="/archive.html?collection='+col.id+'" class="collection-chip">'+col.icon+' <strong>'+(lang==='zh'?col.name.zh:col.name.en)+'</strong> · <span style="color:var(--t2);font-size:0.8rem">'+(lang==='zh'?col.desc.zh:col.desc.en)+'</span></a></div>';
-  }
-  document.getElementById('crossLinks').innerHTML = html;
-});
+// （审计修复：原此处引用 /js/data.js（文件不存在，404）+ 依赖 window.COLIN_DATA
+//   的"人物/概念/合集"交叉引用块（旧架构遗留，从未渲染过）——已移除。
+//   系列归属由页面底部的系列徽章（小Lin说）承担。）
 var btt = document.getElementById('backToTop');
 window.addEventListener('scroll', function(){ btt.classList.toggle('visible', window.scrollY > 400); }, {passive:true});
 btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
