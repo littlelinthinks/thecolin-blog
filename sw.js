@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v14'; // v14: 社交图标全部改为线描SVG；删除少数派/简书，仅保留微信/知乎/今日头条/邮箱
+const CACHE_NAME = 'colin-blog-v15'; // v15: 修复移动端(≤900px)横向溢出——搜索按钮改为仅图标、收紧头部间距
 const STATIC_ASSETS = [
     '/',
     '/index.html',

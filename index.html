@@ -2710,6 +2710,14 @@
             /* Hide lang switcher on mobile to save space */
             .lang-switcher { display: none !important; }
 
+            /* 移动端：搜索按钮改为仅图标，收紧头部间距，杜绝横向溢出
+               （nav 为 fixed，不受 body overflow-x:hidden 裁剪，控件过宽会撑出横向滚动） */
+            .nav-container { padding: 0.9rem 0.75rem !important; }
+            .nav-right { gap: 0.6rem !important; }
+            .search-btn { padding: 0.45rem 0.6rem !important; gap: 0 !important; }
+            .search-label { display: none !important; }
+            .theme-switcher { padding: 0.45rem !important; }
+
             /* Hero mobile */
             .hero-content { padding: 80px 20px 40px !important; }
             .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
@@ -2879,7 +2887,7 @@
                 </ul>
                 <div class="search-container">
                     <button class="search-btn">
-                        <span data-zh="🔍 搜索" data-en="🔍 Search">🔍 搜索</span>
+                        <span class="search-ico" aria-hidden="true">🔍</span><span class="search-label" data-zh="搜索" data-en="Search">搜索</span>
                     </button>
                 </div>
                 <div class="lang-switcher">
