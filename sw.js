@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v12'; // v12: 系列名修正——dalio→西方经典·思维模型、guiren/congzhong 合并至「小Lin的笔记」、导航"小Lin的笔"组合并为单一"小Lin的笔记"
+const CACHE_NAME = 'colin-blog-v14'; // v14: 社交图标全部改为线描SVG；删除少数派/简书，仅保留微信/知乎/今日头条/邮箱
 const STATIC_ASSETS = [
     '/',
     '/index.html',

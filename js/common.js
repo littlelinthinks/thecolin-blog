@@ -309,6 +309,13 @@ function initCommonFeatures() {
             li.classList.toggle('open');
         });
     });
+    // 点击下拉里的子链接/子菜单项时立即关闭下拉（修复：跳转/锚定后下拉不收起的 bug）
+    document.querySelectorAll('.nav-dropdown .dropdown-menu a').forEach(a => {
+        a.addEventListener('click', () => {
+            const dd = a.closest('.nav-dropdown');
+            if (dd) dd.classList.remove('open');
+        });
+    });
     // 点击其他区域关闭
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-dropdown')) {
