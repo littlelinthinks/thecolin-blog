@@ -672,11 +672,8 @@
                             <li><a href="wisdom.html"><span class="series-ico">✦</span><span data-zh="心智折叠（186 则原则）" data-en="Mind Folding (186)">心智折叠（186 则原则）</span></a></li>
                             <li class="series-group-label" data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</li>
                             <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span><span data-zh="元认知·底层内核" data-en="Metacognition">元认知·底层内核</span></a></li>
-                            <li class="series-group-label" data-zh="小Lin的笔" data-en="Lin's Pen">小Lin的笔</li>
-                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span><span data-zh="小Lin记 · 生活随笔" data-en="Lin Journal">小Lin记 · 生活随笔</span></a></li>
-                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span><span data-zh="小Lin析 · 思维心理" data-en="Lin Analysis">小Lin析 · 思维心理</span></a></li>
-                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span><span data-zh="小Lin读 · 解读经典" data-en="Lin Reading">小Lin读 · 解读经典</span></a></li>
-                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span><span data-zh="小Lin说 · 历史借鉴" data-en="Lin Talks">小Lin说 · 历史借鉴</span></a></li>
+                            <li class="series-group-label" data-zh="小Lin的笔记" data-en="Lin's Notes">小Lin的笔记</li>
+                            <li><a href="archive.html?series=lin-notes"><span class="series-ico">📝</span><span data-zh="小Lin的笔记" data-en="Lin's Notes">小Lin的笔记</span></a></li>
                             <li class="series-group-label" data-zh="给未来孩子" data-en="For Future Children">给未来孩子</li>
                             <li><a href="archive.html?series=future-children"><span class="series-ico">🌱</span><span data-zh="给未来孩子的礼物" data-en="For Future Children">给未来孩子的礼物</span></a></li>
                             <li class="series-group-label" data-zh="资治通鉴·历史" data-en="History">资治通鉴·历史</li>
@@ -1089,6 +1086,32 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
+
+        // ===== 页面初始化 =====
+        // （修复：此前批量清理悬空代码时误删了 DOMContentLoaded 块，
+        //   导致 initLanguage() 从未被调用 → archive 文章列表/统计不加载、
+        //   article 与 subscribe 的初始化流程中断。）
+        function bootPage() {
+            try {
+                if (typeof initLanguage === 'function') initLanguage();
+            } catch (e) {
+                console.warn('initLanguage error:', e);
+            }
+            // 直接加载文章列表与系列（不能依赖 switchLanguage：
+            // common.js 的 switchLanguage 会覆盖页面版，且其 onLanguageChanged
+            // 钩子在语言未变时会提前 return，导致 loadArticles 永不执行）
+            try {
+                if (typeof loadArticles === 'function') loadArticles();
+            } catch (e) {
+                console.warn('loadArticles error:', e);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootPage);
+        } else {
+            bootPage();
+        }
     </script>
     <script src="/js/common.js" defer></script>
     </main>

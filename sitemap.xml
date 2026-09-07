@@ -50,4 +50,25 @@
         <priority>0.6</priority>
     </url>
 
+
+    <url>
+        <loc>https://www.thecolin.vip/articles/2026-02-tiandao-emotion</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.thecolin.vip/articles/2026-02-guiren-bufupin</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.thecolin.vip/articles/2026-02-group-psychology</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

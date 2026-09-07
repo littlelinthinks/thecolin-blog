@@ -4,7 +4,7 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v9'; // v9: 图标修正（DK→C）+ PWA manifest icon 同步
+const CACHE_NAME = 'colin-blog-v12'; // v12: 系列名修正——dalio→西方经典·思维模型、guiren/congzhong 合并至「小Lin的笔记」、导航"小Lin的笔"组合并为单一"小Lin的笔记"
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -76,6 +76,15 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
+    // Strategy: Network First for CSS/JS（修复：这两个文件此前用 cacheFirst，
+    // 导致每次改样式/脚本后，已访问过的浏览器永远拿到旧文件，必须靠
+    // 手动升 CACHE_NAME 才能生效——用户会一直看到旧页面。
+    // CSS/JS 体积很小（约 10KB），网络优先的开销可忽略，换来确定性更新。）
+    if (isCodeAsset(url.pathname)) {
+        event.respondWith(networkFirst(request));
+        return;
+    }
+
     // Strategy: Cache First for static assets
     if (isStaticAsset(url.pathname)) {
         event.respondWith(cacheFirst(request));
@@ -89,6 +98,11 @@ self.addEventListener('fetch', (event) => {
 // Helper: Check if static asset
 function isStaticAsset(pathname) {
     return pathname.match(/\.(css|js|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|ico)$/);
+}
+
+// Helper: Check if CSS/JS（需网络优先，保证改完立刻生效）
+function isCodeAsset(pathname) {
+    return pathname.match(/\.(css|js)$/);
 }
 
 // Navigation: network first, cache fallback, offline page last resort

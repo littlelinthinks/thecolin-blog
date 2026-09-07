@@ -31,44 +31,14 @@
     "descriptionEn": "Thinking about thinking — upgrading yourself at the OS level."
   },
   {
-    "id": "lin-journal",
-    "name": "小Lin记",
-    "nameEn": "Lin Journal",
+    "id": "lin-notes",
+    "name": "小Lin的笔记",
+    "nameEn": "Lin's Notes",
     "icon": "📝",
-    "group": "小Lin的笔",
-    "groupEn": "Lin's Pen",
-    "description": "生活随笔。记录日常里那些值得停一停的瞬间。",
-    "descriptionEn": "Life notes. Moments worth pausing for."
-  },
-  {
-    "id": "lin-analysis",
-    "name": "小Lin析",
-    "nameEn": "Lin Analysis",
-    "icon": "💭",
-    "group": "小Lin的笔",
-    "groupEn": "Lin's Pen",
-    "description": "思维与心理拆解。把情绪和直觉摊开来看清楚。",
-    "descriptionEn": "Thinking & psychology, taken apart and laid bare."
-  },
-  {
-    "id": "lin-reading",
-    "name": "小Lin读",
-    "nameEn": "Lin Reads",
-    "icon": "📖",
-    "group": "小Lin的笔",
-    "groupEn": "Lin's Pen",
-    "description": "解读经典。一本一本书地过，一段一段地想。",
-    "descriptionEn": "Reading the classics, one book and one passage at a time."
-  },
-  {
-    "id": "lin-talks",
-    "name": "小Lin说",
-    "nameEn": "Lin Talks",
-    "icon": "⚔️",
-    "group": "小Lin的笔",
-    "groupEn": "Lin's Pen",
-    "description": "以史为鉴。历史不会重复，但会押韵。",
-    "descriptionEn": "History doesn't repeat, but it rhymes."
+    "group": "小Lin的笔记",
+    "groupEn": "Lin's Notes",
+    "description": "生活随笔、思维心理、解读经典、历史借鉴——把日常停一停的瞬间折叠成可用的笔记。",
+    "descriptionEn": "Life notes, thinking & psychology, classics reading, history rhymes — folding everyday moments into usable notes."
   },
   {
     "id": "future-children",

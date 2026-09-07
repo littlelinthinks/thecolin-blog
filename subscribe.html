@@ -438,11 +438,8 @@
                             <li><a href="wisdom.html"><span class="series-ico">✦</span>心智折叠（186 则原则）</a></li>
                             <li class="series-group-label">元认知·底层内核</li>
                             <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span>元认知·底层内核</a></li>
-                            <li class="series-group-label">小Lin的笔</li>
-                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span>小Lin记 · 生活随笔</a></li>
-                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span>小Lin析 · 思维心理</a></li>
-                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span>小Lin读 · 解读经典</a></li>
-                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span>小Lin说 · 历史借鉴</a></li>
+                            <li class="series-group-label">小Lin的笔记</li>
+                            <li><a href="archive.html?series=lin-notes"><span class="series-ico">📝</span>小Lin的笔记</a></li>
                             <li class="series-group-label">给未来孩子</li>
                             <li><a href="archive.html?series=future-children"><span class="series-ico">🎁</span>给未来孩子的礼物</a></li>
                             <li class="series-group-label">资治通鉴·历史</li>
@@ -682,6 +679,24 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
+
+        // ===== 页面初始化 =====
+        // （修复：此前批量清理悬空代码时误删了 DOMContentLoaded 块，
+        //   导致 initLanguage() 从未被调用 → archive 文章列表/统计不加载、
+        //   article 与 subscribe 的初始化流程中断。）
+        function bootPage() {
+            try {
+                if (typeof initLanguage === 'function') initLanguage();
+            } catch (e) {
+                console.warn('initLanguage error:', e);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootPage);
+        } else {
+            bootPage();
+        }
     </script>
     </main>
 </body>

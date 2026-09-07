@@ -737,11 +737,8 @@
                             <li><a href="wisdom.html"><span class="series-ico">✦</span>心智折叠（186 则原则）</a></li>
                             <li class="series-group-label">元认知·底层内核</li>
                             <li><a href="archive.html?series=metacognition"><span class="series-ico">🧠</span>元认知·底层内核</a></li>
-                            <li class="series-group-label">小Lin的笔</li>
-                            <li><a href="archive.html?series=lin-journal"><span class="series-ico">📝</span>小Lin记 · 生活随笔</a></li>
-                            <li><a href="archive.html?series=lin-analysis"><span class="series-ico">💭</span>小Lin析 · 思维心理</a></li>
-                            <li><a href="archive.html?series=lin-reading"><span class="series-ico">📖</span>小Lin读 · 解读经典</a></li>
-                            <li><a href="archive.html?series=lin-talks"><span class="series-ico">⚔️</span>小Lin说 · 历史借鉴</a></li>
+                            <li class="series-group-label">小Lin的笔记</li>
+                            <li><a href="archive.html?series=lin-notes"><span class="series-ico">📝</span>小Lin的笔记</a></li>
                             <li class="series-group-label">给未来孩子</li>
                             <li><a href="archive.html?series=future-children"><span class="series-ico">🎁</span>给未来孩子的礼物</a></li>
                             <li class="series-group-label">资治通鉴·历史</li>
@@ -972,8 +969,8 @@
                 titleEn: "Reflections on Launching My Official Account",
                 category: "life",
                 categoryEn: "Life Philosophy",
-                categoryName: "小Lin记",
-                categoryNameEn: "LittleLin Journal",
+                categoryName: "小Lin的笔记",
+                categoryNameEn: "Lin's Notes",
                 date: "2026年1月21日",
                 dateEn: "January 21, 2026",
                 readTime: "📖 1分钟阅读",
@@ -981,7 +978,7 @@
                 excerpt: "今天，“小Lin思考”公众号正式启动。这是一个勇敢的开始，我决定用文字记录思考，用写作输出所思所想。思考是成长的阶梯，表达是认知的升级。",
                 excerptEn: "Today, the LittleLin Thinking official account is officially launched. This is a brave start. Thinking is the ladder of growth, and expression is the upgrade of cognition.",
                 filename: "W1_0101_周一_小Lin记_公众号启动感悟.md",
-                content: `<h2>小Lin记 | 随笔</h2>
+                content: `<h2>小Lin的笔记 | 随笔</h2>
 <p>今天，“小Lin思考”公众号正式启动了。</p>
 <p>这是一次勇敢的开始。</p>
 <p>千思万虑终出来。借用扎克伯格的话：<em>“没有人一开始便知晓项目怎么做，只有开始迈出第一步，思路才逐渐清晰。”</em>所以我终于是按下了开始的按钮。</p>
@@ -991,13 +988,10 @@
 <p>但我相信，<strong>思考是成长的阶梯，表达是认知的升级</strong>。</p>
 <p>在这个信息爆炸的时代，我们很容易被各种短视频等快餐式消费为主的碎片化信息淹没，却很少有人真正停下来深度思考。</p>
 <p>我希望通过这个公众号，搭建一个思考的空间，分享自己平时对人性、历史、哲学、心理学的理解和感悟。</p>
-<h2>四类内容</h2>
-<p>未来，我会在这个公众号上发布四类内容：</p>
+<h2>一类内容</h2>
+<p>未来，我会在这个公众号上发布统称「<strong>小Lin的笔记</strong>」的内容：</p>
 <ul>
-<li><strong>小Lin读</strong> - 解读经典，如《天道》</li>
-<li><strong>小Lin析</strong> - 分析心理，洞察人性</li>
-<li><strong>小Lin说</strong> - 讲述历史，借鉴经验</li>
-<li><strong>小Lin记</strong> - 记录日常，真实表达</li>
+<li><strong>小Lin的笔记</strong> - 生活随笔、思维心理、解读经典、历史借鉴——把日常停一停的瞬间折叠成可用的笔记。</li>
 </ul>
 <p>在此除了分享思想之外，更是为了记录自己。</p>
 <p>写作是最好的思考方式，当我把思想变成文字时，我深信思维会变得更加清晰，认知会变得更加深刻。路漫漫其修远兮，吾将上下而求索。</p>
@@ -1635,6 +1629,24 @@
                 switchLanguage(btn.dataset.lang);
             });
         });
+
+        // ===== 页面初始化 =====
+        // （修复：此前批量清理悬空代码时误删了 DOMContentLoaded 块，
+        //   导致 initLanguage() 从未被调用 → archive 文章列表/统计不加载、
+        //   article 与 subscribe 的初始化流程中断。）
+        function bootPage() {
+            try {
+                if (typeof initLanguage === 'function') initLanguage();
+            } catch (e) {
+                console.warn('initLanguage error:', e);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootPage);
+        } else {
+            bootPage();
+        }
     </script>
 
     <!-- Gitalk 评论系统 -->
