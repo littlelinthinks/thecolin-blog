@@ -376,6 +376,33 @@ const OS = (() => {
         }
         if (langSel) { langSel.addEventListener('change', toggleEnBox); toggleEnBox(); }
 
+        // URL slug 实时预览：在点发布前就能看到最终链接，避免“为什么叫这个名”
+        const slugPreview = $('#slugPreview');
+        function updateSlugPreview() {
+            if (!slugPreview) return;
+            const rawSlug = ($('#fSlug') && $('#fSlug').value || '').trim();
+            const titleEn = ($('#fTitleEn') && $('#fTitleEn').value || '').trim();
+            const title = ($('#fTitle') && $('#fTitle').value || '').trim();
+            const sampleId = editId || 'os-xxxxxx';
+            const computed = rawSlug || slugify(titleEn || title, sampleId);
+            const colinUrl = `https://www.thecolin.vip/articles/${esc(computed)}/`;
+            const rwcUrl = `https://readswithcolin.com/posts/${esc(computed)}.html`;
+
+            let note;
+            if (rawSlug) {
+                if (/^[a-z0-9][a-z0-9-]*$/i.test(rawSlug)) {
+                    note = `将使用你填的 slug：<code>${esc(computed)}</code>`;
+                } else {
+                    note = `<span style="color:#C73E2C">⚠ 自定义 slug 只能含字母、数字、连字符，发布时会自动改成随机 ID</span>`;
+                }
+            } else if (/^[a-z0-9][a-z0-9-]*$/i.test(computed) && computed !== sampleId) {
+                note = `由英文标题自动生成：<code>${esc(computed)}</code>`;
+            } else {
+                note = `中文标题无法直接生成可读 slug，将使用随机 ID：<code>${esc(computed)}</code>（想要 /articles/english-title/ 这种链接，填写上方“英文标题”即可）`;
+            }
+            slugPreview.innerHTML = `${note}<br><span style="opacity:.75">写作站：${colinUrl}</span><br><span style="opacity:.75">读书站：${rwcUrl}</span>`;
+        }
+
         // 编辑既有条目：?id=xxx
         const params = new URLSearchParams(location.search);
         const editId = params.get('id');
@@ -401,6 +428,15 @@ const OS = (() => {
                 if (toggleEnBox) toggleEnBox();
             }
         }
+
+        // 标题/英文标题/slug 改动时刷新 URL 预览
+        ['input', 'change'].forEach(evt => {
+            if ($('#fTitle'))   $('#fTitle').addEventListener(evt, updateSlugPreview);
+            if ($('#fTitleEn')) $('#fTitleEn').addEventListener(evt, updateSlugPreview);
+            if ($('#fSlug'))    $('#fSlug').addEventListener(evt, updateSlugPreview);
+            if ($('#fLang'))    $('#fLang').addEventListener(evt, updateSlugPreview);
+        });
+        updateSlugPreview();
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
