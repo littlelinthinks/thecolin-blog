@@ -799,4 +799,9 @@ input, textarea, select { font-family: inherit; }
     background: transparent; color: var(--text-muted, #888);
     border-color: var(--border, #ddd);
 }
+.os-mini-btn.danger {
+    background: transparent; color: var(--brand-red, #C73E2C);
+    border-color: var(--brand-red, #C73E2C);
+}
+.os-mini-btn.danger:hover { background: rgba(199, 62, 44, .08); }
 .os-mini-btn:active { transform: scale(.97); }

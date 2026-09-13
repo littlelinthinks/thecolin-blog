@@ -19,6 +19,7 @@
 const { checkAuth } = require('./lib/auth');
 const { commitFiles, readFile } = require('./lib/github');
 const T = require('./lib/templates');
+const { pinyin } = require('pinyin-pro');
 
 const REPOS = {
     thecolin:       { owner: 'littlelinthinks', repo: 'thecolin-blog',   branch: 'main' },
@@ -50,11 +51,15 @@ async function parseBody(req) {
     }
 }
 
-/* slug 规范化：非法/为空时根据 title/id 自动生成合法 slug */
+/* slug 规范化：非法/为空时根据 title/id 自动生成合法 slug；中文标题自动转拼音 */
 function normalizeSlug(raw, title, id) {
     const s = String(raw || '').trim();
     if (/^[a-z0-9][a-z0-9-]*$/i.test(s) && s.length >= 2) return s;
-    const base = String(title || '')
+    let t = String(title || '');
+    if (/[\u4e00-\u9fa5]/.test(t)) {
+        t = t.replace(/[\u4e00-\u9fa5]+/g, m => pinyin(m, { toneType: 'none', type: 'array' }).join(' '));
+    }
+    const base = t
         .toLowerCase()
         .replace(/['’"“”,.!?;:、。！？；：（）()《》<>【】\[\]—–~·…]/g, '')
         .replace(/[^\w\s-]/g, '')

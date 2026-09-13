@@ -38,9 +38,14 @@ const OS = (() => {
 
     const today = () => new Date().toISOString().slice(0, 10);
 
-    /* slug：英文/数字直接转 kebab-case；纯中文/混合时混入短 id 保证唯一与 URL 安全 */
+    /* slug：英文/数字直接转 kebab-case；中文自动转拼音；过短则 fallbackSeed */
     function slugify(text, fallbackSeed) {
-        const base = String(text || '')
+        let raw = String(text || '');
+        // 若加载了 pinyin-pro，把中文连续片段转成拼音（保留英文原词）
+        if (typeof window !== 'undefined' && window.pinyinPro && /[\u4e00-\u9fa5]/.test(raw)) {
+            raw = raw.replace(/[\u4e00-\u9fa5]+/g, m => window.pinyinPro.pinyin(m, { toneType: 'none', type: 'array' }).join(' '));
+        }
+        const base = raw
             .toLowerCase()
             .replace(/['’"“”,.!?;:、。！？；：（）()《》<>【】\[\]—–~·…]/g, '')
             .replace(/[^\w\s-]/g, '')
@@ -48,7 +53,6 @@ const OS = (() => {
             .replace(/\s+/g, '-')
             .replace(/-+/g, '-')
             .replace(/^-|-$/g, '');
-        // 剩余长度太短说明基本是中文 → 用 fallbackSeed（一般是 id）
         if (base.length >= 3) return base.slice(0, 60);
         return String(fallbackSeed || 'post').toLowerCase().replace(/[^\w-]/g, '');
     }
@@ -305,13 +309,15 @@ const OS = (() => {
                     ${urls.map(([c, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc((CHANNELS[c] || { label: c }).label)} ↗</a>`).join('')}
                 </div>` : '';
             const badge = publishBadge(it);
-            // 操作区：重新发布（API 渠道）+ 公众号草稿（剪贴板）
+            // 操作区：重新发布（API 渠道）+ 公众号草稿（剪贴板）+ 删除
             const hasApi = (it.channels || []).some(c => c !== 'wechat');
+            const isPublished = it.status === 'published' && it.publish?.status === 'success';
             const actions = `
                 <div class="os-work-actions">
                     ${hasApi ? `<button class="os-mini-btn" data-publish="${esc(it.id)}">🚀 发布</button>` : ''}
                     ${(it.channels || []).includes('wechat') ? `<button class="os-mini-btn ghost" data-wechat="${esc(it.id)}">💬 公众号草稿</button>` : ''}
                     <button class="os-mini-btn ghost" data-edit="${esc(it.id)}">✎ 编辑</button>
+                    ${isPublished ? `<button class="os-mini-btn ghost danger" data-delete="${esc(it.id)}">🗑 删除</button>` : ''}
                 </div>`;
 
             return `
@@ -345,6 +351,15 @@ const OS = (() => {
         $$('[data-edit]').forEach(btn => {
             btn.addEventListener('click', () => {
                 location.href = 'new.html?id=' + encodeURIComponent(btn.getAttribute('data-edit'));
+            });
+        });
+        $$('[data-delete]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.getAttribute('data-delete');
+                if (!confirm('确认从线上删除这篇文章？\n这会同时移除写作站和读书站的页面。')) return;
+                btn.disabled = true; btn.textContent = '… 删除中';
+                await deleteWork(id);
+                btn.disabled = false; btn.textContent = '🗑 删除';
             });
         });
     }
@@ -395,10 +410,10 @@ const OS = (() => {
                 } else {
                     note = `<span style="color:#C73E2C">⚠ 自定义 slug 只能含字母、数字、连字符，发布时会自动改成随机 ID</span>`;
                 }
-            } else if (/^[a-z0-9][a-z0-9-]*$/i.test(computed) && computed !== sampleId) {
-                note = `由英文标题自动生成：<code>${esc(computed)}</code>`;
+            } else if (computed !== sampleId) {
+                note = `由标题自动生成：<code>${esc(computed)}</code>`;
             } else {
-                note = `中文标题无法直接生成可读 slug，将使用随机 ID：<code>${esc(computed)}</code>（想要 /articles/english-title/ 这种链接，填写上方“英文标题”即可）`;
+                note = `将使用随机 ID：<code>${esc(computed)}</code>（填写英文标题或自定义 slug 可获得更短链接）`;
             }
             slugPreview.innerHTML = `${note}<br><span style="opacity:.75">写作站：${colinUrl}</span><br><span style="opacity:.75">读书站：${rwcUrl}</span>`;
         }
@@ -632,6 +647,46 @@ const OS = (() => {
             it.publish = Object.assign({}, it.publish, { status: 'error', error: String(err.message || err) });
             upsertLocal(it); mergeItems(); renderAll();
             toast('发布失败：' + (err.message || err));
+            return { ok: false, error: String(err.message || err) };
+        }
+    }
+
+    /* ---------- 删除已发（调 /api/delete，同时删仓库文件 + JSON 条目） ---------- */
+    async function deleteWork(id) {
+        const it = findItem(id);
+        if (!it) { toast('找不到这条内容'); return { ok: false, error: 'not found' }; }
+
+        const slug = it.slug || slugify(it.titleEn || it.title, it.id);
+        const targets = (it.channels || []).filter(c => c !== 'wechat');
+        if (!targets.length) { toast('没有可删除的线上渠道'); return { ok: false, error: 'no targets' }; }
+
+        const token = ensureToken();
+        if (!token) { toast('没有口令，取消删除'); return { ok: false, error: 'no token' }; }
+
+        it.publish = Object.assign({}, it.publish, { status: 'sending', error: '' });
+        upsertLocal(it); mergeItems(); renderAll();
+
+        try {
+            const res = await fetch('/api/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-OS-Token': token },
+                body: JSON.stringify({ slug, channels: targets })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.ok) {
+                if (res.status === 403) setToken('');
+                throw new Error(data.error || ('HTTP ' + res.status));
+            }
+            it.status = 'ready';
+            it.publish = { status: 'none', publishedAt: '', urls: {}, error: '' };
+            it.updated = today();
+            upsertLocal(it); mergeItems(); renderAll();
+            toast('已删除线上文章');
+            return { ok: true, deleted: data.deleted };
+        } catch (err) {
+            it.publish = Object.assign({}, it.publish, { status: 'error', error: String(err.message || err) });
+            upsertLocal(it); mergeItems(); renderAll();
+            toast('删除失败：' + (err.message || err));
             return { ok: false, error: String(err.message || err) };
         }
     }

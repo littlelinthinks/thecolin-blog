@@ -10,7 +10,7 @@
  */
 
 function checkAuth(req) {
-    const expected = process.env.PUBLISH_TOKEN;
+    const expected = process.env.PUBLISH_TOKEN || process.env.OS_TOKEN;
     if (!expected) {
         return { ok: false, status: 503, error: '服务端未配置 PUBLISH_TOKEN 环境变量' };
     }

@@ -122,4 +122,23 @@ async function readFile({ token, owner, repo, path, branch = 'main' }) {
     }
 }
 
-module.exports = { commitFiles, readFile };
+/** 取文件 SHA（用于删除）。 */
+async function getFileSha({ token, owner, repo, path, branch = 'main' }) {
+    const data = await ghFetch(
+        token,
+        `/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}?ref=${branch}`
+    );
+    return data.sha;
+}
+
+/** 删除仓库文件。 */
+async function deleteFile({ token, owner, repo, path, message, sha, branch = 'main' }) {
+    const fileSha = sha || await getFileSha({ token, owner, repo, path, branch });
+    await ghFetch(token, `/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ message, sha: fileSha, branch })
+    });
+    return { deleted: true };
+}
+
+module.exports = { commitFiles, readFile, deleteFile };
