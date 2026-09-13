@@ -37,6 +37,36 @@ function cors(res) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-OS-Token, Authorization');
 }
 
+/* 读取并解析 JSON body（Vercel 原生 req 不会自动解析） */
+async function parseBody(req) {
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    const raw = Buffer.concat(chunks).toString('utf-8');
+    if (!raw) return {};
+    try {
+        return JSON.parse(raw);
+    } catch (e) {
+        return {};
+    }
+}
+
+/* slug 规范化：非法/为空时根据 title/id 自动生成合法 slug */
+function normalizeSlug(raw, title, id) {
+    const s = String(raw || '').trim();
+    if (/^[a-z0-9][a-z0-9-]*$/i.test(s) && s.length >= 2) return s;
+    const base = String(title || '')
+        .toLowerCase()
+        .replace(/['’"“”,.!?;:、。！？；：（）()《》<>【】\[\]—–~·…]/g, '')
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    if (base.length >= 3) return base.slice(0, 60);
+    const fallback = String(id || 'post').toLowerCase().replace(/[^\w-]/g, '').slice(0, 30);
+    return fallback || 'post';
+}
+
 module.exports = async function handler(req, res) {
     cors(res);
 
@@ -50,15 +80,12 @@ module.exports = async function handler(req, res) {
     if (!auth.ok) return res.status(auth.status).json({ ok: false, error: auth.error });
 
     /* ---- 参数 ---- */
-    const b = req.body || {};
-    const slug = String(b.slug || '').trim();
+    const b = await parseBody(req);
     const title = String(b.title || '').trim();
     const body = String(b.body || '').trim();
+    const slug = normalizeSlug(b.slug, title, b.id);
     const channels = Array.isArray(b.channels) ? b.channels : [];
 
-    if (!slug || !/^[a-z0-9][a-z0-9-]*$/i.test(slug)) {
-        return res.status(400).json({ ok: false, error: 'slug 缺失或非法（仅字母数字与连字符）' });
-    }
     if (!title) return res.status(400).json({ ok: false, error: 'title 缺失' });
     if (!body)  return res.status(400).json({ ok: false, error: 'body 缺失' });
 
