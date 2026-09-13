@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#C73E2C">
+<title>已发 · Personal OS | COLIN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23C73E2C' rx='18'/><text x='50' y='74' font-family='Georgia,serif' font-size='64' font-weight='bold' fill='white' text-anchor='middle'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/os.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Colin OS">
+</head>
+<body>
+
+<nav class="os-nav">
+    <div class="os-nav-inner">
+        <a class="os-brand" href="index.html">
+            <span class="os-brand-mark">C</span>
+            <span class="os-brand-name">
+                <b>Personal OS</b>
+                <span>Colin · Knowledge</span>
+            </span>
+        </a>
+        <div class="os-tabs">
+            <a class="os-tab" href="index.html">发布台</a>
+            <a class="os-tab" href="capture.html">速记</a>
+            <a class="os-tab" href="new.html">起草</a>
+            <a class="os-tab active" href="done.html">已发</a>
+        </div>
+        <div class="os-nav-right">
+            <button class="os-theme-btn" aria-label="切换主题"><span class="theme-icon">🌙</span></button>
+            <a class="os-back" href="https://www.thecolin.vip/" target="_blank" rel="noopener">← 回主站</a>
+        </div>
+    </div>
+</nav>
+
+<main class="os-wrap">
+
+    <header class="os-head">
+        <span class="os-kicker">Published Works</span>
+        <h1>我的<em>作品资产</em></h1>
+        <p>已经上线的东西，连同它的数据和读者的反馈。反馈会变成下一条「起念」——这就是闭环。</p>
+    </header>
+
+    <div class="os-works" id="osWorks"></div>
+
+    <div style="margin-top:2rem;">
+        <button class="os-btn ghost sm" data-export>导出 JSON</button>
+    </div>
+
+</main>
+
+<!-- 底部 Tab 栏（仅手机） -->
+<nav class="os-tabbar" aria-label="主导航">
+    <a href="index.html"><span class="tb-ico">▦</span><span>发布台</span></a>
+    <a href="capture.html"><span class="tb-ico">✎</span><span>速记</span></a>
+    <a href="new.html"><span class="tb-ico">＋</span><span>起草</span></a>
+    <a href="done.html" class="active"><span class="tb-ico">◉</span><span>已发</span></a>
+</nav>
+
+<footer class="os-foot">
+    <div class="os-foot-assets">
+        <span style="font-family:var(--font-mono);font-size:.66rem;letter-spacing:1.5px;">三资产联动</span>
+        <a href="https://www.thecolin.vip/" target="_blank" rel="noopener">thecolin.vip</a>
+        <span style="opacity:.35">·</span>
+        <a href="https://readswithcolin.com/" target="_blank" rel="noopener">readswithcolin.com</a>
+        <span style="opacity:.35">·</span>
+        <span>公众号「小Lin思考」</span>
+    </div>
+    <span class="os-foot-motto">THINK · WRITE · PUBLISH</span>
+</footer>
+
+<script src="./assets/js/os.js"></script>
+</body>
+</html>

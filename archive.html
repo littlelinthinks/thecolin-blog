@@ -775,15 +775,45 @@
             });
         };
 
+        // 兜底系列数据：series.json fetch 失败时从 articles.json 聚合（防止整页挂掉）
+        function buildSeriesFallback(articles) {
+            const map = {};
+            (articles || []).forEach(a => {
+                const sid = a.series;
+                if (!sid) return;
+                if (!map[sid]) {
+                    map[sid] = {
+                        id: sid,
+                        name: a.seriesName || sid,
+                        nameEn: a.seriesNameEn || a.seriesName || sid,
+                        description: (a.seriesName || sid) + ' 系列',
+                        descriptionEn: (a.seriesNameEn || a.seriesName || sid) + ' series',
+                        icon: '📚',
+                        url: 'archive.html?series=' + sid
+                    };
+                }
+            });
+            return Object.values(map);
+        }
+
         // 加载文章数据 + 系列数据
         async function loadArticles(skipUrlSeries = false) {
             try {
-                const [articlesRes, seriesRes] = await Promise.all([
-                    fetch('articles.json'),
-                    fetch('series.json')
-                ]);
+                // 文章与系列分开加载：series.json 缺失/失败不再拖垮整页（P1 可用性修复）
+                const articlesRes = await fetch('articles.json');
+                if (!articlesRes.ok) throw new Error('articles.json HTTP ' + articlesRes.status);
                 const articles = await articlesRes.json();
-                const seriesList = await seriesRes.json();
+
+                let seriesList = [];
+                try {
+                    const seriesRes = await fetch('series.json');
+                    if (seriesRes.ok) seriesList = await seriesRes.json();
+                    else throw new Error('series.json HTTP ' + seriesRes.status);
+                } catch (seriesErr) {
+                    console.warn('series.json 加载失败，从 articles.json 聚合兜底:', seriesErr.message);
+                    seriesList = buildSeriesFallback(articles);
+                }
+
                 window._allArticles = articles;
                 window._seriesList = seriesList;
 

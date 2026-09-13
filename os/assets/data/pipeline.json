@@ -1,0 +1,214 @@
+{
+  "version": "1.2",
+  "updated": "2026-09-12",
+  "note": "Personal Knowledge OS · 发布中台数据源 v1.2。新增 slug/lang/英文三件套/publish 发布结果字段。channels 仍为发布目标选择。",
+  "items": [
+    {
+      "id": "os-0001",
+      "title": "为什么人很难接受变化",
+      "summary": "人抗拒的不是变化本身，是变化带走的那部分『旧的我』。",
+      "body": "",
+      "status": "seed",
+      "channels": [
+        "thecolin"
+      ],
+      "series": "human-nature",
+      "created": "2026-09-11",
+      "updated": "2026-09-11",
+      "related": [],
+      "metrics": null,
+      "feedback": "",
+      "slug": "why-change-is-hard",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "none",
+        "publishedAt": "",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0002",
+      "title": "人为什么害怕失去",
+      "summary": "损失厌恶只是表层——底层的恐惧是『失去即证明我不值得』。",
+      "body": "",
+      "status": "seed",
+      "channels": [
+        "thecolin"
+      ],
+      "series": "human-nature",
+      "created": "2026-06-14",
+      "updated": "2026-09-11",
+      "related": [
+        "os-0001"
+      ],
+      "metrics": null,
+      "feedback": "",
+      "slug": "why-we-fear-loss",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "none",
+        "publishedAt": "",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0003",
+      "title": "知识与判断力，到底谁决定结果",
+      "summary": "信息过剩的时代，稀缺的不是知识，是判断。知道得多反而更容易自信地犯错。",
+      "body": "",
+      "status": "draft",
+      "channels": [
+        "thecolin",
+        "wechat"
+      ],
+      "series": "metacognition",
+      "created": "2026-09-03",
+      "updated": "2026-09-09",
+      "related": [],
+      "metrics": null,
+      "feedback": "",
+      "slug": "knowledge-vs-judgment",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "none",
+        "publishedAt": "",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0004",
+      "title": "《穷查理宝典》：格栅上的多元思维模型",
+      "summary": "反过来想，总是反过来想——芒格给的不是答案，是一套防止自己犯蠢的检查表。",
+      "body": "",
+      "status": "draft",
+      "channels": [
+        "readswithcolin",
+        "wechat"
+      ],
+      "series": "western-classics",
+      "created": "2026-09-05",
+      "updated": "2026-09-10",
+      "related": [
+        "os-0003"
+      ],
+      "metrics": null,
+      "feedback": "",
+      "slug": "poor-charlies-almanack-latticework",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "none",
+        "publishedAt": "",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0005",
+      "title": "强势文化不是强硬，是承担",
+      "summary": "弱势文化等救世主，强势文化自己站起来——但强势不等于攻击性。",
+      "body": "",
+      "status": "ready",
+      "channels": [
+        "thecolin",
+        "wechat"
+      ],
+      "series": "tiandao-humanity",
+      "created": "2026-08-28",
+      "updated": "2026-09-08",
+      "related": [],
+      "metrics": null,
+      "feedback": "",
+      "slug": "strong-culture-is-responsibility",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "none",
+        "publishedAt": "",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0006",
+      "title": "《思考，快与慢》：偷懒的大脑，与脑中的锚",
+      "summary": "系统1开车，系统2打盹。聪明人的错误，恰恰是可预见的那几种。",
+      "body": "",
+      "status": "published",
+      "channels": [
+        "readswithcolin"
+      ],
+      "series": "mind",
+      "created": "2026-08-20",
+      "updated": "2026-08-27",
+      "related": [
+        "os-0003"
+      ],
+      "metrics": {
+        "views": 1240,
+        "saves": 86
+      },
+      "feedback": "有读者留言问：知道了系统1的存在，就能不被它影响吗？——这个问题值得单独写一篇。",
+      "slug": "thinking-fast-and-slow-anchors",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "success",
+        "publishedAt": "2026-08-27T12:00:00Z",
+        "urls": {},
+        "error": ""
+      }
+    },
+    {
+      "id": "os-0007",
+      "title": "最好的输入，是带着输出输入",
+      "summary": "读书最难的不是读，是记得住、用得上、放得下。",
+      "body": "",
+      "status": "published",
+      "channels": [
+        "readswithcolin",
+        "wechat"
+      ],
+      "series": "lin-notes",
+      "created": "2026-08-10",
+      "updated": "2026-08-18",
+      "related": [
+        "os-0004"
+      ],
+      "metrics": {
+        "views": 2130,
+        "saves": 152
+      },
+      "feedback": "公众号留言 18 条，其中 3 条提出反例：工具书是否需要『读完即用』。",
+      "slug": "input-with-output",
+      "lang": "zh",
+      "titleEn": "",
+      "summaryEn": "",
+      "bodyEn": "",
+      "publish": {
+        "status": "success",
+        "publishedAt": "2026-08-18T12:00:00Z",
+        "urls": {},
+        "error": ""
+      }
+    }
+  ]
+}

@@ -2,45 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
     <title>小Lin思考 · 道·术·器认知体系</title>
-    <link>https://www.thecolin.vip</link>
+    <link>https://www.thecolin.vip/</link>
     <description>用东西方顶级智慧，构建完整人生系统。道·术·器三层框架下的深度思考、终身学习与个人成长。</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 06 Sep 2026 17:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.thecolin.vip/rss.xml" rel="self" type="application/rss+xml" />
 
     <item>
-        <title>为什么越努力越焦虑？因为你正站在历史的「折叠点」上</title>
-        <link>https://www.thecolin.vip/articles/2026-04-dalio-history-fold.html</link>
-        <guid>https://www.thecolin.vip/articles/2026-04-dalio-history-fold.html</guid>
-        <pubDate>Wed, 30 Apr 2026 00:00:00 GMT</pubDate>
-        <description><![CDATA[读瑞·达利欧万字长文的顿悟——我们正处于大周期的第六阶段，历史的剧本，早就写好了。三个顿悟：为什么历史总在重复、顶级破局者如何找到出口、普通人如何打破自己的循环陷阱。]]></description>
+        <title>为什么越努力越焦虑？因为你正站在历史的“折叠点”上</title>
+        <link>https://www.thecolin.vip/articles/2026-04-dalio-history-fold</link>
+        <guid>https://www.thecolin.vip/articles/2026-04-dalio-history-fold</guid>
+        <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+        <description><![CDATA[读瑞·达利欧万字长文的顿悟——我们正处于大周期的第六阶段，历史的剧本，早就写好了。]]></description>
         <category>西方经典·思维模型</category>
         <author>小Lin思考</author>
     </item>
-
 
     <item>
         <title>读懂《天道》才明白：这世界从不看眼泪，真正的强者都戒掉了情绪</title>
         <link>https://www.thecolin.vip/articles/2026-02-tiandao-emotion</link>
         <guid>https://www.thecolin.vip/articles/2026-02-tiandao-emotion</guid>
-        <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-        <description>这世界有两套运行逻辑：一套叫"天道"，一套叫"人道"。强者之所以强，是因为他们只认规律，不认眼泪。</description>
+        <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+        <description><![CDATA[这世界有两套运行逻辑：一套叫"天道"，一套叫"人道"。强者之所以强，是因为他们只认规律，不认眼泪。]]></description>
+        <category>天道·人性</category>
+        <author>小Lin思考</author>
     </item>
 
     <item>
         <title>别再等贵人了，贵人从不扶贫</title>
         <link>https://www.thecolin.vip/articles/2026-02-guiren-bufupin</link>
         <guid>https://www.thecolin.vip/articles/2026-02-guiren-bufupin</guid>
-        <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
-        <description>贵人相助的本质是价值交换。如果你还是"等、靠、要"的弱者思维，贵人见了你只会绕道走。</description>
+        <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+        <description><![CDATA[贵人相助的本质是价值交换。如果你还是"等、靠、要"的弱者思维，贵人见了你只会绕道走。]]></description>
+        <category>小Lin的笔记</category>
+        <author>小Lin思考</author>
     </item>
 
     <item>
         <title>为什么75%的人都会随大流？3个心理学真相让你清醒</title>
         <link>https://www.thecolin.vip/articles/2026-02-group-psychology</link>
         <guid>https://www.thecolin.vip/articles/2026-02-group-psychology</guid>
-        <pubDate>Mon, 02 Feb 2026 00:00:00 GMT</pubDate>
-        <description>阿希从众实验、米尔格拉姆服从实验、《乌合之众》——三个经典心理学研究揭示群体如何削弱理性。</description>
+        <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+        <description><![CDATA[阿希从众实验、米尔格拉姆服从实验、《乌合之众》——三个经典心理学研究揭示群体如何削弱理性。]]></description>
+        <category>小Lin的笔记</category>
+        <author>小Lin思考</author>
     </item>
 </channel>
 </rss>

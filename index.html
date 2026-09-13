@@ -3415,533 +3415,9 @@
         const ARTICLES_PER_PAGE = 6;
         const DEBOUNCE_DELAY = 250;
 
-        // ===== 完整的文章数据库 =====
-        const articlesDatabase = {
-            'deep-thinking-information-age': {
-                id: 'deep-thinking-information-age',
-                category: { zh: '深度思考', en: 'Deep Thinking' },
-                title: { zh: '如何在信息爆炸时代保持深度思考', en: 'How to Maintain Deep Thinking in the Information Age' },
-                excerpt: { zh: '在这个快节奏的时代，我们被无尽的信息流淹没。如何从噪音中提取信号，培养深度思考的能力？', en: 'In this fast-paced era, we are overwhelmed by endless streams of information. How do we extract signal from noise and cultivate deep thinking?' },
-                date: { zh: '2026年1月10日', en: 'January 10, 2026' },
-                readTime: { zh: '📖 5分钟阅读', en: '📖 5 min read' },
-                content: { 
-                    zh: `
-                        <h2>信息过载的困境</h2>
-                        <p>我们生活在一个前所未有的信息时代。每天，数以亿计的内容在互联网上产生、传播、消费。社交媒体的推送、短视频的刷屏、新闻的轰炸——我们的注意力被切割成无数碎片。</p>
-                        <p>然而，信息的丰富并不等同于知识的增长。相反，过量的信息常常让我们陷入一种"忙碌的无知"状态：我们看似获取了很多信息，实则没有深入思考任何问题。</p>
-
-                        <div class="highlight-box">
-                            <p><strong>💡 关键洞察：</strong>真正的智慧不在于知道更多，而在于思考得更深。</p>
-                        </div>
-
-                        <h2>深度思考的三个层次</h2>
-                        <h3>1. 信息筛选层</h3>
-                        <p>第一步是学会筛选信息。不是所有信息都值得你的注意力。建立自己的信息过滤系统：</p>
-                        <ul>
-                            <li>订阅高质量的内容源，而不是无限制地浏览</li>
-                            <li>设定明确的学习目标，有目的地获取信息</li>
-                            <li>定期清理信息渠道，减少噪音干扰</li>
-                        </ul>
-
-                        <h3>2. 深度理解层</h3>
-                        <p>仅仅阅读是不够的，你需要真正理解内容。这意味着：</p>
-                        <ul>
-                            <li>慢下来，给自己充足的时间消化信息</li>
-                            <li>提出问题，挑战作者的观点</li>
-                            <li>寻找不同观点，形成全面的认知</li>
-                            <li>用自己的话复述，确保真正理解</li>
-                        </ul>
-
-                        <h3>3. 知识整合层</h3>
-                        <p>最高层次是将新知识整合到你的知识体系中：</p>
-                        <ul>
-                            <li>建立知识之间的联系</li>
-                            <li>反思如何应用到实际生活中</li>
-                            <li>通过写作或教学来巩固理解</li>
-                            <li>定期回顾和更新你的认知</li>
-                        </ul>
-
-                        <blockquote>
-                            "我们不需要更多的信息，我们需要更多的思考。" —— 尼尔·波兹曼
-                        </blockquote>
-
-                        <h2>实践方法：建立深度思考的习惯</h2>
-                        <p><strong>方法一：每日深度工作时段</strong></p>
-                        <p>每天设定2-3小时的深度工作时间，在这段时间内：</p>
-                        <ul>
-                            <li>关闭所有通知和干扰</li>
-                            <li>专注于一个主题或问题</li>
-                            <li>允许自己慢慢思考，不急于得出结论</li>
-                        </ul>
-
-                        <p><strong>方法二：写作促进思考</strong></p>
-                        <p>写作是思考的最好工具。通过写作，你被迫将模糊的想法转化为清晰的文字。建议：</p>
-                        <ul>
-                            <li>每天写晨间日记，梳理思绪</li>
-                            <li>针对学习内容写读书笔记</li>
-                            <li>尝试写长文，深入探讨一个话题</li>
-                        </ul>
-
-                        <p><strong>方法三：刻意的信息断舍离</strong></p>
-                        <p>主动减少信息摄入，为思考腾出空间：</p>
-                        <ul>
-                            <li>限制社交媒体使用时间</li>
-                            <li>取消不必要的新闻推送</li>
-                            <li>每周设定"数字断食"时间</li>
-                        </ul>
-
-                        <h2>结语</h2>
-                        <p>在信息爆炸的时代，深度思考成为一种稀缺能力。那些能够在喧嚣中保持思考的人，将在未来拥有巨大的竞争优势。</p>
-                        <p>记住：<strong>质量永远比数量重要，深度永远比广度有价值。</strong></p>
-                    `,
-                    en: `
-                        <h2>The Dilemma of Information Overload</h2>
-                        <p>We live in an unprecedented era of information. Every day, billions of pieces of content are created, shared, and consumed on the internet. Social media feeds, endless scrolling, breaking news—our attention is fragmented into countless pieces.</p>
-                        <p>However, an abundance of information doesn't equal knowledge growth. In fact, information overload often traps us in "busy ignorance": we appear to consume lots of information but deeply understand none of it.</p>
-
-                        <div class="highlight-box">
-                            <p><strong>💡 Key Insight:</strong> True wisdom lies not in knowing more, but in thinking deeper.</p>
-                        </div>
-
-                        <h2>Three Levels of Deep Thinking</h2>
-                        <h3>1. Information Filtering</h3>
-                        <p>The first step is learning to filter information. Not all information deserves your attention. Build your own filtering system:</p>
-                        <ul>
-                            <li>Subscribe to high-quality sources instead of endless browsing</li>
-                            <li>Set clear learning goals and seek information purposefully</li>
-                            <li>Regularly clean up your information channels to reduce noise</li>
-                        </ul>
-
-                        <h3>2. Deep Understanding</h3>
-                        <p>Reading alone isn't enough—you need true comprehension. This means:</p>
-                        <ul>
-                            <li>Slow down and give yourself time to digest information</li>
-                            <li>Ask questions and challenge the author's viewpoints</li>
-                            <li>Seek different perspectives for comprehensive understanding</li>
-                            <li>Rephrase in your own words to ensure comprehension</li>
-                        </ul>
-
-                        <h3>3. Knowledge Integration</h3>
-                        <p>The highest level is integrating new knowledge into your system:</p>
-                        <ul>
-                            <li>Build connections between knowledge</li>
-                            <li>Reflect on practical applications</li>
-                            <li>Consolidate understanding through writing or teaching</li>
-                            <li>Regularly review and update your cognition</li>
-                        </ul>
-
-                        <blockquote>
-                            "We don't need more information. We need more thinking." —— Neil Postman
-                        </blockquote>
-
-                        <h2>Practical Methods: Building Deep Thinking Habits</h2>
-                        <p><strong>Method 1: Daily Deep Work Sessions</strong></p>
-                        <p>Set aside 2-3 hours daily for deep work. During this time:</p>
-                        <ul>
-                            <li>Turn off all notifications and distractions</li>
-                            <li>Focus on one topic or problem</li>
-                            <li>Allow yourself to think slowly without rushing to conclusions</li>
-                        </ul>
-
-                        <p><strong>Method 2: Writing to Think</strong></p>
-                        <p>Writing is the best tool for thinking. It forces you to transform vague ideas into clear text. Try:</p>
-                        <ul>
-                            <li>Morning journaling to organize thoughts</li>
-                            <li>Taking reading notes on learning materials</li>
-                            <li>Writing long-form content to explore topics deeply</li>
-                        </ul>
-
-                        <p><strong>Method 3: Deliberate Information Minimalism</strong></p>
-                        <p>Actively reduce information intake to make space for thinking:</p>
-                        <ul>
-                            <li>Limit social media time</li>
-                            <li>Unsubscribe from unnecessary news alerts</li>
-                            <li>Schedule weekly "digital detox" time</li>
-                        </ul>
-
-                        <h2>Conclusion</h2>
-                        <p>In the age of information explosion, deep thinking becomes a rare ability. Those who can maintain thoughtfulness amid the noise will have tremendous competitive advantages in the future.</p>
-                        <p>Remember: <strong>Quality always trumps quantity, depth always beats breadth.</strong></p>
-                    `
-                }
-            },
-            'lifelong-learner': {
-                id: 'lifelong-learner',
-                category: { zh: '终身学习', en: 'Lifelong Learning' },
-                title: { zh: '终身学习者的自我修养', en: 'The Self-Cultivation of Lifelong Learners' },
-                excerpt: { zh: '学习不是为了考试，而是为了成为更好的自己。探讨如何建立有效的学习系统，让知识真正为你所用。', en: 'Learning isn\'t for exams—it\'s about becoming a better version of yourself. Explore how to build effective learning systems that truly serve you.' },
-                date: { zh: '2026年1月5日', en: 'January 5, 2026' },
-                readTime: { zh: '📖 7分钟阅读', en: '📖 7 min read' },
-                content: { 
-                    zh: `
-                        <h2>重新定义学习</h2>
-                        <p>大多数人对学习的理解停留在学生时代：为了考试、为了文凭、为了满足他人的期待。但真正的学习是一种生活方式，是持续的自我进化过程。</p>
-                        
-                        <div class="highlight-box">
-                            <p><strong>💡 核心理念：</strong>终身学习不是一个目标，而是一种态度——对世界保持好奇，对自我保持谦逊。</p>
-                        </div>
-
-                        <h2>终身学习者的五大特质</h2>
-                        <h3>1. 主动性</h3>
-                        <p>不等待别人告诉你该学什么，而是主动寻找学习机会。他们：</p>
-                        <ul>
-                            <li>对感兴趣的领域深入探索</li>
-                            <li>主动寻求反馈和改进</li>
-                            <li>将问题视为学习机会</li>
-                        </ul>
-
-                        <h3>2. 好奇心</h3>
-                        <p>对世界保持孩童般的好奇心。他们经常问"为什么"、"如何运作"、"还有其他可能吗"。</p>
-
-                        <h3>3. 成长思维</h3>
-                        <p>相信能力是可以培养的，而非固定不变的。失败不是终点，而是成长的阶梯。</p>
-
-                        <h3>4. 系统化</h3>
-                        <p>建立自己的学习系统，而不是零散地学习。这包括：</p>
-                        <ul>
-                            <li>知识管理系统（如笔记工具）</li>
-                            <li>定期复习机制</li>
-                            <li>实践应用框架</li>
-                        </ul>
-
-                        <h3>5. 分享精神</h3>
-                        <p>通过教学和分享来巩固学习。费曼技巧告诉我们：如果你不能简单地解释一个概念，说明你还没有真正理解它。</p>
-
-                        <blockquote>
-                            "教育不是注满一桶水，而是点燃一把火。" —— 威廉·巴特勒·叶芝
-                        </blockquote>
-
-                        <h2>构建你的学习系统</h2>
-                        <p><strong>步骤一：明确学习目标</strong></p>
-                        <p>不要漫无目的地学习。问自己：</p>
-                        <ul>
-                            <li>我为什么要学这个？</li>
-                            <li>学会后我能做什么？</li>
-                            <li>这对我的长期目标有何帮助？</li>
-                        </ul>
-
-                        <p><strong>步骤二：建立输入系统</strong></p>
-                        <p>精心策划你的学习资源：</p>
-                        <ul>
-                            <li>书籍：深度和系统性</li>
-                            <li>课程：结构化学习</li>
-                            <li>文章和播客：补充观点</li>
-                            <li>实践项目：应用所学</li>
-                        </ul>
-
-                        <p><strong>步骤三：建立输出系统</strong></p>
-                        <p>学习不应该只停留在输入阶段：</p>
-                        <ul>
-                            <li>写读书笔记和心得</li>
-                            <li>创建内容（博客、视频等）</li>
-                            <li>教授他人</li>
-                            <li>应用到实际项目中</li>
-                        </ul>
-
-                        <h2>实践建议</h2>
-                        <p><strong>1. 采用主题式学习</strong><br>
-                        不要同时学习太多内容。选择一个主题，深入研究2-3个月，然后再转向下一个。</p>
-
-                        <p><strong>2. 建立晨间学习习惯</strong><br>
-                        每天早上投入1小时学习，坚持一年就是365小时的积累。</p>
-
-                        <p><strong>3. 刻意练习</strong><br>
-                        不是简单重复，而是针对弱点进行有针对性的练习。</p>
-
-                        <p><strong>4. 定期复习</strong><br>
-                        使用间隔重复系统（如Anki），确保知识长期保留。</p>
-
-                        <h2>结语</h2>
-                        <p>终身学习不是一个沉重的负担，而是一种令人兴奋的冒险。每一次学习都是对自我的投资，都是向更好的自己迈进的一步。</p>
-                        <p>开始永远不会太晚，重要的是现在就开始行动。</p>
-                    `,
-                    en: `
-                        <h2>Redefining Learning</h2>
-                        <p>Most people's understanding of learning stops at school: studying for exams, diplomas, meeting others' expectations. But true learning is a lifestyle—a continuous process of self-evolution.</p>
-                        
-                        <div class="highlight-box">
-                            <p><strong>💡 Core Philosophy:</strong> Lifelong learning isn't a goal but an attitude—staying curious about the world and humble about yourself.</p>
-                        </div>
-
-                        <h2>Five Traits of Lifelong Learners</h2>
-                        <h3>1. Initiative</h3>
-                        <p>Don't wait to be told what to learn—actively seek learning opportunities. They:</p>
-                        <ul>
-                            <li>Deeply explore areas of interest</li>
-                            <li>Actively seek feedback and improvement</li>
-                            <li>View problems as learning opportunities</li>
-                        </ul>
-
-                        <h3>2. Curiosity</h3>
-                        <p>Maintain childlike curiosity about the world. They often ask "why," "how does it work," "are there other possibilities?"</p>
-
-                        <h3>3. Growth Mindset</h3>
-                        <p>Believe abilities can be developed, not fixed. Failure isn't an endpoint but a stepping stone for growth.</p>
-
-                        <h3>4. Systematization</h3>
-                        <p>Build your own learning system rather than learning randomly. This includes:</p>
-                        <ul>
-                            <li>Knowledge management system (like note-taking tools)</li>
-                            <li>Regular review mechanisms</li>
-                            <li>Practical application frameworks</li>
-                        </ul>
-
-                        <h3>5. Sharing Spirit</h3>
-                        <p>Consolidate learning through teaching and sharing. The Feynman Technique tells us: if you can't explain a concept simply, you don't understand it well enough.</p>
-
-                        <blockquote>
-                            "Education is not the filling of a pail, but the lighting of a fire." —— William Butler Yeats
-                        </blockquote>
-
-                        <h2>Building Your Learning System</h2>
-                        <p><strong>Step 1: Define Learning Goals</strong></p>
-                        <p>Don't learn aimlessly. Ask yourself:</p>
-                        <ul>
-                            <li>Why am I learning this?</li>
-                            <li>What can I do once I've learned it?</li>
-                            <li>How does this help my long-term goals?</li>
-                        </ul>
-
-                        <p><strong>Step 2: Establish Input System</strong></p>
-                        <p>Carefully curate your learning resources:</p>
-                        <ul>
-                            <li>Books: Depth and systematicity</li>
-                            <li>Courses: Structured learning</li>
-                            <li>Articles and podcasts: Supplementary perspectives</li>
-                            <li>Practice projects: Apply what you've learned</li>
-                        </ul>
-
-                        <p><strong>Step 3: Create Output System</strong></p>
-                        <p>Learning shouldn't stop at input:</p>
-                        <ul>
-                            <li>Write reading notes and reflections</li>
-                            <li>Create content (blogs, videos, etc.)</li>
-                            <li>Teach others</li>
-                            <li>Apply to real projects</li>
-                        </ul>
-
-                        <h2>Practical Advice</h2>
-                        <p><strong>1. Use Thematic Learning</strong><br>
-                        Don't learn too many things simultaneously. Choose one topic, study it deeply for 2-3 months, then move to the next.</p>
-
-                        <p><strong>2. Establish Morning Learning Habits</strong><br>
-                        Invest 1 hour every morning in learning—that's 365 hours of accumulation in a year.</p>
-
-                        <p><strong>3. Deliberate Practice</strong><br>
-                        Not simple repetition, but targeted practice addressing weaknesses.</p>
-
-                        <p><strong>4. Regular Review</strong><br>
-                        Use spaced repetition systems (like Anki) to ensure long-term retention.</p>
-
-                        <h2>Conclusion</h2>
-                        <p>Lifelong learning isn't a heavy burden but an exciting adventure. Every learning session is an investment in yourself, a step toward a better you.</p>
-                        <p>It's never too late to start. What matters is taking action now.</p>
-                    `
-                }
-            },
-            'attention-economy': {
-                id: 'attention-economy',
-                category: { zh: '效率提升', en: 'Productivity' },
-                title: { zh: '注意力：21世纪最宝贵的资源', en: 'Attention: The Most Valuable Resource of the 21st Century' },
-                excerpt: { zh: '在算法和短视频的时代，你的注意力被无数人争夺。重新掌控你的注意力，就是重新掌控你的人生。', en: 'In the age of algorithms and short videos, your attention is fiercely contested. Reclaim your attention, reclaim your life.' },
-                date: { zh: '2025年12月28日', en: 'December 28, 2025' },
-                readTime: { zh: '📖 6分钟阅读', en: '📖 6 min read' },
-                content: { 
-                    zh: `
-                        <h2>注意力经济时代</h2>
-                        <p>我们生活在一个"注意力经济"的时代。科技公司雇佣最聪明的工程师和心理学家，设计出让人上瘾的产品。你的每一次点击、每一秒停留，都被精密计算和优化。</p>
-                        <p>短视频平台的无限滚动、社交媒体的红点提醒、游戏的即时反馈——这些都是为了抢夺你的注意力。而注意力，正是21世纪最宝贵的资源。</p>
-
-                        <div class="highlight-box">
-                            <p><strong>💡 核心观点：</strong>你的注意力投向哪里，你的人生就走向哪里。</p>
-                        </div>
-
-                        <h2>注意力的真实成本</h2>
-                        <p>每次打开手机"快速看一眼"，实际成本远超你的想象：</p>
-                        <ul>
-                            <li><strong>时间成本</strong>：平均每次25分钟才能重新专注</li>
-                            <li><strong>认知成本</strong>：频繁切换降低大脑效率40%</li>
-                            <li><strong>创造力成本</strong>：碎片化注意力扼杀深度思考</li>
-                            <li><strong>机会成本</strong>：本可以用于学习和成长的时间</li>
-                        </ul>
-
-                        <h2>掌控注意力的5个策略</h2>
-                        <h3>1. 建立数字边界</h3>
-                        <p>设定明确的规则：</p>
-                        <ul>
-                            <li>早上起床后1小时和睡前1小时不看手机</li>
-                            <li>工作时段关闭所有非必要通知</li>
-                            <li>每周至少一天"数字断食"</li>
-                        </ul>
-
-                        <h3>2. 使用专注工具</h3>
-                        <p>借助工具提升专注力：</p>
-                        <ul>
-                            <li><strong>番茄工作法</strong>：25分钟专注+5分钟休息</li>
-                            <li><strong>网站屏蔽器</strong>：Freedom、Cold Turkey等</li>
-                            <li><strong>专注模式</strong>：手机的勿扰模式</li>
-                        </ul>
-
-                        <h3>3. 重新设计环境</h3>
-                        <p>环境塑造行为：</p>
-                        <ul>
-                            <li>工作区域只放工作必需品</li>
-                            <li>手机放在视线之外</li>
-                            <li>使用实体闹钟代替手机闹钟</li>
-                        </ul>
-
-                        <h3>4. 培养单任务习惯</h3>
-                        <p>一次只做一件事：</p>
-                        <ul>
-                            <li>关闭所有标签页，只保留当前工作</li>
-                            <li>设定专注时段，不接受任何打扰</li>
-                            <li>完成一项任务后再开始下一项</li>
-                        </ul>
-
-                        <h3>5. 有意识地选择</h3>
-                        <p>每次打开应用前问自己：</p>
-                        <ul>
-                            <li>我为什么要打开它？</li>
-                            <li>我期望获得什么？</li>
-                            <li>这是最好的时间分配吗？</li>
-                        </ul>
-
-                        <blockquote>
-                            "在信息爆炸的时代，注意力是最稀缺的资源。" —— 赫伯特·西蒙
-                        </blockquote>
-
-                        <h2 data-zh="实践建议：30天注意力挑战" data-en="Practical Tips: 30-Day Attention Challenge">实践建议：30天注意力挑战</h2>
-                        <p><strong>第1周：意识觉醒</strong></p>
-                        <ul>
-                            <li>记录每次拿起手机的原因</li>
-                            <li>统计每天使用社交媒体的时间</li>
-                            <li>注意分心的触发点</li>
-                        </ul>
-
-                        <p><strong>第2周：建立边界</strong></p>
-                        <ul>
-                            <li>删除最浪费时间的3个应用</li>
-                            <li>设置手机勿扰时段</li>
-                            <li>关闭所有非必要推送</li>
-                        </ul>
-
-                        <p><strong>第3周：深度工作</strong></p>
-                        <ul>
-                            <li>每天至少2小时不被打扰的专注时间</li>
-                            <li>练习番茄工作法</li>
-                            <li>完成一个需要深度思考的项目</li>
-                        </ul>
-
-                        <p><strong>第4周：巩固习惯</strong></p>
-                        <ul>
-                            <li>评估注意力改善效果</li>
-                            <li>调整和优化策略</li>
-                            <li>建立长期可持续的习惯</li>
-                        </ul>
-
-                        <h2>结语</h2>
-                        <p>注意力是你最宝贵的资产。在这个到处都是干扰的时代，能够掌控自己注意力的人，就掌控了自己的人生。</p>
-                        <p>从今天开始，有意识地分配你的注意力。记住：<strong>你关注什么，什么就会成长。</strong></p>
-                    `,
-                    en: `
-                        <h2>The Attention Economy Era</h2>
-                        <p>We live in an "attention economy" age. Tech companies hire the smartest engineers and psychologists to design addictive products. Your every click, every second of engagement is precisely calculated and optimized.</p>
-                        <p>Infinite scroll on short video platforms, red notification badges on social media, instant feedback in games—all designed to capture your attention. And attention is the most valuable resource of the 21st century.</p>
-
-                        <div class="highlight-box">
-                            <p><strong>💡 Core Idea:</strong> Where your attention goes, your life follows.</p>
-                        </div>
-
-                        <h2>The True Cost of Attention</h2>
-                        <p>Every "quick check" of your phone costs far more than you imagine:</p>
-                        <ul>
-                            <li><strong>Time Cost</strong>: Average 25 minutes to refocus after interruption</li>
-                            <li><strong>Cognitive Cost</strong>: Frequent switching reduces brain efficiency by 40%</li>
-                            <li><strong>Creativity Cost</strong>: Fragmented attention kills deep thinking</li>
-                            <li><strong>Opportunity Cost</strong>: Time that could be spent learning and growing</li>
-                        </ul>
-
-                        <h2>5 Strategies to Control Your Attention</h2>
-                        <h3>1. Establish Digital Boundaries</h3>
-                        <p>Set clear rules:</p>
-                        <ul>
-                            <li>No phone for first and last hour of the day</li>
-                            <li>Turn off all non-essential notifications during work</li>
-                            <li>At least one "digital detox" day per week</li>
-                        </ul>
-
-                        <h3>2. Use Focus Tools</h3>
-                        <p>Leverage tools to enhance focus:</p>
-                        <ul>
-                            <li><strong>Pomodoro Technique</strong>: 25 minutes focus + 5 minutes break</li>
-                            <li><strong>Website Blockers</strong>: Freedom, Cold Turkey, etc.</li>
-                            <li><strong>Focus Mode</strong>: Do Not Disturb on your phone</li>
-                        </ul>
-
-                        <h3>3. Redesign Your Environment</h3>
-                        <p>Environment shapes behavior:</p>
-                        <ul>
-                            <li>Keep only work essentials in your workspace</li>
-                            <li>Put phone out of sight</li>
-                            <li>Use physical alarm clock instead of phone</li>
-                        </ul>
-
-                        <h3>4. Cultivate Single-tasking Habits</h3>
-                        <p>Do one thing at a time:</p>
-                        <ul>
-                            <li>Close all tabs except current work</li>
-                            <li>Set focus sessions with zero interruptions</li>
-                            <li>Complete one task before starting next</li>
-                        </ul>
-
-                        <h3>5. Choose Consciously</h3>
-                        <p>Before opening any app, ask yourself:</p>
-                        <ul>
-                            <li>Why am I opening this?</li>
-                            <li>What do I expect to get?</li>
-                            <li>Is this the best use of my time?</li>
-                        </ul>
-
-                        <blockquote>
-                            "In an age of information overload, attention is the scarcest resource." —— Herbert Simon
-                        </blockquote>
-
-                        <h2>Practice: 30-Day Attention Challenge</h2>
-                        <p><strong>Week 1: Awareness</strong></p>
-                        <ul>
-                            <li>Record why you pick up your phone each time</li>
-                            <li>Track daily social media usage</li>
-                            <li>Notice distraction triggers</li>
-                        </ul>
-
-                        <p><strong>Week 2: Build Boundaries</strong></p>
-                        <ul>
-                            <li>Delete 3 most time-wasting apps</li>
-                            <li>Set Do Not Disturb schedules</li>
-                            <li>Turn off all non-essential notifications</li>
-                        </ul>
-
-                        <p><strong>Week 3: Deep Work</strong></p>
-                        <ul>
-                            <li>At least 2 hours of uninterrupted focus daily</li>
-                            <li>Practice Pomodoro Technique</li>
-                            <li>Complete a deep-thinking project</li>
-                        </ul>
-
-                        <p><strong>Week 4: Solidify Habits</strong></p>
-                        <ul>
-                            <li>Evaluate attention improvement</li>
-                            <li>Adjust and optimize strategies</li>
-                            <li>Build sustainable long-term habits</li>
-                        </ul>
-
-                        <h2>Conclusion</h2>
-                        <p>Attention is your most valuable asset. In this age of constant distraction, those who can control their attention control their lives.</p>
-                        <p>Start today by consciously allocating your attention. Remember: <strong>What you focus on grows.</strong></p>
-                    `
-                }
-            }
-        };
+        // ===== 完整的文章数据库（已移除）=====
+        // 原内嵌 526 行演示文章全文库（articlesDatabase）无任何引用，是死代码，已删除。
+        // 文章数据唯一来源：articles.json（含 publishMeta 发布元数据）+ series.json（系列镜像）。
         
         // ===== 文章详情页功能 =====
         function showArticle(articleId) {
@@ -4207,39 +3683,8 @@
         const searchInput = document.querySelector('.search-input');
         const searchResults = document.querySelector('.search-results');
 
-        // 文章数据库（实际应用中应该从服务器获取）
-        const articles = [
-            {
-                title: { zh: '如何在信息爆炸时代保持深度思考', en: 'How to Maintain Deep Thinking in the Information Age' },
-                excerpt: { zh: '在这个快节奏的时代，我们被无尽的信息流淹没...', en: 'In this fast-paced era, we are overwhelmed by endless streams...' },
-                category: 'thinking'
-            },
-            {
-                title: { zh: '终身学习者的自我修养', en: 'The Self-Cultivation of Lifelong Learners' },
-                excerpt: { zh: '学习不是为了考试，而是为了成为更好的自己...', en: 'Learning isn\'t for exams—it\'s about becoming a better version...' },
-                category: 'learning'
-            },
-            {
-                title: { zh: '注意力：21世纪最宝贵的资源', en: 'Attention: The Most Valuable Resource of the 21st Century' },
-                excerpt: { zh: '在算法和短视频的时代，你的注意力被无数人争夺...', en: 'In the age of algorithms and short videos, your attention is fiercely contested...' },
-                category: 'productivity'
-            },
-            {
-                title: { zh: '从焦虑到行动：目标设定的艺术', en: 'From Anxiety to Action: The Art of Goal Setting' },
-                excerpt: { zh: '焦虑往往源于目标的缺失或模糊...', en: 'Anxiety often stems from unclear or missing goals...' },
-                category: 'life'
-            },
-            {
-                title: { zh: '写作即思考：用文字塑造思想', en: 'Writing is Thinking: Shaping Thoughts with Words' },
-                excerpt: { zh: '写作不仅是表达，更是思考的工具...', en: 'Writing is not just expression—it\'s a tool for thinking...' },
-                category: 'thinking'
-            },
-            {
-                title: { zh: '数字极简主义：在互联网时代找回自我', en: 'Digital Minimalism: Finding Yourself in the Internet Age' },
-                excerpt: { zh: '我们不需要抛弃科技，而是需要更聪明地使用它...', en: 'We don\'t need to abandon technology—we need to use it more wisely...' },
-                category: 'productivity'
-            }
-        ];
+        // 文章数据由 loadArticles() 从 articles.json 异步加载（已发布历史文章 → allArticles）
+        // 历史注释：原内嵌占位 6 条搜索示例数据（const articles = [...]）已被 fetch('articles.json') 取代
 
         searchBtn.addEventListener('click', () => {
             searchModal.classList.add('active');
@@ -4430,11 +3875,102 @@
         const articlesGrid = document.getElementById('articlesGrid');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
 
+        // 应急兜底数据：仅在 articles.json fetch 失败时使用（正常部署下不会触发）。
+        // 来源：articles.json 现有 4 篇的精简副本，保证首页/搜索不完全空白。
+        const FALLBACK_ARTICLES = [
+            {
+                id: 'dalio-20260430',
+                title: '为什么越努力越焦虑？因为你正站在历史的“折叠点”上',
+                titleEn: "Why More Effort Brings More Anxiety: You Are Standing at History's Folding Point",
+                filename: 'articles/2026-04-dalio-history-fold.html',
+                url: 'articles/2026-04-dalio-history-fold.html',
+                category: 'western-classics',
+                categoryName: '西方经典·思维模型',
+                categoryNameEn: 'Western Classics · Mental Models',
+                date: '2026年4月30日', dateEn: 'April 30, 2026',
+                excerpt: '读瑞·达利欧万字长文的顿悟——我们正处于大周期的第六阶段，历史的剧本，早就写好了。',
+                excerptEn: "Insights from Ray Dalio's long-form essay: we are in the sixth stage of the big cycle, and history's script was written long ago.",
+                readTime: '15分钟阅读', readTimeEn: '15 min read',
+                series: 'western-classics',
+                seriesName: '西方经典·思维模型', seriesNameEn: 'Western Classics · Mental Models',
+                publishMeta: { source: 'manual', published: true, publishTargets: ['thecolin-vip'] }
+            },
+            {
+                id: 'tiandao-20260204',
+                title: '读懂《天道》才明白：这世界从不看眼泪，真正的强者都戒掉了情绪',
+                titleEn: "Reading 'The Way of Heaven': This World Never Looks at Tears",
+                filename: 'articles/2026-02-tiandao-emotion.html',
+                url: 'articles/2026-02-tiandao-emotion.html',
+                category: 'tiandao',
+                categoryName: '天道·人性', categoryNameEn: 'The Way & Human Nature',
+                date: '2026年2月4日', dateEn: 'February 4, 2026',
+                excerpt: '这世界有两套运行逻辑：一套叫"天道"，一套叫"人道"。强者之所以强，是因为他们只认规律，不认眼泪。',
+                excerptEn: "There are two operating logics: the 'Way of Heaven' and the 'Way of Humans'. The strong are strong because they follow laws, not tears.",
+                readTime: '6分钟阅读', readTimeEn: '6 min read',
+                series: 'tiandao-humanity',
+                seriesName: '天道·人性', seriesNameEn: 'The Way & Human Nature',
+                publishMeta: { source: 'manual', published: true, publishTargets: ['thecolin-vip'] }
+            },
+            {
+                id: 'guiren-20260203',
+                title: '别再等贵人了，贵人从不扶贫',
+                titleEn: 'Stop Waiting for a Benefactor — They Never Hand Out Alms',
+                filename: 'articles/2026-02-guiren-bufupin.html',
+                url: 'articles/2026-02-guiren-bufupin.html',
+                category: 'lin-notes',
+                categoryName: '小Lin的笔记', categoryNameEn: "Lin's Notes",
+                date: '2026年2月3日', dateEn: 'February 3, 2026',
+                excerpt: '贵人相助的本质是价值交换。如果你还是"等、靠、要"的弱者思维，贵人见了你只会绕道走。',
+                excerptEn: 'Help from a benefactor is essentially value exchange. With a dependent mindset, benefactors will simply walk around you.',
+                readTime: '3分钟阅读', readTimeEn: '3 min read',
+                series: 'lin-notes',
+                seriesName: '小Lin的笔记', seriesNameEn: "Lin's Notes",
+                publishMeta: { source: 'manual', published: true, publishTargets: ['thecolin-vip'] }
+            },
+            {
+                id: 'congzhong-20260202',
+                title: '为什么75%的人都会随大流？3个心理学真相让你清醒',
+                titleEn: 'Why Do 75% of People Follow the Crowd? 3 Psychological Truths',
+                filename: 'articles/2026-02-group-psychology.html',
+                url: 'articles/2026-02-group-psychology.html',
+                category: 'lin-notes',
+                categoryName: '小Lin的笔记', categoryNameEn: "Lin's Notes",
+                date: '2026年2月2日', dateEn: 'February 2, 2026',
+                excerpt: '阿希从众实验、米尔格拉姆服从实验、《乌合之众》——三个经典心理学研究揭示群体如何削弱理性。',
+                excerptEn: "Asch conformity, Milgram obedience, and 'The Crowd' — three classic studies revealing how groups weaken reason.",
+                readTime: '5分钟阅读', readTimeEn: '5 min read',
+                series: 'lin-notes',
+                seriesName: '小Lin的笔记', seriesNameEn: "Lin's Notes",
+                publishMeta: { source: 'manual', published: true, publishTargets: ['thecolin-vip'] }
+            }
+        ];
+
+        // 渲染文章列表（fetch 成功与兜底共用）
+        function renderArticleList(list) {
+            allArticles = list;
+
+            // 系列推荐位渲染（公众号合集镜像）
+            loadSeriesStrip(allArticles);
+
+            // 清空现有的静态文章卡片
+            articlesGrid.innerHTML = '';
+
+            // 生成文章卡片
+            allArticles.forEach((article, index) => {
+                const card = createArticleCard(article, index);
+                articlesGrid.appendChild(card);
+            });
+
+            // 初始化显示前6篇
+            initArticleCards();
+
+            // 为文章卡片添加点击事件
+            attachArticleCardEvents();
+        }
+
         // 加载文章列表
         async function loadArticles() {
             try {
-                // console.log('Loading articles...');
-
                 // 添加时间戳强制刷新缓存
                 const timestamp = Date.now();
                 const response = await fetch(`articles.json?t=${timestamp}`);
@@ -4443,37 +3979,23 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
-                allArticles = await response.json();
-
-                // 系列推荐位渲染（公众号合集镜像）
-                loadSeriesStrip(allArticles);
-
-                // 清空现有的静态文章卡片
-                articlesGrid.innerHTML = '';
-
-                // 生成文章卡片
-                allArticles.forEach((article, index) => {
-                    const card = createArticleCard(article, index);
-                    articlesGrid.appendChild(card);
-                });
-
-                // 初始化显示前6篇
-                initArticleCards();
-
-                // 为文章卡片添加点击事件
-                attachArticleCardEvents();
-
-                // console.log(`✅ Loaded ${allArticles.length} articles`);
+                const data = await response.json();
+                renderArticleList(data);
             } catch (error) {
-                console.error('Failed to load articles:', error);
-                console.error('Error details:', error.message);
+                console.warn('articles.json 加载失败，启用内嵌兜底数据:', error.message);
 
-                // 显示错误信息给用户
+                // 兜底：fetch 失败时使用内嵌 FALLBACK_ARTICLES，页面不完全空白
+                if (Array.isArray(FALLBACK_ARTICLES) && FALLBACK_ARTICLES.length > 0) {
+                    renderArticleList(FALLBACK_ARTICLES);
+                    return;
+                }
+
+                // 双重失败才显示错误信息
                 if (articlesGrid) {
                     articlesGrid.innerHTML = `
                         <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
                             <p style="color: var(--text-secondary); font-size: 1.1rem;">
-                                Failed to load articles. Please refresh the page.
+                                加载失败，请刷新页面。Failed to load articles.
                             </p>
                             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
                                 Error: ${error.message}

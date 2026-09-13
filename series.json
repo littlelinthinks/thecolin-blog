@@ -1,73 +1,38 @@
 [
   {
-    "id": "western-classics",
-    "name": "西方经典·思维模型",
-    "nameEn": "Western Classics · Mental Models",
-    "icon": "🏛️",
-    "group": "西方经典",
-    "groupEn": "Western Classics",
-    "description": "啃西方思想经典，提炼能直接拿来用的思维模型。",
-    "descriptionEn": "Digesting Western classics into mental models you can actually use."
-  },
-  {
-    "id": "mind-folding",
-    "name": "心智折叠",
-    "nameEn": "Mind Folding",
-    "icon": "✦",
-    "group": "心智折叠",
-    "groupEn": "Mind Folding",
-    "description": "把 186 位智者的原则折叠进日常决策，一个原则一张卡。",
-    "descriptionEn": "Folding 186 thinkers' principles into daily decisions, one card at a time.",
-    "url": "wisdom.html"
-  },
-  {
-    "id": "metacognition",
-    "name": "元认知·底层内核",
-    "nameEn": "Metacognition · Core Kernel",
-    "icon": "🧠",
-    "group": "元认知·底层内核",
-    "groupEn": "Metacognition",
-    "description": "审视思考本身的思考——操作系统级的自我升级。",
-    "descriptionEn": "Thinking about thinking — upgrading yourself at the OS level."
-  },
-  {
     "id": "lin-notes",
     "name": "小Lin的笔记",
     "nameEn": "Lin's Notes",
-    "icon": "📝",
-    "group": "小Lin的笔记",
-    "groupEn": "Lin's Notes",
-    "description": "生活随笔、思维心理、解读经典、历史借鉴——把日常停一停的瞬间折叠成可用的笔记。",
-    "descriptionEn": "Life notes, thinking & psychology, classics reading, history rhymes — folding everyday moments into usable notes."
-  },
-  {
-    "id": "future-children",
-    "name": "给未来孩子的礼物",
-    "nameEn": "Gifts for Future Children",
-    "icon": "🎁",
-    "group": "给未来孩子",
-    "groupEn": "For Future Kids",
-    "description": "写给未来孩子的话——关于世界、金钱、爱与勇气。",
-    "descriptionEn": "Letters to my future children — about the world, money, love and courage."
-  },
-  {
-    "id": "zizhi-tongjian",
-    "name": "资治通鉴·历史",
-    "nameEn": "Zizhi Tongjian · History",
-    "icon": "📜",
-    "group": "资治通鉴·历史",
-    "groupEn": "Zizhi Tongjian",
-    "description": "《资治通鉴》长线重读计划：一千三百年的人性与权力。",
-    "descriptionEn": "A long-haul read of Zizhi Tongjian: 1,300 years of human nature and power."
+    "description": "小Lin的笔记 系列",
+    "descriptionEn": "Lin's Notes series",
+    "icon": "💡",
+    "url": "archive.html?series=lin-notes",
+    "articleCount": 2,
+    "firstPublishedAt": "2026-02-02T00:00:00Z",
+    "lastPublishedAt": "2026-02-03T00:00:00Z"
   },
   {
     "id": "tiandao-humanity",
     "name": "天道·人性",
-    "nameEn": "The Way · Human Nature",
-    "icon": "☯️",
-    "group": "天道·人性",
-    "groupEn": "The Way & Human Nature",
-    "description": "规律不因人而改，人性不因时而变。顺天道，察人心。",
-    "descriptionEn": "Laws don't bend to people; human nature doesn't change with time."
+    "nameEn": "The Way & Human Nature",
+    "description": "天道·人性 系列",
+    "descriptionEn": "The Way & Human Nature series",
+    "icon": "🌟",
+    "url": "archive.html?series=tiandao-humanity",
+    "articleCount": 1,
+    "firstPublishedAt": "2026-02-04T00:00:00Z",
+    "lastPublishedAt": "2026-02-04T00:00:00Z"
+  },
+  {
+    "id": "western-classics",
+    "name": "西方经典·思维模型",
+    "nameEn": "Western Classics · Mental Models",
+    "description": "西方经典·思维模型 系列",
+    "descriptionEn": "Western Classics · Mental Models series",
+    "icon": "📚",
+    "url": "archive.html?series=western-classics",
+    "articleCount": 1,
+    "firstPublishedAt": "2026-04-30T00:00:00Z",
+    "lastPublishedAt": "2026-04-30T00:00:00Z"
   }
 ]

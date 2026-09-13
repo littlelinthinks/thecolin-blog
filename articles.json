@@ -3,8 +3,8 @@
     "id": "dalio-20260430",
     "title": "为什么越努力越焦虑？因为你正站在历史的“折叠点”上",
     "titleEn": "Why More Effort Brings More Anxiety: You Are Standing at History's Folding Point",
-    "filename": "articles/2026-04-dalio-history-fold.html",
-    "url": "articles/2026-04-dalio-history-fold.html",
+    "filename": "articles/2026-04-dalio-history-fold/",
+    "url": "articles/2026-04-dalio-history-fold/",
     "category": "western-classics",
     "categoryEn": "Western Classics",
     "categoryName": "西方经典·思维模型",
@@ -17,14 +17,26 @@
     "readTimeEn": "15 min read",
     "series": "western-classics",
     "seriesName": "西方经典·思维模型",
-    "seriesNameEn": "Western Classics · Mental Models"
+    "seriesNameEn": "Western Classics · Mental Models",
+    "publishMeta": {
+      "source": "manual",
+      "publishedAt": "2026-04-30T00:00:00Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true,
+      "wechat": {
+        "published": false,
+        "note": "待从公众号「小Lin思考」同步真实发布时间"
+      }
+    }
   },
   {
     "id": "tiandao-20260204",
     "title": "读懂《天道》才明白：这世界从不看眼泪，真正的强者都戒掉了情绪",
     "titleEn": "Reading 'The Way of Heaven': This World Never Looks at Tears",
-    "filename": "articles/2026-02-tiandao-emotion.html",
-    "url": "articles/2026-02-tiandao-emotion.html",
+    "filename": "articles/2026-02-tiandao-emotion/",
+    "url": "articles/2026-02-tiandao-emotion/",
     "category": "tiandao",
     "categoryEn": "The Way of Heaven",
     "categoryName": "天道·人性",
@@ -37,14 +49,26 @@
     "readTimeEn": "6 min read",
     "series": "tiandao-humanity",
     "seriesName": "天道·人性",
-    "seriesNameEn": "The Way & Human Nature"
+    "seriesNameEn": "The Way & Human Nature",
+    "publishMeta": {
+      "source": "manual",
+      "publishedAt": "2026-02-04T00:00:00Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true,
+      "wechat": {
+        "published": false,
+        "note": "待从公众号「小Lin思考」同步真实发布时间"
+      }
+    }
   },
   {
     "id": "guiren-20260203",
     "title": "别再等贵人了，贵人从不扶贫",
     "titleEn": "Stop Waiting for a Benefactor — They Never Hand Out Alms",
-    "filename": "articles/2026-02-guiren-bufupin.html",
-    "url": "articles/2026-02-guiren-bufupin.html",
+    "filename": "articles/2026-02-guiren-bufupin/",
+    "url": "articles/2026-02-guiren-bufupin/",
     "category": "lin-notes",
     "categoryEn": "Lin's Notes",
     "categoryName": "小Lin的笔记",
@@ -57,14 +81,26 @@
     "readTimeEn": "3 min read",
     "series": "lin-notes",
     "seriesName": "小Lin的笔记",
-    "seriesNameEn": "Lin's Notes"
+    "seriesNameEn": "Lin's Notes",
+    "publishMeta": {
+      "source": "manual",
+      "publishedAt": "2026-02-03T00:00:00Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true,
+      "wechat": {
+        "published": false,
+        "note": "待从公众号「小Lin思考」同步真实发布时间"
+      }
+    }
   },
   {
     "id": "congzhong-20260202",
     "title": "为什么75%的人都会随大流？3个心理学真相让你清醒",
     "titleEn": "Why Do 75% of People Follow the Crowd? 3 Psychological Truths",
-    "filename": "articles/2026-02-group-psychology.html",
-    "url": "articles/2026-02-group-psychology.html",
+    "filename": "articles/2026-02-group-psychology/",
+    "url": "articles/2026-02-group-psychology/",
     "category": "lin-notes",
     "categoryEn": "Lin's Notes",
     "categoryName": "小Lin的笔记",
@@ -77,6 +113,18 @@
     "readTimeEn": "5 min read",
     "series": "lin-notes",
     "seriesName": "小Lin的笔记",
-    "seriesNameEn": "Lin's Notes"
+    "seriesNameEn": "Lin's Notes",
+    "publishMeta": {
+      "source": "manual",
+      "publishedAt": "2026-02-02T00:00:00Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true,
+      "wechat": {
+        "published": false,
+        "note": "待从公众号「小Lin思考」同步真实发布时间"
+      }
+    }
   }
 ]
