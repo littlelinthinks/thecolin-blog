@@ -1,5 +1,33 @@
 [
   {
+    "id": "os-mtzc2jip",
+    "title": "马斯克的成功，在于坚持",
+    "titleEn": "马斯克的成功，在于坚持",
+    "filename": "articles/os-mtzc2jip/index.html",
+    "url": "articles/os-mtzc2jip/",
+    "category": "lin-notes",
+    "categoryEn": "Lin's Notes",
+    "categoryName": "小Lin的笔记",
+    "categoryNameEn": "Lin's Notes",
+    "date": "2026年9月13日",
+    "dateEn": "September 13, 2026",
+    "excerpt": "马斯克在众多质疑声中，和一次次失败之后，仍然说了已经：我永不放弃。",
+    "excerptEn": "马斯克在众多质疑声中，和一次次失败之后，仍然说了已经：我永不放弃。",
+    "readTime": "2分钟阅读",
+    "readTimeEn": "2 min read",
+    "series": "lin-notes",
+    "seriesName": "小Lin的笔记",
+    "seriesNameEn": "Lin's Notes",
+    "publishMeta": {
+      "source": "pwa",
+      "publishedAt": "2026-09-13T04:48:08.495Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true
+    }
+  },
+  {
     "id": "dalio-20260430",
     "title": "为什么越努力越焦虑？因为你正站在历史的“折叠点”上",
     "titleEn": "Why More Effort Brings More Anxiety: You Are Standing at History's Folding Point",
