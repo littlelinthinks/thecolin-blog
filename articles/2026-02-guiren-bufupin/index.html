@@ -90,6 +90,12 @@ body{font-family:"Noto Serif SC",Georgia,serif;background:var(--bg);color:var(--
 .back-link:hover{color:var(--t1)}
 .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--btnbg);color:var(--btnfg);border:none;border-radius:50%;cursor:pointer;font-size:1.2rem;opacity:0;visibility:hidden;transition:all 0.3s;z-index:999}
 .back-to-top.visible{opacity:1;visibility:visible}
+/* FS-QUOTE-PATCH 金句框（gold 主题，不动主色） */
+.article-body blockquote{position:relative;border-left:3px solid var(--gold);padding:1.5rem 1.6rem 1.5rem 3.6rem;margin:2rem 0;background:rgba(201,168,76,0.06);border-radius:0 10px 10px 0;font-size:1.05rem;line-height:1.9}
+[data-theme="dark"] .article-body blockquote{background:rgba(201,168,76,0.10)}
+.article-body blockquote::before{content:'❝';position:absolute;left:0.9rem;top:0.35rem;font-family:Georgia,'Times New Roman',serif;font-size:2.6rem;line-height:1;color:var(--gold);opacity:.5}
+.article-body blockquote p{margin:0;color:var(--t2);font-style:italic}
+.article-body blockquote p+p{margin-top:.7rem}
 </style>
 
     <meta property="og:title" content="别再等贵人了，贵人从不扶贫 | 小Lin思考">
@@ -144,12 +150,12 @@ body{font-family:"Noto Serif SC",Georgia,serif;background:var(--bg);color:var(--
 <div class="nav-right">
 <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
 <ul class="nav-links" id="mainNavLinks">
-<li><a href="/index.html" class="nav-link"><span class="zh">首页</span><span class="en">Home</span></a></li>
-<li><a href="/archive.html" class="nav-link"><span class="zh">思维库</span><span class="en">Library</span></a></li>
-<li><a href="/products.html" class="nav-link"><span class="zh">心智工具</span><span class="en">Thinking Tools</span></a></li>
-<li><a href="/wisdom.html" class="nav-link gld">✦ <span class="zh">心智折叠</span><span class="en">Mind Folding</span></a></li>
-<li><a href="https://readswithcolin.com" target="_blank" rel="noopener" class="nav-link"><span class="zh">读书</span><span class="en">Reads</span></a></li>
-<li><a href="/subscribe.html" class="nav-link"><span class="zh">关注公众号</span><span class="en">Subscribe</span></a></li>
+<li><a href="/index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
+<li><a href="/archive.html" class="nav-link" data-zh="思维库" data-en="Library">思维库</a></li>
+<li><a href="/products.html" class="nav-link" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
+<li><a href="/wisdom.html" class="nav-link gld" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
+<li><a href="https://readswithcolin.com" target="_blank" rel="noopener" class="nav-link" data-zh="读书" data-en="Reads">读书</a></li>
+<li><a href="/subscribe.html" class="nav-link" data-zh="关注公众号" data-en="Subscribe">关注公众号</a></li>
 </ul>
 <div class="lang-switcher"><button class="lang-btn active" data-lang="zh">中文</button><button class="lang-btn" data-lang="en">EN</button></div>
 <button class="theme-switcher" id="themeSwitcherBtn" aria-label="切换主题"><span class="theme-icon">🌙</span></button>

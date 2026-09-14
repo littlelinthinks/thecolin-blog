@@ -55,9 +55,12 @@ body{font-family:"Noto Serif SC",Georgia,serif;background:var(--bg);color:var(--
 .article-body h2{font-family:"Playfair Display",Georgia,serif;font-size:1.35rem;font-weight:700;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--gold);line-height:1.3}
 .article-body h3{font-size:1.05rem;font-weight:700;margin:2rem 0 0.8rem}
 .article-body p{margin-bottom:1.1rem;font-size:0.96rem;line-height:1.9}
-.article-body blockquote{border-left:3px solid var(--gold);padding:0.8rem 1.2rem;margin:1.5rem 0;background:rgba(201,168,76,0.04);border-radius:0 4px 4px 0}
-[data-theme="dark"] .article-body blockquote{background:rgba(201,168,76,0.06)}
+/* FS 式金句框（gold 主题，不动主色） */
+.article-body blockquote{position:relative;border-left:3px solid var(--gold);padding:1.5rem 1.6rem 1.5rem 3.6rem;margin:2rem 0;background:rgba(201,168,76,0.06);border-radius:0 10px 10px 0;font-size:1.05rem;line-height:1.9}
+[data-theme="dark"] .article-body blockquote{background:rgba(201,168,76,0.10)}
+.article-body blockquote::before{content:'❝';position:absolute;left:0.9rem;top:0.35rem;font-family:Georgia,'Times New Roman',serif;font-size:2.6rem;line-height:1;color:var(--gold);opacity:.5}
 .article-body blockquote p{margin:0;color:var(--t2);font-style:italic}
+.article-body blockquote p+p{margin-top:.7rem}
 .article-body pre{background:var(--bg2);padding:1.2rem;border-radius:4px;overflow-x:auto;margin:1.5rem 0;font-size:0.83rem;line-height:1.7;white-space:pre-wrap}
 .article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.2rem}
 .article-body li{margin-bottom:0.5rem;font-size:0.96rem;line-height:1.8}
@@ -94,12 +97,12 @@ const COLIN_NAV = `<nav class="nav-header" role="navigation">
 <div class="nav-right">
 <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
 <ul class="nav-links" id="mainNavLinks">
-<li><a href="/index.html" class="nav-link"><span class="zh">首页</span><span class="en">Home</span></a></li>
-<li><a href="/archive.html" class="nav-link"><span class="zh">思维库</span><span class="en">Library</span></a></li>
-<li><a href="/products.html" class="nav-link"><span class="zh">心智工具</span><span class="en">Thinking Tools</span></a></li>
-<li><a href="/wisdom.html" class="nav-link gld">✦ <span class="zh">心智折叠</span><span class="en">Mind Folding</span></a></li>
-<li><a href="https://readswithcolin.com" target="_blank" rel="noopener" class="nav-link"><span class="zh">读书</span><span class="en">Reads</span></a></li>
-<li><a href="/subscribe.html" class="nav-link"><span class="zh">关注公众号</span><span class="en">Subscribe</span></a></li>
+<li><a href="/index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a></li>
+<li><a href="/archive.html" class="nav-link" data-zh="思维库" data-en="Library">思维库</a></li>
+<li><a href="/products.html" class="nav-link" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
+<li><a href="/wisdom.html" class="nav-link gld" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
+<li><a href="https://readswithcolin.com" target="_blank" rel="noopener" class="nav-link" data-zh="读书" data-en="Reads">读书</a></li>
+<li><a href="/subscribe.html" class="nav-link" data-zh="关注公众号" data-en="Subscribe">关注公众号</a></li>
 </ul>
 <div class="lang-switcher"><button class="lang-btn active" data-lang="zh">中文</button><button class="lang-btn" data-lang="en">EN</button></div>
 <button class="theme-switcher" id="themeSwitcherBtn" aria-label="切换主题"><span class="theme-icon">🌙</span></button>
