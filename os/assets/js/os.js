@@ -11,6 +11,7 @@ const OS = (() => {
     /* ---------- 常量 ---------- */
     const STORE_KEY = 'colin_os_pipeline_v1';
     const THEME_KEY = 'colin_os_theme';
+    const HIDDEN_KEY = 'colin_os_hidden_v1';
     const API_PUBLISH = '/api/publish';   // 阶段 4 部署的 Vercel Serverless
 
     const STATUS = {
@@ -97,16 +98,27 @@ const OS = (() => {
         return `${y}.${+m}.${+d}`;
     }
 
+    /* 读书站封面路径 → 完整 URL（相对路径补 readswithcolin 域名） */
+    function coverUrl(cover) {
+        if (!cover) return '';
+        if (/^https?:\/\//.test(cover)) return cover;
+        return `https://www.readswithcolin.com/${cover.replace(/^\//, '')}`;
+    }
+
     /* ---------- 数据层 ---------- */
     let baseline = [];   // 来自 pipeline.json
     let local    = [];   // 来自 localStorage
     let merged   = [];   // 合并结果（local 优先）
 
+    let boardFilter = null;   // 看板筛选：'transit' | 'draftready' | 'published' | 'recent' | null
+    let hidden     = [];      // 本机隐藏（删除的草稿/未发布项 id）
+    let coverMap   = {};      // slug -> 读书站封面路径（来自 /api/covers）
+
     function mergeItems() {
         const map = new Map();
         baseline.forEach(i => map.set(i.id, normalizeItem(i)));
         local.forEach(i => map.set(i.id, normalizeItem(i)));
-        merged = Array.from(map.values());
+        merged = Array.from(map.values()).filter(i => !hidden.includes(i.id));
         return merged;
     }
 
@@ -212,6 +224,7 @@ const OS = (() => {
             <div class="os-card-foot">
                 ${chans}
                 <span class="os-age ${stale ? 'stale' : ''}" title="停留天数">${age}d</span>
+                <button class="os-del" title="删除这条" aria-label="删除" data-del="${esc(it.id)}">🗑</button>
             </div>
             ${badge ? `<div class="os-pub-row">${badge}</div>` : ''}
             ${STATUS[it.status].next ? `<button class="os-adv" title="${esc(nextLabel)}" data-adv="${esc(it.id)}">→</button>` : ''}
@@ -222,11 +235,16 @@ const OS = (() => {
         const board = $('#osBoard');
         if (!board) return;
         const order = ['seed', 'draft', 'ready', 'published'];
+        const week = new Date(Date.now() - 6 * 86400000).toISOString().slice(0, 10);
+        let cols = order;
+        if (boardFilter === 'transit')          cols = ['seed', 'draft', 'ready'];
+        else if (boardFilter === 'draftready')  cols = ['draft', 'ready'];
+        else if (boardFilter === 'published')   cols = ['published'];
 
-        board.innerHTML = order.map(st => {
-            const items = merged
-                .filter(i => i.status === st)
-                .sort((a, b) => (a.updated < b.updated ? 1 : -1));
+        board.innerHTML = cols.map(st => {
+            let items = merged.filter(i => i.status === st);
+            if (boardFilter === 'recent') items = items.filter(i => i.updated >= week);
+            items.sort((a, b) => (a.updated < b.updated ? 1 : -1));
             return `
             <section class="os-col">
                 <div class="os-col-head">
@@ -258,24 +276,49 @@ const OS = (() => {
                 }
             });
         });
+
+        // 删除卡片
+        $$('[data-del]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteBoardItem(btn.getAttribute('data-del'));
+            });
+        });
     }
 
-    /* ---------- 渲染：统计 ---------- */
+    /* ---------- 渲染：统计（可点击筛选看板） ---------- */
     function renderStats() {
         const wrap = $('#osStats');
         if (!wrap) return;
         const week = new Date(Date.now() - 6 * 86400000).toISOString().slice(0, 10);
         const data = [
-            { n: merged.filter(i => i.status !== 'published').length, l: '在途内容', c: 'g-red' },
-            { n: merged.filter(i => ['draft', 'ready'].includes(i.status)).length, l: '起草 / 待发', c: 'g-brown' },
-            { n: merged.filter(i => i.status === 'published').length, l: '已发表', c: 'g-green' },
-            { n: merged.filter(i => i.updated >= week).length, l: '近 7 天有更新', c: '' }
+            { n: merged.filter(i => i.status !== 'published').length, l: '在途内容',     c: 'g-red',    f: 'transit' },
+            { n: merged.filter(i => ['draft', 'ready'].includes(i.status)).length, l: '起草 / 待发', c: 'g-brown', f: 'draftready' },
+            { n: merged.filter(i => i.status === 'published').length, l: '已发表',       c: 'g-green', f: 'published' },
+            { n: merged.filter(i => i.updated >= week).length, l: '近 7 天有更新', c: '', f: 'recent' }
         ];
         wrap.innerHTML = data.map(d => `
-            <div class="os-stat ${d.c}">
+            <div class="os-stat ${d.c} ${boardFilter === d.f ? 'active' : ''}" data-filter="${d.f}" role="button" tabindex="0" title="点击只看这一类">
                 <div class="os-stat-num">${d.n}</div>
                 <div class="os-stat-label">${d.l}</div>
-            </div>`).join('');
+                <span class="os-stat-flag">${boardFilter === d.f ? '✓ 筛选中' : '点击筛选'}</span>
+            </div>`).join('')
+            + (boardFilter ? `<div class="os-stat-reset" data-reset role="button" tabindex="0" title="显示全部">✕ 清除筛选</div>` : '');
+
+        const toggle = (f) => { boardFilter = (boardFilter === f) ? null : f; renderAll(); };
+        $$('[data-filter]', wrap).forEach(el => {
+            const f = el.getAttribute('data-filter');
+            el.addEventListener('click', () => toggle(f));
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(f); }
+            });
+        });
+        const reset = $('[data-reset]', wrap);
+        if (reset) {
+            const clear = () => { boardFilter = null; renderAll(); };
+            reset.addEventListener('click', clear);
+            reset.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clear(); } });
+        }
     }
 
     /* ---------- 渲染：已发作品库 ---------- */
@@ -312,16 +355,22 @@ const OS = (() => {
             // 操作区：重新发布（API 渠道）+ 公众号草稿（剪贴板）+ 删除
             const hasApi = (it.channels || []).some(c => c !== 'wechat');
             const isPublished = it.status === 'published' && it.publish?.status === 'success';
+            const isRwc = (it.channels || []).includes('readswithcolin');
             const actions = `
                 <div class="os-work-actions">
                     ${hasApi ? `<button class="os-mini-btn" data-publish="${esc(it.id)}">🚀 发布</button>` : ''}
                     ${(it.channels || []).includes('wechat') ? `<button class="os-mini-btn ghost" data-wechat="${esc(it.id)}">💬 公众号草稿</button>` : ''}
+                    ${isRwc ? `<button class="os-mini-btn ghost" data-cover="${esc(it.id)}">🖼 封面</button>` : ''}
                     <button class="os-mini-btn ghost" data-edit="${esc(it.id)}">✎ 编辑</button>
                     ${isPublished ? `<button class="os-mini-btn ghost danger" data-delete="${esc(it.id)}">🗑 删除</button>` : ''}
                 </div>`;
 
+            const coverThumb = isRwc && coverMap[it.slug || '']
+                ? `<img class="os-work-cover" src="${esc(coverUrl(coverMap[it.slug]))}" alt="封面" loading="lazy">`
+                : '';
             return `
             <article class="os-work">
+                ${coverThumb}
                 <div>
                     <h3 class="os-work-title">${esc(it.title)}</h3>
                     <div class="os-work-meta">
@@ -361,6 +410,9 @@ const OS = (() => {
                 await deleteWork(id);
                 btn.disabled = false; btn.textContent = '🗑 删除';
             });
+        });
+        $$('[data-cover]').forEach(btn => {
+            btn.addEventListener('click', () => uploadCover(btn.getAttribute('data-cover')));
         });
     }
 
@@ -691,6 +743,97 @@ const OS = (() => {
         }
     }
 
+    /* ---------- 本机隐藏 / 看板卡片删除 ---------- */
+    function loadHidden() {
+        try { hidden = JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]'); } catch { hidden = []; }
+    }
+    function saveHidden() {
+        try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(hidden)); } catch {}
+    }
+
+    /* 本机隐藏一条（用于未发布的草稿/起念/待发）：
+       - 记入 hidden（即便它来自线上基线 pipeline.json 也会隐藏）
+       - 若它仅存在于本机（用户新建、基线没有），则同时从 local 移除 */
+    function hideLocal(id) {
+        if (!hidden.includes(id)) hidden.push(id);
+        saveHidden();
+        const inBaseline = baseline.some(i => i.id === id);
+        const idx = local.findIndex(i => i.id === id);
+        if (idx >= 0 && !inBaseline) { local.splice(idx, 1); saveLocal(); }
+        mergeItems();
+    }
+
+    /* 看板卡片删除：未发布→本机隐藏；已发布→走 /api/delete（带二次确认） */
+    function deleteBoardItem(id) {
+        const it = findItem(id);
+        if (!it) return;
+        if (it.status === 'published') {
+            deleteWork(id);   // 内部已含 confirm + /api/delete + 重渲染
+        } else {
+            hideLocal(id);
+            renderAll();
+            toast('已从看板隐藏（本机）');
+        }
+    }
+
+    /* ---------- 读书站封面（复用 /api/covers；要求 slug 已存在于 readswithcolin） ---------- */
+    const COVERS_API = '/api/covers';
+    const COVERS_ORIGIN = 'https://www.readswithcolin.com';
+
+    /* 已发页加载现有封面映射 slug->path（仅在有保存的口令时尝试，避免一进页面就弹口令） */
+    async function fetchCovers() {
+        const token = getToken();
+        if (!token) return;
+        try {
+            const res = await fetch(COVERS_API, { headers: { 'X-OS-Token': token } });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.ok) {
+                coverMap = {};
+                (data.items || []).forEach(i => { if (i.cover) coverMap[i.slug] = i.cover; });
+            }
+        } catch { /* 忽略：封面仅是辅助展示 */ }
+    }
+
+    /* 上传某条已发读书站内容的封面（弹文件选择 → base64 → POST /api/covers） */
+    function uploadCover(id) {
+        const it = findItem(id);
+        if (!it) { toast('找不到这条内容'); return; }
+        const slug = it.slug || slugify(it.titleEn || it.title, it.id);
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/jpeg,image/png,image/webp';
+        input.addEventListener('change', () => {
+            const file = input.files && input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async () => {
+                const image = reader.result;
+                const token = ensureToken();
+                if (!token) { toast('没有口令，取消上传'); return; }
+                toast('封面上传中…');
+                try {
+                    const res = await fetch(COVERS_API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'X-OS-Token': token },
+                        body: JSON.stringify({ slug, image })
+                    });
+                    const data = await res.json().catch(() => ({}));
+                    if (!res.ok || !data.ok) {
+                        if (res.status === 401 || res.status === 403) setToken('');
+                        throw new Error(data.error || ('HTTP ' + res.status));
+                    }
+                    coverMap[slug] = data.cover || coverMap[slug];
+                    renderWorks();
+                    toast('封面已上传，部署中（约 40–90 秒生效）');
+                } catch (e) {
+                    toast('封面上传失败：' + (e.message || e));
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+        input.click();
+    }
+
     /* ---------- 公众号草稿（剪贴板富文本：text/html + text/plain） ---------- */
 
     /* 前端轻量 md → html（与后端 templates.js 同规则子集：h2/h3、引用、列表、粗斜体、hr、段落） */
@@ -909,8 +1052,10 @@ ${body}
     async function init() {
         initTheme();
         loadLocal();
+        loadHidden();
         await loadBaseline();
         mergeItems();
+        if ($('#osWorks')) await fetchCovers();   // 已发页：拉取现有读书站封面
         renderAll();
         initForm();
         initExport();

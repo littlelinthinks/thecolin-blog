@@ -287,6 +287,36 @@ input, textarea, select { font-family: inherit; }
     margin-top: .4rem;
     letter-spacing: .3px;
 }
+.os-stat { cursor: pointer; }
+.os-stat.active {
+    border-color: var(--brand-red);
+    box-shadow: 0 0 0 2px rgba(199,62,44,.18), var(--shadow);
+}
+.os-stat-flag {
+    display: block;
+    margin-top: .5rem;
+    font-size: .64rem;
+    letter-spacing: .5px;
+    color: var(--text-muted);
+    opacity: .7;
+}
+.os-stat.active .os-stat-flag { color: var(--brand-red); opacity: 1; }
+.os-stat-reset {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--brand-red);
+    border-radius: var(--radius);
+    padding: .7rem 1rem;
+    font-size: .76rem;
+    color: var(--brand-red);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.os-stat-reset:hover { background: rgba(199,62,44,.08); }
 
 /* ==================== 看板 ==================== */
 .os-board {
@@ -433,6 +463,23 @@ input, textarea, select { font-family: inherit; }
 .os-card:hover .os-adv { opacity: 1; transform: scale(1); }
 .os-adv:hover { background: var(--brand-red); }
 
+/* 删除按钮（看板卡片，hover 显现） */
+.os-del {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: .82rem;
+    line-height: 1;
+    padding: .15rem .25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .2s ease;
+}
+.os-card:hover .os-del { opacity: 1; }
+.os-del:hover { color: #fff; background: var(--brand-red); }
+
 /* 关联标记 */
 .os-rel {
     position: absolute;
@@ -540,6 +587,15 @@ input, textarea, select { font-family: inherit; }
     transition: transform .22s ease, box-shadow .22s ease;
 }
 .os-work:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.os-work-cover {
+    float: right;
+    width: 56px; height: 84px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    margin: 0 0 .5rem .9rem;
+    box-shadow: var(--shadow-sm);
+}
 .os-work-title {
     font-family: var(--font-serif-cn);
     font-size: 1.05rem;
