@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#C73E2C">
+<title>封面管理 · Personal OS | COLIN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23C73E2C' rx='18'/><text x='50' y='74' font-family='Georgia,serif' font-size='64' font-weight='bold' fill='white' text-anchor='middle'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/os.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Colin OS">
+<style>
+.covers-head { margin-bottom: 1.5rem; }
+.covers-head h1 em { color: var(--brand-red); font-style: normal; }
+.covers-status { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin:1rem 0 1.5rem; font-size:.82rem; color:var(--text-secondary); }
+.covers-status .pill { background:var(--bg-secondary); padding:.35rem .7rem; border-radius:999px; border:1px solid var(--border); }
+.covers-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:1rem; }
+@media (max-width:480px){ .covers-grid { grid-template-columns:repeat(2, 1fr); gap:.75rem; } }
+.cover-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:.9rem; display:flex; flex-direction:column; gap:.6rem; transition:box-shadow .2s, transform .15s; }
+.cover-card:hover { box-shadow:var(--shadow); }
+.cover-thumb { width:100%; aspect-ratio:2/3; border-radius:var(--radius-sm); overflow:hidden; background:var(--brand-paper); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
+.cover-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.cover-thumb .placeholder { color:var(--text-muted); font-size:.75rem; text-align:center; padding:.6rem; }
+.cover-meta { min-height:3.4rem; }
+.cover-meta .rwc { font-family:var(--font-mono); font-size:.62rem; color:var(--brand-red); letter-spacing:.5px; }
+.cover-meta .title { font-size:.84rem; line-height:1.35; font-weight:500; color:var(--text-primary); }
+.cover-meta .author { font-size:.72rem; color:var(--text-secondary); }
+.cover-actions { display:flex; flex-direction:column; gap:.45rem; margin-top:auto; }
+.cover-actions input[type=file] { display:none; }
+.cover-actions label, .cover-actions button { font-size:.78rem; padding:.45rem .6rem; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-secondary); color:var(--text-primary); text-align:center; cursor:pointer; transition:all .15s; }
+.cover-actions label:hover, .cover-actions button:hover:not(:disabled) { border-color:var(--brand-gold); color:var(--brand-brown); }
+.cover-actions button.primary { background:var(--brand-red); border-color:var(--brand-red); color:#fff; }
+.cover-actions button.primary:hover:not(:disabled) { background:var(--brand-red-dark); }
+.cover-actions button:disabled { background:var(--bg-secondary) !important; border-color:var(--border) !important; color:var(--text-muted) !important; opacity:.55; cursor:not-allowed; }
+.cover-preview { width:100%; aspect-ratio:2/3; border-radius:var(--radius-sm); object-fit:cover; border:1px dashed var(--brand-gold); display:none; }
+.cover-msg { font-size:.72rem; min-height:1.2rem; }
+.cover-msg.ok { color:var(--brand-green); }
+.cover-msg.err { color:var(--brand-red); }
+.loading { display:flex; align-items:center; justify-content:center; min-height:60vh; color:var(--text-muted); }
+.os-tabbar a[href="covers.html"] { color:var(--brand-red); }
+</style>
+</head>
+<body>
+
+<nav class="os-nav">
+    <div class="os-nav-inner">
+        <a class="os-brand" href="index.html">
+            <span class="os-brand-mark">C</span>
+            <span class="os-brand-name"><b>Personal OS</b><span>Colin · Knowledge</span></span>
+        </a>
+        <div class="os-tabs">
+            <a class="os-tab" href="index.html">发布台</a>
+            <a class="os-tab" href="capture.html">速记</a>
+            <a class="os-tab" href="new.html">起草</a>
+            <a class="os-tab" href="done.html">已发</a>
+            <a class="os-tab active" href="covers.html">封面</a>
+        </div>
+        <div class="os-nav-right">
+            <a class="os-back" href="https://www.thecolin.vip/" target="_blank" rel="noopener">← 回主站</a>
+        </div>
+    </div>
+</nav>
+
+<main class="os-wrap">
+    <header class="os-head covers-head">
+        <span class="os-kicker">Cover Manager</span>
+        <h1>读书站<em>封面管理</em></h1>
+        <p>逐本上传/替换 readswithcolin.com 的书评封面。上传后会自动写入仓库并触发 Vercel 部署，约 40–90 秒生效。</p>
+    </header>
+
+    <div class="covers-status" id="statusBar">
+        <span class="pill" id="countPill">加载中…</span>
+        <span class="pill" id="tokenPill">口令：—</span>
+    </div>
+
+    <div id="coversRoot">
+        <div class="loading">正在拉取书籍列表…</div>
+    </div>
+</main>
+
+<nav class="os-tabbar" aria-label="主导航">
+    <a href="index.html"><span class="tb-ico">▦</span><span>发布台</span></a>
+    <a href="capture.html"><span class="tb-ico">✎</span><span>速记</span></a>
+    <a href="new.html"><span class="tb-ico">＋</span><span>起草</span></a>
+    <a href="done.html"><span class="tb-ico">◉</span><span>已发</span></a>
+    <a href="covers.html" class="active"><span class="tb-ico">▣</span><span>封面</span></a>
+</nav>
+
+<footer class="os-foot">
+    <div class="os-foot-assets">
+        <span style="font-family:var(--font-mono);font-size:.66rem;letter-spacing:1.5px;">三资产联动</span>
+        <a href="https://www.thecolin.vip/" target="_blank" rel="noopener">thecolin.vip</a>
+        <span style="opacity:.35">·</span>
+        <a href="https://readswithcolin.com/" target="_blank" rel="noopener">readswithcolin.com</a>
+    </div>
+    <span class="os-foot-motto">THINK · WRITE · PUBLISH</span>
+</footer>
+
+<script>
+(function(){
+    const TOKEN_KEY = 'colin_os_publish_token';
+    const API_COVERS = '/api/covers';
+    const RWC_ORIGIN = 'https://www.readswithcolin.com';
+
+    function getToken(){ return localStorage.getItem(TOKEN_KEY) || ''; }
+    function setToken(t){ t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); }
+    function ensureToken(){
+        let t = getToken();
+        if(!t){
+            t = prompt('输入发布口令（部署时设置的 PUBLISH_TOKEN）');
+            if(!t) return null;
+            setToken(t.trim());
+        }
+        return t.trim();
+    }
+
+    function esc(s){ return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    async function api(method, body){
+        const token = ensureToken();
+        if(!token) throw new Error('未输入口令');
+        const opts = {
+            method,
+            headers: { 'Content-Type':'application/json', 'X-OS-Token': token }
+        };
+        if(body) opts.body = JSON.stringify(body);
+        const res = await fetch(API_COVERS, opts);
+        const data = await res.json().catch(() => ({}));
+        if(!res.ok || !data.ok){
+            if(res.status === 401 || res.status === 403){ setToken(''); }
+            throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        return data;
+    }
+
+    function coverUrl(cover){
+        if(!cover) return '';
+        if(/^https?:\/\//.test(cover)) return cover;
+        return `${RWC_ORIGIN}/${cover.replace(/^\//,'')}`;
+    }
+
+    function isPlaceholder(cover){ return !cover || cover.endsWith('.svg'); }
+
+    function render(items){
+        const root = document.getElementById('coversRoot');
+        document.getElementById('countPill').textContent = `共 ${items.length} 本`;
+        const token = getToken();
+        document.getElementById('tokenPill').textContent = token ? '口令：已保存' : '口令：未输入';
+
+        if(!items.length){
+            root.innerHTML = '<div class="loading">暂无书籍数据</div>';
+            return;
+        }
+
+        root.innerHTML = '<div class="covers-grid">' + items.map((it, idx) => {
+            const url = coverUrl(it.cover);
+            const ph = isPlaceholder(it.cover);
+            return `
+            <div class="cover-card" data-slug="${esc(it.slug)}" data-idx="${idx}">
+                <div class="cover-thumb">
+                    ${url ? `<img class="current" src="${esc(url)}" alt="${esc(it.titleEn || it.titleZh)}" loading="lazy">` : `<div class="placeholder">暂无封面</div>`}
+                </div>
+                <img class="cover-preview" id="preview-${idx}" alt="预览">
+                <div class="cover-meta">
+                    <div class="rwc">RWC #${String(it.rwcNumber || 0).padStart(3,'0')}</div>
+                    <div class="title">${esc(it.titleZh || it.titleEn)}</div>
+                    <div class="author">${esc(it.authorZh || it.authorEn || '')}</div>
+                </div>
+                <div class="cover-actions">
+                    <label for="file-${idx}">选择图片…</label>
+                    <input type="file" id="file-${idx}" accept="image/jpeg,image/png,image/webp" data-idx="${idx}">
+                    <button class="primary" id="btn-${idx}" data-idx="${idx}" disabled>上传封面</button>
+                    <div class="cover-msg" id="msg-${idx}">${ph ? '当前为占位图' : ''}</div>
+                </div>
+            </div>`;
+        }).join('') + '</div>';
+
+        items.forEach((_, idx) => {
+            const file = document.getElementById(`file-${idx}`);
+            const btn = document.getElementById(`btn-${idx}`);
+            const preview = document.getElementById(`preview-${idx}`);
+            const msg = document.getElementById(`msg-${idx}`);
+            const thumb = root.querySelector(`[data-idx="${idx}"] .cover-thumb`);
+
+            file.addEventListener('change', () => {
+                if(!file.files[0]){
+                    preview.style.display = 'none';
+                    btn.disabled = true;
+                    msg.textContent = '';
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = e => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    if(thumb) thumb.style.display = 'none';
+                    btn.disabled = false;
+                    msg.textContent = '已选图，点击上传';
+                    msg.className = 'cover-msg';
+                    file.dataset.image = e.target.result;
+                };
+                reader.readAsDataURL(file.files[0]);
+            });
+
+            btn.addEventListener('click', async () => {
+                const image = file.dataset.image;
+                if(!image) return;
+                const slug = btn.closest('.cover-card').dataset.slug;
+                btn.disabled = true;
+                msg.textContent = '上传中…';
+                msg.className = 'cover-msg';
+                try{
+                    const res = await api('POST', { slug, image });
+                    msg.textContent = '上传成功，部署中…';
+                    msg.className = 'cover-msg ok';
+                    // 刷新当前卡片封面
+                    const newUrl = coverUrl(res.cover) + '?t=' + Date.now();
+                    if(thumb){
+                        thumb.innerHTML = `<img class="current" src="${esc(newUrl)}" alt="" loading="eager">`;
+                        thumb.style.display = 'block';
+                    }
+                    preview.style.display = 'none';
+                    file.value = '';
+                    delete file.dataset.image;
+                }catch(e){
+                    msg.textContent = '失败：' + e.message;
+                    msg.className = 'cover-msg err';
+                    btn.disabled = false;
+                }
+            });
+        });
+    }
+
+    async function init(){
+        try{
+            const data = await api('GET');
+            render(data.items || []);
+        }catch(e){
+            document.getElementById('coversRoot').innerHTML = `<div class="loading" style="color:var(--brand-red)">加载失败：${esc(e.message)}</div>`;
+            document.getElementById('countPill').textContent = '加载失败';
+        }
+    }
+
+    init();
+})();
+</script>
+</body>
+</html>

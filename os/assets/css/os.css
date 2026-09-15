@@ -638,18 +638,19 @@ input, textarea, select { font-family: inherit; }
     background: var(--bg-primary);
     border-top: 1px solid var(--border);
     padding-bottom: env(safe-area-inset-bottom, 0);
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
 }
 .os-tabbar a {
     display: flex; flex-direction: column; align-items: center; gap: 2px;
-    padding: .5rem 0 .55rem;
-    font-size: .62rem; letter-spacing: 1px;
+    flex: 1;
+    min-width: 0;
+    padding: .55rem 0;
+    font-size: .58rem; letter-spacing: .5px;
     color: var(--text-muted);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
-.os-tabbar a .tb-ico { font-size: 1.15rem; line-height: 1; }
+.os-tabbar a .tb-ico { font-size: 1.25rem; line-height: 1; }
+.os-tabbar a span:not(.tb-ico) { display: none; }   /* 底部导航在手机上只留图标，5 项也能排开 */
 .os-tabbar a.active { color: var(--brand-red); }
 .os-tabbar a.active .tb-ico { transform: scale(1.06); }
 
@@ -725,7 +726,7 @@ input, textarea, select { font-family: inherit; }
 
 /* ---------- 手机端整体适配 ---------- */
 @media (max-width: 640px) {
-    .os-tabbar { display: grid; }
+    .os-tabbar { display: flex; }
     body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0)); }
     .os-nav { position: sticky; top: 0; z-index: 80; }
     .os-nav-inner { flex-wrap: nowrap; gap: .6rem; padding: .55rem 1rem; }

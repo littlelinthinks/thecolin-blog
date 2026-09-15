@@ -48,7 +48,9 @@ async function ghFetch(token, path, options = {}) {
  * @param {string} opts.repo       仓库名
  * @param {string} opts.branch     默认 'main'
  * @param {string} opts.message    commit message
- * @param {Array<{path:string, content:string}>} opts.files
+ * @param {Array<{path:string, content:string, encoding?:'utf8'|'base64', delete?:boolean}>} opts.files
+ *   - encoding='base64' 表示 content 已是 base64 字符串，用于二进制文件（图片），避免被 utf8 损坏。
+ *   - delete=true  表示从 tree 中删除该 path（sha 设为 null）。
  * @returns {Promise<{commitSha:string, htmlUrl:string}>}
  */
 async function commitFiles({ token, owner, repo, branch = 'main', message, files }) {
@@ -62,13 +64,20 @@ async function commitFiles({ token, owner, repo, branch = 'main', message, files
     const baseCommit = await ghFetch(token, `/repos/${owner}/${repo}/git/commits/${baseSha}`);
     const baseTreeSha = baseCommit.tree.sha;
 
-    // 3. 逐文件创建 blob
+    // 3. 逐文件创建 blob（删除项不需要 blob）
     const treeItems = [];
     for (const f of files) {
+        if (f.delete) {
+            treeItems.push({ path: f.path, sha: null });
+            continue;
+        }
+        const contentB64 = f.encoding === 'base64'
+            ? f.content
+            : Buffer.from(f.content, 'utf8').toString('base64');
         const blob = await ghFetch(token, `/repos/${owner}/${repo}/git/blobs`, {
             method: 'POST',
             body: JSON.stringify({
-                content: Buffer.from(f.content, 'utf8').toString('base64'),
+                content: contentB64,
                 encoding: 'base64'
             })
         });
