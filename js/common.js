@@ -299,6 +299,8 @@ function initCommonFeatures() {
     document.querySelectorAll('.nav-dropdown').forEach(li => {
         const trigger = li.querySelector(':scope > a');
         if (!trigger) return;
+        // v13.1: 鼠标移开即收起（保留 click 打开，兼容触屏）
+        li.addEventListener('mouseleave', () => li.classList.remove('open'));
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();

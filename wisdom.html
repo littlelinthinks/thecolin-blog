@@ -12,7 +12,8 @@
     <meta property="og:url" content="https://www.thecolin.vip/wisdom.html">
     <meta property="og:title" content="心智折叠 · 186原则 — 小Lin思考">
     <meta property="og:description" content="全球186位顶尖心智的工作与生活原则，为终身成长者而整理。">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' rx='12'/><text x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='%23C9A84C' text-anchor='middle'>折</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -369,6 +370,75 @@
     <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/wisdom" />
     <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/wisdom" />
     <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/wisdom" />
+
+<meta name="theme-color" content="#0a0a0a">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+
+    <!-- v13.1 白天模式适配：此前整页硬编码黑金配色，主题切换无效 -->
+    <style>
+        html[data-theme="light"] body { background: var(--w-cream); color: #2A2620; }
+        /* 覆盖内联的 var(--w-ink) 黑色背景（内联样式优先级最高，必须 !important） */
+        html[data-theme="light"] section[style*="var(--w-ink)"],
+        html[data-theme="light"] div[style*="var(--w-ink)"] { background: var(--w-cream) !important; }
+        html[data-theme="light"] .nav-header { background: rgba(250,247,242,0.97) !important; border-bottom: 1px solid rgba(13,13,13,0.08) !important; }
+        html[data-theme="light"] .nav-logo { color: var(--w-ink) !important; }
+        html[data-theme="light"] .nav-link { color: rgba(13,13,13,0.72) !important; }
+        html[data-theme="light"] .theme-switcher { background: rgba(0,0,0,0.04) !important; border-color: rgba(13,13,13,0.15) !important; }
+        html[data-theme="light"] .lang-btn { background: transparent !important; border-color: rgba(13,13,13,0.15) !important; color: rgba(13,13,13,0.5) !important; }
+        html[data-theme="light"] .lang-btn.active { background: var(--w-gold) !important; border-color: var(--w-gold) !important; color: var(--w-ink) !important; }
+        html[data-theme="light"] .w-hero-left { background: var(--w-paper); }
+        html[data-theme="light"] .w-deco-num { -webkit-text-stroke-color: rgba(201,168,76,0.28); }
+        html[data-theme="light"] .w-hero-ip { color: rgba(13,13,13,0.45); }
+        html[data-theme="light"] .w-hero-cn { color: rgba(13,13,13,0.45); }
+        html[data-theme="light"] .w-hero-desc { color: rgba(13,13,13,0.68); }
+        html[data-theme="light"] .w-btn-ghost { color: rgba(13,13,13,0.5); border-bottom-color: rgba(13,13,13,0.25); }
+        html[data-theme="light"] .w-scroll { color: rgba(13,13,13,0.3); }
+        html[data-theme="light"] .w-stats-bar { background: #EFE8DA; border-top-color: rgba(13,13,13,0.08); border-bottom-color: rgba(13,13,13,0.08); }
+        html[data-theme="light"] .w-stats-item { border-right-color: rgba(13,13,13,0.08); }
+        html[data-theme="light"] .w-stats-l { color: rgba(13,13,13,0.45); }
+        html[data-theme="light"] .w-section-title,
+        html[data-theme="light"] .w-cats-title,
+        html[data-theme="light"] .w-leaders-title,
+        html[data-theme="light"] .w-pipeline-title,
+        html[data-theme="light"] .w-formats-title { color: #1A1712; }
+        html[data-theme="light"] .w-why-body p { color: rgba(13,13,13,0.68); }
+        html[data-theme="light"] .w-why-body strong { color: #1A1712; }
+        html[data-theme="light"] .w-why-grid { background: rgba(0,0,0,0.06); }
+        html[data-theme="light"] .w-why-card { background: #FFFDF8; }
+        html[data-theme="light"] .w-why-card:hover { background: #F6EFDF; }
+        html[data-theme="light"] .w-why-card h4 { color: #1A1712; }
+        html[data-theme="light"] .w-why-card p { color: rgba(13,13,13,0.55); }
+        html[data-theme="light"] .w-cats-wrap { background: #F1EADB; border-top-color: rgba(13,13,13,0.06); }
+        html[data-theme="light"] .w-cats-note { color: rgba(13,13,13,0.45); }
+        html[data-theme="light"] .w-cat-grid { background: rgba(0,0,0,0.05); }
+        html[data-theme="light"] .w-cat-item { background: var(--w-cream); }
+        html[data-theme="light"] .w-cat-item:hover { background: #F6EFDF; border-color: rgba(201,168,76,0.4); }
+        html[data-theme="light"] .w-cat-name { color: rgba(13,13,13,0.62); }
+        html[data-theme="light"] .w-leaders-sub { color: rgba(13,13,13,0.45); }
+        html[data-theme="light"] .w-leaders-grid { background: rgba(0,0,0,0.05); }
+        html[data-theme="light"] .w-leader-card { background: #FFFDF8; }
+        html[data-theme="light"] .w-leader-card:hover { background: #F6EFDF; }
+        html[data-theme="light"] .w-leader-name { color: #1A1712; }
+        html[data-theme="light"] .w-leader-name-cn { color: rgba(13,13,13,0.5); }
+        html[data-theme="light"] .w-leader-principle { color: rgba(13,13,13,0.62); }
+        html[data-theme="light"] .w-tag { background: rgba(61,90,76,0.1); color: #3D5A4C; border-color: rgba(61,90,76,0.3); }
+        html[data-theme="light"] .w-leaders-more { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.25); color: rgba(13,13,13,0.5); }
+        html[data-theme="light"] .w-pipeline-wrap { background: #F1EADB; border-top-color: rgba(13,13,13,0.06); }
+        html[data-theme="light"] .w-pipe-circle { background: #FFFDF8; }
+        html[data-theme="light"] .w-pipe-step p { color: rgba(13,13,13,0.55); }
+        html[data-theme="light"] .w-formats-grid { background: rgba(0,0,0,0.05); }
+        html[data-theme="light"] .w-format-card { background: #FFFDF8; }
+        html[data-theme="light"] .w-format-card:hover { background: #F6EFDF; }
+        html[data-theme="light"] .w-format-name { color: #1A1712; }
+        html[data-theme="light"] .w-format-desc { color: rgba(13,13,13,0.58); }
+        html[data-theme="light"] .w-format-card.featured { background: var(--w-sage); }
+        html[data-theme="light"] .w-format-card.featured .w-format-name,
+        html[data-theme="light"] .w-format-card.featured .w-format-desc { color: rgba(255,255,255,0.92); }
+        html[data-theme="light"] .w-cta-banner { background: linear-gradient(135deg, #F5EFDF 0%, #ECDFC0 50%, #F5EFDF 100%); border-top-color: rgba(13,13,13,0.08); border-bottom-color: rgba(13,13,13,0.08); }
+        html[data-theme="light"] .w-cta-banner p { color: rgba(13,13,13,0.55); }
+        html[data-theme="light"] .w-footer { background: #14110C; border-top-color: rgba(255,255,255,0.06); }
+    </style>
 </head>
 <body>
 
@@ -610,7 +680,7 @@
         <h2>加入<span>心智折叠</span>社群</h2>
         <p>每周一封原则解读 · 与 186 位顶尖心智同频</p>
         <div class="w-cta-row-center">
-            <a href="/" class="w-btn-primary">订阅「小Lin思考」</a>
+            <a href="subscribe.html" class="w-btn-primary">关注公众号「小Lin思考」</a>
             <a href="/products.html" class="w-btn-ghost" style="color:rgba(245,240,232,0.45);">走进心智工具箱</a>
         </div>
     </div>

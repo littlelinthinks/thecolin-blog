@@ -19,13 +19,14 @@
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://thecolin.vip/">
+    <meta property="twitter:url" content="https://www.thecolin.vip/">
     <meta property="twitter:title" content="COLIN - 探索深邃思想">
     <meta property="twitter:description" content="深度思考 · 终身学习 · 持续成长">
-    <meta property="twitter:image" content="https://thecolin.vip/og-image.jpg">
+    <meta property="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 
     <!-- Google Fonts — 品牌字体升级 -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -990,9 +991,9 @@
         .about-section {
             background: var(--bg-secondary);
             border-radius: 20px;
-            padding: 4rem 3rem;
+            padding: 4.5rem 4rem;
             display: flex;
-            gap: 3rem;
+            gap: 3.5rem;
             align-items: center;
             border: 1px solid var(--border);
         }
@@ -1018,7 +1019,7 @@
             inset: -3px;
             border-radius: 50%;
             padding: 3px;
-            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -1050,15 +1051,27 @@
         }
 
         .about-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 1.4rem;
+        }
+        .about-content h2::after {
+            content: '';
+            display: block;
+            width: 42px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 0.7rem;
         }
 
         .about-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            color: var(--text-primary);
+            opacity: 0.82;
+            margin-bottom: 1.1rem;
+            font-size: 1.05rem;
+            line-height: 2.0;
         }
 
         /* 所有链接容器 */
@@ -1135,6 +1148,26 @@
         .social-link.platform-link.email:hover {
             stroke: #666;
             border-color: var(--text-secondary);
+        }
+
+        /* v13.1: 社媒图标统一单色（原四色边框与黑白品牌不符） */
+        .social-links .social-link.platform-link.wechat,
+        .social-links .social-link.platform-link.zhihu,
+        .social-links .social-link.platform-link.toutiao,
+        .social-links .social-link.platform-link.email {
+            border-color: var(--border);
+            stroke: currentColor;
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .social-links .social-link.platform-link.wechat:hover,
+        .social-links .social-link.platform-link.zhihu:hover,
+        .social-links .social-link.platform-link.toutiao:hover,
+        .social-links .social-link.platform-link.email:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--button-text-dark, #fff);
+            stroke: currentColor;
         }
 
         /* RSS订阅按钮 */
@@ -1986,16 +2019,16 @@
         }
 
         .coffee-btn {
-            background: linear-gradient(135deg, var(--accent), #8b5cf6);
-            color: white;
+            background: var(--accent);
+            color: var(--button-text-dark, #fff);
             border: none;
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 2.2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -2004,7 +2037,7 @@
 
         .coffee-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
         }
 
         .coffee-btn:active {
@@ -2733,6 +2766,10 @@
     <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/" />
     <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/" />
     <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/" />
+
+<meta name="theme-color" content="#0a0a0a">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
 </head>
 <a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
@@ -2986,8 +3023,8 @@
         <div id="emptyState" style="text-align:center;padding:80px 20px;color:var(--text-secondary);">
             <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;opacity:0.5;">COMING SOON</p>
             <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;color:var(--text-primary);margin-bottom:1rem;">文章持续更新中</p>
-            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">订阅「小Lin思考」，第一时间收到新文章通知</p>
-            <a href="subscribe.html" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">免费订阅 →</a>
+            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">关注公众号「小Lin思考」，第一时间收到新文章通知</p>
+            <button onclick="openWechatQrModal()" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark,#fff);border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">📱 关注公众号 →</button>
         </div>
 
         <!-- Load More Button -->
@@ -3139,13 +3176,13 @@
 
     <!-- 关于部分 -->
     
-    <!-- ===== 邮件订阅 CTA ===== -->
+    <!-- ===== 关注公众号 CTA（v13.1：邮件订阅暂下线） ===== -->
     <section style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 20px;text-align:center;">
         <div style="max-width:540px;margin:0 auto;">
-            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周一封" data-en="WEEKLY">每周一封</p>
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="订阅「小Lin思考」" data-en="Subscribe to Thinking">订阅「小Lin思考」</h2>
-            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。" data-en="One deep article per week on thinking, growth, and life. 1,200+ subscribers.">每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。</p>
-            <a href="subscribe.html" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
+            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周更新" data-en="WEEKLY">每周更新</p>
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="关注公众号「小Lin思考」" data-en="Follow 小Lin思考 on WeChat">关注公众号「小Lin思考」</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周深度长文，关于思维、成长与人生。扫码关注，新文章第一时间推送。" data-en="Weekly deep dives on thinking, growth, and life. Scan to follow and never miss a post.">每周深度长文，关于思维、成长与人生。扫码关注，新文章第一时间推送。</p>
+            <button onclick="openWechatQrModal()" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark,#fff);border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="📱 关注公众号 →" data-en="📱 Follow on WeChat →">📱 关注公众号 →</button>
         </div>
     </section>
 
@@ -3206,8 +3243,7 @@
                 <a href="https://readswithcolin.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">📖 readswithcolin.com</a>
                 <span style="margin:0 0.5rem;opacity:0.4;">·</span>
                 <span data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
-                <span style="margin:0 0.5rem;opacity:0.4;">·</span>
-                <a href="subscribe.html" style="color:var(--accent);text-decoration:none;" data-zh="📧 邮件订阅" data-en="📧 Newsletter">📧 邮件订阅</a>
+                
             </p>
         </div>
         <p class="footer-copy" data-zh="&copy; 2026 COLIN. 保留所有权利." data-en="&copy; 2026 COLIN. All Rights Reserved.">&copy; 2026 COLIN. 保留所有权利.</p>

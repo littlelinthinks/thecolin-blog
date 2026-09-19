@@ -460,3 +460,27 @@ a:focus-visible {
         overflow-y: visible;
     }
 }
+
+
+/* ==========================================================================
+   v13.1 页脚统一样式：此前 products/archive 等页 <footer> 无任何样式，
+   版权文字裸排在左下角（用户反馈「这个角落是啥」）
+   ========================================================================== */
+body > footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+body > footer .footer-copy {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 1rem 0 0.4rem;
+}
+body > footer .footer-motto {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.85;
+}
