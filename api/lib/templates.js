@@ -228,8 +228,8 @@ function renderColinArticle(post) {
 <meta name="description" content="${esc(summary || '')}">
 ${COLIN_GA}
 <script>(function(){var t=localStorage.getItem("preferred-theme")||"light",l=localStorage.getItem("preferred-lang")||"zh";document.documentElement.setAttribute("data-theme",t);document.documentElement.setAttribute("data-lang",l)})()</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>${COLIN_STYLE}</style>
     <meta property="og:title" content="${esc(title)} | 小Lin思考">
     <meta property="og:description" content="${esc(summary || '')}">
@@ -349,9 +349,9 @@ function renderRwcPost(post) {
   <meta property="og:description" content="${esc(summaryEn || summary || '')}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${url}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.cn">
+  <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+  <link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <meta name="theme-color" content="#5B7A64">
 </head>
