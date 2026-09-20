@@ -626,47 +626,10 @@
             box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
         }
 
-        .subscribe-form {
-            margin-top: 3rem;
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
-        .subscribe-form input {
-            flex: 1;
-            padding: 0.9rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
 
-        .subscribe-form input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
 
-        .subscribe-form button {
-            padding: 0.9rem 2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
 
-        .subscribe-form button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
 
         /* 内容区域 */
         .content-section {
@@ -1295,9 +1258,6 @@
                 font-weight: 400;
             }
 
-            .subscribe-form {
-                flex-direction: column;
-            }
 
             .articles-grid {
                 grid-template-columns: 1fr;
@@ -1648,60 +1608,12 @@
             transform: translateX(-5px);
         }
 
-        .newsletter-cta {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2.5rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 12px;
-            text-align: center;
-        }
 
-        .newsletter-cta h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
 
-        .newsletter-cta p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
 
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
 
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.9rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--text-primary);
-            font-size: 1rem;
-        }
 
-        .newsletter-form button {
-            padding: 0.9rem 2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
 
-        .newsletter-form button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
 
         .related-articles {
             max-width: 1200px;
@@ -2454,13 +2366,7 @@
                 gap: 1.5rem;
             }
 
-            .newsletter-cta {
-                padding: 2rem 1.5rem;
-            }
 
-            .newsletter-form {
-                flex-direction: column;
-            }
 
             .social-links {
                 gap: 0.75rem;
@@ -3305,16 +3211,6 @@
                 </button>
             </div>
 
-            <div class="newsletter-cta">
-                <h3 data-zh="喜欢这篇文章吗？" data-en="Enjoyed this article?">喜欢这篇文章吗？</h3>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                    <input type="email" id="subscribeEmail" placeholder="your@email.com" style="flex: 1; padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
-                    <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100px;">复制邮箱</button>
-                </div>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-top: 0.5rem;">
-                    <span data-zh="复制邮箱地址到剪贴板，然后到邮件APP粘贴发送" data-en="Copy email to clipboard, then paste in mail app to send">复制邮箱地址到剪贴板，然后到邮件APP粘贴发送</span>
-                </p>
-            </div>
 
             <div class="comments-section">
                 <h3 data-zh="评论" data-en="Comments">评论 (3)</h3>
@@ -3560,7 +3456,7 @@
                             : '这篇文章的完整版正在从公众号「小Lin思考」同步过来，先去公众号看连载吧。'
                         }</p>
                         <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-                            <a href="subscribe.html" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
+                            <a href="https://www.thecolin.vip/#about" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
                                 (window.currentLang === 'en') ? 'Follow on WeChat →' : '去公众号阅读 →'
                             }</a>
                             <button onclick="showHome(event)" style="padding: 0.8rem 2rem; background: transparent; color: var(--text-primary); border: 1px solid var(--border); border-radius: 25px; cursor: pointer;">
@@ -3768,21 +3664,6 @@
             }
         });
 
-        // ===== 订阅表单处理 =====
-        document.querySelectorAll('.subscribe-form, .newsletter-form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                if (email) {
-                    const message = currentLang === 'zh' 
-                        ? '感谢订阅！我们会将最新内容发送到: ' + email
-                        : 'Thank you for subscribing! We will send the latest content to: ' + email;
-                    showToast(message);
-                    this.querySelector('input[type="email"]').value = '';
-                }
-            });
-        });
-
         // ===== 评论表单处理 =====
         document.querySelector('.comment-form button')?.addEventListener('click', function(e) {
             e.preventDefault();
@@ -3791,7 +3672,7 @@
             
             if (comment) {
                 const message = currentLang === 'zh' 
-                    ? '感谢您的评论！' 
+                    ? '评论发布成功！' 
                     : 'Thank you for your comment!';
                 showToast(message);
                 textarea.value = '';
@@ -4379,14 +4260,6 @@
             showToast('RSS链接已复制到剪贴板！');
         }
 
-        // 复制订阅邮箱
-        function copySubscribeEmail() {
-            const email = document.getElementById('subscribeEmail');
-            // 如果用户输入了邮箱，复制用户输入的；否则复制默认邮箱
-            const emailToCopy = (email && email.value.trim()) ? email.value.trim() : 'littlelinthinks@gmail.com';
-            navigator.clipboard.writeText(emailToCopy);
-        }
-
         // ===== 文章搜索和筛选功能 =====
         let currentCategory = 'all';
         let currentSearchTerm = '';
@@ -4403,13 +4276,6 @@
                 }
             });
 
-            filterArticles();
-        }
-
-        // 搜索文章
-        function filterArticles() {
-            const searchInput = document.getElementById('searchInput');
-            currentSearchTerm = searchInput.value.toLowerCase().trim();
 
             const articles = document.querySelectorAll('.article-card');
             let visibleCount = 0;
