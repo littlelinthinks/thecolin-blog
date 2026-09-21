@@ -139,7 +139,7 @@
         }
         .tool-name small {
             font-family: 'Space Mono', monospace;
-            font-size: 0.66rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-secondary);
@@ -156,7 +156,7 @@
         }
         .tool-list-title {
             font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
+            font-size: 0.75rem;
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--text-secondary);
@@ -257,6 +257,49 @@
         .tools-cta-btn.ghost:hover {
             border-color: var(--text-primary);
             transform: translateY(-3px);
+        }
+
+        /* ===== Mobile Hamburger Nav ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            background: transparent;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        @media (max-width: 900px) {
+            .hamburger { display: flex !important; }
+            .nav-right ul.nav-links {
+                display: none !important;
+                position: fixed;
+                top: 72px; left: 0; right: 0; bottom: 0;
+                background: var(--bg-primary);
+                border-top: 1px solid var(--border);
+                flex-direction: column !important;
+                gap: 0 !important;
+                padding: 0.5rem 0 2rem;
+                z-index: 998;
+                overflow-y: auto;
+            }
+            .nav-right ul.nav-links.mobile-open { display: flex !important; }
+            .nav-right ul.nav-links > li { width: 100%; border-bottom: 1px solid var(--border); }
+            .nav-right ul.nav-links > li > a { display: block !important; padding: 1rem 2rem !important; font-size: 1rem !important; }
+            .lang-switcher { display: none !important; }
         }
 
         /* 响应式 */
