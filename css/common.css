@@ -484,3 +484,22 @@ body > footer .footer-motto {
     margin: 0;
     opacity: 0.85;
 }
+
+
+/* ===== Site Footer v2（全站统一页脚）===== */
+.site-footer{background:var(--bg-secondary);border-top:1px solid var(--border);margin-top:5rem;padding:3.2rem 2rem 1.8rem;}
+.site-footer .sf-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:2.4rem;border-bottom:1px solid var(--border);}
+.sf-logo{font-family:'Playfair Display',Georgia,serif;font-size:1.55rem;font-weight:900;letter-spacing:1px;margin-bottom:.55rem;color:var(--text-primary)}
+.sf-motto{font-size:.9rem;color:var(--text-primary);margin:0 0 .4rem;opacity:.85}
+.sf-note{font-size:.8rem;color:var(--text-secondary);margin:0}
+.sf-col h4{font-family:'Space Mono',monospace;font-size:.72rem;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-secondary);margin:0 0 1rem}
+.sf-col a,.sf-col .sf-item{display:block;color:var(--text-primary);text-decoration:none;font-size:.92rem;margin-bottom:.68rem;opacity:.85;transition:color .2s ease,opacity .2s ease}
+.sf-col a:hover{color:var(--accent);opacity:1}
+.sf-bottom{max-width:1080px;margin:0 auto;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--text-secondary)}
+.sf-bottom a{color:var(--accent);text-decoration:none}
+.sf-bottom a:hover{text-decoration:underline}
+[data-theme="dark"] .site-footer{background:rgba(255,255,255,.02)}
+@media(max-width:768px){
+  .site-footer .sf-inner{grid-template-columns:1fr;gap:2.2rem;text-align:center}
+  .sf-bottom{justify-content:center;text-align:center}
+}

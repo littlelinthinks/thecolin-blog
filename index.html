@@ -25,24 +25,24 @@
     <meta property="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 
     <!-- Google Fonts — 品牌字体升级 -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.cn">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.cn">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.cn/">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.cn/">
     <link rel="preconnect" href="https://fonts.googleapis.cn">
     <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
     <link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
     <!-- Common CSS and JS -->
-    <link rel="canonical" href="https://www.thecolin.vip/">
-    <link rel="stylesheet" href="/css/common.css">
-    <script src="/js/common.js" defer></script>
+    <link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/common.js" defer></script>
 
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="rss.xml">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -542,12 +542,12 @@
         /* 英雄区域 */
         .hero {
             margin-top: 80px;
-            min-height: 90vh;
+            min-height: 62vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2.5rem 2rem 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -559,7 +559,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
+            background: radial-gradient(circle at 50% 45%, rgba(201, 168, 76, 0.10), transparent 68%);
             pointer-events: none;
         }
 
@@ -581,9 +581,9 @@
         }
 
         .hero-name {
-            font-size: 5rem;
+            font-size: 2.9rem;
             font-weight: 900;
-            margin-bottom: 2rem;
+            margin-bottom: 1.1rem;
             letter-spacing: 8px;
             background: linear-gradient(135deg, #000000, #666666, #000000);
             -webkit-background-clip: text;
@@ -593,9 +593,9 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 2.9rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
             letter-spacing: -2px;
         }
@@ -603,7 +603,7 @@
         .hero .tagline {
             font-size: 1.5rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
             font-weight: 300;
         }
 
@@ -649,12 +649,12 @@
         /* 博客标题区域 - Dankoe风格 */
         .blog-header {
             text-align: center;
-            margin-bottom: 5rem;
-            padding: 5rem 0 3rem;
+            margin-bottom: 2.2rem;
+            padding: 1rem 0 0;
         }
 
         .blog-title {
-            font-size: 5rem;
+            font-size: 2.4rem;
             font-weight: 900;
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
@@ -664,15 +664,15 @@
         }
 
         .blog-subtitle {
-            font-size: 1.8rem;
+            font-size: 1.15rem;
             color: var(--text-primary);
-            margin-bottom: 2rem;
+            margin-bottom: 0.7rem;
             font-weight: 300;
             letter-spacing: 0.02em;
         }
 
         .blog-quote {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             font-style: normal;
             max-width: 600px;
@@ -891,7 +891,7 @@
 
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -1743,7 +1743,8 @@
 
         /* 搜索和筛选区域 */
         .search-filter-section {
-            margin-bottom: 3rem;
+            max-width: 760px;
+            margin: 0 auto 3rem;
         }
 
         .search-box {
@@ -2669,15 +2670,15 @@
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
     <noscript><style>.loading-screen{display:none!important}</style></noscript>
 
-    <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/" />
-    <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/" />
+    <link rel="alternate" hreflang="zh" href="index.html" />
+    <link rel="alternate" hreflang="en" href="index.html" />
+    <link rel="alternate" hreflang="x-default" href="index.html" />
 
 <meta name="theme-color" content="#0a0a0a">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 </head>
-<a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
+<a href="index.html#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
     <!-- 加载屏幕 -->
     <div class="loading-screen">
@@ -2802,7 +2803,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
                     <li class="nav-dropdown">
-                        <a href="#articles" data-zh="文章" data-en="Articles">
+                        <a href="index.html#articles" data-zh="文章" data-en="Articles">
                             <span data-zh="文章" data-en="Articles">文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
@@ -2827,7 +2828,7 @@
                     <li><a href="products.html" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
                     <li><a href="wisdom.html" style="color:#C9A84C!important;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
                     <li><a href="https://readswithcolin.com" target="_blank" rel="noopener" data-zh="读书" data-en="Reads">读书</a></li>
-                    <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
+                    <li><a href="index.html#about" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
                     <button class="search-btn">
@@ -2857,17 +2858,17 @@
             <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
             
             <!-- CTA按钮组 -->
-            <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                <a href="#articles" style="padding: 1rem 2.5rem; background: var(--button-bg-dark); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="margin-top: 1.3rem; display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center;">
+                <a href="index.html#articles" style="padding: 0.85rem 2.1rem; background: var(--button-bg-dark); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                     <span data-zh="📖 开始阅读" data-en="📖 Start Reading">📖 开始阅读</span>
                 </a>
-                <a href="products.html" style="padding: 1rem 2.5rem; background: rgba(0, 0, 0, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(0, 0, 0, 0.2)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.1)'">
+                <a href="products.html" style="padding: 0.85rem 2.1rem; background: rgba(0, 0, 0, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(0, 0, 0, 0.2)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.1)'">
                     <span data-zh="🧰 心智工具" data-en="🧰 Thinking Tools">🧰 心智工具</span>
                 </a>
             </div>
             
             <!-- RSS订阅 -->
-            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem; opacity: 0.6; font-size: 0.85rem;">
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 0.9rem; opacity: 0.6; font-size: 0.85rem;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
             </div>
         </div>
@@ -3141,25 +3142,36 @@
     </section>
 
     <!-- 页脚 -->
-    <footer>
-        <!-- 三资产联动行 -->
-        <div style="margin-bottom: 1.2rem; padding: 0.9rem 1.2rem; border: 1px solid var(--border); border-radius: 10px; font-size: 0.85rem; line-height: 1.9; color: var(--text-secondary); max-width: 640px; margin-left: auto; margin-right: auto;">
-            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem;color:var(--text-secondary);" data-zh="思考的去处" data-en="WHERE THINKING LIVES">思考的去处</p>
-            <p style="margin:0;">
-                <a href="https://readswithcolin.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">📖 readswithcolin.com</a>
-                <span style="margin:0 0.5rem;opacity:0.4;">·</span>
-                <span data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
-                
-            </p>
-        </div>
-        <p class="footer-copy" data-zh="&copy; 2026 COLIN. 保留所有权利." data-en="&copy; 2026 COLIN. All Rights Reserved.">&copy; 2026 COLIN. 保留所有权利.</p>
-        <p class="footer-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
-            <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
-            <span data-zh="（复制链接到RSS阅读器）" data-en="(Copy link to RSS reader)">（复制链接到RSS阅读器）</span>
-        </p>
     </main>
-</footer>
+
+    <footer class="site-footer">
+        <div class="sf-inner">
+            <div class="sf-brand">
+                <div class="sf-logo">COLIN</div>
+                <p class="sf-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
+                <p class="sf-note" data-zh="与公众号「小Lin思考」同步更新" data-en="Synced with the WeChat account 「小Lin思考」">与公众号「小Lin思考」同步更新</p>
+            </div>
+            <div class="sf-col">
+                <h4 data-zh="探 索" data-en="EXPLORE">探 索</h4>
+                <a href="index.html#articles" data-zh="博客文章" data-en="Blog">博客文章</a>
+                <a href="archive.html" data-zh="文章归档" data-en="Archive">文章归档</a>
+                <a href="products.html" data-zh="心智工具" data-en="Thinking Tools">心智工具</a>
+                <a href="wisdom.html" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a>
+                <a href="https://readswithcolin.com" target="_blank" rel="noopener" data-zh="读书 · ReadsWithColin" data-en="Reads · ReadsWithColin">读书 · ReadsWithColin</a>
+            </div>
+            <div class="sf-col">
+                <h4 data-zh="联 系" data-en="CONNECT">联 系</h4>
+                <span class="sf-item" data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
+                <a href="mailto:littlelinthinks@gmail.com">✉️ littlelinthinks@gmail.com</a>
+                <a href="https://www.zhihu.com/people/home-tile" target="_blank" rel="noopener noreferrer" data-zh="知乎" data-en="Zhihu">知乎</a>
+                <a href="rss.xml" data-zh="📡 RSS 订阅" data-en="📡 RSS Feed">📡 RSS 订阅</a>
+            </div>
+        </div>
+        <div class="sf-bottom">
+            <span data-zh="© 2026 COLIN. 保留所有权利." data-en="© 2026 COLIN. All Rights Reserved.">© 2026 COLIN. 保留所有权利.</span>
+            <a href="https://readswithcolin.com" target="_blank" rel="noopener">readswithcolin.com</a>
+        </div>
+    </footer>
     </div>
     <!-- 主页内容结束 -->
 
@@ -3456,7 +3468,7 @@
                             : '这篇文章的完整版正在从公众号「小Lin思考」同步过来，先去公众号看连载吧。'
                         }</p>
                         <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-                            <a href="https://www.thecolin.vip/#about" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
+                            <a href="index.html#about" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
                                 (window.currentLang === 'en') ? 'Follow on WeChat →' : '去公众号阅读 →'
                             }</a>
                             <button onclick="showHome(event)" style="padding: 0.8rem 2rem; background: transparent; color: var(--text-primary); border: 1px solid var(--border); border-radius: 25px; cursor: pointer;">
@@ -3936,7 +3948,7 @@
                 (articles || []).forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
                 const isZh = typeof currentLang !== 'undefined' ? currentLang === 'zh' : true;
                 grid.innerHTML = seriesList.map(s => `
-                    <a class="series-chip" href="${s.url || 'archive.html?series=' + s.id}">
+                    <a class="series-chip" href="https://www.thecolin.vip/${s.url&#32;||&#32;'archive.html?series='&#32;+&#32;s.id}">
                         <span class="series-chip-icon">${s.icon}</span>
                         <span class="series-chip-text">
                             <span class="series-chip-name">${isZh ? s.name : s.nameEn}</span>
