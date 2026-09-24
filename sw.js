@@ -1,88 +1,198 @@
-/* Reads with Colin · Service Worker (PWA) · rwc-pwa-v2
- * 策略：页面与数据「网络优先」（保证部署后立刻看到新内容），
- *       静态资源（css/js/img/covers）「缓存优先」（离线可读）。
- * 部署新版时请把下方 CACHE 版本号 +1，旧缓存会在 activate 时自动清理。
+/**
+ * COLIN Blog - Service Worker
+ * Enables offline access and faster loading through caching
+ * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
-const CACHE = 'rwc-pwa-v2';
-const CORE = [
-  './',
-  './index.html',
-  './archive.html',
-  './categories.html',
-  './about.html',
-  './3-2-1.html',
-  './offline.html',
-  './manifest.webmanifest',
-  './img/icon-192.png',
-  './img/icon-512.png'
+
+const CACHE_NAME = 'colin-blog-v15'; // v15: 修复移动端(≤900px)横向溢出——搜索按钮改为仅图标、收紧头部间距
+const STATIC_ASSETS = [
+    '/',
+    '/index.html',
+    '/css/common.css',
+    '/css/home.css',
+    '/js/common.js',
+    '/articles.json',
+    '/series.json',
+    '/rss.xml',
+    '/favicon.ico',
+    '/images/icon-192x192.png',
+    '/images/icon-512x512.png',
+    '/manifest.json'
 ];
 
+// Install: cache static assets ONE BY ONE so a single failure never breaks activation
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting())
-  );
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', (event) => {
-  const req = event.request;
-  if (req.method !== 'GET') return;
-  const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;
-
-  // 文章数据：网络优先，失败回退缓存（保证部署后不是旧内容）
-  if (url.pathname.endsWith('/data/posts.json') || url.pathname.endsWith('posts.json')) {
-    event.respondWith(networkFirst(req));
-    return;
-  }
-
-  // 导航请求（HTML 页面）：网络优先，失败回退缓存首页 / 离线页
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req).catch(() =>
-        caches.match(req).then((r) => r || caches.match('./index.html')).then((r) => r || caches.match('./offline.html'))
-      )
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(async (cache) => {
+            console.log('[SW v4] Caching static assets (per-file, fault tolerant)');
+            await Promise.all(STATIC_ASSETS.map(async (asset) => {
+                try {
+                    await cache.add(new Request(asset, { cache: 'reload' }));
+                } catch (err) {
+                    console.log('[SW v4] Skipped failed asset:', asset, err.message);
+                }
+            }));
+        })
     );
-    return;
-  }
-
-  // 静态资源：缓存优先，缺失则网络拉取并补缓存
-  event.respondWith(cacheFirst(req));
+    self.skipWaiting();
 });
 
-function cacheFirst(req) {
-  return caches.match(req).then((cached) => {
-    if (cached) return cached;
-    return fetch(req).then((res) => {
-      if (res && res.ok) {
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy));
-      }
-      return res;
-    }).catch(() => cachedOffline(req));
-  });
+// Activate: Clean old caches (v1/v2/v3)
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('[SW v4] Deleting old cache:', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }).then(() => self.clients.claim())
+    );
+});
+
+// Fetch: Serve from cache or network
+self.addEventListener('fetch', (event) => {
+    const { request } = event;
+    const url = new URL(request.url);
+
+    // Skip non-GET requests
+    if (request.method !== 'GET') return;
+
+    // Skip cross-origin requests (analytics, fonts, etc.)
+    if (url.origin !== self.location.origin) return;
+
+    // Strategy: Network-first for page navigation (always try to serve fresh page)
+    if (request.mode === 'navigate') {
+        event.respondWith(navigationHandler(request));
+        return;
+    }
+
+    // Strategy: Network First for data files (articles.json etc.)
+    if (url.pathname.endsWith('.json')) {
+        event.respondWith(networkFirst(request));
+        return;
+    }
+
+    // Strategy: Network First for CSS/JS（修复：这两个文件此前用 cacheFirst，
+    // 导致每次改样式/脚本后，已访问过的浏览器永远拿到旧文件，必须靠
+    // 手动升 CACHE_NAME 才能生效——用户会一直看到旧页面。
+    // CSS/JS 体积很小（约 10KB），网络优先的开销可忽略，换来确定性更新。）
+    if (isCodeAsset(url.pathname)) {
+        event.respondWith(networkFirst(request));
+        return;
+    }
+
+    // Strategy: Cache First for static assets
+    if (isStaticAsset(url.pathname)) {
+        event.respondWith(cacheFirst(request));
+        return;
+    }
+
+    // Default: Cache First
+    event.respondWith(cacheFirst(request));
+});
+
+// Helper: Check if static asset
+function isStaticAsset(pathname) {
+    return pathname.match(/\.(css|js|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|ico)$/);
 }
 
-function networkFirst(req) {
-  return fetch(req)
-    .then((res) => {
-      if (res && res.ok) {
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy));
-      }
-      return res;
-    })
-    .catch(() => caches.match(req));
+// Helper: Check if CSS/JS（需网络优先，保证改完立刻生效）
+function isCodeAsset(pathname) {
+    return pathname.match(/\.(css|js)$/);
 }
 
-function cachedOffline(req) {
-  if (req.mode === 'navigate') return caches.match('./offline.html');
-  return undefined;
+// Navigation: network first, cache fallback, offline page last resort
+async function navigationHandler(request) {
+    const cached = await caches.match(request, { ignoreSearch: true });
+    // Also try the generic index.html in cache
+    const cachedIndex = await caches.match('/index.html');
+
+    try {
+        const response = await fetch(request);
+        if (response && response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
+        }
+        return response;
+    } catch (error) {
+        console.log('[SW v4] Navigation fetch failed, serving cache/offline page');
+        if (cached) return cached;
+        if (cachedIndex) return cachedIndex;
+        return offlinePage();
+    }
+}
+
+// Strategy: Cache First
+async function cacheFirst(request) {
+    const cached = await caches.match(request);
+    if (cached) {
+        return cached;
+    }
+
+    try {
+        const response = await fetch(request);
+        if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
+        }
+        return response;
+    } catch (error) {
+        console.log('[SW v4] Fetch failed:', error);
+        return new Response('Offline - Content unavailable', {
+            status: 503,
+            statusText: 'Service Unavailable'
+        });
+    }
+}
+
+// Strategy: Network First
+async function networkFirst(request) {
+    try {
+        const networkResponse = await fetch(request);
+        if (networkResponse.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+    } catch (error) {
+        const cached = await caches.match(request);
+        if (cached) {
+            return cached;
+        }
+        throw error;
+    }
+}
+
+// Built-in offline fallback page (no network needed)
+function offlinePage() {
+    const html = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colin's Blog - 暂时无法连接</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#111;color:#eee;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center}
+.box{max-width:420px;padding:40px 30px}
+h1{font-size:1.4em;margin-bottom:.6em}
+p{line-height:1.7;color:#aaa;font-size:.95em}
+a{color:#6ea8fe;text-decoration:none}
+button{margin-top:1.2em;padding:10px 28px;background:#6ea8fe;border:0;border-radius:6px;color:#111;font-size:1em;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>📡 暂时无法连接服务器</h1>
+<p>当前网络访问不到网站源站。<br>这通常是网络链路问题，不是网站故障。</p>
+<button onclick="location.reload()">重新尝试</button>
+</div>
+</body>
+</html>`;
+    return new Response(html, {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
 }
