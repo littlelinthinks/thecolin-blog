@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="pAoH65wg-NAvnM_j7u7RfVEW2PoiSfPsdKsEe_TUe2w" />
-<title>Reads with Colin — A weekly letter on books worth keeping</title>
-<meta name="description" content="Reads with Colin — a weekly letter on the books that change how you see the world, and what you do next. 每周一封推荐好书的来信 + 3-2-1 Thursday 栏目。">
-<meta property="og:title" content="Reads with Colin">
-<meta property="og:description" content="A weekly letter on books that change how you see — and what you do next.">
+<title>Categories — Reads with Colin</title>
+<meta name="description" content="Books grouped by theme. 按主题浏览所有书评。">
+<meta property="og:title" content="Categories — Reads with Colin">
+<meta property="og:description" content="Books by theme. 按主题浏览。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.readswithcolin.com/">
+<meta property="og:url" content="https://www.readswithcolin.com/categories.html">
 <meta name="theme-color" content="#14110C">
 <meta property="og:image" content="https://www.readswithcolin.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -18,10 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.readswithcolin.com/img/og-image.png">
 <style>
-  /* ============ Reads with Colin · Homepage v2 (Plan C) ============
-     自包含样式：不加载 css/style.css，避免与旧页面类名冲突
-     设计语言：米白纸底 + 黑墨 + 朱红 + 金棕（fs.blog 骨架 × ali abdaal 卡片）
-  ==================================================================== */
+  /* ============ Categories · Plan C 自包含样式 ============ */
   :root {
     --ink: #14110C;
     --muted: #6E675B;
@@ -29,9 +25,7 @@
     --card: #FFFFFF;
     --red: #C73E2C;
     --red-dark: #A53324;
-    --brown: #8B5E3C;
     --gold: #C9A668;
-    --green: #4E7A5A;
     --line: #E7E0D2;
     --radius: 16px;
     --sans: -apple-system, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -42,11 +36,10 @@
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.65; }
   a { color: inherit; }
 
-  /* 双语切换：默认 EN 模式隐藏 zh，反之亦然 */
   html[lang="en"] [lang="zh"] { display: none !important; }
   html[lang="zh"] [lang="en"] { display: none !important; }
 
-  /* ============ 导航 ============ */
+  /* 导航（同首页） */
   .nav { display: flex; align-items: center; justify-content: space-between; max-width: 1180px; margin: 0 auto; padding: 20px 24px; }
   .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
   .nav-brand .mark { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 1.5px solid var(--gold); display: inline-flex; align-items: center; justify-content: center; background: #fff; flex: 0 0 44px; }
@@ -56,6 +49,7 @@
   .nav-right { display: flex; align-items: center; gap: 22px; }
   .nav-link { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; }
   .nav-link:hover { color: var(--red); }
+  .nav-link.active { color: var(--red); }
   .lang-switch { display: inline-flex; gap: 2px; font-size: 13px; font-weight: 700; border: 1.5px solid var(--ink); border-radius: 999px; padding: 2px; background: #fff; }
   .lang-switch a { padding: 4px 10px; border-radius: 999px; text-decoration: none; color: var(--ink); cursor: pointer; }
   .lang-switch a.active { background: var(--ink); color: #fff; }
@@ -68,51 +62,66 @@
     .lang-switch { display: none; }
   }
 
-  /* ============ Hero ============ */
-  .hero { max-width: 1180px; margin: 0 auto; padding: 52px 24px 60px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; }
-  @media (max-width: 880px) { .hero { grid-template-columns: 1fr; text-align: center; } }
-  .hero-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12.5px; letter-spacing: 2px; font-weight: 700; color: var(--red); text-transform: uppercase; }
-  .hero-kicker::before { content: ""; width: 34px; height: 2px; background: var(--red); }
-  @media (max-width: 880px) { .hero-kicker { justify-content: center; } .hero-kicker::before { display: none; } }
-  .hero h1 { margin-top: 18px; font-family: var(--serif); font-size: clamp(36px, 5.4vw, 58px); font-weight: 700; line-height: 1.12; letter-spacing: -.5px; }
-  .hero h1 .red { color: var(--red); font-style: italic; }
-  .hero-sub { margin-top: 20px; font-size: 17.5px; color: var(--muted); max-width: 520px; }
-  @media (max-width: 880px) { .hero-sub { margin-left: auto; margin-right: auto; } }
-  .hero-zh { margin-top: 8px; font-size: 14px; color: var(--muted); letter-spacing: 3px; }
-  .hero-cta { display:inline-block; margin-top:32px; padding:13px 28px; background:var(--ink); color:#fff; border:1.5px solid var(--ink); border-radius:999px; font-size:14px; font-weight:700; text-decoration:none; font-family:var(--sans); transition:background .18s ease, border-color .18s ease; }
-  .hero-cta:hover { background:var(--red); border-color:var(--red); }
-  .hero-done { display: none; margin-top: 24px; font-size: 15px; color: var(--green); font-weight: 600; }
-  .hero-done.show { display: inline-block; }
-  .hero-note { margin-top: 16px; font-size: 13px; color: var(--muted); }
-  /* 社会证明 */
-  .hero-social { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .hero-social .avatars { display: flex; }
-  .hero-social .avatars span { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; border: 2px solid var(--paper); margin-left: -10px; box-shadow: 0 2px 6px rgba(20,17,12,.15); }
-  .hero-social .avatars span:first-child { margin-left: 0; }
-  .hero-social .avatars .more { background: var(--ink); }
-  .hero-social p { font-size: 14px; color: var(--muted); }
-  .hero-social b { color: var(--ink); font-weight: 700; }
-  .hero-logo { display: flex; justify-content: center; }
-  .hero-logo object { width: 320px; max-width: 100%; filter: drop-shadow(0 14px 30px rgba(60,45,20,.18)); pointer-events: none; }
+  /* Page Hero */
+  .page-hero { max-width: 1180px; margin: 0 auto; padding: 64px 24px 24px; }
+  .page-hero .kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12.5px; letter-spacing: 2px; font-weight: 700; color: var(--red); text-transform: uppercase; }
+  .page-hero .kicker::before { content: ""; width: 34px; height: 2px; background: var(--red); }
+  .page-hero h1 { margin-top: 14px; font-family: var(--serif); font-size: clamp(38px, 5vw, 56px); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; }
+  .page-hero h1 em { color: var(--red); font-style: italic; }
+  .page-hero .sub { margin-top: 14px; font-size: 17px; color: var(--muted); max-width: 640px; }
 
-  /* ============ Featured ============ */
-  .featured-wrap { max-width: 1180px; margin: 32px auto 64px; padding: 0 24px; }
-  .featured { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: 0 12px 40px rgba(20,17,12,.07); display: grid; grid-template-columns: .9fr 1.1fr; min-height: 380px; border: 1px solid var(--line); }
-  .featured-link { display: contents; text-decoration: none; color: inherit; }
-  .featured-cover { background: linear-gradient(135deg, #F1E7D2 0%, #E8D7B3 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; gap: 18px; position: relative; }
-  .featured-cover img { width: 100%; max-width: 220px; filter: drop-shadow(0 10px 22px rgba(0,0,0,.15)); }
-  .featured-cover .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); background: #fff; padding: 5px 12px; border-radius: 4px; border: 1px solid var(--red); }
-  .featured-body { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-  .featured-meta { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .featured-meta .cat { color: var(--red); font-weight: 700; }
-  .featured-title { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: -.3px; }
-  .featured-teaser { font-size: 16px; color: var(--muted); line-height: 1.65; }
-  .featured-quote { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink); padding-left: 14px; border-left: 3px solid var(--gold); margin-top: 6px; }
-  .featured-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .featured-author { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
-  .featured-author .av { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
-  .featured-foot .read-more { font-size: 13px; color: var(--red); font-weight: 700; }
-  @media (max-width: 880px) { .featured { grid-template-columns: 1fr; } .featured-body { padding: 28px 24px; } .featured-title { font-size: 24px; } }
+  /* 主题 chip 栏 */
+  .chip-bar { max-width: 1180px; margin: 32px auto 12px; padding: 0 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { padding: 8px 16px; border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; color: var(--ink); transition: all .15s ease; }
+  .chip:hover { border-color: var(--ink); }
+  .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* 主题区块 */
+  .sections { max-width: 1180px; margin: 0 auto; padding: 40px 24px 60px; }
+  .section { padding: 36px 0; border-top: 1px solid var(--line); }
+  .section:first-child { border-top: none; padding-top: 0; }
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 22px; gap: 16px; flex-wrap: wrap; }
+  .section-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; }
+  .section-head h2 em { color: var(--red); font-style: italic; }
+  .section-head .desc { font-size: 14px; color: var(--muted); }
+  .section-head .count { font-size: 12px; color: var(--muted); background: var(--line); padding: 3px 10px; border-radius: 999px; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: var(--radius); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; display: flex; flex-direction: column; }
+  .card.t-thinking { border-left-color: #5B7A8C; }
+  .card.t-business { border-left-color: #2B4A3A; }
+  .card.t-fiction { border-left-color: #7A5548; }
+  .card.t-lives { border-left-color: #8A6D3B; }
+  .card.t-mind { border-left-color: #3A5A4A; }
+  .card.t-english { border-left-color: #14110C; }
+  .ctag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; color: #fff; display: inline-block; }
+  .ct-thinking { background: #5B7A8C; }
+  .ct-business { background: #2B4A3A; }
+  .ct-fiction { background: #7A5548; }
+  .ct-lives { background: #8A6D3B; }
+  .ct-mind { background: #3A5A4A; }
+  .ct-english { background: #14110C; }
+  .card-author { font-size: 13.5px; color: var(--muted); font-weight: 600; margin-top: -2px; }
+  .card-title .en-title { display: block; font-size: 13px; color: var(--muted); font-family: var(--sans); font-weight: 500; margin-top: 5px; letter-spacing: .3px; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,17,12,.1); }
+  .card-cover { width: 100%; height: 232px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F3ECDD 0%, #E6D6B4 100%); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .card-cover .jkt { height: 202px; width: auto; border-radius: 3px; box-shadow: 0 10px 22px rgba(20,17,12,.22); transition: transform .28s ease; }
+  .card:hover .card-cover .jkt { transform: translateY(-5px) rotate(-1.5deg); }
+  .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .card-meta { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .card-meta .rwc { background: var(--ink); color: #fff; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 11px; letter-spacing: .5px; }
+  .card-title { font-family: var(--serif); font-size: 20px; line-height: 1.3; font-weight: 700; }
+  .card-title a { color: var(--ink); text-decoration: none; }
+  .card-title a:hover { color: var(--red); }
+  .card-teaser { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
+  .card-foot { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--line); margin-top: 4px; }
+  .card-foot .heart { color: var(--red); font-weight: 700; }
+  .card.soon { opacity: .82; background: #FAF6EC; }
+  .card.soon .card-cover .jkt { filter: grayscale(.2); }
+  .card.soon .soon-badge { display: inline-block; background: var(--gold); color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-top: 6px; }
 
   /* ============ 3-2-1 Thursday 入口（Atoms 风 · 居中软面板） ============ */
   .band321 { background: var(--paper); color: var(--ink); margin: 0; padding: 64px 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -138,59 +147,12 @@
   .btn-321.ghost:hover { background: var(--ink); color: var(--paper); transform: none; box-shadow: none; }
   @media (max-width: 640px) { .band321-panel { padding: 36px 20px; border-radius: 24px; } }
 
-  /* ============ 网格列表 ============ */
-  .feed { max-width: 1180px; margin: 0 auto; padding: 80px 24px; }
-  .feed-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
-  .feed-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; }
-  .feed-head a { font-size: 14px; font-weight: 700; color: var(--red); text-decoration: none; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  @media (max-width: 880px) { .grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
-
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; display: flex; flex-direction: column; }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,17,12,.1); }
-  .card-cover { width: 100%; height: 232px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F3ECDD 0%, #E6D6B4 100%); border-bottom: 1px solid var(--line); overflow: hidden; }
-  .card-cover .jkt { height: 202px; width: auto; border-radius: 3px; box-shadow: 0 10px 22px rgba(20,17,12,.22); transition: transform .28s ease; }
-  .card:hover .card-cover .jkt { transform: translateY(-5px) rotate(-1.5deg); }
-  .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-  .card-meta { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
-  .card-meta .rwc { background: var(--ink); color: #fff; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 11px; letter-spacing: .5px; }
-  .card-title { font-family: var(--serif); font-size: 20px; line-height: 1.3; font-weight: 700; }
-  .card-title a { color: var(--ink); text-decoration: none; }
-  .card-title a:hover { color: var(--red); }
-  .card-teaser { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
-  .card-foot { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--line); margin-top: 4px; }
-  .card-foot .heart { color: var(--red); font-weight: 700; }
-  .card.soon { opacity: .82; background: #FAF6EC; }
-  .card.soon .card-cover .jkt { filter: grayscale(.2); }
-  .card.soon .soon-badge { display: inline-block; background: var(--gold); color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-top: 6px; }
-  .card.viewall { background: var(--card); color: var(--ink); border-color: var(--line); justify-content: center; align-items: center; text-align: center; min-height: 320px; }
-  .card.viewall a { color: var(--ink); text-decoration: none; display: flex; flex-direction: column; gap: 10px; padding: 30px; }
-  .card.viewall .va-arrow { font-size: 38px; color: var(--red); }
-  .card.viewall .va-text { font-family: var(--serif); font-size: 22px; font-weight: 700; }
-  .card.viewall .va-sub { font-size: 13px; color: var(--muted); }
-  .card.viewall:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
-
-  /* ============ 书墙 ============ */
-  .wall-band { background: var(--paper); color: var(--ink); padding: 80px 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .wall-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
-  .wall-kicker { display: inline-block; font-size: 12px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
-  .wall-inner h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 700; }
-  .wall-inner h2 em { color: var(--red); font-style: italic; }
-  .wall-sub { margin-top: 12px; font-size: 15px; color: var(--muted); }
-  .wall { margin-top: 50px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; perspective: 800px; }
-  .wall-book { display: block; transition: transform .3s ease; }
-  .wall-book:hover { transform: translateY(-8px) rotate(-2deg); }
-  .wall-book .jkt-wall { width: 110px; height: 161px; display: block; border-radius: 3px; filter: drop-shadow(0 8px 18px rgba(20,17,12,.22)); pointer-events: none; }
-  .wall-more { margin-top: 36px; }
-  .wall-more a { color: var(--red); text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 1px; }
-
   /* ============ 页脚（浅色 · 三栏 + 社交） ============ */
   .nf { background: var(--card, #FFFFFF); border-top: 1px solid var(--line); padding: 60px 24px 28px; }
   .nf-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.7fr 1fr 1fr; gap: 48px; }
   .nf-brand { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--ink); }
   .nf-brand em { color: var(--red); font-style: italic; }
-  .nf-tag { margin-top: 14px; font-size: 14px; color: var(--muted); max-width: 320px; line-height: 1.7; }
+  .nf-tag { margin-top: 14px; font-size:14px; color: var(--muted); max-width: 320px; line-height: 1.7; }
   .nf-social { margin-top: 22px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .nf-social a, .nf-social .ph { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--paper, #FAF7F0); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: all .18s ease; }
   .nf-social a:hover { border-color: var(--red); color: var(--red); transform: translateY(-3px); background: #fff; }
@@ -203,15 +165,6 @@
   .nf-col a:hover { color: var(--red); }
   .nf-bottom { max-width: 1180px; margin: 40px auto 0; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); }
   @media (max-width: 760px) { .nf-inner { grid-template-columns: 1fr; gap: 30px; } .nf-bottom { flex-direction: column; gap: 8px; text-align: center; } }
-
-  /* 标题 hover：下划线浮动 */
-  .card-title a, .featured-title a, .archive-list li a { position: relative; background-image: linear-gradient(var(--red), var(--red)); background-size: 0% 2px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .28s ease, color .15s ease; }
-  .card-title a:hover, .featured-title a:hover, .archive-list li a:hover { background-size: 100% 2px; }
-  /* 返回顶部 */
-  .to-top { position: fixed; right: 22px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 8px 22px rgba(20,17,12,.25); opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease, background .18s ease; z-index: 80; }
-  .to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-  .to-top:hover { background: var(--red); }
-  @media (max-width: 720px) { .to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; } }
   /* 标题 hover：下划线浮动 */
   .card-title a, .featured-title a, .archive-list li a { position: relative; background-image: linear-gradient(var(--red), var(--red)); background-size: 0% 2px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .28s ease, color .15s ease; }
   .card-title a:hover, .featured-title a:hover, .archive-list li a:hover { background-size: 100% 2px; }
@@ -234,8 +187,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
   <link rel="manifest" href="manifest.webmanifest">
 
-<meta name="description" content="A weekly letter on books that change how you see — and what you do next. Join Reads with Colin.">
-<link rel="canonical" href="https://www.readswithcolin.com/">
+<link rel="canonical" href="https://www.readswithcolin.com/categories.html">
+<meta property="og:site_name" content="Reads with Colin">
 <style>
   /* v13.1c: 导航「专栏」下拉（details 原生实现，触屏可点开） */
   .nav-drop { position: relative; display: inline-block; }
@@ -260,7 +213,8 @@
     <span class="name">Reads <em>with</em> Colin</span>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="categories.html"><span lang="en">Categories</span><span lang="zh">分类</span></a>
+    <a class="nav-link" href="index.html"><span lang="en">Latest</span><span lang="zh">最近更新</span></a>
+    <a class="nav-link active" href="categories.html"><span lang="en">Categories</span><span lang="zh">分类</span></a>
         <details class="nav-drop">
       <summary class="nav-link nav-keep"><span lang="en">Columns</span><span lang="zh">专栏</span></summary>
       <div class="nav-menu">
@@ -279,46 +233,178 @@
   </div>
 </nav>
 
-<!-- ======================= Hero ======================= -->
-<header class="hero">
-  <div>
-    <span class="hero-kicker"><span lang="en">A Weekly Letter</span><span lang="zh">每周一封</span></span>
-    <h1><span lang="en">Read books that change<br>how you <span class="red">see the world.</span></span><span lang="zh">读懂世界的<br>几本<span class="red">好书</span>，每周一封。</span></h1>
-    <p class="hero-sub"><span lang="en">One idea, five minutes, every Thursday.</span><span lang="zh">读书不是逃避世界，是带上更好的眼睛再回来。</span></p>
-    <p class="hero-zh"><span lang="en">Learn to know; forget to transcend; practice to renew.</span><span lang="zh">学而知之 · 忘而破之 · 习而新之</span></p>
-      <a class="hero-cta" href="mailto:littlelinthinks@gmail.com"><span lang="en">Get in touch</span><span lang="zh">联系我</span></a>
-    <div class="hero-social">
-      <p><b>34</b><span lang="en"> book notes published</span><span lang="zh"> 篇书评已发布</span> · <b>3</b><span lang="en"> columns</span><span lang="zh"> 个常设专栏</span> · <b>EN+中文</b></p>
-    </div>
-  </div>
-  <div class="hero-logo">
-    <object type="image/svg+xml" data="img/logo-v6-final.svg" aria-label="Reads with Colin 徽章"></object>
-  </div>
+<!-- ======================= Page Hero ======================= -->
+<header class="page-hero">
+  <span class="kicker"><span lang="en">Categories</span><span lang="zh">分类</span></span>
+  <h1><span lang="en">Books, <em>by theme</em>.</span><span lang="zh">好书，<em>按主题</em>。</span></h1>
+  <p class="sub"><span lang="en">Six books — three already written about, three more on the bench.</span><span lang="zh">六本书，三本已写，三本在排队。</span></p>
 </header>
 
-<!-- ======================= Featured 大卡 · RWC #001 ======================= -->
-<section class="featured-wrap" id="featured">
-  <article class="featured">
-    <a class="featured-link" id="featuredLink" href="posts/think-fast-slow.html">
-      <div class="featured-cover">
-        <span class="label"><span lang="en">Latest</span><span lang="zh">最新</span> · RWC #001</span>
-        <img src="img/covers-b/placeholder.svg" alt="Featured cover" id="featuredCover">
+<!-- ======================= 主题锚点 ======================= -->
+<div class="chip-bar">
+  <a class="chip active" href="#thinking"><span lang="en">Mental Models</span><span lang="zh">思维模型</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#business"><span lang="en">Business & Investing</span><span lang="zh">商业与投资</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#fiction"><span lang="en">Fiction</span><span lang="zh">中文小说</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#lives"><span lang="en">Lives & Essays</span><span lang="zh">人物随笔</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#mind"><span lang="en">Mind & Zen</span><span lang="zh">心智与禅</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#english"><span lang="en">Read in English</span><span lang="zh">英文原著</span> · <span class="chip-n">—</span></a>
+  <a class="chip" href="#zizhi"><span lang="en">Zizhi Tongjian</span><span lang="zh">资治通鉴</span> · <span class="chip-n">专栏</span></a>
+  <a class="chip" href="#maoxuan"><span lang="en">Essays on Method</span><span lang="zh">毛选精读</span> · <span class="chip-n">专栏</span></a>
+  <a class="chip" href="archive.html"><span lang="en">Archive</span><span lang="zh">往期全部</span> · <span class="chip-n">→</span></a>
+</div>
+
+<!-- ======================= 主题区块 ======================= -->
+<section class="sections">
+
+  <div class="section" id="thinking">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Mental Models</span><span lang="zh">思维模型</span> <em>·</em> <span lang="en">think better, decide better</span><span lang="zh">想得清楚，选得明白</span></h2>
+        <p class="desc"><span lang="en">Books about how thinking actually works.</span><span lang="zh">讲「怎么想」的书。</span></p>
       </div>
-      <div class="featured-body">
-        <div class="featured-meta" id="featuredMeta"><span class="cat"><span lang="en">Thinking</span><span lang="zh">思维</span></span><span lang="en">·</span><span lang="zh">·</span></div>
-        <h2 class="featured-title" id="featuredTitle"><span lang="en">Loading…</span><span lang="zh">加载中…</span></h2>
-        <p class="featured-teaser" id="featuredTeaser"><span lang="en">Loading…</span><span lang="zh">加载中…</span></p>
-        <div class="featured-quote" id="featuredQuote">…</div>
-        <div class="featured-foot">
-          <div class="featured-author"><span class="av">C</span> <span id="featuredAuthor">Colin</span></div>
-          <span class="read-more"><span lang="en">Read the letter →</span><span lang="zh">阅读全文 →</span></span>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="business">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Business & Investing</span><span lang="zh">商业与投资</span> <em>·</em> <span lang="en">wealth, slowly and awake</span><span lang="zh">慢慢变富，也慢慢变清醒</span></h2>
+        <p class="desc"><span lang="en">Books on money, business, and the minds behind them.</span><span lang="zh">讲「钱与事」的书。</span></p>
+      </div>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="fiction">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Fiction</span><span lang="zh">中文小说</span> <em>·</em> <span lang="en">stories that stay</span><span lang="zh">留在心里的故事</span></h2>
+        <p class="desc"><span lang="en">Novels that keep thinking about long after.</span><span lang="zh">读完很久还在想的书。</span></p>
+      </div>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="lives">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Lives & Essays</span><span lang="zh">人物随笔</span> <em>·</em> <span lang="en">lives honestly told</span><span lang="zh">真人写的真话</span></h2>
+        <p class="desc"><span lang="en">Real people, real words.</span><span lang="zh">真人，真话，真性情。</span></p>
+      </div>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="mind">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Mind & Zen</span><span lang="zh">心智与禅</span> <em>·</em> <span lang="en">tending the same mind</span><span lang="zh">修的是同一颗心</span></h2>
+        <p class="desc"><span lang="en">Books on attention, ego, and the heart.</span><span lang="zh">讲「注意力、自我与心」的书。</span></p>
+      </div>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="english">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Read in English</span><span lang="zh">英文原著</span> <em>·</em> <span lang="en">the original voice</span><span lang="zh">读的是原版</span></h2>
+        <p class="desc"><span lang="en">Books read in the original English.</span><span lang="zh">直接读英文原版的乐趣。</span></p>
+      </div>
+      <span class="count">—</span>
+    </div>
+    <div class="grid">
+      <!-- Cards rendered from data/posts.json -->
+    </div>
+  </div>
+
+  <div class="section" id="zizhi">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Zizhi Tongjian</span><span lang="zh">资治通鉴</span> <em>·</em> <span lang="en">a 1,400-year case book</span><span lang="zh">千年决策案例库</span></h2>
+        <p class="desc"><span lang="en">Wealth logic and management thinking, read out of 294 volumes of real decisions.</span><span lang="zh">从 294 卷真实决策里，学财富逻辑与管理思维。</span></p>
+      </div>
+      <span class="count">专栏</span>
+    </div>
+    <div class="grid">
+      <article class="card zizhi-feature">
+        <div class="card-cover"><img class="jkt" src="img/covers-b/zizhitongjian-cover.jpg" alt="资治通鉴 · 千年决策案例库"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="rwc"><span lang="en">COLUMN</span><span lang="zh">专栏</span></span>
+            <span lang="en">Power &amp; Management</span><span lang="zh">财富 · 管理</span>
+          </div>
+          <h3 class="card-title">
+            <a href="zizhitongjian.html">
+              <span lang="en">Zizhi Tongjian: A 1,400-Year Case Book</span>
+              <span lang="zh">资治通鉴：千年决策案例库</span>
+            </a>
+          </h3>
+          <p class="card-teaser">
+            <span lang="en">294 volumes of decision post-mortems — alliances, incentives, attrition, compounding. New case every two weeks. First essay in the works.</span>
+            <span lang="zh">294 卷决策复盘——联盟、激励、消耗、复利。每两周一个案例，首篇撰写中。</span>
+          </p>
+          <div class="card-foot">
+            <span><span lang="en">Column · Coming soon</span><span lang="zh">专栏 · 筹备中</span></span>
+          </div>
         </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="section" id="maoxuan">
+    <div class="section-head">
+      <div>
+        <h2><span lang="en">Essays on Method</span><span lang="zh">毛选精读</span> <em>·</em> <span lang="en">a habit, not an answer</span><span lang="zh">一种习惯，不是一套答案</span></h2>
+        <p class="desc"><span lang="en">Not a set of answers — a trained habit: investigate, analyse, find the principal contradiction, test it in practice.</span><span lang="zh">不是一套答案，而是训练一种习惯：去调查、去分析、去找主要矛盾、去用实践检验。</span></p>
       </div>
-    </a>
-  </article>
+      <span class="count">专栏</span>
+    </div>
+    <div class="grid">
+      <article class="card maoxuan-feature">
+        <div class="card-cover"><img class="jkt" src="img/covers-b/maoxuan-cover.jpg" alt="毛选精读 · 思想方法十讲"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="rwc"><span lang="en">COLUMN</span><span lang="zh">专栏</span></span>
+            <span lang="en">Essays on Method</span><span lang="zh">思想方法</span>
+          </div>
+          <h3 class="card-title">
+            <a href="maoxuan.html">
+              <span lang="en">Reading the Classics for Method</span>
+              <span lang="zh">毛选精读：把思想方法读成工具</span>
+            </a>
+          </h3>
+          <p class="card-teaser">
+            <span lang="en">Not answers — a habit: set down mood and assumption, investigate, analyse, find the principal contradiction, test it in practice. Ten essays planned.</span>
+            <span lang="zh">不是一套答案，而是训练一种习惯：遇到问题，先放下情绪和预设，去调查，去分析，去找主要矛盾，去用实践检验。十讲规划，筹备中。</span>
+          </p>
+          <div class="card-foot">
+            <span><span lang="en">Column · Coming soon</span><span lang="zh">专栏 · 筹备中</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
 </section>
 
-<!-- ======================= 3-2-1 Thursday 入口 ======================= -->
+<!-- ======================= 3-2-1 入口 ======================= -->
 <section class="band321">
   <div class="band321-panel">
   <div class="band321-inner">
@@ -347,132 +433,6 @@
       <a class="btn-321 ghost" href="mailto:littlelinthinks@gmail.com"><span lang="en">Get in touch</span><span lang="zh">联系我</span></a>
     </div>
   </div>
-  </div>
-</section>
-
-<!-- ======================= 网格列表 ======================= -->
-<section class="feed">
-  <div class="feed-head">
-    <h2><span lang="en">From the Shelf</span><span lang="zh">书架精选</span></h2>
-    <a href="categories.html"><span lang="en">All <span class="js-count">—</span> books →</span><span lang="zh">全部 <span class="js-count">—</span> 本 →</span></a>
-  </div>
-  <div class="grid">
-    <!-- Picks rendered from data/posts.json -->
-  
-
-    <article class="card kahneman-feature">
-      <div class="card-cover"><img class="jkt" src="img/covers-b/kahneman-collage.jpg" alt="15 Books Recommended by Daniel Kahneman"></div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="rwc"><span lang="en">LIST · 15</span><span lang="zh">书单 · 15</span></span>
-          <span lang="en">Reading List</span><span lang="zh">书单</span>
-        </div>
-        <h3 class="card-title">
-          <a href="kahneman-15.html">
-            <span lang="en">15 Books Kahneman Recommended</span>
-            <span lang="zh">卡尼曼推荐的 15 本书</span>
-          </a>
-        </h3>
-        <p class="card-teaser">
-          <span lang="en">The author of <em>Thinking, Fast and Slow</em> picks the titles that shaped how he thinks — each with his own one-line blurb (EN + 中文).</span>
-          <span lang="zh">《思考，快与慢》的作者，列出塑造他思维的书单，每本附他亲笔的一句话推荐（中英双语）。</span>
-        </p>
-        <div class="card-foot">
-          <span><span lang="en">Sep 2026 · 15 books</span><span lang="zh">2026 年 9 月 · 共 15 本</span></span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card zhixing-feature">
-      <div class="card-cover"><img class="jkt" src="img/covers/zhixing-321.jpg" alt="知行 3-2-1 · The Reading Method"></div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="rwc"><span lang="en">METHOD</span><span lang="zh">方法论</span></span>
-          <span lang="en">Reading Method</span><span lang="zh">读书法</span>
-        </div>
-        <h3 class="card-title">
-          <a href="reading-321.html">
-            <span lang="en">The 3-2-1 Reading Method</span>
-            <span lang="zh">知行 3-2-1 读书法</span>
-          </a>
-        </h3>
-        <p class="card-teaser">
-          <span lang="en">One focus, two outlets, three resources — the engine behind every recommendation on this site. Adapted from Dan Koe's framework.</span>
-          <span lang="zh">一个聚焦、两种输出、三种养分——本站每篇推荐背后的引擎。改编写自 Dan Koe 的框架。</span>
-        </p>
-        <div class="card-foot">
-          <span><span lang="en">Sep 2026 · Method</span><span lang="zh">2026 年 9 月 · 方法论</span></span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card zizhi-feature">
-      <div class="card-cover"><img class="jkt" src="img/covers-b/zizhitongjian-cover.jpg" alt="资治通鉴 · 千年决策案例库"></div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="rwc"><span lang="en">COLUMN</span><span lang="zh">专栏</span></span>
-          <span lang="en">Power & Management</span><span lang="zh">财富 · 管理</span>
-        </div>
-        <h3 class="card-title">
-          <a href="zizhitongjian.html">
-            <span lang="en">Zizhi Tongjian: A 1,400-Year Case Book</span>
-            <span lang="zh">资治通鉴：千年决策案例库</span>
-          </a>
-        </h3>
-        <p class="card-teaser">
-          <span lang="en">294 volumes of decision post-mortems — alliances, incentives, attrition, compounding. New case every two weeks. First essay in the works.</span>
-          <span lang="zh">294 卷决策复盘——联盟、激励、消耗、复利。每两周一个案例，首篇撰写中。</span>
-        </p>
-        <div class="card-foot">
-          <span><span lang="en">Column · Coming soon</span><span lang="zh">专栏 · 筹备中</span></span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card maoxuan-feature">
-      <div class="card-cover"><img class="jkt" src="img/covers-b/maoxuan-cover.jpg" alt="毛选精读 · 思想方法十讲"></div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="rwc"><span lang="en">COLUMN</span><span lang="zh">专栏</span></span>
-          <span lang="en">Essays on Method</span><span lang="zh">思想方法</span>
-        </div>
-        <h3 class="card-title">
-          <a href="maoxuan.html">
-            <span lang="en">Reading the Classics for Method</span>
-            <span lang="zh">毛选精读：把思想方法读成工具</span>
-          </a>
-        </h3>
-        <p class="card-teaser">
-          <span lang="en">Strictly methodology: investigate before you conclude, seek truth from facts, grasp the principal contradiction. Ten essays planned.</span>
-          <span lang="zh">只取思想方法与工作方法：调查研究、实事求是、抓主要矛盾。十讲规划，筹备中。</span>
-        </p>
-        <div class="card-foot">
-          <span><span lang="en">Column · Coming soon</span><span lang="zh">专栏 · 筹备中</span></span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card viewall">
-      <a href="archive.html">
-        <span class="va-arrow">→</span>
-        <span class="va-text"><span lang="en">View the shelf</span><span lang="zh">查看全部书单</span></span>
-        <span class="va-sub"><span lang="en"><span class="js-count">—</span> books read</span><span lang="zh">共 <span class="js-count">—</span> 本已读</span></span>
-      </a>
-    </article>
-
-  </div>
-</section>
-
-<!-- ======================= 书墙 ======================= -->
-<section class="wall-band">
-  <div class="wall-inner">
-    <div class="wall-kicker"><span lang="en">The Shelf</span><span lang="zh">书架</span></div>
-    <h2><span lang="en">Books worth <em>keeping</em></span><span lang="zh">值得<em>反复翻</em>的好书</span></h2>
-    <p class="wall-sub"><span lang="en"><span class="js-count">—</span> books read, in Chinese and in the original English.</span><span lang="zh">每一本都是亲自读完的书 · 共 <span class="js-count">—</span> 本</span></p>
-    <div class="wall">
-      <!-- Wall books rendered from data/posts.json -->
-    </div>
-    <div class="wall-more"><a href="archive.html"><span lang="en">Browse all <span class="js-count">—</span> books →</span><span lang="zh">查看全部 <span class="js-count">—</span> 本 →</span></a></div>
   </div>
 </section>
 
@@ -516,7 +476,7 @@
   </div>
 </footer>
 
-<!-- ======================= 双语切换（自包含，与 main.js 兼容） ======================= -->
+<!-- ======================= 双语切换 ======================= -->
 <script>
 (function () {
   "use strict";
