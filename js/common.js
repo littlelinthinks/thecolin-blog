@@ -295,20 +295,33 @@ function initCommonFeatures() {
         });
     });
 
-    // ===== 下拉菜单 click 触发（替代 hover，符合用户要求）=====
+    // ===== 下拉菜单（v26：桌面 hover 展开 + 350ms 宽限关闭；点击开合保留，兼容触屏）=====
     document.querySelectorAll('.nav-dropdown').forEach(li => {
         const trigger = li.querySelector(':scope > a');
         if (!trigger) return;
-        // v13.1: 鼠标移开即收起（保留 click 打开，兼容触屏）
-        li.addEventListener('mouseleave', () => li.classList.remove('open'));
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // 关闭其他已打开的 dropdown
+        let closeTimer = null;
+        const openNow = () => {
+            clearTimeout(closeTimer);
             document.querySelectorAll('.nav-dropdown.open').forEach(other => {
                 if (other !== li) other.classList.remove('open');
             });
-            li.classList.toggle('open');
+            li.classList.add('open');
+        };
+        const closeSoon = () => {
+            clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => li.classList.remove('open'), 350);
+        };
+        // 仅在"有精确指针+可悬停"的设备绑定 hover（触屏设备 tap 会先触发 mouseenter，禁用以免和 click 冲突）
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            li.addEventListener('mouseenter', openNow);
+            li.addEventListener('mouseleave', closeSoon);
+        }
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const wasOpen = li.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown.open').forEach(other => other.classList.remove('open'));
+            if (!wasOpen) openNow();
         });
     });
     // 点击下拉里的子链接/子菜单项时立即关闭下拉（修复：跳转/锚定后下拉不收起的 bug）

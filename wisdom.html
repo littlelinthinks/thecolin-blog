@@ -14,11 +14,11 @@
     <meta property="og:description" content="全球186位顶尖心智的工作与生活原则，为终身成长者而整理。">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-    <link rel="stylesheet" href="css/common.css?v=25">
+    <link rel="stylesheet" href="css/common.css?v=26">
     <link rel="preconnect" href="https://fonts.googleapis.cn">
     <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
     <link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="js/common.js?v=25" defer></script>
+    <script src="js/common.js?v=26" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -29,7 +29,7 @@
     <title>心智折叠 · 186原则 — 小Lin思考</title>
     <style>
         :root {
-            --w-ink: #0D0D0D;
+            --w-ink: #17110A;
             --w-paper: #F5F0E8;
             --w-gold: #C9A84C;
             --w-gold-light: #E8D49A;
@@ -48,7 +48,7 @@
         }
 
         /* Nav overrides */
-        .nav-header { background: rgba(13,13,13,0.97) !important; border-bottom: 1px solid var(--w-border) !important; }
+        .nav-header { background: rgba(23,17,10,0.97) !important; border-bottom: 1px solid var(--w-border) !important; }
         .nav-logo { color: var(--w-gold) !important; font-family: 'Playfair Display', serif !important; }
         .nav-link { color: rgba(245,240,232,0.75) !important; }
         .nav-link:hover { color: var(--w-gold) !important; }
@@ -228,7 +228,7 @@
 
         /* ===== STATS BAR ===== */
         .w-stats-bar {
-            background: #0a0a0a;
+            background: #120D07;
             border-top: 1px solid var(--w-border);
             border-bottom: 1px solid var(--w-border);
             display: flex; justify-content: center;
@@ -254,7 +254,7 @@
         .w-why-body p { font-size: 15px; line-height: 2.1; color: rgba(245,240,232,0.58); margin-bottom: 18px; }
         .w-why-body strong { color: var(--w-paper); font-weight: 600; }
         .w-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.05); margin-top: 32px; }
-        .w-why-card { background: #111; padding: 28px 24px; transition: background 0.3s; }
+        .w-why-card { background: #1A130B; padding: 28px 24px; transition: background 0.3s; }
         .w-why-card:hover { background: rgba(201,168,76,0.06); }
         .w-why-card-icon { font-size: 24px; margin-bottom: 10px; display: block; }
         .w-why-card h4 { font-size: 14px; font-weight: 700; color: var(--w-paper); margin-bottom: 8px; }
@@ -268,7 +268,7 @@
         .w-cats-title span { color: var(--w-gold); }
         .w-cats-note { font-size: 13px; color: rgba(255,255,255,0.28); max-width: 220px; text-align: right; line-height: 1.7; }
         .w-cat-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: rgba(255,255,255,0.04); }
-        .w-cat-item { background: #0a0a0a; padding: 26px 16px; text-align: center; border: 1px solid transparent; transition: all 0.3s; cursor: pointer; }
+        .w-cat-item { background: #120D07; padding: 26px 16px; text-align: center; border: 1px solid transparent; transition: all 0.3s; cursor: pointer; }
         .w-cat-item:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.22); }
         .w-cat-emoji { font-size: 24px; display: block; margin-bottom: 8px; }
         .w-cat-name { font-size: 12px; color: rgba(255,255,255,0.58); letter-spacing: 1px; line-height: 1.5; }
@@ -328,7 +328,7 @@
         .w-cta-row-center { display: flex; gap: 16px; justify-content: center; align-items: center; }
 
         /* ===== FOOTER ===== */
-        .w-footer { background: #050505; padding: 48px 80px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); }
+        .w-footer { background: #0F0B06; padding: 48px 80px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); }
         .w-footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--w-gold); }
         .w-footer-brand span { font-size: 12px; color: rgba(245,240,232,0.25); font-family: 'Space Mono', monospace; font-weight:400; display:block; letter-spacing:2px; margin-top:4px; }
         .w-footer-links { display: flex; gap: 24px; }
@@ -360,6 +360,24 @@
             .w-footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 32px; }
             .w-footer-links { flex-wrap: wrap; justify-content: center; }
         }
+    
+        /* ===== v26 人物/领域弹窗 ===== */
+        .w-modal-mask { position:fixed; inset:0; background:rgba(10,7,3,.72); backdrop-filter:blur(6px); z-index:99999; display:none; align-items:center; justify-content:center; padding:24px; }
+        .w-modal-mask.active { display:flex; animation:wFadeIn .25s ease; }
+        @keyframes wFadeIn { from{opacity:0} to{opacity:1} }
+        .w-modal { background:var(--w-cream,#FAF7F2); color:#1A140B; max-width:560px; width:100%; max-height:82vh; overflow-y:auto; border-radius:14px; padding:40px 42px 34px; position:relative; box-shadow:0 24px 80px rgba(0,0,0,.45); transform:translateY(14px); animation:wUp .28s ease; }
+        @keyframes wUp { from{transform:translateY(14px);opacity:.6} to{transform:translateY(0);opacity:1} }
+        .w-modal-close { position:absolute; top:16px; right:18px; width:34px; height:34px; border:none; background:rgba(26,20,11,.06); border-radius:50%; font-size:17px; cursor:pointer; color:#1A140B; transition:background .2s; line-height:1; }
+        .w-modal-close:hover { background:rgba(201,168,76,.35); }
+        .w-modal .m-num { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:2px; color:#A8842E; margin-bottom:12px; text-transform:uppercase; }
+        .w-modal .m-name { font-family:'Playfair Display',Georgia,serif; font-size:30px; font-weight:900; margin-bottom:4px; }
+        .w-modal .m-cn { font-size:14px; color:#8A7B60; margin-bottom:6px; }
+        .w-modal .m-role { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; color:#6B5F49; margin-bottom:18px; }
+        .w-modal .m-quote { border-left:3px solid #C9A84C; padding:6px 0 6px 16px; font-size:15.5px; line-height:1.85; color:#3A3122; margin-bottom:20px; }
+        .w-modal .m-tags { display:flex; gap:8px; flex-wrap:wrap; }
+        .w-modal .m-tags span { font-family:'Space Mono',monospace; font-size:11px; padding:5px 12px; border:1px solid rgba(201,168,76,.45); border-radius:4px; color:#8A6D2B; }
+        .w-modal .m-cta { margin-top:26px; padding-top:20px; border-top:1px solid rgba(26,20,11,.1); font-size:13.5px; line-height:1.8; color:#5C5140; }
+        .w-modal .m-cta strong { color:#A8842E; }
     </style>
 
     <meta property="og:image" content="https://www.thecolin.vip/images/og-image.jpg">
@@ -786,6 +804,58 @@
                 hamburgerBtn?.classList.remove('active');
             }
         });
+    </script>
+
+    <script>
+    // ===== v26: 人物卡/领域格点击弹窗 =====
+    (function () {
+        // 弹窗骨架
+        const mask = document.createElement('div');
+        mask.className = 'w-modal-mask';
+        mask.innerHTML = '<div class="w-modal" role="dialog" aria-modal="true">' +
+            '<button class="w-modal-close" aria-label="关闭">✕</button>' +
+            '<div class="w-modal-body"></div></div>';
+        document.body.appendChild(mask);
+        const body = mask.querySelector('.w-modal-body');
+        const close = () => mask.classList.remove('active');
+        mask.querySelector('.w-modal-close').addEventListener('click', close);
+        mask.addEventListener('click', (e) => { if (e.target === mask) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+        // 人物卡: 展示完整内容
+        document.querySelectorAll('.w-leader-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const g = (s) => { const el = card.querySelector(s); return el ? el.textContent.trim() : ''; };
+                const tags = [...card.querySelectorAll('.w-tag')].map(t => '<span>' + t.textContent.trim() + '</span>').join('');
+                body.innerHTML =
+                    '<div class="m-num">' + g('.w-leader-num') + '</div>' +
+                    '<div class="m-name">' + g('.w-leader-name') + '</div>' +
+                    '<div class="m-cn">' + g('.w-leader-name-cn') + '</div>' +
+                    '<div class="m-role">' + g('.w-leader-role') + '</div>' +
+                    '<div class="m-quote">' + g('.w-leader-principle') + '</div>' +
+                    (tags ? '<div class="m-tags">' + tags + '</div>' : '') +
+                    '<div class="m-cta">完整原则拆解（具体情境 · 操作步骤 · 反面案例）正在公众号<strong>「小Lin思考」</strong>连载更新。</div>';
+                mask.classList.add('active');
+            });
+        });
+
+        // 领域格: 显示该领域人数 + 引导
+        document.querySelectorAll('.w-cat-item').forEach(item => {
+            item.setAttribute('role', 'button');
+            item.addEventListener('click', () => {
+                const name = item.querySelector('.w-cat-name') ? item.querySelector('.w-cat-name').textContent.trim() : '';
+                const count = item.querySelector('.w-cat-count') ? item.querySelector('.w-cat-count').textContent.trim() : '';
+                body.innerHTML =
+                    '<div class="m-num">' + name + '</div>' +
+                    '<div class="m-name">' + name + '</div>' +
+                    '<div class="m-role">该领域收录 ' + count.replace('人', ' 位') + '顶尖心智</div>' +
+                    '<div class="m-quote">' + name + ' 领域的完整人物名单与原则拆解正在系统整理中，每一篇都包含具体情境、操作步骤与反面案例。</div>' +
+                    '<div class="m-cta">第一时间获取完整版：关注公众号<strong>「小Lin思考」</strong>，或返回首页订阅更新。</div>';
+                mask.classList.add('active');
+            });
+        });
+    })();
     </script>
 </body>
 </html>
