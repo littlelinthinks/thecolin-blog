@@ -38,8 +38,8 @@
     <noscript><link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
     <!-- Common CSS and JS -->
     <link rel="canonical" href="index.html">
-    <link rel="stylesheet" href="css/common.css">
-    <script src="js/common.js" defer></script>
+    <link rel="stylesheet" href="css/common.css?v=25">
+    <script src="js/common.js?v=25" defer></script>
 
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="rss.xml">
@@ -3948,7 +3948,7 @@
                 (articles || []).forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
                 const isZh = typeof currentLang !== 'undefined' ? currentLang === 'zh' : true;
                 grid.innerHTML = seriesList.map(s => `
-                    <a class="series-chip" href="https://www.thecolin.vip/${s.url&#32;||&#32;'archive.html?series='&#32;+&#32;s.id}">
+                    <a class="series-chip" href="https://www.thecolin.vip/${s.url || 'archive.html?series=' + s.id}">
                         <span class="series-chip-icon">${s.icon}</span>
                         <span class="series-chip-text">
                             <span class="series-chip-name">${isZh ? s.name : s.nameEn}</span>

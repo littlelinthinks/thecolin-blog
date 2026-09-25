@@ -40,7 +40,7 @@
     <meta name="twitter:description" content="浏览 COLIN 博客所有文章，涵盖深度思考、终身学习、写作技巧与人生哲学。">
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     <link rel="canonical" href="https://www.thecolin.vip/archive">
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/common.css?v=25">
 
     <style>
         * {
@@ -872,7 +872,7 @@
                     <div class="archive-item" data-series="${article.series || ''}">
                         <div class="archive-item-info">
                             <div class="archive-item-title">
-                                <a href="https://www.thecolin.vip/${article.url&#32;||&#32;'article.html?id='&#32;+&#32;article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
+                                <a href="https://www.thecolin.vip/${article.url || 'article.html?id=' + article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
                             </div>
                             <div class="archive-item-meta">
                                 <span class="archive-item-category">${currentLang === 'zh' ? (article.seriesName || article.categoryName) : (article.seriesNameEn || article.categoryNameEn || article.categoryName)}</span>
@@ -899,7 +899,7 @@
             const counts = {};
             articles.forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
             grid.innerHTML = seriesList.map(s => `
-                <a class="series-card" href="https://www.thecolin.vip/${s.url&#32;||&#32;'archive.html?series='&#32;+&#32;s.id}" ${s.url === 'wisdom.html' ? '' : ''}>
+                <a class="series-card" href="https://www.thecolin.vip/${s.url || 'archive.html?series=' + s.id}" ${s.url === 'wisdom.html' ? '' : ''}>
                     <div class="series-card-icon">${s.icon}</div>
                     <div class="series-card-body">
                         <div class="series-card-name">${currentLang === 'zh' ? s.name : s.nameEn}</div>
@@ -1148,7 +1148,7 @@
             bootPage();
         }
     </script>
-    <script src="js/common.js" defer></script>
+    <script src="js/common.js?v=25" defer></script>
     </main>
     <footer class="site-footer">
         <div class="sf-inner">
