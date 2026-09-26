@@ -1,5 +1,37 @@
 [
   {
+    "id": "zhibo-20260926",
+    "title": "智伯之亡：从《资治通鉴》开篇看现代精英的“认知自负”与降维打击",
+    "titleEn": "The Fall of Zhi Bo: Cognitive Arrogance & the Dimensional Strike on Modern Elites",
+    "filename": "zhibo-zhiwang.html",
+    "url": "zhibo-zhiwang.html",
+    "category": "tiandao",
+    "categoryEn": "The Way of Heaven",
+    "categoryName": "天道·人性",
+    "categoryNameEn": "The Way & Human Nature",
+    "date": "2026年9月26日",
+    "dateEn": "September 26, 2026",
+    "excerpt": "《资治通鉴》开篇主角智伯才华横溢却身死族灭。司马光劈头抛出全书第一问：德不配才，是最大的认知系统黑天鹅。现代精英的悲剧，两千年前早已写就脚本。",
+    "excerptEn": "Zhi Bo, the brilliant opening protagonist of Zizhi Tongjian, perished despite his talents. Sima Guang's first question cuts to the bone: talent without virtue is the ultimate cognitive black swan — the tragedy of modern elites was scripted two millennia ago.",
+    "readTime": "8分钟阅读",
+    "readTimeEn": "8 min read",
+    "series": "tiandao-humanity",
+    "seriesName": "天道·人性",
+    "seriesNameEn": "The Way & Human Nature",
+    "publishMeta": {
+      "source": "manual",
+      "publishedAt": "2026-09-26T00:00:00Z",
+      "publishTargets": [
+        "thecolin-vip"
+      ],
+      "published": true,
+      "wechat": {
+        "published": false,
+        "note": "待从公众号「小Lin思考」同步真实发布时间"
+      }
+    }
+  },
+  {
     "id": "dalio-20260430",
     "title": "为什么越努力越焦虑？因为你正站在历史的“折叠点”上",
     "titleEn": "Why More Effort Brings More Anxiety: You Are Standing at History's Folding Point",
