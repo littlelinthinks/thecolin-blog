@@ -8,7 +8,7 @@
     <meta name="description" data-zh-content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。" data-en-content="Browse all articles from COLIN blog, covering writing, thinking, learning, goal management and personal growth." content="浏览COLIN博客的所有文章归档，包含写作、思维、学习、目标管理等个人成长相关内容。">
     <meta name="keywords" content="文章归档,博客,写作,思维,学习,目标管理,个人成长">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.cn https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.cn; connect-src 'self' https://api.github.com https://*.google-analytics.com  https://www.google.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://*.google-analytics.com  https://www.google.com">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQTS8G2HD"></script>
@@ -20,14 +20,13 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
 
     <!-- Common CSS and JS -->
-        <link rel="preconnect" href="https://fonts.googleapis.cn">
-    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
-    <link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
     <meta property="og:title" content="文章归档 — COLIN">
     <meta property="og:description" content="浏览 COLIN 博客所有文章，涵盖深度思考、终身学习、写作技巧与人生哲学。">
     <meta property="og:type" content="website">
@@ -40,7 +39,7 @@
     <meta name="twitter:description" content="浏览 COLIN 博客所有文章，涵盖深度思考、终身学习、写作技巧与人生哲学。">
     <meta name="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
     <link rel="canonical" href="https://www.thecolin.vip/archive">
-    <link rel="stylesheet" href="css/common.css?v=26">
+    <link rel="stylesheet" href="/css/common.css">
 
     <style>
         * {
@@ -224,7 +223,7 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 110px 20px 40px;
+            padding: 40px 20px;
         }
 
         .header {
@@ -284,14 +283,12 @@
         }
 
         .stat-card {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-            padding: 22px 20px;
+            background: var(--button-bg-dark);
+            color: var(--button-text-dark);
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
         }
-        .stat-card .number { color: var(--accent); }
 
         .stat-card .number {
             font-size: 2rem;
@@ -650,9 +647,6 @@
     <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/archive" />
     <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/archive" />
     <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/archive" />
-
-<meta name="theme-color" content="#0a0a0a">
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 </head>
 <body>
     <!-- 简化导航栏 -->
@@ -690,8 +684,9 @@
                     </li>
                 <li><a href="products.html" class="nav-link" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
                 <li><a href="wisdom.html" class="nav-link" style="color:#C9A84C;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
+                <li><a href="subscribe.html" class="nav-link" data-zh="订阅" data-en="Subscribe">订阅</a></li>
                 <li><a href="https://readswithcolin.com" target="_blank" rel="noopener" class="nav-link" data-zh="读书" data-en="Reads">读书</a></li>
-                <li><a href="index.html#about" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
+                <li><a href="about.html" class="nav-link" data-zh="关于" data-en="About">关于</a></li>
             </ul>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="zh">中文</button>
@@ -872,7 +867,7 @@
                     <div class="archive-item" data-series="${article.series || ''}">
                         <div class="archive-item-info">
                             <div class="archive-item-title">
-                                <a href="https://www.thecolin.vip/${article.url || 'article.html?id=' + article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
+                                <a href="${article.url || 'article.html?id=' + article.id}">${currentLang === 'zh' ? article.title : article.titleEn}</a>
                             </div>
                             <div class="archive-item-meta">
                                 <span class="archive-item-category">${currentLang === 'zh' ? (article.seriesName || article.categoryName) : (article.seriesNameEn || article.categoryNameEn || article.categoryName)}</span>
@@ -899,7 +894,7 @@
             const counts = {};
             articles.forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
             grid.innerHTML = seriesList.map(s => `
-                <a class="series-card" href="https://www.thecolin.vip/${s.url || 'archive.html?series=' + s.id}" ${s.url === 'wisdom.html' ? '' : ''}>
+                <a class="series-card" href="${s.url || 'archive.html?series=' + s.id}" ${s.url === 'wisdom.html' ? '' : ''}>
                     <div class="series-card-icon">${s.icon}</div>
                     <div class="series-card-body">
                         <div class="series-card-name">${currentLang === 'zh' ? s.name : s.nameEn}</div>
@@ -1148,26 +1143,7 @@
             bootPage();
         }
     </script>
-    <script src="js/common.js?v=26" defer></script>
+    <script src="/js/common.js" defer></script>
     </main>
-    <footer class="site-footer">
-        <div class="sf-inner">
-            <div class="sf-brand">
-                <div class="sf-logo">COLIN</div>
-                <p class="sf-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
-                <p class="sf-note" data-zh="与公众号「小Lin思考」同步更新" data-en="Synced with the WeChat account 「小Lin思考」">与公众号「小Lin思考」同步更新</p>
-            </div>
-            <div class="sf-col">
-                <h4 data-zh="联 系" data-en="CONNECT">联 系</h4>
-                <span class="sf-item" data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
-                <a href="mailto:littlelinthinks@gmail.com">✉️ littlelinthinks@gmail.com</a>
-                <a href="rss.xml" data-zh="📡 RSS 订阅" data-en="📡 RSS Feed">📡 RSS 订阅</a>
-            </div>
-        </div>
-        <div class="sf-bottom">
-            <span data-zh="© 2026 COLIN. 保留所有权利." data-en="© 2026 COLIN. All Rights Reserved.">© 2026 COLIN. 保留所有权利.</span>
-            <a href="https://readswithcolin.com" target="_blank" rel="noopener">readswithcolin.com</a>
-        </div>
-    </footer>
 </body>
 </html>

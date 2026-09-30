@@ -8,7 +8,7 @@
     <meta name="keywords" content="深度思考,终身学习,个人成长,认知科学,思维模型">
     <meta name="author" content="Colin">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.cn https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.cn; connect-src 'self' https://api.github.com https://*.google-analytics.com  https://www.google.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://*.google-analytics.com  https://www.google.com">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -19,30 +19,29 @@
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.thecolin.vip/">
+    <meta property="twitter:url" content="https://thecolin.vip/">
     <meta property="twitter:title" content="COLIN - 探索深邃思想">
     <meta property="twitter:description" content="深度思考 · 终身学习 · 持续成长">
-    <meta property="twitter:image" content="https://www.thecolin.vip/images/og-image.jpg">
+    <meta property="twitter:image" content="https://thecolin.vip/og-image.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000' rx='12'/><text x='50' y='75' font-family='Georgia, Times New Roman, serif' font-size='72' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-1'>C</text></svg>">
 
     <!-- Google Fonts — 品牌字体升级 -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.cn/">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.cn/">
-    <link rel="preconnect" href="https://fonts.googleapis.cn">
-    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
-    <link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.cn/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+SC:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet"></noscript>
     <!-- Common CSS and JS -->
-    <link rel="canonical" href="index.html">
-    <link rel="stylesheet" href="css/common.css?v=26">
-    <script src="js/common.js?v=26" defer></script>
+    <link rel="canonical" href="https://www.thecolin.vip/">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="/js/common.js" defer></script>
 
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="COLIN's Blog RSS Feed" href="/rss.xml">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -542,12 +541,12 @@
         /* 英雄区域 */
         .hero {
             margin-top: 80px;
-            min-height: 62vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2.5rem 2rem 1.5rem;
+            padding: 4rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -559,7 +558,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 45%, rgba(201, 168, 76, 0.10), transparent 68%);
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
             pointer-events: none;
         }
 
@@ -581,9 +580,9 @@
         }
 
         .hero-name {
-            font-size: 2.9rem;
+            font-size: 5rem;
             font-weight: 900;
-            margin-bottom: 1.1rem;
+            margin-bottom: 2rem;
             letter-spacing: 8px;
             background: linear-gradient(135deg, #000000, #666666, #000000);
             -webkit-background-clip: text;
@@ -593,9 +592,9 @@
         }
 
         .hero h1 {
-            font-size: 2.9rem;
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
             letter-spacing: -2px;
         }
@@ -603,7 +602,7 @@
         .hero .tagline {
             font-size: 1.5rem;
             color: var(--text-secondary);
-            margin-bottom: 1.2rem;
+            margin-bottom: 2rem;
             font-weight: 300;
         }
 
@@ -626,10 +625,47 @@
             box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
         }
 
+        .subscribe-form {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .subscribe-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
 
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
+        .subscribe-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
+        .subscribe-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
 
         /* 内容区域 */
         .content-section {
@@ -649,12 +685,12 @@
         /* 博客标题区域 - Dankoe风格 */
         .blog-header {
             text-align: center;
-            margin-bottom: 2.2rem;
-            padding: 1rem 0 0;
+            margin-bottom: 5rem;
+            padding: 5rem 0 3rem;
         }
 
         .blog-title {
-            font-size: 2.4rem;
+            font-size: 5rem;
             font-weight: 900;
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
@@ -664,15 +700,15 @@
         }
 
         .blog-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.8rem;
             color: var(--text-primary);
-            margin-bottom: 0.7rem;
+            margin-bottom: 2rem;
             font-weight: 300;
             letter-spacing: 0.02em;
         }
 
         .blog-quote {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             font-style: normal;
             max-width: 600px;
@@ -742,7 +778,7 @@
             text-overflow: ellipsis;
         }
         .series-chip-count {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-secondary);
         }
 
@@ -785,7 +821,7 @@
             color: var(--button-text-dark);
             padding: 0.2rem 0.6rem;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
@@ -891,7 +927,7 @@
 
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -954,9 +990,9 @@
         .about-section {
             background: var(--bg-secondary);
             border-radius: 20px;
-            padding: 4.5rem 4rem;
+            padding: 4rem 3rem;
             display: flex;
-            gap: 3.5rem;
+            gap: 3rem;
             align-items: center;
             border: 1px solid var(--border);
         }
@@ -982,7 +1018,7 @@
             inset: -3px;
             border-radius: 50%;
             padding: 3px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -1014,27 +1050,15 @@
         }
 
         .about-content h2 {
-            font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 1.4rem;
-        }
-        .about-content h2::after {
-            content: '';
-            display: block;
-            width: 42px;
-            height: 3px;
-            background: var(--accent);
-            margin-top: 0.7rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .about-content p {
-            color: var(--text-primary);
-            opacity: 0.82;
-            margin-bottom: 1.1rem;
-            font-size: 1.05rem;
-            line-height: 2.0;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         /* 所有链接容器 */
@@ -1111,26 +1135,6 @@
         .social-link.platform-link.email:hover {
             stroke: #666;
             border-color: var(--text-secondary);
-        }
-
-        /* v13.1: 社媒图标统一单色（原四色边框与黑白品牌不符） */
-        .social-links .social-link.platform-link.wechat,
-        .social-links .social-link.platform-link.zhihu,
-        .social-links .social-link.platform-link.toutiao,
-        .social-links .social-link.platform-link.email {
-            border-color: var(--border);
-            stroke: currentColor;
-            color: var(--text-primary);
-            background: var(--bg-card);
-        }
-        .social-links .social-link.platform-link.wechat:hover,
-        .social-links .social-link.platform-link.zhihu:hover,
-        .social-links .social-link.platform-link.toutiao:hover,
-        .social-links .social-link.platform-link.email:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--button-text-dark, #fff);
-            stroke: currentColor;
         }
 
         /* RSS订阅按钮 */
@@ -1258,6 +1262,9 @@
                 font-weight: 400;
             }
 
+            .subscribe-form {
+                flex-direction: column;
+            }
 
             .articles-grid {
                 grid-template-columns: 1fr;
@@ -1608,12 +1615,60 @@
             transform: translateX(-5px);
         }
 
+        .newsletter-cta {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            text-align: center;
+        }
 
+        .newsletter-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
 
+        .newsletter-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
 
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
 
+        .newsletter-form button {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
+        .newsletter-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
 
         .related-articles {
             max-width: 1200px;
@@ -1743,8 +1798,7 @@
 
         /* 搜索和筛选区域 */
         .search-filter-section {
-            max-width: 760px;
-            margin: 0 auto 3rem;
+            margin-bottom: 3rem;
         }
 
         .search-box {
@@ -1770,7 +1824,7 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .search-box .search-btn {
+        .search-btn {
             padding: 12px 25px;
             background: var(--accent);
             color: white;
@@ -1781,7 +1835,7 @@
             transition: all 0.3s;
         }
 
-        .search-box .search-btn:hover {
+        .search-btn:hover {
             background: var(--accent-hover);
             transform: scale(1.05);
         }
@@ -1932,16 +1986,16 @@
         }
 
         .coffee-btn {
-            background: var(--accent);
-            color: var(--button-text-dark, #fff);
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: white;
             border: none;
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -1950,7 +2004,7 @@
 
         .coffee-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
         }
 
         .coffee-btn:active {
@@ -2367,7 +2421,13 @@
                 gap: 1.5rem;
             }
 
+            .newsletter-cta {
+                padding: 2rem 1.5rem;
+            }
 
+            .newsletter-form {
+                flex-direction: column;
+            }
 
             .social-links {
                 gap: 0.75rem;
@@ -2494,12 +2554,11 @@
         /* 文章分类标签升级 */
         .article-category {
             font-family: 'Space Mono', monospace !important;
-            font-size: 0.75rem !important;
+            font-size: 0.7rem !important;
             letter-spacing: 2px !important;
             text-transform: uppercase !important;
             padding: 3px 10px !important;
             background: var(--bg-secondary) !important;
-            color: var(--text-primary) !important;
             border-radius: 0 !important;
         }
 
@@ -2670,15 +2729,11 @@
     <meta property="og:site_name" content="小Lin思考 · 道·术·器认知体系">
     <noscript><style>.loading-screen{display:none!important}</style></noscript>
 
-    <link rel="alternate" hreflang="zh" href="index.html" />
-    <link rel="alternate" hreflang="en" href="index.html" />
-    <link rel="alternate" hreflang="x-default" href="index.html" />
-
-<meta name="theme-color" content="#0a0a0a">
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="manifest" href="manifest.json">
+    <link rel="alternate" hreflang="zh" href="https://www.thecolin.vip/" />
+    <link rel="alternate" hreflang="en" href="https://www.thecolin.vip/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.thecolin.vip/" />
 </head>
-<a href="index.html#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
+<a href="#mainContent" class="skip-to-content" style="position:fixed;top:-100px;left:1rem;z-index:9999;padding:0.5rem 1rem;background:var(--accent);color:var(--button-text-dark);border-radius:4px;font-size:0.85rem;transition:top 0.2s;text-decoration:none;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">跳到主内容</a>
 <body>
     <!-- 加载屏幕 -->
     <div class="loading-screen">
@@ -2803,7 +2858,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
                     <li class="nav-dropdown">
-                        <a href="index.html#articles" data-zh="文章" data-en="Articles">
+                        <a href="#articles" data-zh="文章" data-en="Articles">
                             <span data-zh="文章" data-en="Articles">文章</span>
                             <span class="dropdown-arrow">▼</span>
                         </a>
@@ -2828,7 +2883,7 @@
                     <li><a href="products.html" data-zh="心智工具" data-en="Thinking Tools">心智工具</a></li>
                     <li><a href="wisdom.html" style="color:#C9A84C!important;font-weight:700;" data-zh="✦ 心智折叠" data-en="✦ Mind Folding">✦ 心智折叠</a></li>
                     <li><a href="https://readswithcolin.com" target="_blank" rel="noopener" data-zh="读书" data-en="Reads">读书</a></li>
-                    <li><a href="index.html#about" data-zh="关于" data-en="About">关于</a></li>
+                    <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
                 </ul>
                 <div class="search-container">
                     <button class="search-btn">
@@ -2858,17 +2913,17 @@
             <p class="tagline" data-zh="深度思考 · 终身学习 · 持续成长" data-en="Deep Thinking · Lifelong Learning · Continuous Growth">深度思考 · 终身学习 · 持续成长</p>
             
             <!-- CTA按钮组 -->
-            <div style="margin-top: 1.3rem; display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center;">
-                <a href="index.html#articles" style="padding: 0.85rem 2.1rem; background: var(--button-bg-dark); color: var(--button-text-dark); border: none; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="#articles" style="padding: 1rem 2.5rem; background: #000000; color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); white-space: nowrap;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                     <span data-zh="📖 开始阅读" data-en="📖 Start Reading">📖 开始阅读</span>
                 </a>
-                <a href="products.html" style="padding: 0.85rem 2.1rem; background: rgba(0, 0, 0, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(0, 0, 0, 0.2)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.1)'">
+                <a href="products.html" style="padding: 1rem 2.5rem; background: rgba(0, 0, 0, 0.1); color: var(--accent); border: 2px solid var(--accent); border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='rgba(0, 0, 0, 0.2)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.1)'">
                     <span data-zh="🧰 心智工具" data-en="🧰 Thinking Tools">🧰 心智工具</span>
                 </a>
             </div>
             
             <!-- RSS订阅 -->
-            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 0.9rem; opacity: 0.6; font-size: 0.85rem;">
+            <div class="rss-link" onclick="copyRSSLink()" style="cursor: pointer; margin-top: 1.5rem; opacity: 0.6; font-size: 0.85rem;">
                 <span data-zh="📡 RSS订阅" data-en="📡 RSS Feed">📡 RSS订阅</span>
             </div>
         </div>
@@ -2930,8 +2985,8 @@
         <div id="emptyState" style="text-align:center;padding:80px 20px;color:var(--text-secondary);">
             <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;opacity:0.5;">COMING SOON</p>
             <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;color:var(--text-primary);margin-bottom:1rem;">文章持续更新中</p>
-            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">关注公众号「小Lin思考」，第一时间收到新文章通知</p>
-            <button onclick="openWechatQrModal()" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark,#fff);border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">📱 关注公众号 →</button>
+            <p style="font-size:0.95rem;line-height:1.8;max-width:400px;margin:0 auto 2rem;">订阅「小Lin思考」，第一时间收到新文章通知</p>
+            <a href="subscribe.html" style="display:inline-block;padding:12px 36px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.8rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">免费订阅 →</a>
         </div>
 
         <!-- Load More Button -->
@@ -3009,9 +3064,9 @@
                         padding:20px 22px;
                         transition:background 0.3s;
                     " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                        <div style="font-size:12px;color:#C9A84C;letter-spacing:1.5px;font-family:monospace;margin-bottom:8px;">#001 · 投资财富</div>
+                        <div style="font-size:11px;color:#C9A84C;letter-spacing:1.5px;font-family:monospace;margin-bottom:8px;">#001 · 投资财富</div>
                         <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">Charlie Munger</div>
-                        <div style="font-size:12px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">查理·芒格</div>
+                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">查理·芒格</div>
                         <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">把所有重大错误列成清单，然后努力避免它们。逆向思维能帮你躲开最大的坑。</p>
                     </div>
                     <div style="
@@ -3021,9 +3076,9 @@
                         padding:20px 22px;
                         transition:background 0.3s;
                     " onmouseover="this.style.background='rgba(201,168,76,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                        <div style="font-size:12px;color:#C9A84C;letter-spacing:1.5px;font-family:monospace;margin-bottom:8px;">#034 · 长期主义</div>
+                        <div style="font-size:11px;color:#C9A84C;letter-spacing:1.5px;font-family:monospace;margin-bottom:8px;">#034 · 长期主义</div>
                         <div style="font-size:16px;font-weight:700;color:#F5F0E8;font-family:Georgia,serif;margin-bottom:4px;">段永平</div>
-                        <div style="font-size:12px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">步步高 · OPPO · vivo 创始人</div>
+                        <div style="font-size:11px;color:rgba(245,240,232,0.35);letter-spacing:2px;margin-bottom:12px;">步步高 · OPPO · vivo 创始人</div>
                         <p style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.8;font-style:italic;border-left:1px solid rgba(201,168,76,0.25);padding-left:12px;">停止做错的事，比开始做对的事更难，也更重要。</p>
                     </div>
                     <a href="wisdom.html" style="
@@ -3083,13 +3138,13 @@
 
     <!-- 关于部分 -->
     
-    <!-- ===== 关注公众号 CTA（v13.1：邮件订阅暂下线） ===== -->
+    <!-- ===== 邮件订阅 CTA ===== -->
     <section style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 20px;text-align:center;">
         <div style="max-width:540px;margin:0 auto;">
-            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周更新" data-en="WEEKLY">每周更新</p>
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="关注公众号「小Lin思考」" data-en="Follow 小Lin思考 on WeChat">关注公众号「小Lin思考」</h2>
-            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周深度长文，关于思维、成长与人生。扫码关注，新文章第一时间推送。" data-en="Weekly deep dives on thinking, growth, and life. Scan to follow and never miss a post.">每周深度长文，关于思维、成长与人生。扫码关注，新文章第一时间推送。</p>
-            <button onclick="openWechatQrModal()" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark,#fff);border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="📱 关注公众号 →" data-en="📱 Follow on WeChat →">📱 关注公众号 →</button>
+            <p style="font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:3px;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem;" data-zh="每周一封" data-en="WEEKLY">每周一封</p>
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;margin-bottom:1rem;" data-zh="订阅「小Lin思考」" data-en="Subscribe to Thinking">订阅「小Lin思考」</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;" data-zh="每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。" data-en="One deep article per week on thinking, growth, and life. 1,200+ subscribers.">每周一封深度文章，关于思维、成长与人生。已有 1,200+ 读者订阅。</p>
+            <a href="subscribe.html" style="display:inline-block;padding:14px 48px;background:var(--accent);color:var(--button-text-dark);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:2px;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'" data-zh="免费订阅 →" data-en="Subscribe Free →">免费订阅 →</a>
         </div>
     </section>
 
@@ -3111,6 +3166,13 @@
                                 <path d="M22 14.5c0-2.8-2.7-5-6-5s-6 2.2-6 5 2.7 5 6 5c.7 0 1.3-.1 1.9-.2L20.5 21l-.8-2.6c1.4-.9 2.3-2.2 2.3-3.9z"></path>
                             </svg>
                         </div>
+                        <a href="https://www.zhihu.com/people/home-tile" target="_blank" rel="noopener noreferrer" class="social-link platform-link zhihu" title="知乎" aria-label="知乎">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M9.3 9.3a2.7 2.7 0 1 1 3.8 2.5c-.8.4-1.1.9-1.1 1.6"></path>
+                                <circle cx="12" cy="16.4" r="0.7" fill="currentColor" stroke="none"></circle>
+                            </svg>
+                        </a>
                         <a href="https://mp.toutiao.com/profile_v4/graphic/publish" target="_blank" rel="noopener noreferrer" class="social-link platform-link toutiao" title="今日头条" aria-label="今日头条">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
                                 <path d="M4 5h13a1 1 0 0 1 1 1v12a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V5z"></path>
@@ -3135,27 +3197,26 @@
     </section>
 
     <!-- 页脚 -->
+    <footer>
+        <!-- 三资产联动行 -->
+        <div style="margin-bottom: 1.2rem; padding: 0.9rem 1.2rem; border: 1px solid var(--border); border-radius: 10px; font-size: 0.85rem; line-height: 1.9; color: var(--text-secondary); max-width: 640px; margin-left: auto; margin-right: auto;">
+            <p style="font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem;color:var(--text-secondary);" data-zh="思考的去处" data-en="WHERE THINKING LIVES">思考的去处</p>
+            <p style="margin:0;">
+                <a href="https://readswithcolin.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">📖 readswithcolin.com</a>
+                <span style="margin:0 0.5rem;opacity:0.4;">·</span>
+                <span data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
+                <span style="margin:0 0.5rem;opacity:0.4;">·</span>
+                <a href="subscribe.html" style="color:var(--accent);text-decoration:none;" data-zh="📧 邮件订阅" data-en="📧 Newsletter">📧 邮件订阅</a>
+            </p>
+        </div>
+        <p class="footer-copy" data-zh="&copy; 2026 COLIN. 保留所有权利." data-en="&copy; 2026 COLIN. All Rights Reserved.">&copy; 2026 COLIN. 保留所有权利.</p>
+        <p class="footer-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <a href="rss.xml" style="color: var(--accent); text-decoration: none;" data-zh="📡 RSS订阅" data-en="📡 RSS Subscribe">📡 RSS订阅</a>
+            <span data-zh="（复制链接到RSS阅读器）" data-en="(Copy link to RSS reader)">（复制链接到RSS阅读器）</span>
+        </p>
     </main>
-
-    <footer class="site-footer">
-        <div class="sf-inner">
-            <div class="sf-brand">
-                <div class="sf-logo">COLIN</div>
-                <p class="sf-motto" data-zh="用心思考 · 持续创作 · 终身成长" data-en="Think Deeply · Create Continuously · Grow Constantly">用心思考 · 持续创作 · 终身成长</p>
-                <p class="sf-note" data-zh="与公众号「小Lin思考」同步更新" data-en="Synced with the WeChat account 「小Lin思考」">与公众号「小Lin思考」同步更新</p>
-            </div>
-            <div class="sf-col">
-                <h4 data-zh="联 系" data-en="CONNECT">联 系</h4>
-                <span class="sf-item" data-zh="📮 公众号「小Lin思考」" data-en="📮 WeChat: 小Lin思考">📮 公众号「小Lin思考」</span>
-                <a href="mailto:littlelinthinks@gmail.com">✉️ littlelinthinks@gmail.com</a>
-                <a href="rss.xml" data-zh="📡 RSS 订阅" data-en="📡 RSS Feed">📡 RSS 订阅</a>
-            </div>
-        </div>
-        <div class="sf-bottom">
-            <span data-zh="© 2026 COLIN. 保留所有权利." data-en="© 2026 COLIN. All Rights Reserved.">© 2026 COLIN. 保留所有权利.</span>
-            <a href="https://readswithcolin.com" target="_blank" rel="noopener">readswithcolin.com</a>
-        </div>
-    </footer>
+</footer>
     </div>
     <!-- 主页内容结束 -->
 
@@ -3207,6 +3268,16 @@
                 </button>
             </div>
 
+            <div class="newsletter-cta">
+                <h3 data-zh="喜欢这篇文章吗？" data-en="Enjoyed this article?">喜欢这篇文章吗？</h3>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <input type="email" id="subscribeEmail" placeholder="your@email.com" style="flex: 1; padding: 0.9rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-primary); font-size: 1rem; width: 300px;">
+                    <button type="button" onclick="copySubscribeEmail()" style="padding: 0.9rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100px;">复制邮箱</button>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-top: 0.5rem;">
+                    <span data-zh="复制邮箱地址到剪贴板，然后到邮件APP粘贴发送" data-en="Copy email to clipboard, then paste in mail app to send">复制邮箱地址到剪贴板，然后到邮件APP粘贴发送</span>
+                </p>
+            </div>
 
             <div class="comments-section">
                 <h3 data-zh="评论" data-en="Comments">评论 (3)</h3>
@@ -3452,7 +3523,7 @@
                             : '这篇文章的完整版正在从公众号「小Lin思考」同步过来，先去公众号看连载吧。'
                         }</p>
                         <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-                            <a href="index.html#about" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
+                            <a href="subscribe.html" style="padding: 0.8rem 2rem; background: var(--accent); color: var(--button-text-dark, #fff); border: none; border-radius: 25px; cursor: pointer; text-decoration:none; font-weight:600;">${
                                 (window.currentLang === 'en') ? 'Follow on WeChat →' : '去公众号阅读 →'
                             }</a>
                             <button onclick="showHome(event)" style="padding: 0.8rem 2rem; background: transparent; color: var(--text-primary); border: 1px solid var(--border); border-radius: 25px; cursor: pointer;">
@@ -3660,6 +3731,21 @@
             }
         });
 
+        // ===== 订阅表单处理 =====
+        document.querySelectorAll('.subscribe-form, .newsletter-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    const message = currentLang === 'zh' 
+                        ? '感谢订阅！我们会将最新内容发送到: ' + email
+                        : 'Thank you for subscribing! We will send the latest content to: ' + email;
+                    showToast(message);
+                    this.querySelector('input[type="email"]').value = '';
+                }
+            });
+        });
+
         // ===== 评论表单处理 =====
         document.querySelector('.comment-form button')?.addEventListener('click', function(e) {
             e.preventDefault();
@@ -3668,7 +3754,7 @@
             
             if (comment) {
                 const message = currentLang === 'zh' 
-                    ? '评论发布成功！' 
+                    ? '感谢您的评论！' 
                     : 'Thank you for your comment!';
                 showToast(message);
                 textarea.value = '';
@@ -3932,7 +4018,7 @@
                 (articles || []).forEach(a => { if (a.series) counts[a.series] = (counts[a.series] || 0) + 1; });
                 const isZh = typeof currentLang !== 'undefined' ? currentLang === 'zh' : true;
                 grid.innerHTML = seriesList.map(s => `
-                    <a class="series-chip" href="https://www.thecolin.vip/${s.url || 'archive.html?series=' + s.id}">
+                    <a class="series-chip" href="${s.url || 'archive.html?series=' + s.id}">
                         <span class="series-chip-icon">${s.icon}</span>
                         <span class="series-chip-text">
                             <span class="series-chip-name">${isZh ? s.name : s.nameEn}</span>
@@ -4256,6 +4342,14 @@
             showToast('RSS链接已复制到剪贴板！');
         }
 
+        // 复制订阅邮箱
+        function copySubscribeEmail() {
+            const email = document.getElementById('subscribeEmail');
+            // 如果用户输入了邮箱，复制用户输入的；否则复制默认邮箱
+            const emailToCopy = (email && email.value.trim()) ? email.value.trim() : 'littlelinthinks@gmail.com';
+            navigator.clipboard.writeText(emailToCopy);
+        }
+
         // ===== 文章搜索和筛选功能 =====
         let currentCategory = 'all';
         let currentSearchTerm = '';
@@ -4272,6 +4366,13 @@
                 }
             });
 
+            filterArticles();
+        }
+
+        // 搜索文章
+        function filterArticles() {
+            const searchInput = document.getElementById('searchInput');
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
 
             const articles = document.querySelectorAll('.article-card');
             let visibleCount = 0;

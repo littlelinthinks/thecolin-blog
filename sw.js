@@ -4,13 +4,13 @@
  * @version 4.0 (resilient: per-file caching, network-first navigation, offline fallback)
  */
 
-const CACHE_NAME = 'colin-blog-v17'; // v15: 修复移动端(≤900px)横向溢出——搜索按钮改为仅图标、收紧头部间距
+const CACHE_NAME = 'colin-blog-v15'; // v15: 修复移动端(≤900px)横向溢出——搜索按钮改为仅图标、收紧头部间距
 const STATIC_ASSETS = [
     '/',
     '/index.html',
-    '/css/common.css?v=26',
+    '/css/common.css',
     '/css/home.css',
-    '/js/common.js?v=26',
+    '/js/common.js',
     '/articles.json',
     '/series.json',
     '/rss.xml',
