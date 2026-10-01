@@ -1,0 +1,9 @@
+{
+  "name": "personal-os-console",
+  "version": "1.1.0",
+  "private": true,
+  "description": "READS WITH COLIN OS 发布中台（手机速记 → 一键发稿到 thecolin.vip / readswithcolin.com）",
+  "dependencies": {
+    "pinyin-pro": "^3.29.4"
+  }
+}

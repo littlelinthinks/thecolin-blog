@@ -107,3 +107,47 @@ python3.11 .verify/verify_ospwa_p3.py      # 看板/表单/编辑回填
 python3.11 .verify/verify_e2e_publish.py   # 发布端到端（配 mock server）
 python3.11 .verify/verify_wechat_clip.py   # 剪贴板富文本
 ```
+
+## 后端部署实操（恢复「一键发稿」）
+
+> 前端 `thecolin.vip/os/` 已上线可用（本地速记 / 看板）。本段只解决后端 `/api/publish` 当前 404 的问题。
+> 代码路径已与线上两站结构对齐：写作站 `articles/{slug}/`、读书站 `posts/{slug}.html` 均实测可达，无需改动。
+
+### 步骤 1：把 `os/` 并入 thecolin-blog 仓库
+部署包 `OS_PUBLISH_CONSOLE_DEPLOY.zip` 解压后顶层即为 `os/`（含 PWA 前台 + `api/` 后端 + `package.json`）。
+将 `os/` 整个目录拷进 `thecolin-blog` 仓库根目录并 push：
+
+```bash
+git clone git@github.com:littlelinthinks/thecolin-blog.git
+cp -r OS_PUBLISH_CONSOLE_DEPLOY/os thecolin-blog/
+cd thecolin-blog && git add os/ && git commit -m "add Personal OS publish console (api + pwa)" && git push
+```
+
+Vercel 会自动把 `os/api/publish.js` 识别为 Serverless Function → `https://www.thecolin.vip/os/api/publish`。
+
+### 步骤 2：创建 fine-grained GitHub PAT
+GitHub → Settings → Developer settings → Fine-grained tokens：
+- **Token name**：`colin-os-publisher`
+- **Expiration**：90 天（到期重新生成）
+- **Repository access**：Only select repositories → 勾选 `littlelinthinks/thecolin-blog` 与 `littlelinthinks/readswithcolin`
+- **Permissions → Repository permissions → Contents**：`Read and write`
+
+### 步骤 3：配置 Vercel 环境变量
+Vercel Dashboard → 项目 → Settings → Environment Variables：
+
+| 变量 | 值 | 说明 |
+|---|---|---|
+| `GITHUB_TOKEN` | 上一步的 PAT | 服务端持有，绝不进前端 |
+| `PUBLISH_TOKEN` | 自己定一个口令，如 `colin-2026-xxx` | PWA 首次发布会提示输入，会本地记住 |
+
+配置后 **Redeploy** 一次生效（Functions 需重新构建以安装 `pinyin-pro` 依赖）。
+
+### 步骤 4：手机验证
+1. 打开 `https://www.thecolin.vip/os/` → 写一条 → 推到「待发」→ 已发页点「🚀 发布」→ 输入 PUBLISH_TOKEN
+2. 等 Vercel 部署 40-90 秒，文章即出现在两站
+3. 核验：`curl -s -o /dev/null -w "%{http_code}" https://www.thecolin.vip/os/api/publish` 现在应返回 **405**（方法不允许）而非 404，即后端已上线
+
+### 与「手动上传 zip」并存纪律
+两路径都写 `posts/{slug}.html` + `data/posts.json` / `articles/{slug}/` + `articles.json`，发布中台对 JSON 是**读取后追加合并**（非覆盖），所以手动上传不会被一键发稿清空。
+**铁律**：今后每次手动 zip 更新两站，凡增删 post/article，**必须同步更新对应的 `data/posts.json` / `articles.json`**，否则两路径会失同步、冲掉发布中台假设。永不改名 `posts/`、`articles/`。
+

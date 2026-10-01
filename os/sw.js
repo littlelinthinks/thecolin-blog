@@ -6,14 +6,13 @@
    - Google Fonts → 直接放行（在线时浏览器缓存，离线优雅降级到系统衬线）
    ========================================================================== */
 
-const VERSION = 'colin-os-v2';
+const VERSION = 'colin-os-v1';
 const CORE = [
     './',
     './index.html',
     './capture.html',
     './new.html',
     './done.html',
-    './covers.html',
     './manifest.json',
     './assets/css/os.css',
     './assets/js/os.js',
