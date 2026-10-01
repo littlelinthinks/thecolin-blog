@@ -6,7 +6,7 @@
    - Google Fonts → 直接放行（在线时浏览器缓存，离线优雅降级到系统衬线）
    ========================================================================== */
 
-const VERSION = 'colin-os-v1';
+const VERSION = 'colin-os-v3';
 const CORE = [
     './',
     './index.html',
@@ -16,6 +16,7 @@ const CORE = [
     './manifest.json',
     './assets/css/os.css',
     './assets/js/os.js',
+    './assets/img/logo-rwc.png',
     './assets/data/pipeline.json',
     './assets/icons/icon-192.png',
     './assets/icons/icon-512.png',
