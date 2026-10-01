@@ -123,7 +123,9 @@ cp -r OS_PUBLISH_CONSOLE_DEPLOY/os thecolin-blog/
 cd thecolin-blog && git add os/ && git commit -m "add Personal OS publish console (api + pwa)" && git push
 ```
 
-Vercel 会自动把 `os/api/publish.js` 识别为 Serverless Function → `https://www.thecolin.vip/os/api/publish`。
+> ⚠️ 关键：Vercel **只识别仓库根目录的 `api/`** 为 Serverless Function。函数文件必须位于
+> `thecolin-blog/api/publish.js`（仓库根下），对应 URL `https://www.thecolin.vip/api/publish`。
+> 放在 `os/api/` 子目录里会被当作普通静态文件**忽略，不会成为函数**。
 
 ### 步骤 2：创建 fine-grained GitHub PAT
 GitHub → Settings → Developer settings → Fine-grained tokens：
@@ -145,7 +147,7 @@ Vercel Dashboard → 项目 → Settings → Environment Variables：
 ### 步骤 4：手机验证
 1. 打开 `https://www.thecolin.vip/os/` → 写一条 → 推到「待发」→ 已发页点「🚀 发布」→ 输入 PUBLISH_TOKEN
 2. 等 Vercel 部署 40-90 秒，文章即出现在两站
-3. 核验：`curl -s -o /dev/null -w "%{http_code}" https://www.thecolin.vip/os/api/publish` 现在应返回 **405**（方法不允许）而非 404，即后端已上线
+3. 核验：`curl -s -X POST https://www.thecolin.vip/api/publish` —— 返回 401/403（鉴权层工作）即后端已上线；配好口令后带 `X-OS-Token` 测，若返回 503 `GITHUB_TOKEN 未配置` 则回步骤 2–3 补配
 
 ### 与「手动上传 zip」并存纪律
 两路径都写 `posts/{slug}.html` + `data/posts.json` / `articles/{slug}/` + `articles.json`，发布中台对 JSON 是**读取后追加合并**（非覆盖），所以手动上传不会被一键发稿清空。

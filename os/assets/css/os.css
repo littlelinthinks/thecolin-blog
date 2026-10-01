@@ -797,3 +797,24 @@ input, textarea, select { font-family: inherit; }
 }
 .os-mini-btn.danger:hover { background: rgba(199, 62, 44, .08); }
 .os-mini-btn:active { transform: scale(.97); }
+
+/* ==================== 前端登录门禁 ==================== */
+.os-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:#FBFAF7;opacity:0;transition:opacity .2s ease}
+.os-gate.in{opacity:1}
+.os-gate-card{width:min(360px,88vw);padding:34px 30px;border:1px solid #E5E1D8;border-radius:18px;
+  background:#fff;box-shadow:0 18px 50px rgba(22,23,26,.10);text-align:center}
+.os-gate-logo{width:64px;height:64px;object-fit:contain;margin:0 auto 10px;display:block}
+.os-gate-card h2{font-size:16px;letter-spacing:.4px;margin:0}
+.os-gate-sub{font-size:9.5px;color:#8B8B85;letter-spacing:.5px;margin:4px 0 20px}
+.os-gate-card label{display:block;text-align:left;font-size:11px;color:#8B8B85;letter-spacing:.4px;margin-bottom:12px}
+.os-gate-card input{display:block;width:100%;margin-top:5px;padding:11px 12px;font-size:14px;
+  border:1px solid #E5E1D8;border-radius:10px;background:#FBFAF7;outline:none}
+.os-gate-card input:focus{border-color:#B08D3E}
+.os-gate-err{color:#B3402F;font-size:12px;margin:2px 0 10px}
+.os-gate-btn{width:100%;margin-top:6px;padding:11px;font-size:14px;border:none;border-radius:10px;
+  background:#C73E2C;color:#fff;cursor:pointer;letter-spacing:.3px}
+.os-gate-btn:hover{background:#a8331f}
+.os-logout{margin-left:12px;padding:6px 12px;font-size:12px;border:1px solid #E5E1D8;
+  border-radius:8px;background:#fff;color:#3a3a37;cursor:pointer}
+.os-logout:hover{border-color:#C73E2C;color:#C73E2C}
