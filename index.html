@@ -2978,6 +2978,9 @@
             <div id="searchResults" style="display:none;" aria-live="polite"></div>
         </div>
 
+        <!-- [colin-plugins] 组件B：心智折叠筛选（独立组件，不影响原结构；撤下 = 删除下面 1 行） -->
+        <mind-fold-filter grid="#articlesGrid"></mind-fold-filter>
+
         <div class="articles-grid" id="articlesGrid">
             <!-- 文章将在此显示 -->
         </div>
@@ -2995,6 +2998,9 @@
                 <span data-zh="更多美文" data-en="Load More">更多美文</span>
             </button>
         </div>
+
+        <!-- [colin-plugins] 组件C：智囊团（独立组件；撤下 = 删除下面 1 行） -->
+        <advisory-widget></advisory-widget>
     </section>
 
     <!-- 特色资源 -->
@@ -4556,5 +4562,8 @@
             });
         }
     </script>
+<!-- [colin-plugins] 独立组件脚本（撤下 = 删除以下 3 行） -->
+<script src="mind-fold-filter.js"></script>
+<script src="advisory-widget.js"></script>
 </body>
 </html>
