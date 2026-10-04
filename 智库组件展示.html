@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>thecolin · 智库组件展示（演示页，请勿覆盖 index.html）</title>
+<style>
+  :root{ --bg:#020617; --panel:#0b1120; --gold:#f59e0b; --gold-soft:#fbbf24; --text:#e8e6e1; --muted:#94a3b8; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.6; padding:32px 20px 80px; }
+  .wrap{ max-width:1100px; margin:0 auto; }
+  h1{ color:var(--gold-soft); font-size:24px; margin-bottom:6px; }
+  .sub{ color:var(--muted); font-size:13px; margin-bottom:28px; }
+  .note{ background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.3); border-radius:12px;
+    padding:12px 16px; color:var(--muted); font-size:13px; margin-bottom:30px; }
+  .note b{ color:var(--gold-soft); }
+  h2{ color:var(--gold-soft); font-size:17px; margin:40px 0 14px; padding-left:12px; border-left:3px solid var(--gold); }
+  .checkrow{ background:var(--panel); border:1px solid #1e293b; border-radius:14px; padding:20px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>thecolin · 个人数字花园与决策工具 · 组件展示</h1>
+  <div class="sub">这是演示页，仅用于预览组件效果。上传时<b>请勿用它覆盖你的 index.html</b>。</div>
+  <div class="note">⚠️ 底线：本包只往仓库新增 <b>components/</b>、<b>data/</b> 两个目录与文件，不改动你任何老代码 / 路由 / 全局样式。</div>
+
+  <h2>① 186 原则 · 可交互决策检查清单（点按钮 → 勾选 → 实时评估报告）</h2>
+  <div class="checkrow">
+    <decision-checklist-modal src="data/decision-checklists.json" trigger="开始决策体检 · 186 原则"></decision-checklist-modal>
+  </div>
+
+  <h2>② 186 原则 · 思维模型网格（场景过滤器 + 点开看详解）</h2>
+  <mental-model-latticework src="data/principles-grid.json"></mental-model-latticework>
+</div>
+
+<script src="components/widgets/decision-checklist-modal.js"></script>
+<script src="components/widgets/mental-model-latticework.js"></script>
+</body>
+</html>
