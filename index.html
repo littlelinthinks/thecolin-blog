@@ -4565,5 +4565,24 @@
 <!-- [colin-plugins] 独立组件脚本（撤下 = 删除以下 3 行） -->
 <script src="mind-fold-filter.js"></script>
 <script src="advisory-widget.js"></script>
+
+<!-- ===== Colin 数字智库 · Web Components 挂载（撤下 = 删除本段，零改老代码） ===== -->
+<script src="components/widgets/mental-model-latticework.js"></script>
+<script src="components/widgets/decision-checklist-modal.js"></script>
+
+<section class="colin-knowledge" style="max-width:1200px;margin:64px auto;padding:0 20px;">
+  <h2 style="text-align:center;margin:0 0 28px;font-size:28px;">🧠 200 大跨学科思维模型 · 痛点诊所</h2>
+  <mental-model-latticework src="data/mental-models-200.json"></mental-model-latticework>
+
+  <h2 style="text-align:center;margin:72px 0 28px;font-size:28px;">👑 200 条领袖原则</h2>
+  <mental-model-latticework src="data/principles-grid.json"></mental-model-latticework>
+
+  <h2 style="text-align:center;margin:72px 0 28px;font-size:28px;">✅ 决策预检清单</h2>
+  <div style="text-align:center;">
+    <decision-checklist-modal src="data/decision-checklists.json" trigger="开始决策体检"></decision-checklist-modal>
+  </div>
+</section>
+<!-- ===== 智库挂载结束 ===== -->
+
 </body>
 </html>
