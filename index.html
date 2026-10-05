@@ -4566,23 +4566,20 @@
 <script src="mind-fold-filter.js"></script>
 <script src="advisory-widget.js"></script>
 
-<!-- ===== Colin 数字智库 · Web Components 挂载（撤下 = 删除本段，零改老代码） ===== -->
-<script src="components/widgets/mental-model-latticework.js"></script>
-<script src="components/widgets/decision-checklist-modal.js"></script>
 
-<section class="colin-knowledge" style="max-width:1200px;margin:64px auto;padding:0 20px;">
-  <h2 style="text-align:center;margin:0 0 28px;font-size:28px;">🧠 200 大跨学科思维模型 · 痛点诊所</h2>
-  <mental-model-latticework src="data/mental-models-200.json"></mental-model-latticework>
 
-  <h2 style="text-align:center;margin:72px 0 28px;font-size:28px;">👑 200 条领袖原则</h2>
-  <mental-model-latticework src="data/principles-grid.json"></mental-model-latticework>
-
-  <h2 style="text-align:center;margin:72px 0 28px;font-size:28px;">✅ 决策预检清单</h2>
-  <div style="text-align:center;">
-    <decision-checklist-modal src="data/decision-checklists.json" trigger="开始决策体检"></decision-checklist-modal>
+<!-- ===== Colin 智库 · 极简入口横幅（高度<120px，可整段删除） ===== -->
+<section style="max-width:1100px;margin:40px auto;padding:0 20px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+    background:linear-gradient(135deg,#0b1120,#1a2438);border:1px solid #f59e0b;border-radius:16px;
+    padding:18px 22px;box-shadow:0 14px 40px rgba(0,0,0,.35);">
+    <div style="color:#e8e6e1;font-size:15px;font-weight:700;">🧠 遇到商业或人生卡点？进入决策战术诊所</div>
+    <a href="/clinic.html" style="text-decoration:none;background:linear-gradient(135deg,#f59e0b,#fbbf24);
+      color:#020617;font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;
+      box-shadow:0 6px 18px rgba(245,158,11,.4);">➔ 访问 /clinic.html</a>
   </div>
 </section>
-<!-- ===== 智库挂载结束 ===== -->
+<!-- ===== 入口横幅结束 ===== -->
 
 </body>
 </html>
